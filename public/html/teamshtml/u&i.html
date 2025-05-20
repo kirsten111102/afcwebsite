@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/css/teams.css">
+        <link rel="stylesheet" href="/css/navbar.css">
+        <script src="/js/dropdown.js"></script>
+        <script src="/js/header.js"></script>
+        <script src="/index.js"></script>
+        <title></title>
+    </head>
+    <div id="header"></div>
+    <body id="u&i">
+        <h2>Players:</h2>
+        <table>
+            <thead>
+                <tr id="header">
+                    <th colspan="2">Full name</th>
+                    <th>Age</th>
+                    <th>Position</th>
+                    <th>Number</th>
+                </tr>
+            </thead>
+            <tbody id="player-list"></tbody>
+        </table>
+    </body>
+    <script>
+        const teamId = document.body.id;
+
+        fetch(`/api/${teamId}-players`)
+          .then(res => res.json())
+          .then(players => {
+            const table = document.getElementById('player-list');
+            players.forEach(player => {
+              const tr = document.createElement('tr');
+              const name = player.name.split(" ")
+              const link = name.join("")
+              tr.innerHTML = `
+                <td class="info"><img src="/img/teamsimg/${teamId}/${player.id}.webp" class="playeravt">
+                <td class="playername"><a href="/html/playerhtml/${teamId}/${link}.html">${player.name}</a></td>
+                <td class="info">${player.age}</td>
+                <td class="info">${player.position}</td>
+                <td class="info">${player.shirt_no}</td>
+              `;
+              table.appendChild(tr);
+            });
+          });
+
+        fetch(`/api/team/${teamId}`)
+            .then(res => res.json())
+            .then(team => {
+                document.title = team.name;
+            })
+            .catch(err => {
+                console.error('Error loading team:', err);
+        });
+    </script>
+</html>
