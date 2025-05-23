@@ -1,0 +1,116 @@
+body{
+    background-image: url('/img/legend/legend.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    width: 98.5%;
+    height: 98.5%;
+}
+
+.objects{
+    background-color: goldenrod;
+    opacity: 0.95;
+    margin-right: 0.25%;
+    padding: 0 5px;
+}
+
+#top{
+    display: flex;
+    margin-bottom: 0.25%;
+}
+
+#name-ovr{
+    text-align: center;
+    width: 15%;
+    border: 1px solid;
+    padding-top: 13px;
+}
+
+#name-ovr img{
+    width: 100%;
+}
+
+#name{
+    line-height: 0;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#stats{
+    border: 1px solid;
+    width: 10%;
+}
+
+ul{
+    list-style-type: none;
+    padding-left: 0px;
+}
+
+ul li{
+    line-height: calc(100% * 2);
+}
+
+#basic-info{
+    border: 1px solid;
+    width: 10%;
+}
+
+#achievements{
+    border: 1px solid;
+    width: 61%;
+}
+
+#list-achievements{
+    display: flex;
+}
+
+#team-achievement{
+    margin-right: 1%;
+}
+
+#middle{
+    margin-bottom: 0.25%;
+    display: flex;
+}
+
+#biography{
+    width: 60%;
+    border: 1px solid;
+}
+
+h2, h3{
+    text-decoration: underline;
+    line-height: 5px;
+}
+
+#biography p{
+    line-height: normal;
+}
+
+#teammates{
+    width: 39%;
+    border: 1px solid;
+}
+
+#teammates p{
+    text-align: right;
+    line-height: 2px;
+    margin-bottom: 25px;
+    font-style: italic;
+}
+
+.namelink{
+    color: black;
+    text-decoration: none;
+}
+
+.namelink:hover{
+    color: red;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#bottom{
+    text-align: right;
+}

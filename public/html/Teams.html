@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="/css/teams.css" />
+    <link rel="stylesheet" href="/css/navbar.css" />
+    <link id="favicon" rel="icon" type="image/x-icon" />
+    <script src="/js/dropdown.js"></script>
+    <script src="/js/header.js"></script>
+    <script src="/index.js"></script>
+    <meta charset="UTF-8" />
+    <title>Team Info</title>
+  </head>
+  <div id="header"></div>
+  <body>
+    <div id="team-info"></div>
+
+    <script>
+      window.addEventListener("DOMContentLoaded", function () {
+        const params = new URLSearchParams(window.location.search);
+        const teamId = params.get("id");
+        document.body.id = teamId;
+
+        fetch(`/api/team/${teamId}`)
+          .then((res) => res.json())
+          .then((team) => {
+            if (team.error) {
+              document.getElementById("team-info").innerText =
+                "Team not found.";
+              return;
+            }
+
+            document.title = team.name;
+
+            const icon = document.getElementById("favicon");
+            icon.href = `/img/teamslogo/${teamId}logo.png`;
+
+            const element = document.getElementById(teamId);
+            element.style.backgroundImage = `url(${icon.href})`;
+
+            const titleId = `${teamId}title`;
+
+            document.getElementById("team-info").innerHTML = `
+      <div class="title" id="${titleId}">
+        <div id="blurbackground">
+          <h1 id="${team.id}-teamname">${team.name}</h1>
+        </div>
+      </div>
+      <p><strong>Coach:</strong> ${team.coach || "Unknown"}</p>
+      <p><strong>Founded:</strong> ${team.founded || "N/A"}</p>
+      <p><strong>Stadium:</strong> ${team.stadium || "N/A"}</p>
+      <h2>Players:</h2>
+      <table>
+        <thead>
+          <tr id="header">
+            <th colspan="2">Full name</th>
+            <th>Age</th>
+            <th>Position</th>
+            <th>Number</th>
+          </tr>
+        </thead>
+        <tbody id="player-list"></tbody>
+      </table>
+    `;
+
+            const titleBG = document.getElementById(titleId);
+            titleBG.style.backgroundImage = `url("/img/teamsimg/${teamId}/${teamId}logo.png")`;
+
+            return fetch(`/api/${teamId}-players`);
+          })
+          .then((res) => {
+            if (!res) return; // In case the previous `.then` returned early
+            return res.json();
+          })
+          .then((players) => {
+            if (!players) return;
+
+            const table = document.getElementById("player-list");
+            players.forEach((player) => {
+              const tr = document.createElement("tr");
+              const name = player.name.split(" ");
+              const link = name.join("");
+
+              tr.innerHTML = `
+        <td class="info"><img src="/img/teamsimg/${teamId}/${player.id}.webp" class="playeravt"></td>
+        <td class="playername"><a href="/html/playerhtml/${teamId}/${link}.html">${player.name}</a></td>
+        <td class="info">${player.age}</td>
+        <td class="info">${player.position}</td>
+        <td class="info">${player.shirt_no}</td>
+      `;
+              table.appendChild(tr);
+            });
+          })
+          .catch((err) => {
+            console.error(err);
+            document.getElementById("team-info").innerText =
+              "Error loading team info.";
+          });
+
+        fetch("/api/teams")
+          .then((res) => res.json())
+          .then((teams) => {
+            const dropdown = document.getElementById("dropdownteams");
+            const list = document.createElement("div");
+            list.className = "teamlist";
+            teams.forEach((team) => {
+              const link = document.createElement("a");
+              link.href = `/html/Teams.html?id=${team.id}`;
+              link.innerHTML = `${team.name}`;
+              list.appendChild(link);
+            });
+            dropdown.appendChild(list);
+          });
+      });
+    </script>
+  </body>
+</html>

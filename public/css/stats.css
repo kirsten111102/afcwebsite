@@ -1,0 +1,103 @@
+body{  
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-color: aqua;
+    width: 98.5%;
+    height: 98.5%;
+}
+
+.objects{
+    background-color: whitesmoke;
+    opacity: 0.97;
+    margin-right: 0.25%;
+    padding: 0 5px;
+    border: 1px solid;
+}
+
+#top{
+    display: flex;
+    margin-bottom: 0.25%;
+}
+
+#name-ovr{
+    text-align: center;
+    width: 15%;
+    border: 1px solid;
+    padding-top: 13px;
+}
+
+#name-ovr img{
+    width: 35%;
+}
+
+#name{
+    line-height: 0;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#detailovr{
+    width: 10%;
+}
+
+#stats{
+    width: 10%;
+}
+
+ul{
+    list-style-type: none;
+    padding-left: 0px;
+}
+
+ul li{
+    line-height: calc(100% * 2);
+}
+
+#basic-info{
+    width: 10%;
+}
+
+#achivements{
+    width: 51%;
+}
+
+#middle{
+    margin-bottom: 0.25%;
+    display: flex;
+}
+
+#biography{
+    width: 60%;
+    border: 1px solid;
+}
+
+h2, h3{
+    text-decoration: underline;
+    line-height: 5px;
+}
+
+#biography p{
+    line-height: normal;
+}
+
+#teammates{
+    width: 39%;
+}
+
+#teammates p{
+    text-align: right;
+    line-height: 2px;
+    margin-bottom: 25px;
+    font-style: italic;
+}
+
+#bottom{
+    text-align: right;
+}
+
+/* -- Teams Logo -- */
+#cote{
+    background-image: url("/img/teamslogo/cotelogo.png");
+}

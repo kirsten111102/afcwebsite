@@ -1,0 +1,134 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Teams {
+    id                    String                      @id
+    name                  String
+    employee              Employee[]
+    chairman              Chairman?
+    player                Players[]
+    league_achievement    PlayerTeamAchievements[]
+    personal_achievement  PlayerPersonalAchievements[]
+}
+
+model Employee {
+    id        Int       @id @default(autoincrement())
+    name      String
+    age       Int
+    position  String
+    team_id   String
+    team      Teams     @relation(fields: [team_id], references: [id])
+}
+
+model Chairman {
+    id        Int       @id @default(autoincrement())
+    name      String
+    age       Int
+    team_id   String    @unique
+    team      Teams     @relation(fields: [team_id], references: [id])
+}
+
+model Players {
+    id                            String                         @id
+    name                          String
+    age                           Int
+    position                      String
+    team_id                       String      
+    shirt_no                      Int
+    player_info                   PlayerInfo?
+    player_rating                 PlayerRatings?
+    player_stats                  PlayerStats?
+    player_team_achievement       PlayerTeamAchievements[]
+    player_personal_achievement   PlayerPersonalAchievements[]
+    thoughtsAuthored              PlayerTeammateThoughts[]      @relation("Author")
+    thoughtsReceived              PlayerTeammateThoughts[]      @relation("Receiver")
+    team                          Teams                         @relation(fields: [team_id], references: [id])
+}
+
+model Leagues{
+    id                  String    @id
+    name                String
+    league_achievement  PlayerTeamAchievements[]
+}
+
+model PersonalAchievements{
+    id                    String    @id
+    name                  String
+    personal_achievement  PlayerPersonalAchievements[]
+}
+
+model PlayerInfo{
+    player_id   String       @id
+    dob         DateTime
+    birthplace  String
+    gender      String
+    biography   String
+    height      Int
+    player      Players      @relation(fields: [player_id], references: [id])
+}
+
+model PlayerRatings{
+    player_id   String       @id
+    pace        Int
+    shooting    Int
+    passing     Int
+    physical    Int
+    defending   Int
+    dribbling   Int
+    player      Players      @relation(fields: [player_id], references: [id])
+}
+
+model PlayerStats{
+    player_id     String       @id
+    matches       Int
+    goals         Int
+    assists       Int
+    yellow_cards  Int
+    red_cards     Int
+    win_rate      Decimal      @default(0.00)
+    player        Players      @relation(fields: [player_id], references: [id])
+}
+
+model PlayerTeamAchievements{
+    id          Int       @id
+    player_id   String       
+    place       String
+    league_id   String
+    team_id     String
+    year        Int
+    player      Players   @relation(fields: [player_id], references: [id])
+    league      Leagues   @relation(fields: [league_id], references: [id])
+    team        Teams     @relation(fields: [team_id], references: [id])
+}
+
+model PlayerPersonalAchievements{
+    player_id         String      @id
+    achievement_id    String
+    league            String
+    team_id           String
+    year              Int
+    player            Players               @relation(fields: [player_id], references: [id])
+    achievement       PersonalAchievements  @relation(fields: [achievement_id], references: [id])
+    team              Teams     @relation(fields: [team_id], references: [id])
+}
+
+model PlayerTeammateThoughts{
+    id          Int           @id @default(autoincrement())
+    player_id   String
+    thoughts    String
+    sent_to     String
+    author      Players       @relation("Author", fields: [player_id], references: [id])
+    receiver    Players       @relation("Receiver", fields: [sent_to], references: [id])
+}
