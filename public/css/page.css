@@ -1,124 +1,131 @@
-body{
-    width: 98.5%;
-    height: 98.5%;
+body {
+  width: 98.5%;
+  height: 98.5%;
 }
 
-h1{
-    line-height: 5px;
-    text-align: center;
+h1 {
+  line-height: 5px;
+  text-align: center;
 }
 
-#teamslist{
-    display: grid;
-    grid-template-columns: auto auto auto auto auto auto;
+#teamslist {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
 }
 
-.team{
-    height: 200px;
-    text-align: center;
-    border: 1px solid;
-    margin: 0 0.25% 0.25% 0;
-    position: relative;
+.team {
+  height: 200px;
+  text-align: center;
+  border: 1px solid;
+  margin: 0 0.25% 0.25% 0;
+  position: relative;
 }
 
-.logo{
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.logo {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-img{
-    width: 85%;
+img {
+  width: 85%;
 }
 
-.teamname{
-    width: 100%;
-    position: absolute;
-    bottom: 0px;
-    background-color: lightgrey;
+.teamname {
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+  background-color: lightgrey;
 }
 
-.namelink{
-    color: black;
+.namelink {
+  color: black;
 }
 
-.teamname:hover{
-    cursor: pointer;
-    background-color: white;
-    color: black;
+.teamname:hover {
+  cursor: pointer;
+  background-color: white;
+  color: black;
 }
 
 /* -- Team Effect -- */
-#aot:hover{
-    background-image: linear-gradient(to bottom right, brown, white, black);
+#aot:hover {
+  background-image: linear-gradient(to bottom right, brown, white, black);
 }
 
-#bleach:hover{
-    background-image: linear-gradient(to bottom right, black, white, red);
+#bleach:hover {
+  background-image: linear-gradient(to bottom right, black, white, red);
 }
 
-#boboiboy:hover{
-    background-image: linear-gradient(yellow, red);
+#boboiboy:hover {
+  background-image: linear-gradient(yellow, red);
 }
 
-#boruto:hover{
-    background-image: linear-gradient(yellow, black, white)
+#boruto:hover {
+  background-image: linear-gradient(yellow, black, white);
 }
 
-#cote:hover{
-    background-image: linear-gradient(pink, whitesmoke, red);
+#cote:hover {
+  background-image: linear-gradient(pink, whitesmoke, red);
 }
 
-#dfc:hover{
-    background-image: linear-gradient(blue, white, black);
+#dfc:hover {
+  background-image: linear-gradient(blue, white, black);
 }
 
-#ds:hover{
-    background-image: linear-gradient(black, white);
+#ds:hover {
+  background-image: linear-gradient(black, white);
 }
 
-#dbz:hover{
-    background-image: linear-gradient(orange, lightblue);
+#dbz:hover {
+  background-image: linear-gradient(orange, lightblue);
 }
 
-#doraemon:hover{
-    background-image: linear-gradient(blue, white);
+#doraemon:hover {
+  background-image: linear-gradient(blue, white);
 }
 
-#ft:hover{
-    background-image: linear-gradient(orange, red, pink);
+#ft:hover {
+  background-image: linear-gradient(orange, red, pink);
 }
 
-#hxh:hover{
-    background-image: linear-gradient(to bottom right, lightgreen, orange);
+#hxh:hover {
+  background-image: linear-gradient(to bottom right, lightgreen, orange);
 }
 
-#ie:hover{
-    background-image: linear-gradient(yellow, blue);
+#ie:hover {
+  background-image: linear-gradient(yellow, blue);
 }
 
-#op:hover{
-    background-image: linear-gradient(to bottom right,yellow, red, blue);
+#op:hover {
+  background-image: linear-gradient(to bottom right, yellow, red, blue);
 }
 
-#pl:hover{
-    background-image: linear-gradient(to bottom right, #fad709, #f1f4f4, #5e6365, #26b652, #b82315);
+#pl:hover {
+  background-image: linear-gradient(
+    to bottom right,
+    #fad709,
+    #f1f4f4,
+    #5e6365,
+    #26b652,
+    #b82315
+  );
 }
 
-#pw:hover{
-    background-color: yellow;
+#pw:hover {
+  background-color: yellow;
 }
 
-#ta:hover{
-    background-image: linear-gradient(to bottom right, grey, red);
+#ta:hover {
+  background-image: linear-gradient(to bottom right, grey, red);
 }
 
-#tfs:hover{
-    background-image: linear-gradient(white, lightblue);
+#tfs:hover {
+  background-image: linear-gradient(white, lightblue);
 }
 
-#u\&i:hover{
-    background-image: linear-gradient(to bottom right, yellow, black);
+#u_and_i:hover {
+  background-image: linear-gradient(to bottom right, yellow, black);
 }

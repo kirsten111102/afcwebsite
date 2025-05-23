@@ -1,9 +1,9 @@
-import { PrismaClient } from './generated/prisma'
+import { PrismaClient } from "./generated/prisma";
 
-const prisma = new PrismaClient()
+const prisma = new PrismaClient();
 
 async function main() {
-    /*const allTeams = await prisma.teams.createMany({
+  /*const allTeams = await prisma.teams.createMany({
         data: [
             {id: "aot", name: "Attack on Titan"},
             {id: "bleach", name: "Bleach"},
@@ -25,32 +25,431 @@ async function main() {
             {id: "u&i", name: "Upin and Ipin"},
         ]
     })*/
-    /*const updatePlayer = await prisma.players.update({
-        where: {id: "aot_10"},
-        data: {
-            name: "Eren Yeager", age: 20, position: "Striker", team_id: "aot", shirt_no: 10
-        }
-    })*/
-   /*const newPlayer = await prisma.players.createMany({
-        data: [
-            {id: "boruto_8", name: "Mitsuki", age: 18, position: "Midfielder", team_id: "boruto", shirt_no: 8},
-            {id: "boruto_25", name: "Shinki", age: 18, position: "Goalkeeper", team_id: "boruto", shirt_no: 25},
-            {id: "boruto_1", name: "Metal Lee", age: 18, position: "Goalkeeper", team_id: "boruto", shirt_no: 1},
-            {id: "boruto_17", name: "Naru Shikadai", age: 18, position: "Midfielder", team_id: "boruto", shirt_no: 17},
-            {id: "boruto_12", name: "Yamanaka Inojin", age: 18, position: "Midfielder", team_id: "boruto", shirt_no: 12},
-            {id: "boruto_10", name: "Uzumaki Boruto", age: 18, position: "Striker", team_id: "boruto", shirt_no: 10},
-            {id: "boruto_7", name: "Kawaki", age: 21, position: "Striker", team_id: "boruto", shirt_no: 7},
-        ]
-    })*/
-    const allPlayers = await prisma.players.findMany()
-    console.log(allPlayers)
+  /*const updatePlayer = await prisma.players.update({
+    where: { id: "boboiboy_20" },
+    data: {
+      position: "Forward",
+    },
+  });*/
+  /*const updateTeams = await prisma.teams.update({
+    where: { id: "u&i" },
+    data: {
+      id: "u_and_i",
+    },
+  });*/
+  const newPlayer = await prisma.players.createMany({
+    data: [
+      {
+        id: "ft_10",
+        name: "Natsu Dragneel",
+        age: 24,
+        team_id: "ft",
+        position: "Striker",
+        shirt_no: 10,
+      },
+      {
+        id: "ft_7",
+        name: "Gray Fullbuster",
+        age: 23,
+        team_id: "ft",
+        position: "Striker",
+        shirt_no: 7,
+      },
+      {
+        id: "ft_6",
+        name: "Laxus Dreyar",
+        age: 25,
+        team_id: "ft",
+        position: "Midfielder",
+        shirt_no: 6,
+      },
+      {
+        id: "ft_23",
+        name: "Jellal Fernandes",
+        age: 19,
+        team_id: "ft",
+        position: "Midfielder",
+        shirt_no: 23,
+      },
+      {
+        id: "ft_1",
+        name: "Gajeel Redfox",
+        age: 24,
+        team_id: "ft",
+        position: "Goalkeeper",
+        shirt_no: 1,
+      },
+      {
+        id: "hxh_10",
+        name: "Hisoka Morow",
+        age: 24,
+        team_id: "hxh",
+        position: "Striker",
+        shirt_no: 10,
+      },
+      {
+        id: "hxh_7",
+        name: "Killua Zoldyck",
+        age: 23,
+        team_id: "hxh",
+        position: "Striker",
+        shirt_no: 7,
+      },
+      {
+        id: "hxh_11",
+        name: "Kurapika Kurta",
+        age: 23,
+        team_id: "hxh",
+        position: "Midfielder",
+        shirt_no: 11,
+      },
+      {
+        id: "hxh_4",
+        name: "Chrollo Lucifer",
+        age: 28,
+        team_id: "hxh",
+        position: "Defender",
+        shirt_no: 4,
+      },
+      {
+        id: "hxh_1",
+        name: "Gon Freecs",
+        age: 23,
+        team_id: "hxh",
+        position: "Goalkeeper",
+        shirt_no: 1,
+      },
+      {
+        id: "ie_11",
+        name: "Kiyama Hiroto",
+        age: 20,
+        team_id: "ie",
+        position: "Center Forward",
+        shirt_no: 11,
+      },
+      {
+        id: "ie_2",
+        name: "Kazemaru Ichirouta",
+        age: 20,
+        team_id: "ie",
+        position: "Midfielder",
+        shirt_no: 2,
+      },
+      {
+        id: "ie_10",
+        name: "Gouenji Shuuya",
+        age: 20,
+        team_id: "ie",
+        position: "Striker",
+        shirt_no: 10,
+      },
+      {
+        id: "ie_14",
+        name: "Kidou Yuuto",
+        age: 20,
+        team_id: "ie",
+        position: "Midfielder",
+        shirt_no: 14,
+      },
+      {
+        id: "ie_1",
+        name: "Endou Mamoru",
+        age: 20,
+        team_id: "ie",
+        position: "Goalkeeper",
+        shirt_no: 1,
+      },
+      {
+        id: "ie_20",
+        name: "Tachimukai Yuuki",
+        age: 20,
+        team_id: "ie",
+        position: "Goalkeeper",
+        shirt_no: 20,
+      },
+      {
+        id: "op_7",
+        name: "Vinsmoke Sanji",
+        age: 26,
+        team_id: "op",
+        position: "Striker",
+        shirt_no: 7,
+      },
+      {
+        id: "op_10",
+        name: "Roronoa Zoro",
+        age: 26,
+        team_id: "op",
+        position: "Striker",
+        shirt_no: 10,
+      },
+      {
+        id: "op_6",
+        name: "Koby",
+        age: 20,
+        team_id: "op",
+        position: "Midfielder",
+        shirt_no: 6,
+      },
+      {
+        id: "op_4",
+        name: "Franky",
+        age: 27,
+        team_id: "op",
+        position: "Defender",
+        shirt_no: 4,
+      },
+      {
+        id: "op_1",
+        name: "Monkey D. Luffy",
+        age: 23,
+        team_id: "op",
+        position: "Goalkeeper",
+        shirt_no: 1,
+      },
+      {
+        id: "op_23",
+        name: "Jinbei",
+        age: 27,
+        team_id: "op",
+        position: "Goalkeeper",
+        shirt_no: 23,
+      },
+      {
+        id: "pw_7",
+        name: "Arcanine",
+        age: 20,
+        team_id: "pw",
+        position: "Striker",
+        shirt_no: 7,
+      },
+      {
+        id: "pw_10",
+        name: "Pikachu",
+        age: 20,
+        team_id: "pw",
+        position: "Striker",
+        shirt_no: 10,
+      },
+      {
+        id: "pw_6",
+        name: "Charizard",
+        age: 22,
+        team_id: "pw",
+        position: "Midfielder",
+        shirt_no: 6,
+      },
+      {
+        id: "pw_4",
+        name: "Venusaur",
+        age: 22,
+        team_id: "pw",
+        position: "Defender",
+        shirt_no: 4,
+      },
+      {
+        id: "pw_1",
+        name: "Machamp",
+        age: 20,
+        team_id: "pw",
+        position: "Goalkeeper",
+        shirt_no: 1,
+      },
+      {
+        id: "pl_7",
+        name: "Landorus",
+        age: 20,
+        team_id: "pl",
+        position: "Striker",
+        shirt_no: 7,
+      },
+      {
+        id: "pl_10",
+        name: "Mewtwo",
+        age: 20,
+        team_id: "pl",
+        position: "Striker",
+        shirt_no: 10,
+      },
+      {
+        id: "pl_9",
+        name: "Thundurus",
+        age: 20,
+        team_id: "pl",
+        position: "Midfielder",
+        shirt_no: 9,
+      },
+      {
+        id: "pl_11",
+        name: "Tornadus",
+        age: 20,
+        team_id: "pl",
+        position: "Midfielder",
+        shirt_no: 11,
+      },
+      {
+        id: "pl_1",
+        name: "Heatran",
+        age: 20,
+        team_id: "pl",
+        position: "Goalkeeper",
+        shirt_no: 1,
+      },
+      {
+        id: "ta_7",
+        name: "Charlotte Katakuri",
+        age: 21,
+        team_id: "ta",
+        position: "Striker",
+        shirt_no: 7,
+      },
+      {
+        id: "ta_10",
+        name: "Trafalgar D. Law",
+        age: 23,
+        team_id: "ta",
+        position: "Midfielder",
+        shirt_no: 10,
+      },
+      {
+        id: "ta_9",
+        name: "Portgas D. Ace",
+        age: 25,
+        team_id: "ta",
+        position: "Striker",
+        shirt_no: 9,
+      },
+      {
+        id: "ta_11",
+        name: "Sabo",
+        age: 25,
+        team_id: "ta",
+        position: "Midfielder",
+        shirt_no: 11,
+      },
+      {
+        id: "ta_25",
+        name: "Eustass Kid",
+        age: 23,
+        team_id: "ta",
+        position: "Goalkeeper/Midfielder",
+        shirt_no: 25,
+      },
+      {
+        id: "ta_1",
+        name: "Bartholomew Kuma",
+        age: 27,
+        team_id: "ta",
+        position: "Goalkeeper",
+        shirt_no: 1,
+      },
+      {
+        id: "tfs_10",
+        name: "Tsubasa Ozora",
+        age: 21,
+        team_id: "tfs",
+        position: "Striker",
+        shirt_no: 10,
+      },
+      {
+        id: "tfs_9",
+        name: "Kojiro Hyuga",
+        age: 21,
+        team_id: "tfs",
+        position: "Striker",
+        shirt_no: 9,
+      },
+      {
+        id: "tfs_14",
+        name: "Jun Mizugi",
+        age: 21,
+        team_id: "tfs",
+        position: "Midfielder",
+        shirt_no: 14,
+      },
+      {
+        id: "tfs_12",
+        name: "Hikaru Matsuyama",
+        age: 21,
+        team_id: "tfs",
+        position: "Defender",
+        shirt_no: 12,
+      },
+      {
+        id: "tfs_25",
+        name: "Ken Wakashimazu",
+        age: 21,
+        team_id: "tfs",
+        position: "Goalkeeper",
+        shirt_no: 25,
+      },
+      {
+        id: "tfs_1",
+        name: "Genzo Wakabayashi",
+        age: 21,
+        team_id: "tfs",
+        position: "Goalkeeper",
+        shirt_no: 1,
+      },
+      {
+        id: "u_and_i_10",
+        name: "Ijat",
+        age: 18,
+        team_id: "u_and_i",
+        position: "Midfielder",
+        shirt_no: 10,
+      },
+      {
+        id: "u_and_i_9",
+        name: "Upin",
+        age: 18,
+        team_id: "u_and_i",
+        position: "Striker",
+        shirt_no: 9,
+      },
+      {
+        id: "u_and_i_11",
+        name: "Ipin",
+        age: 18,
+        team_id: "u_and_i",
+        position: "Midfielder",
+        shirt_no: 11,
+      },
+      {
+        id: "u_and_i_7",
+        name: "Ehsan",
+        age: 18,
+        team_id: "u_and_i",
+        position: "Defender",
+        shirt_no: 7,
+      },
+      {
+        id: "u_and_i_3",
+        name: "Jarjit",
+        age: 18,
+        team_id: "u_and_i",
+        position: "Midfielder",
+        shirt_no: 3,
+      },
+      {
+        id: "u_and_i_1",
+        name: "Dzul",
+        age: 18,
+        team_id: "u_and_i",
+        position: "Goalkeeper",
+        shirt_no: 1,
+      },
+    ],
+  });
+  //const allPlayers = await prisma.players.findMany();
+  /*const allTeams = await prisma.teams.findMany();
+  console.log(allTeams);*/
 }
 
-
 main()
-    .catch(e => {
-        console.error(e.message)
-    })
-    .finally(async () => {
-        await prisma.$disconnect()
-    })
+  .catch((e) => {
+    console.error(e.message);
+  })
+  .finally(async () => {
+    await prisma.$disconnect();
+  });

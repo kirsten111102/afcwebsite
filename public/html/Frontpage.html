@@ -26,10 +26,10 @@
               div.id = team.id
               div.className = "team"
               div.innerHTML = `
-                <a href="/html/teamshtml/${team.id}.html">
+                <a href="/html/Teams.html?id=${team.id}">
                     <div class="logo"><img src="/img/teamslogo/${team.id}logo.png"></div>
                 </a>
-                <a href="/html/teamshtml/${team.id}.html" class="namelink">
+                <a href="/html/Teams.html?id=${team.id}" class="namelink">
                     <div class="teamname">${team.name}</div>
                 </a>
               `;

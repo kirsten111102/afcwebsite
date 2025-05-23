@@ -1,151 +1,117 @@
-body{
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
+body {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
 }
 
-h2{
-    line-height: 1%;
-    text-decoration: underline;
-    font-style: italic;
+h2 {
+  line-height: 1%;
+  text-decoration: underline;
+  font-style: italic;
 }
 
-.info{
-    text-align: center;
-    width: 20%;
+.info {
+  text-align: center;
+  width: 20%;
 }
 
-table{
-    width: 45%;
-    height: 100%;
-    border: 1px solid;
-    background-color: white;
+table {
+  width: 45%;
+  height: 100%;
+  border: 1px solid;
+  background-color: white;
 }
 
-thead #header{
-    background-color: antiquewhite;
-    font-family: Arial, Helvetica, sans-serif;
-    color: blueviolet;
+thead #header {
+  background-color: antiquewhite;
+  font-family: Arial, Helvetica, sans-serif;
+  color: blueviolet;
 }
 
-th, td{
-    border-bottom: 1px solid #ddd;
+th,
+td {
+  border-bottom: 1px solid #ddd;
 }
 
-tr:nth-child(even){
-    background-color: lightgrey;
+tr:nth-child(even) {
+  background-color: lightgrey;
 }
 
-tr:nth-child(odd){
-    background-color: whitesmoke;
+tr:nth-child(odd) {
+  background-color: whitesmoke;
 }
 
-.title{
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    text-align: center;
+.title {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  text-align: center;
 }
 
-#blurbackground{
-    background-color: wheat;
-    opacity: 0.9;
+#blurbackground {
+  background-color: wheat;
+  opacity: 0.9;
 }
 
-h1{
-    
-    font-size: 55px;
-    font-family: cursive;
-    padding: 45px 0;
-    margin-top: 5px;
+h1 {
+  font-size: 55px;
+  font-family: cursive;
+  padding: 45px 0;
+  margin-top: 5px;
 }
 
-a{
-    text-decoration: none;
-    color: black;
+a {
+  text-decoration: none;
+  color: black;
 }
 
-a:hover{
-    cursor: pointer;
-    color: red;
+a:hover {
+  cursor: pointer;
+  color: red;
 }
 
-.profile{
-    text-align: center;
-    width: 300px;
-    padding: 5px 0 0 0;
-    border: 1px solid;
-    background-color: whitesmoke;
-    margin-right: 0.25%;
+.profile {
+  text-align: center;
+  width: 300px;
+  padding: 5px 0 0 0;
+  border: 1px solid;
+  background-color: whitesmoke;
+  margin-right: 0.25%;
 }
 
-.manager-name{
-    font-style: italic;
-    line-height: 0px;
+.manager-name {
+  font-style: italic;
+  line-height: 0px;
 }
 
-.manageravt{
-    width: 100%;
+.manageravt {
+  width: 100%;
 }
 
-.playeravt{
-    width: 100%;
+.playeravt {
+  width: 100%;
 }
 
-.playername{
-    width: 40%;
+.playername {
+  width: 40%;
 }
 
-.employees{
-    display: flex;
-}
-
-/* -- Teams Logo -- */
-#aot{
-    background-image: url("/img/teamslogo/aotlogo.png");
-}
-
-#boboiboy{
-    background-image: url("/img/teamslogo/boboiboylogo.png");
-}
-
-#boruto{
-    background-image: url("/img/teamslogo/borutologo.png");
-}
-
-#cote{
-    background-image: url("/img/teamslogo/cotelogo.png");
-}
-
-/* -- Teams Background Title Image -- */
-#cotetitle{
-    background-image: url('/img/teamsimg/cote/cotelogo.jpeg');
-}
-
-#borutotitle{
-    background-image: url('/img/teamslogo/borutologo.png');
-}
-
-#aottitle{
-    background-image: url("/img/teamsimg/aot/aotlogo.png");
-}
-
-#boboiboytitle{
-    background-image: url("/img/teamslogo/boboiboylogo.png")
+.employees {
+  display: flex;
 }
 
 /* -- Teams Title -- */
-#cote-teamname{
-    color: fuchsia;
+#cote-teamname {
+  color: fuchsia;
 }
 
-#boboiboy-teamname{
-    background: -webkit-linear-gradient(red, yellow);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+#boboiboy-teamname {
+  background: -webkit-linear-gradient(red, yellow);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-#boruto-teamname{
-    color: yellow;
+#boruto-teamname {
+  color: yellow;
 }
