@@ -1,13 +1,14 @@
-const express = require('express');
-const { PrismaClient } = require('./generated/prisma');
+const express = require("express");
+const { PrismaClient } = require("./generated/prisma");
 const app = express();
 const prisma = new PrismaClient();
 const teamRoutes = require("./routes/teams");
+const playerRoutes = require("./routes/players");
 
 // Serve all static files from the public folder
-app.use(express.static('public'));
+app.use(express.static("public"));
 
-app.get('/api/:teamId-players', async (req, res) => {
+app.get("/api/:teamId-players", async (req, res) => {
   const { teamId } = req.params;
 
   try {
@@ -18,7 +19,7 @@ app.get('/api/:teamId-players', async (req, res) => {
     res.json(players);
   } catch (err) {
     console.error(err);
-    res.status(500).json({ error: 'Something went wrong' });
+    res.status(500).json({ error: "Something went wrong" });
   }
 });
 
@@ -41,13 +42,14 @@ app.get('/api/:teamId-players', async (req, res) => {
   }
 });*/
 
-app.get('/api/teams', async (req, res) => {
+app.get("/api/teams", async (req, res) => {
   const teams = await prisma.teams.findMany();
-  res.json(teams)
+  res.json(teams);
 });
 
 app.use("/api/team", teamRoutes);
+app.use("/api/player", playerRoutes);
 
 app.listen(3000, () => {
-  console.log('Server running at http://localhost:3000/html/Frontpage.html');
+  console.log("Server running at http://localhost:3000/html/Frontpage.html");
 });

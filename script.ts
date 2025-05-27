@@ -442,9 +442,17 @@ async function main() {
       },
     ],
   });*/
+  /*const newCoaches = await prisma.employee.createMany({
+    data: [
+      {name: "Uchiha Sasuke", age: 36, position: "Coach", team_id: "aot"},
+      {name: "Hatake Kakashi", age: 50, position: "Coach", team_id: "boruto"},
+      {name: "Sarutobi Konohamaru", age: 34, position: "Coach", team_id: "boboiboy"},
+      {name: "Sakanayagi Arisu", age: 18, position: "Coach", team_id: "cote"},
+    ]
+  });*/
   //const allPlayers = await prisma.players.findMany();
-  /*const allTeams = await prisma.teams.findMany();
-  console.log(allTeams);*/
+  /*const allCoaches = await prisma.employee.findMany();
+  console.log(allCoaches);*/
 }
 
 main()

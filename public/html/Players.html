@@ -1,18 +1,39 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="/css/stats.css">
-        <link rel="stylesheet" href="/css/navbar.css">
-        <script src="/js/dropdown.js"></script>
-        <script src="/js/header.js"></script>
-        <title>Kiyotaka Ayanokoji - Stats and Biography</title>
-    </head>
-    <div id="header"></div>
-    <body id="cote">
+  <head>
+    <link rel="stylesheet" href="/css/stats.css" />
+    <link rel="stylesheet" href="/css/navbar.css" />
+    <script src="/js/dropdown.js"></script>
+    <script src="/js/header.js"></script>
+    <script src="/index.js"></script>
+    <title>Kiyotaka Ayanokoji - Stats and Biography</title>
+  </head>
+  <div id="header"></div>
+  <body>
+    <div id="player-info"></div>
+  </body>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const player_id = params.get("id");
+
+    fetch(`/api/player/${player_id}`)
+      .then((res) => res.json())
+      .then((players) => {
+        if (players.error) {
+          document.getElementById("player-info").innerText =
+            "Player not found.";
+          return;
+        }
+        document.body.id = players.team_id;
+
+        const element = document.getElementById(players.team_id);
+        element.style.backgroundImage = `/img/teamslogo/${players.team_id}logo.png`;
+
+        document.getElementById("player-info").innerHTML = `
         <div id="top">
             <div id="name-ovr" class="objects">
-                <img src="/img/teamsimg/cote/kiyopon.jpeg">
-                <p id="name">Kiyotaka Ayanokoji</p>
+                <img src="/img/teamsimg/${players.team_id}/${players.id}.webp">
+                <p id="name">${players.name}</p>
                 <p id="ovr">Overall: 71</p>
             </div>
             <div id="detailovr" class="objects">
@@ -30,7 +51,7 @@
                 <h3>Information</h3>
                 <ul>
                     <li>DOB: <strong>October 20<sup>th</sup></strong></li>
-                    <li>Age: <strong>17</strong></li>
+                    <li>Age: <strong>${players.age}</strong></li>
                     <li>Birthplace: <strong>Japan</strong></li>
                     <li>Gender: <strong>Male</strong></li>
                     <li>Height: <strong>176cm</strong></li>
@@ -60,15 +81,15 @@
             <div id="teammates" class="objects">
                 <h2>Teammate Thoughts</h2>
                 <q>He is a good player, a player whom I can trust.</q>
-                <p>- Yosuke Hirata -</p>
-                <q>I acknowledged his ability but please, can he sometimes speaks what he is thinking to help the team winning?</q>
-                <p>- Ken Sudo -</p>
+                <p>- <a href="#" class="namelink">Yosuke Hirata</a> -</p>
                 <q>He is good but I should be the captain to kick his ass cause sometimes he doesn't focus on the f**king pitch.</q>
-                <p>- Kakeru Ryuen -</p>
+                <p>- <a href="#" class="namelink">Kakeru Ryuen</a> -</p>
             </div>
         </div>
         <div id="bottom">
             <a href="/html/teamshtml/COTE.html"><button>Back</button></a>
         </div>
-    </body>
+        `;
+      });
+  </script>
 </html>

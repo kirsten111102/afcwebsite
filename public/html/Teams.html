@@ -39,28 +39,46 @@
 
             const titleId = `${teamId}title`;
 
+            const employees = team.employee;
+
             document.getElementById("team-info").innerHTML = `
-      <div class="title" id="${titleId}">
-        <div id="blurbackground">
-          <h1 id="${team.id}-teamname">${team.name}</h1>
-        </div>
-      </div>
-      <p><strong>Coach:</strong> ${team.coach || "Unknown"}</p>
-      <p><strong>Founded:</strong> ${team.founded || "N/A"}</p>
-      <p><strong>Stadium:</strong> ${team.stadium || "N/A"}</p>
-      <h2>Players:</h2>
-      <table>
-        <thead>
-          <tr id="header">
-            <th colspan="2">Full name</th>
-            <th>Age</th>
-            <th>Position</th>
-            <th>Number</th>
-          </tr>
-        </thead>
-        <tbody id="player-list"></tbody>
-      </table>
-    `;
+              <div class="title" id="${titleId}">
+                <div id="blurbackground">
+                  <h1 id="${team.id}-teamname">${team.name}</h1>
+                </div>
+              </div>
+            `;
+
+            for (const employee of employees) {
+              if (employee.position === "Coach") {
+                const names = employee.name.split(" ");
+                const last_name = names[1].toLowerCase();
+                document.getElementById("team-info").innerHTML += `
+                  <h2>Coach: </h2>
+                  <div class="profile">
+                      <img src="/img/teamsimg/${teamId}/${last_name}.webp">
+                      <p class="manager-name">${employee.name}</p>
+                  </div>
+                `;
+              }
+            }
+
+            document.getElementById("team-info").innerHTML += `
+              <p><strong>Founded:</strong> ${team.founded || "N/A"}</p>
+              <p><strong>Stadium:</strong> ${team.stadium || "N/A"}</p>
+              <h2>Players:</h2>
+              <table>
+                <thead>
+                  <tr id="header">
+                    <th colspan="2">Full name</th>
+                    <th>Age</th>
+                    <th>Position</th>
+                    <th>Number</th>
+                  </tr>
+                </thead>
+                <tbody id="player-list"></tbody>
+              </table>
+            `;
 
             const titleBG = document.getElementById(titleId);
             titleBG.style.backgroundImage = `url("/img/teamsimg/${teamId}/${teamId}logo.png")`;
@@ -68,7 +86,7 @@
             return fetch(`/api/${teamId}-players`);
           })
           .then((res) => {
-            if (!res) return; // In case the previous `.then` returned early
+            if (!res) return;
             return res.json();
           })
           .then((players) => {
@@ -78,15 +96,15 @@
             players.forEach((player) => {
               const tr = document.createElement("tr");
               const name = player.name.split(" ");
-              const link = name.join("");
+              const link = name.join("_");
 
               tr.innerHTML = `
-        <td class="info"><img src="/img/teamsimg/${teamId}/${player.id}.webp" class="playeravt"></td>
-        <td class="playername"><a href="/html/playerhtml/${teamId}/${link}.html">${player.name}</a></td>
-        <td class="info">${player.age}</td>
-        <td class="info">${player.position}</td>
-        <td class="info">${player.shirt_no}</td>
-      `;
+                <td class="info"><img src="/img/teamsimg/${teamId}/${player.id}.webp" class="playeravt"></td>
+                <td class="playername"><a href="/html/Players.html?id=${player.id}">${player.name}</a></td>
+                <td class="info">${player.age}</td>
+                <td class="info">${player.position}</td>
+                <td class="info">${player.shirt_no}</td>
+              `;
               table.appendChild(tr);
             });
           })

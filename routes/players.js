@@ -7,19 +7,18 @@ router.get("/:id", async (req, res) => {
   const { id } = req.params;
 
   try {
-    const team = await prisma.teams.findUnique({
+    const players = await prisma.players.findUnique({
       where: { id: id },
       include: {
-        player: true,
-        employee: true,
+        team: true,
       },
     });
 
-    if (!team) {
-      return res.status(404).json({ error: "Team not found" });
+    if (!players) {
+      return res.status(404).json({ error: "Player not found" });
     }
 
-    res.json(team);
+    res.json(players);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Server error" });
