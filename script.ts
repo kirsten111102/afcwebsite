@@ -26,9 +26,10 @@ async function main() {
         ]
     })*/
   /*const updatePlayer = await prisma.players.update({
-    where: { id: "boboiboy_20" },
+    where: { id: "pw_7" },
     data: {
-      position: "Forward",
+      id: "pw_9",
+      shirt_no: 9,
     },
   });*/
   /*const updateTeams = await prisma.teams.update({
@@ -37,7 +38,7 @@ async function main() {
       id: "u_and_i",
     },
   });*/
-  const newPlayer = await prisma.players.createMany({
+  /*const newPlayer = await prisma.players.createMany({
     data: [
       {
         id: "ft_10",
@@ -440,7 +441,7 @@ async function main() {
         shirt_no: 1,
       },
     ],
-  });
+  });*/
   //const allPlayers = await prisma.players.findMany();
   /*const allTeams = await prisma.teams.findMany();
   console.log(allTeams);*/
