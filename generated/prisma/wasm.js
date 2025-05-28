@@ -184,8 +184,7 @@ exports.Prisma.PlayerStatsScalarFieldEnum = {
   goals: 'goals',
   assists: 'assists',
   yellow_cards: 'yellow_cards',
-  red_cards: 'red_cards',
-  win_rate: 'win_rate'
+  red_cards: 'red_cards'
 };
 
 exports.Prisma.PlayerTeamAchievementsScalarFieldEnum = {

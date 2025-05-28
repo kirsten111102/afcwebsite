@@ -451,8 +451,55 @@ async function main() {
     ]
   });*/
   //const allPlayers = await prisma.players.findMany();
-  /*const allCoaches = await prisma.employee.findMany();
-  console.log(allCoaches);*/
+  /*const ratings = await prisma.playerRatings.create({
+    data: {
+      player_id: "cote_10",
+      pace: 80,
+      shooting: 91,
+      passing: 62,
+      dribbling: 60,
+      defending: 67,
+      physical: 63,
+    },
+  });*/
+  /*const info = await prisma.playerInfo.create({
+    data: {
+      player_id: "cote_10",
+      dob: new Date("1900-10-20"),
+      birthplace: "Japan",
+      gender: "Male",
+      height: 176,
+      biography:
+        "Genius of White Room, Mastermind of everywhere he goes, great tactician, but little who know he really is.; Good skills for playing football, can evaluate and analyse what happened in the pitch, but only keeps in his mind while he is playing, need to be understood or his team will lose because of disconnection.",
+    },
+  });*/
+  /*const stats = await prisma.playerStats.create({
+    data: {
+      player_id: "cote_10",
+      matches: 34,
+      goals: 18,
+      assists: 2,
+      yellow_cards: 2,
+      red_cards: 0,
+    },
+  });*/
+  /*const thoughts = await prisma.playerTeammateThoughts.createMany({
+    data: [
+      {
+        player_id: "cote_8",
+        thoughts: "He is a good player, a player whom I can trust.",
+        sent_to: "cote_10",
+      },
+      {
+        player_id: "cote_25",
+        thoughts:
+          "He is good but I should be the captain to kick his ass cause sometimes he doesn't focus on the f**king pitch.",
+        sent_to: "cote_10",
+      },
+    ],
+  });*/
+  /*const allinfo = await prisma.playerInfo.findMany();
+  console.log(allinfo);*/
 }
 
 main()

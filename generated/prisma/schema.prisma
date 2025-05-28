@@ -72,7 +72,7 @@ model PersonalAchievements {
 
 model PlayerInfo {
   player_id  String   @id
-  dob        DateTime
+  dob        DateTime @db.Date
   birthplace String
   gender     String
   biography  String
@@ -98,7 +98,6 @@ model PlayerStats {
   assists      Int
   yellow_cards Int
   red_cards    Int
-  win_rate     Decimal @default(0.00)
   player       Players @relation(fields: [player_id], references: [id])
 }
 

@@ -10979,7 +10979,6 @@ export namespace Prisma {
     assists: number | null
     yellow_cards: number | null
     red_cards: number | null
-    win_rate: Decimal | null
   }
 
   export type PlayerStatsSumAggregateOutputType = {
@@ -10988,7 +10987,6 @@ export namespace Prisma {
     assists: number | null
     yellow_cards: number | null
     red_cards: number | null
-    win_rate: Decimal | null
   }
 
   export type PlayerStatsMinAggregateOutputType = {
@@ -10998,7 +10996,6 @@ export namespace Prisma {
     assists: number | null
     yellow_cards: number | null
     red_cards: number | null
-    win_rate: Decimal | null
   }
 
   export type PlayerStatsMaxAggregateOutputType = {
@@ -11008,7 +11005,6 @@ export namespace Prisma {
     assists: number | null
     yellow_cards: number | null
     red_cards: number | null
-    win_rate: Decimal | null
   }
 
   export type PlayerStatsCountAggregateOutputType = {
@@ -11018,7 +11014,6 @@ export namespace Prisma {
     assists: number
     yellow_cards: number
     red_cards: number
-    win_rate: number
     _all: number
   }
 
@@ -11029,7 +11024,6 @@ export namespace Prisma {
     assists?: true
     yellow_cards?: true
     red_cards?: true
-    win_rate?: true
   }
 
   export type PlayerStatsSumAggregateInputType = {
@@ -11038,7 +11032,6 @@ export namespace Prisma {
     assists?: true
     yellow_cards?: true
     red_cards?: true
-    win_rate?: true
   }
 
   export type PlayerStatsMinAggregateInputType = {
@@ -11048,7 +11041,6 @@ export namespace Prisma {
     assists?: true
     yellow_cards?: true
     red_cards?: true
-    win_rate?: true
   }
 
   export type PlayerStatsMaxAggregateInputType = {
@@ -11058,7 +11050,6 @@ export namespace Prisma {
     assists?: true
     yellow_cards?: true
     red_cards?: true
-    win_rate?: true
   }
 
   export type PlayerStatsCountAggregateInputType = {
@@ -11068,7 +11059,6 @@ export namespace Prisma {
     assists?: true
     yellow_cards?: true
     red_cards?: true
-    win_rate?: true
     _all?: true
   }
 
@@ -11165,7 +11155,6 @@ export namespace Prisma {
     assists: number
     yellow_cards: number
     red_cards: number
-    win_rate: Decimal
     _count: PlayerStatsCountAggregateOutputType | null
     _avg: PlayerStatsAvgAggregateOutputType | null
     _sum: PlayerStatsSumAggregateOutputType | null
@@ -11194,7 +11183,6 @@ export namespace Prisma {
     assists?: boolean
     yellow_cards?: boolean
     red_cards?: boolean
-    win_rate?: boolean
     player?: boolean | PlayersDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["playerStats"]>
 
@@ -11205,7 +11193,6 @@ export namespace Prisma {
     assists?: boolean
     yellow_cards?: boolean
     red_cards?: boolean
-    win_rate?: boolean
     player?: boolean | PlayersDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["playerStats"]>
 
@@ -11216,7 +11203,6 @@ export namespace Prisma {
     assists?: boolean
     yellow_cards?: boolean
     red_cards?: boolean
-    win_rate?: boolean
     player?: boolean | PlayersDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["playerStats"]>
 
@@ -11227,10 +11213,9 @@ export namespace Prisma {
     assists?: boolean
     yellow_cards?: boolean
     red_cards?: boolean
-    win_rate?: boolean
   }
 
-  export type PlayerStatsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"player_id" | "matches" | "goals" | "assists" | "yellow_cards" | "red_cards" | "win_rate", ExtArgs["result"]["playerStats"]>
+  export type PlayerStatsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"player_id" | "matches" | "goals" | "assists" | "yellow_cards" | "red_cards", ExtArgs["result"]["playerStats"]>
   export type PlayerStatsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     player?: boolean | PlayersDefaultArgs<ExtArgs>
   }
@@ -11253,7 +11238,6 @@ export namespace Prisma {
       assists: number
       yellow_cards: number
       red_cards: number
-      win_rate: Prisma.Decimal
     }, ExtArgs["result"]["playerStats"]>
     composites: {}
   }
@@ -11684,7 +11668,6 @@ export namespace Prisma {
     readonly assists: FieldRef<"PlayerStats", 'Int'>
     readonly yellow_cards: FieldRef<"PlayerStats", 'Int'>
     readonly red_cards: FieldRef<"PlayerStats", 'Int'>
-    readonly win_rate: FieldRef<"PlayerStats", 'Decimal'>
   }
     
 
@@ -15521,8 +15504,7 @@ export namespace Prisma {
     goals: 'goals',
     assists: 'assists',
     yellow_cards: 'yellow_cards',
-    red_cards: 'red_cards',
-    win_rate: 'win_rate'
+    red_cards: 'red_cards'
   };
 
   export type PlayerStatsScalarFieldEnum = (typeof PlayerStatsScalarFieldEnum)[keyof typeof PlayerStatsScalarFieldEnum]
@@ -15621,20 +15603,6 @@ export namespace Prisma {
    * Reference to a field of type 'DateTime[]'
    */
   export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
-    
-
-
-  /**
-   * Reference to a field of type 'Decimal'
-   */
-  export type DecimalFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Decimal'>
-    
-
-
-  /**
-   * Reference to a field of type 'Decimal[]'
-   */
-  export type ListDecimalFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Decimal[]'>
     
 
 
@@ -16118,7 +16086,6 @@ export namespace Prisma {
     assists?: IntFilter<"PlayerStats"> | number
     yellow_cards?: IntFilter<"PlayerStats"> | number
     red_cards?: IntFilter<"PlayerStats"> | number
-    win_rate?: DecimalFilter<"PlayerStats"> | Decimal | DecimalJsLike | number | string
     player?: XOR<PlayersScalarRelationFilter, PlayersWhereInput>
   }
 
@@ -16129,7 +16096,6 @@ export namespace Prisma {
     assists?: SortOrder
     yellow_cards?: SortOrder
     red_cards?: SortOrder
-    win_rate?: SortOrder
     player?: PlayersOrderByWithRelationInput
   }
 
@@ -16143,7 +16109,6 @@ export namespace Prisma {
     assists?: IntFilter<"PlayerStats"> | number
     yellow_cards?: IntFilter<"PlayerStats"> | number
     red_cards?: IntFilter<"PlayerStats"> | number
-    win_rate?: DecimalFilter<"PlayerStats"> | Decimal | DecimalJsLike | number | string
     player?: XOR<PlayersScalarRelationFilter, PlayersWhereInput>
   }, "player_id">
 
@@ -16154,7 +16119,6 @@ export namespace Prisma {
     assists?: SortOrder
     yellow_cards?: SortOrder
     red_cards?: SortOrder
-    win_rate?: SortOrder
     _count?: PlayerStatsCountOrderByAggregateInput
     _avg?: PlayerStatsAvgOrderByAggregateInput
     _max?: PlayerStatsMaxOrderByAggregateInput
@@ -16172,7 +16136,6 @@ export namespace Prisma {
     assists?: IntWithAggregatesFilter<"PlayerStats"> | number
     yellow_cards?: IntWithAggregatesFilter<"PlayerStats"> | number
     red_cards?: IntWithAggregatesFilter<"PlayerStats"> | number
-    win_rate?: DecimalWithAggregatesFilter<"PlayerStats"> | Decimal | DecimalJsLike | number | string
   }
 
   export type PlayerTeamAchievementsWhereInput = {
@@ -16818,7 +16781,6 @@ export namespace Prisma {
     assists: number
     yellow_cards: number
     red_cards: number
-    win_rate?: Decimal | DecimalJsLike | number | string
     player: PlayersCreateNestedOneWithoutPlayer_statsInput
   }
 
@@ -16829,7 +16791,6 @@ export namespace Prisma {
     assists: number
     yellow_cards: number
     red_cards: number
-    win_rate?: Decimal | DecimalJsLike | number | string
   }
 
   export type PlayerStatsUpdateInput = {
@@ -16838,7 +16799,6 @@ export namespace Prisma {
     assists?: IntFieldUpdateOperationsInput | number
     yellow_cards?: IntFieldUpdateOperationsInput | number
     red_cards?: IntFieldUpdateOperationsInput | number
-    win_rate?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     player?: PlayersUpdateOneRequiredWithoutPlayer_statsNestedInput
   }
 
@@ -16849,7 +16809,6 @@ export namespace Prisma {
     assists?: IntFieldUpdateOperationsInput | number
     yellow_cards?: IntFieldUpdateOperationsInput | number
     red_cards?: IntFieldUpdateOperationsInput | number
-    win_rate?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
   }
 
   export type PlayerStatsCreateManyInput = {
@@ -16859,7 +16818,6 @@ export namespace Prisma {
     assists: number
     yellow_cards: number
     red_cards: number
-    win_rate?: Decimal | DecimalJsLike | number | string
   }
 
   export type PlayerStatsUpdateManyMutationInput = {
@@ -16868,7 +16826,6 @@ export namespace Prisma {
     assists?: IntFieldUpdateOperationsInput | number
     yellow_cards?: IntFieldUpdateOperationsInput | number
     red_cards?: IntFieldUpdateOperationsInput | number
-    win_rate?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
   }
 
   export type PlayerStatsUncheckedUpdateManyInput = {
@@ -16878,7 +16835,6 @@ export namespace Prisma {
     assists?: IntFieldUpdateOperationsInput | number
     yellow_cards?: IntFieldUpdateOperationsInput | number
     red_cards?: IntFieldUpdateOperationsInput | number
-    win_rate?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
   }
 
   export type PlayerTeamAchievementsCreateInput = {
@@ -17433,17 +17389,6 @@ export namespace Prisma {
     dribbling?: SortOrder
   }
 
-  export type DecimalFilter<$PrismaModel = never> = {
-    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
-    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
-    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
-    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
-    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
-    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
-    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
-    not?: NestedDecimalFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string
-  }
-
   export type PlayerStatsCountOrderByAggregateInput = {
     player_id?: SortOrder
     matches?: SortOrder
@@ -17451,7 +17396,6 @@ export namespace Prisma {
     assists?: SortOrder
     yellow_cards?: SortOrder
     red_cards?: SortOrder
-    win_rate?: SortOrder
   }
 
   export type PlayerStatsAvgOrderByAggregateInput = {
@@ -17460,7 +17404,6 @@ export namespace Prisma {
     assists?: SortOrder
     yellow_cards?: SortOrder
     red_cards?: SortOrder
-    win_rate?: SortOrder
   }
 
   export type PlayerStatsMaxOrderByAggregateInput = {
@@ -17470,7 +17413,6 @@ export namespace Prisma {
     assists?: SortOrder
     yellow_cards?: SortOrder
     red_cards?: SortOrder
-    win_rate?: SortOrder
   }
 
   export type PlayerStatsMinOrderByAggregateInput = {
@@ -17480,7 +17422,6 @@ export namespace Prisma {
     assists?: SortOrder
     yellow_cards?: SortOrder
     red_cards?: SortOrder
-    win_rate?: SortOrder
   }
 
   export type PlayerStatsSumOrderByAggregateInput = {
@@ -17489,23 +17430,6 @@ export namespace Prisma {
     assists?: SortOrder
     yellow_cards?: SortOrder
     red_cards?: SortOrder
-    win_rate?: SortOrder
-  }
-
-  export type DecimalWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
-    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
-    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
-    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
-    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
-    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
-    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
-    not?: NestedDecimalWithAggregatesFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedDecimalFilter<$PrismaModel>
-    _sum?: NestedDecimalFilter<$PrismaModel>
-    _min?: NestedDecimalFilter<$PrismaModel>
-    _max?: NestedDecimalFilter<$PrismaModel>
   }
 
   export type LeaguesScalarRelationFilter = {
@@ -18256,14 +18180,6 @@ export namespace Prisma {
     connect?: PlayersWhereUniqueInput
   }
 
-  export type DecimalFieldUpdateOperationsInput = {
-    set?: Decimal | DecimalJsLike | number | string
-    increment?: Decimal | DecimalJsLike | number | string
-    decrement?: Decimal | DecimalJsLike | number | string
-    multiply?: Decimal | DecimalJsLike | number | string
-    divide?: Decimal | DecimalJsLike | number | string
-  }
-
   export type PlayersUpdateOneRequiredWithoutPlayer_statsNestedInput = {
     create?: XOR<PlayersCreateWithoutPlayer_statsInput, PlayersUncheckedCreateWithoutPlayer_statsInput>
     connectOrCreate?: PlayersCreateOrConnectWithoutPlayer_statsInput
@@ -18476,33 +18392,6 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedDateTimeFilter<$PrismaModel>
     _max?: NestedDateTimeFilter<$PrismaModel>
-  }
-
-  export type NestedDecimalFilter<$PrismaModel = never> = {
-    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
-    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
-    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
-    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
-    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
-    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
-    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
-    not?: NestedDecimalFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string
-  }
-
-  export type NestedDecimalWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
-    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
-    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel>
-    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
-    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
-    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
-    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
-    not?: NestedDecimalWithAggregatesFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedDecimalFilter<$PrismaModel>
-    _sum?: NestedDecimalFilter<$PrismaModel>
-    _min?: NestedDecimalFilter<$PrismaModel>
-    _max?: NestedDecimalFilter<$PrismaModel>
   }
 
   export type EmployeeCreateWithoutTeamInput = {
@@ -18920,7 +18809,6 @@ export namespace Prisma {
     assists: number
     yellow_cards: number
     red_cards: number
-    win_rate?: Decimal | DecimalJsLike | number | string
   }
 
   export type PlayerStatsUncheckedCreateWithoutPlayerInput = {
@@ -18929,7 +18817,6 @@ export namespace Prisma {
     assists: number
     yellow_cards: number
     red_cards: number
-    win_rate?: Decimal | DecimalJsLike | number | string
   }
 
   export type PlayerStatsCreateOrConnectWithoutPlayerInput = {
@@ -19125,7 +19012,6 @@ export namespace Prisma {
     assists?: IntFieldUpdateOperationsInput | number
     yellow_cards?: IntFieldUpdateOperationsInput | number
     red_cards?: IntFieldUpdateOperationsInput | number
-    win_rate?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
   }
 
   export type PlayerStatsUncheckedUpdateWithoutPlayerInput = {
@@ -19134,7 +19020,6 @@ export namespace Prisma {
     assists?: IntFieldUpdateOperationsInput | number
     yellow_cards?: IntFieldUpdateOperationsInput | number
     red_cards?: IntFieldUpdateOperationsInput | number
-    win_rate?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
   }
 
   export type PlayerTeamAchievementsUpsertWithWhereUniqueWithoutPlayerInput = {

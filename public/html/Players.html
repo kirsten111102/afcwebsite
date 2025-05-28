@@ -6,11 +6,11 @@
     <script src="/js/dropdown.js"></script>
     <script src="/js/header.js"></script>
     <script src="/index.js"></script>
-    <title>Kiyotaka Ayanokoji - Stats and Biography</title>
   </head>
   <div id="header"></div>
   <body>
-    <div id="player-info"></div>
+    <div id="player-info">Loading player info.....</div>
+    <div id="bottom"></div>
   </body>
   <script>
     const params = new URLSearchParams(window.location.search);
@@ -18,54 +18,110 @@
 
     fetch(`/api/player/${player_id}`)
       .then((res) => res.json())
-      .then((players) => {
+      .then((data) => {
+        const players = data.players;
+        const teammatethoughts = data.teammatethoughts;
+
         if (players.error) {
           document.getElementById("player-info").innerText =
             "Player not found.";
           return;
         }
         document.body.id = players.team_id;
+        document.title = `${players.name} - Stats and Biography`;
+
+        const bottom = document.getElementById("bottom");
+        bottom.innerHTML = `<a href="/html/Teams.html?id=${players.team_id}"><button>Back</button></a>`;
 
         const element = document.getElementById(players.team_id);
         element.style.backgroundImage = `/img/teamslogo/${players.team_id}logo.png`;
+
+        const playerratings = players.player_rating;
+        const overall =
+          (playerratings.pace +
+            playerratings.shooting +
+            playerratings.passing +
+            playerratings.dribbling +
+            playerratings.physical +
+            playerratings.defending) /
+          6;
+
+        const playerinfo = players.player_info;
+
+        const playerdob = new Date(playerinfo.dob);
+
+        const date = playerdob.getDate().toString();
+        const lastdatedigit = date.charAt(date.length - 1);
+        let suffix = "";
+
+        switch (lastdatedigit) {
+          case "1":
+            suffix = "st";
+            break;
+          case "2":
+            suffix = "nd";
+            break;
+          case "3":
+            suffix = "rd";
+            break;
+          default:
+            suffix = "th";
+        }
+
+        const playerstats = players.player_stats;
 
         document.getElementById("player-info").innerHTML = `
         <div id="top">
             <div id="name-ovr" class="objects">
                 <img src="/img/teamsimg/${players.team_id}/${players.id}.webp">
                 <p id="name">${players.name}</p>
-                <p id="ovr">Overall: 71</p>
+                <p id="ovr">Overall: ${Math.round(overall)}</p>
             </div>
             <div id="detailovr" class="objects">
                 <h3>Detail Overall</h3>
                 <ul>
-                    <li>Pace: <strong>80</strong></li>
-                    <li>Shooting: <strong>91</strong></li>
-                    <li>Passing: <strong>62</strong></li>
-                    <li>Dribbling: <strong>60</strong></li>
-                    <li>Defending: <strong>67</strong></li>
-                    <li>Physical: <strong>63</strong></li>
+                    <li>Pace: <strong>${playerratings.pace}</strong></li>
+                    <li>Shooting: <strong>${
+                      playerratings.shooting
+                    }</strong></li>
+                    <li>Passing: <strong>${playerratings.passing}</strong></li>
+                    <li>Dribbling: <strong>${
+                      playerratings.dribbling
+                    }</strong></li>
+                    <li>Defending: <strong>${
+                      playerratings.defending
+                    }</strong></li>
+                    <li>Physical: <strong>${
+                      playerratings.physical
+                    }</strong></li>
                 </ul>
             </div>
             <div id="basic-info" class="objects">
                 <h3>Information</h3>
                 <ul>
-                    <li>DOB: <strong>October 20<sup>th</sup></strong></li>
+                    <li>DOB: <strong>${playerdob.toLocaleString("en-US", {
+                      month: "long",
+                    })} ${playerdob.getDate()}<sup>${suffix}</sup></strong></li>
                     <li>Age: <strong>${players.age}</strong></li>
-                    <li>Birthplace: <strong>Japan</strong></li>
-                    <li>Gender: <strong>Male</strong></li>
-                    <li>Height: <strong>176cm</strong></li>
+                    <li>Birthplace: <strong>${
+                      playerinfo.birthplace
+                    }</strong></li>
+                    <li>Gender: <strong>${playerinfo.gender}</strong></li>
+                    <li>Height: <strong>${playerinfo.height}cm</strong></li>
                 </ul>
             </div>
             <div id="stats" class="objects">
                 <h3>Career</h3>
                 <ul>
-                    <li>Matches: <strong>34</strong></li>
-                    <li>Goals: <strong>18</strong></li>
-                    <li>Assists: <strong>2</strong></li>
-                    <li>Yellow Cards: <strong>2</strong></li>
-                    <li>Red Cards: <strong>0</strong></li>
-                    <li>Win Rate: <strong>5.9%</strong></li>
+                    <li>Matches: <strong>${playerstats.matches}</strong></li>
+                    <li>Goals: <strong>${playerstats.goals}</strong></li>
+                    <li>Assists: <strong>${playerstats.assists}</strong></li>
+                    <li>Yellow Cards: <strong>${
+                      playerstats.yellow_cards
+                    }</strong></li>
+                    <li>Red Cards: <strong>${
+                      playerstats.red_cards
+                    }</strong></li>
                 </ul>
             </div>
             <div id="achivements" class="objects">
@@ -75,21 +131,49 @@
         <div id="middle">
             <div id="biography" class="objects">
                 <h2>Biography</h2>
-                <p>Genius of White Room, Mastermind of everywhere he goes, great tactician, but little who know he really is.</p>
-                <p>Good skills for playing football, can evaluate and analyse what happened in the pitch, but only keeps in his mind while he is playing, need to be understood or his team will lose because of disconnection.</p>
             </div>
             <div id="teammates" class="objects">
                 <h2>Teammate Thoughts</h2>
-                <q>He is a good player, a player whom I can trust.</q>
-                <p>- <a href="#" class="namelink">Yosuke Hirata</a> -</p>
-                <q>He is good but I should be the captain to kick his ass cause sometimes he doesn't focus on the f**king pitch.</q>
-                <p>- <a href="#" class="namelink">Kakeru Ryuen</a> -</p>
             </div>
         </div>
-        <div id="bottom">
-            <a href="/html/teamshtml/COTE.html"><button>Back</button></a>
-        </div>
         `;
+
+        const playerbio = playerinfo.biography.split("; ");
+        const biography = document.getElementById("biography");
+        playerbio.forEach((paragraph) => {
+          const p = document.createElement("p");
+
+          p.innerText = `${paragraph}`;
+          biography.appendChild(p);
+        });
+
+        const teammate = document.getElementById("teammates");
+        teammatethoughts.forEach((thought) => {
+          const opinion = document.createElement("div");
+          const author = thought.author;
+
+          opinion.innerHTML = `
+                <q>${thought.thoughts}</q>
+                <p>- <a href="/html/Players.html?id=${author.id}" class="namelink">${author.name}</a> -</p>
+            `;
+
+          teammate.appendChild(opinion);
+        });
+      });
+
+    fetch("/api/teams")
+      .then((res) => res.json())
+      .then((teams) => {
+        const dropdown = document.getElementById("dropdownteams");
+        const list = document.createElement("div");
+        list.className = "teamlist";
+        teams.forEach((team) => {
+          const link = document.createElement("a");
+          link.href = `/html/Teams.html?id=${team.id}`;
+          link.innerHTML = `${team.name}`;
+          list.appendChild(link);
+        });
+        dropdown.appendChild(list);
       });
   </script>
 </html>
