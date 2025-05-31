@@ -11,10 +11,19 @@ router.get("/:id", async (req, res) => {
       where: { id: id },
       include: {
         team: true,
-        player_rating: true,
-        player_info: true,
-        player_stats: true,
       },
+    });
+
+    const playerratings = await prisma.playerRatings.findUnique({
+      where: { player_id: id },
+    });
+
+    const playerinfo = await prisma.playerInfo.findUnique({
+      where: { player_id: id },
+    });
+
+    const playerstats = await prisma.playerStats.findUnique({
+      where: { player_id: id },
     });
 
     const teammatethoughts = await prisma.playerTeammateThoughts.findMany({
@@ -29,7 +38,13 @@ router.get("/:id", async (req, res) => {
       return res.status(404).json({ error: "Player not found" });
     }
 
-    res.json({ players, teammatethoughts });
+    res.json({
+      players,
+      playerratings,
+      playerinfo,
+      playerstats,
+      teammatethoughts,
+    });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Server error" });

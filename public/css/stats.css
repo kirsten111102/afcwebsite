@@ -3,7 +3,6 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
-  background-color: aqua;
   width: 98.5%;
   height: 98.5%;
 }
@@ -23,7 +22,7 @@ body {
 
 #name-ovr {
   text-align: center;
-  width: 15%;
+  width: 25%;
   border: 1px solid;
   padding-top: 13px;
 }
@@ -60,7 +59,7 @@ ul li {
 }
 
 #achivements {
-  width: 51%;
+  width: 41%;
 }
 
 #middle {

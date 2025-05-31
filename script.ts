@@ -26,10 +26,9 @@ async function main() {
         ]
     })*/
   /*const updatePlayer = await prisma.players.update({
-    where: { id: "pw_7" },
+    where: { id: "ds_30" },
     data: {
-      id: "pw_9",
-      shirt_no: 9,
+      age: 24,
     },
   });*/
   /*const updateTeams = await prisma.teams.update({
@@ -450,7 +449,7 @@ async function main() {
       {name: "Sakanayagi Arisu", age: 18, position: "Coach", team_id: "cote"},
     ]
   });*/
-  //const allPlayers = await prisma.players.findMany();
+  const allPlayers = await prisma.players.findMany();
   /*const ratings = await prisma.playerRatings.create({
     data: {
       player_id: "cote_10",
@@ -473,15 +472,8 @@ async function main() {
         "Genius of White Room, Mastermind of everywhere he goes, great tactician, but little who know he really is.; Good skills for playing football, can evaluate and analyse what happened in the pitch, but only keeps in his mind while he is playing, need to be understood or his team will lose because of disconnection.",
     },
   });*/
-  /*const stats = await prisma.playerStats.create({
-    data: {
-      player_id: "cote_10",
-      matches: 34,
-      goals: 18,
-      assists: 2,
-      yellow_cards: 2,
-      red_cards: 0,
-    },
+  /*const deletedRatings = await prisma.playerRatings.delete({
+    where: { player_id: "cote_10" },
   });*/
   /*const thoughts = await prisma.playerTeammateThoughts.createMany({
     data: [
@@ -498,8 +490,48 @@ async function main() {
       },
     ],
   });*/
-  /*const allinfo = await prisma.playerInfo.findMany();
-  console.log(allinfo);*/
+  /*const allinfo = await prisma.playerInfo.findMany();*/
+  var fs = require("fs");
+
+  fs.writeFile(
+    "allplayers.txt",
+    JSON.stringify(allPlayers),
+    function (err: any) {
+      if (err) throw err;
+      console.log("Updated!");
+    }
+  );
+
+  const rawdata = fs.readFileSync("all_player_stats.txt", "utf-8");
+  const playerStatsArray = JSON.parse(rawdata);
+  /*const stats = await prisma.playerStats.createMany({
+    data: playerStatsArray,
+  });*/
+  //console.log(await prisma.playerStats.findMany());
+
+  const csvtojson = require("csvtojson");
+
+  const playerRatingsArray = await csvtojson()
+    .fromFile("player_ratings.csv")
+    .then((jsonArray: any[]) => {
+      return jsonArray.map((player) => ({
+        player_id: player["player_id"],
+        pace: parseInt(player["pace"]),
+        shooting: parseInt(player["shooting"]),
+        passing: parseInt(player["passing"]),
+        dribbling: parseInt(player["dribbling"]),
+        defending: parseInt(player["defending"]),
+        physical: parseInt(player["physical"]),
+      }));
+    })
+    .catch((err: any) => {
+      console.error("Error parsing CSV:", err);
+      return [];
+    });
+
+  /*const ratings = await prisma.playerRatings.createMany({
+    data: playerRatingsArray,
+  });*/
 }
 
 main()

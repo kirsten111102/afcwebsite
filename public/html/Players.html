@@ -21,6 +21,9 @@
       .then((data) => {
         const players = data.players;
         const teammatethoughts = data.teammatethoughts;
+        const playerratings = data.playerratings;
+        const playerinfo = data.playerinfo;
+        const playerstats = data.playerstats;
 
         if (players.error) {
           document.getElementById("player-info").innerText =
@@ -33,42 +36,51 @@
         const bottom = document.getElementById("bottom");
         bottom.innerHTML = `<a href="/html/Teams.html?id=${players.team_id}"><button>Back</button></a>`;
 
-        const element = document.getElementById(players.team_id);
-        element.style.backgroundImage = `/img/teamslogo/${players.team_id}logo.png`;
-
-        const playerratings = players.player_rating;
-        const overall =
-          (playerratings.pace +
-            playerratings.shooting +
-            playerratings.passing +
-            playerratings.dribbling +
-            playerratings.physical +
-            playerratings.defending) /
-          6;
-
-        const playerinfo = players.player_info;
-
-        const playerdob = new Date(playerinfo.dob);
-
-        const date = playerdob.getDate().toString();
-        const lastdatedigit = date.charAt(date.length - 1);
-        let suffix = "";
-
-        switch (lastdatedigit) {
-          case "1":
-            suffix = "st";
-            break;
-          case "2":
-            suffix = "nd";
-            break;
-          case "3":
-            suffix = "rd";
-            break;
-          default:
-            suffix = "th";
+        let overall = 0;
+        if (playerratings !== null) {
+          if (
+            ["Striker", "Forward", "Center Forward"].includes(players.position)
+          ) {
+            overall = Math.round(
+              playerratings.pace * 0.3 +
+                playerratings.shooting * 0.35 +
+                playerratings.dribbling * 0.2 +
+                playerratings.physical * 0.15
+            );
+          } else if (
+            [
+              "Midfielder",
+              "Attacking Midfielder",
+              "Defensive Midfielder",
+              "Goalkeeper/Midfielder",
+            ].includes(players.position)
+          ) {
+            overall = Math.round(
+              playerratings.passing * 0.4 +
+                playerratings.dribbling * 0.3 +
+                playerratings.physical * 0.2 +
+                playerratings.defending * 0.1
+            );
+          } else if (["Defender"].includes(players.position))
+            overall = Math.round(
+              playerratings.defending * 0.4 +
+                playerratings.physical * 0.3 +
+                playerratings.pace * 0.2 +
+                playerratings.passing * 0.1
+            );
+          else if (players.position === "Goalkeeper")
+            overall = Math.round(
+              playerratings.pace * 0.15 +
+                playerratings.physical * 0.2 +
+                playerratings.shooting * 0.1 +
+                playerratings.passing * 0.25 +
+                playerratings.dribbling * 0.1 +
+                playerratings.defending * 0.2
+            );
         }
 
-        const playerstats = players.player_stats;
+        const element = document.getElementById(players.team_id);
+        element.style.backgroundImage = `url('/img/teamslogo/${players.team_id}logo.png')`;
 
         document.getElementById("player-info").innerHTML = `
         <div id="top">
@@ -79,36 +91,10 @@
             </div>
             <div id="detailovr" class="objects">
                 <h3>Detail Overall</h3>
-                <ul>
-                    <li>Pace: <strong>${playerratings.pace}</strong></li>
-                    <li>Shooting: <strong>${
-                      playerratings.shooting
-                    }</strong></li>
-                    <li>Passing: <strong>${playerratings.passing}</strong></li>
-                    <li>Dribbling: <strong>${
-                      playerratings.dribbling
-                    }</strong></li>
-                    <li>Defending: <strong>${
-                      playerratings.defending
-                    }</strong></li>
-                    <li>Physical: <strong>${
-                      playerratings.physical
-                    }</strong></li>
-                </ul>
             </div>
             <div id="basic-info" class="objects">
                 <h3>Information</h3>
-                <ul>
-                    <li>DOB: <strong>${playerdob.toLocaleString("en-US", {
-                      month: "long",
-                    })} ${playerdob.getDate()}<sup>${suffix}</sup></strong></li>
-                    <li>Age: <strong>${players.age}</strong></li>
-                    <li>Birthplace: <strong>${
-                      playerinfo.birthplace
-                    }</strong></li>
-                    <li>Gender: <strong>${playerinfo.gender}</strong></li>
-                    <li>Height: <strong>${playerinfo.height}cm</strong></li>
-                </ul>
+
             </div>
             <div id="stats" class="objects">
                 <h3>Career</h3>
@@ -137,6 +123,70 @@
             </div>
         </div>
         `;
+
+        const objects = document.querySelectorAll(".objects");
+
+        let bgColor = "";
+        if (overall > 0 && overall < 65) {
+          bgColor = "#cd7f32";
+        } else if (overall >= 65 && overall < 75) {
+          bgColor = "silver";
+        } else if (overall >= 75) {
+          bgColor = "gold";
+        }
+
+        objects.forEach((element) => {
+          element.style.backgroundColor = bgColor;
+        });
+
+        const detailovr = document.getElementById("detailovr");
+        if (playerratings !== null) {
+          const statslist = document.createElement("ul");
+          statslist.innerHTML = `
+            <li>Pace: <strong>${playerratings.pace}</strong></li>
+            <li>Shooting: <strong>${playerratings.shooting}</strong></li>
+            <li>Passing: <strong>${playerratings.passing}</strong></li>
+            <li>Dribbling: <strong>${playerratings.dribbling}</strong></li>
+            <li>Defending: <strong>${playerratings.defending}</strong></li>
+            <li>Physical: <strong>${playerratings.physical}</strong></li>
+          `;
+          detailovr.appendChild(statslist);
+        }
+
+        const info = document.getElementById("basic-info");
+        if (playerinfo !== null) {
+          const playerdob = new Date(playerinfo.dob);
+
+          const date = playerdob.getDate().toString();
+          const lastdatedigit = date.charAt(date.length - 1);
+          let suffix = "";
+
+          switch (lastdatedigit) {
+            case "1":
+              suffix = "st";
+              break;
+            case "2":
+              suffix = "nd";
+              break;
+            case "3":
+              suffix = "rd";
+              break;
+            default:
+              suffix = "th";
+          }
+
+          const infolist = document.createElement("ul");
+          infolist.innerHTML = `
+            <li>DOB: <strong>${playerdob.toLocaleString("en-US", {
+              month: "long",
+            })} ${playerdob.getDate()}<sup>${suffix}</sup></strong></li>
+            <li>Age: <strong>${players.age}</strong></li>
+            <li>Birthplace: <strong>${playerinfo.birthplace}</strong></li>
+            <li>Gender: <strong>${playerinfo.gender}</strong></li>
+            <li>Height: <strong>${playerinfo.height}cm</strong></li>
+          `;
+          info.appendChild(infolist);
+        }
 
         const playerbio = playerinfo.biography.split("; ");
         const biography = document.getElementById("biography");
