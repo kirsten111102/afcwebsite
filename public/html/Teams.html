@@ -52,11 +52,11 @@
             for (const employee of employees) {
               if (employee.position === "Coach") {
                 const names = employee.name.split(" ");
-                const last_name = names[1].toLowerCase();
+                const last_name = names[names.length - 1].toLowerCase();
                 document.getElementById("team-info").innerHTML += `
                   <h2>Coach: </h2>
                   <div class="profile">
-                      <img src="/img/teamsimg/${teamId}/${last_name}.webp">
+                      <img src="/img/teamsimg/${teamId}/${last_name}.webp" class="manageravt">
                       <p class="manager-name">${employee.name}</p>
                   </div>
                 `;

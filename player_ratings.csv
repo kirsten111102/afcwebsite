@@ -21,7 +21,7 @@ Yamanaka Inojin,2,4,0,0,11,41,Midfielder,boruto,boruto_12,55,54,57,53,69,63,58
 Uzumaki Boruto,29,29,1,0,34,41,Striker,boruto,boruto_10,73,99,99,85,65,69,84
 Kawaki,31,19,1,0,34,41,Striker,boruto,boruto_7,73,99,88,81,65,69,83
 Ichigo Kurosaki,35,9,4,0,34,60,Striker,bleach,bleach_7,74,99,72,79,50,59,81
-Byakuya Kuchiki,13,25,3,0,34,60,Midfileder,bleach,bleach_8,69,76,95,72,54,62,71
+Byakuya Kuchiki,13,25,3,0,34,60,Midfielder,bleach,bleach_8,69,76,95,72,54,62,77
 Hitsugaya Toshiro,0,8,3,0,34,60,Goalkeeper,bleach,bleach_1,65,52,64,54,54,62,83
 Aizen Sosuke,11,21,2,0,34,60,Midfielder,bleach,bleach_10,68,72,88,68,58,65,74
 Grimmjow Jaegerjaquez,12,4,4,0,34,60,Defender,bleach,bleach_5,68,68,59,60,50,59,57
@@ -64,12 +64,12 @@ Gouenji Shuuya,13,8,1,0,34,64,Striker,ie,ie_10,69,71,66,63,63,67,68
 Kidou Yuuto,10,5,0,0,34,64,Midfielder,ie,ie_14,68,66,60,60,67,70,63
 Endou Mamoru,0,35,0,0,29,64,Goalkeeper,ie,ie_1,63,60,99,68,67,68,80
 Tachimukai Yuuki,0,0,0,0,5,64,Goalkeeper,ie,ie_20,52,50,50,50,67,60,68
-Vinsmoke Sanji,34,22,1,1,27,42,Striker,op,op_7,71,99,94,85,56,66,83
-Roronoa Zoro,25,17,2,2,27,42,Striker,op,op_10,68,90,84,76,42,63,77
+Vinsmoke Sanji,34,22,1,0,27,42,Striker,op,op_7,71,99,94,85,65,66,83
+Roronoa Zoro,25,17,2,0,27,42,Striker,op,op_10,68,90,84,76,60,63,77
 Koby,10,4,0,0,30,42,Midfielder,op,op_6,66,65,59,59,69,70,62
 Franky,7,6,0,0,15,42,Defender,op,op_4,58,62,62,58,69,65,65
 Monkey D. Luffy,10,24,0,0,27,42,Goalkeeper,op,op_1,65,71,93,69,69,69,82
-Jinbei,0,4,1,1,7,42,Goalkeeper,op,op_23,53,51,57,52,56,59,62
+Jinbei,0,4,1,0,7,42,Goalkeeper,op,op_23,53,51,57,52,65,59,72
 Pikachu,20,10,0,0,34,75,Striker,pw,pw_10,70,81,71,69,66,69,73
 Charizard,6,8,0,0,34,75,Midfielder,pw,pw_6,67,61,65,58,66,69,64
 Venusaur,0,1,0,0,34,75,Defender,pw,pw_4,65,50,52,50,66,69,65

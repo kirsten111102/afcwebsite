@@ -443,11 +443,37 @@ async function main() {
   });*/
   /*const newCoaches = await prisma.employee.createMany({
     data: [
-      {name: "Uchiha Sasuke", age: 36, position: "Coach", team_id: "aot"},
-      {name: "Hatake Kakashi", age: 50, position: "Coach", team_id: "boruto"},
-      {name: "Sarutobi Konohamaru", age: 34, position: "Coach", team_id: "boboiboy"},
-      {name: "Sakanayagi Arisu", age: 18, position: "Coach", team_id: "cote"},
-    ]
+      { name: "Kisuke Urahara", age: 35, position: "Coach", team_id: "bleach" },
+      { name: "Hiroshi Agasha", age: 52, position: "Coach", team_id: "dfc" },
+      { name: "Kaguya Ubuyashiki", age: 30, position: "Coach", team_id: "ds" },
+      {
+        name: "Elichiro Senjou",
+        age: 52,
+        position: "Coach",
+        team_id: "doraemon",
+      },
+      { name: "Vegeta", age: 38, position: "Coach", team_id: "dbz" },
+      { name: "Makarov Dreyar", age: 90, position: "Coach", team_id: "ft" },
+      { name: "Ging Freecs", age: 43, position: "Coach", team_id: "hxh" },
+      { name: "Kudou Michiya", age: 41, position: "Coach", team_id: "ie" },
+      { name: "Monkey D Dragon", age: 55, position: "Coach", team_id: "op" },
+      { name: "Kukui", age: 39, position: "Coach", team_id: "pl" },
+      { name: "Ash Ketchum", age: 19, position: "Coach", team_id: "pw" },
+      { name: "Uchiha Itachi", age: 42, position: "Coach", team_id: "ta" },
+      { name: "Kozo Kira", age: 44, position: "Coach", team_id: "tfs" },
+      {
+        name: "Ismail bin Mail",
+        age: 18,
+        position: "Coach",
+        team_id: "u_and_i",
+      },
+    ],
+  });*/
+  /*const updateCoach = await prisma.employee.updateMany({
+    where: { team_id: "ds" },
+    data: {
+      name: "Ubuyashiki Kagaya",
+    },
   });*/
   const allPlayers = await prisma.players.findMany();
   /*const ratings = await prisma.playerRatings.create({
@@ -504,7 +530,8 @@ async function main() {
 
   const rawdata = fs.readFileSync("all_player_stats.txt", "utf-8");
   const playerStatsArray = JSON.parse(rawdata);
-  /*const stats = await prisma.playerStats.createMany({
+  /*await prisma.playerStats.deleteMany();
+  const stats = await prisma.playerStats.createMany({
     data: playerStatsArray,
   });*/
   //console.log(await prisma.playerStats.findMany());
@@ -529,7 +556,8 @@ async function main() {
       return [];
     });
 
-  /*const ratings = await prisma.playerRatings.createMany({
+  /*await prisma.playerRatings.deleteMany();
+  const ratings = await prisma.playerRatings.createMany({
     data: playerRatingsArray,
   });*/
 
