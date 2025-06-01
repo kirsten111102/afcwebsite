@@ -47,6 +47,15 @@ app.get("/api/teams", async (req, res) => {
   res.json(teams);
 });
 
+app.get("/api/players", async (req, res) => {
+  const players = await prisma.players.findMany({
+    include: {
+      player_rating: true,
+    },
+  });
+  res.json(players);
+});
+
 app.use("/api/team", teamRoutes);
 app.use("/api/player", playerRoutes);
 

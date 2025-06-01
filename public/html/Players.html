@@ -161,19 +161,22 @@
           const lastdatedigit = date.charAt(date.length - 1);
           let suffix = "";
 
-          switch (lastdatedigit) {
-            case "1":
-              suffix = "st";
-              break;
-            case "2":
-              suffix = "nd";
-              break;
-            case "3":
-              suffix = "rd";
-              break;
-            default:
-              suffix = "th";
-          }
+          if (date.length > 1 && date.charAt(date.length - 2) === "1")
+            suffix = "th";
+          else
+            switch (lastdatedigit) {
+              case "1":
+                suffix = "st";
+                break;
+              case "2":
+                suffix = "nd";
+                break;
+              case "3":
+                suffix = "rd";
+                break;
+              default:
+                suffix = "th";
+            }
 
           const infolist = document.createElement("ul");
           infolist.innerHTML = `

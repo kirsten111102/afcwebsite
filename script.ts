@@ -532,6 +532,25 @@ async function main() {
   /*const ratings = await prisma.playerRatings.createMany({
     data: playerRatingsArray,
   });*/
+
+  const rawinfo = fs.readFileSync("all_player_info.txt", "utf-8");
+  const playerInfoArray = JSON.parse(rawinfo);
+  /*playerInfoArray.forEach(async (player: any) => {
+    const info = await prisma.playerInfo.create({
+      data: {
+        player_id: player.player_id,
+        dob: new Date(player.dob),
+        birthplace: player.birthplace,
+        gender: player.gender,
+        height: player.height,
+        biography: player.biography,
+      },
+    });
+  });
+  /*const info = await prisma.playerInfo.createMany({
+    data: playerInfoArray,
+  });*/
+  //console.log(await prisma.playerInfo.findMany());
 }
 
 main()
