@@ -1987,10 +1987,12 @@ export namespace Prisma {
 
   export type LeaguesCountOutputType = {
     league_achievement: number
+    personal_achievement: number
   }
 
   export type LeaguesCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     league_achievement?: boolean | LeaguesCountOutputTypeCountLeague_achievementArgs
+    personal_achievement?: boolean | LeaguesCountOutputTypeCountPersonal_achievementArgs
   }
 
   // Custom InputTypes
@@ -2009,6 +2011,13 @@ export namespace Prisma {
    */
   export type LeaguesCountOutputTypeCountLeague_achievementArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: PlayerTeamAchievementsWhereInput
+  }
+
+  /**
+   * LeaguesCountOutputType without action
+   */
+  export type LeaguesCountOutputTypeCountPersonal_achievementArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PlayerPersonalAchievementsWhereInput
   }
 
 
@@ -6797,6 +6806,7 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     league_achievement?: boolean | Leagues$league_achievementArgs<ExtArgs>
+    personal_achievement?: boolean | Leagues$personal_achievementArgs<ExtArgs>
     _count?: boolean | LeaguesCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["leagues"]>
 
@@ -6818,6 +6828,7 @@ export namespace Prisma {
   export type LeaguesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name", ExtArgs["result"]["leagues"]>
   export type LeaguesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     league_achievement?: boolean | Leagues$league_achievementArgs<ExtArgs>
+    personal_achievement?: boolean | Leagues$personal_achievementArgs<ExtArgs>
     _count?: boolean | LeaguesCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type LeaguesIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -6827,6 +6838,7 @@ export namespace Prisma {
     name: "Leagues"
     objects: {
       league_achievement: Prisma.$PlayerTeamAchievementsPayload<ExtArgs>[]
+      personal_achievement: Prisma.$PlayerPersonalAchievementsPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -7226,6 +7238,7 @@ export namespace Prisma {
   export interface Prisma__LeaguesClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     league_achievement<T extends Leagues$league_achievementArgs<ExtArgs> = {}>(args?: Subset<T, Leagues$league_achievementArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PlayerTeamAchievementsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    personal_achievement<T extends Leagues$personal_achievementArgs<ExtArgs> = {}>(args?: Subset<T, Leagues$personal_achievementArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PlayerPersonalAchievementsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -7666,6 +7679,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: PlayerTeamAchievementsScalarFieldEnum | PlayerTeamAchievementsScalarFieldEnum[]
+  }
+
+  /**
+   * Leagues.personal_achievement
+   */
+  export type Leagues$personal_achievementArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PlayerPersonalAchievements
+     */
+    select?: PlayerPersonalAchievementsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PlayerPersonalAchievements
+     */
+    omit?: PlayerPersonalAchievementsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PlayerPersonalAchievementsInclude<ExtArgs> | null
+    where?: PlayerPersonalAchievementsWhereInput
+    orderBy?: PlayerPersonalAchievementsOrderByWithRelationInput | PlayerPersonalAchievementsOrderByWithRelationInput[]
+    cursor?: PlayerPersonalAchievementsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: PlayerPersonalAchievementsScalarFieldEnum | PlayerPersonalAchievementsScalarFieldEnum[]
   }
 
   /**
@@ -12088,38 +12125,26 @@ export namespace Prisma {
 
   export type AggregatePlayerTeamAchievements = {
     _count: PlayerTeamAchievementsCountAggregateOutputType | null
-    _avg: PlayerTeamAchievementsAvgAggregateOutputType | null
-    _sum: PlayerTeamAchievementsSumAggregateOutputType | null
     _min: PlayerTeamAchievementsMinAggregateOutputType | null
     _max: PlayerTeamAchievementsMaxAggregateOutputType | null
   }
 
-  export type PlayerTeamAchievementsAvgAggregateOutputType = {
-    id: number | null
-    year: number | null
-  }
-
-  export type PlayerTeamAchievementsSumAggregateOutputType = {
-    id: number | null
-    year: number | null
-  }
-
   export type PlayerTeamAchievementsMinAggregateOutputType = {
-    id: number | null
+    id: string | null
     player_id: string | null
     place: string | null
     league_id: string | null
     team_id: string | null
-    year: number | null
+    time: string | null
   }
 
   export type PlayerTeamAchievementsMaxAggregateOutputType = {
-    id: number | null
+    id: string | null
     player_id: string | null
     place: string | null
     league_id: string | null
     team_id: string | null
-    year: number | null
+    time: string | null
   }
 
   export type PlayerTeamAchievementsCountAggregateOutputType = {
@@ -12128,20 +12153,10 @@ export namespace Prisma {
     place: number
     league_id: number
     team_id: number
-    year: number
+    time: number
     _all: number
   }
 
-
-  export type PlayerTeamAchievementsAvgAggregateInputType = {
-    id?: true
-    year?: true
-  }
-
-  export type PlayerTeamAchievementsSumAggregateInputType = {
-    id?: true
-    year?: true
-  }
 
   export type PlayerTeamAchievementsMinAggregateInputType = {
     id?: true
@@ -12149,7 +12164,7 @@ export namespace Prisma {
     place?: true
     league_id?: true
     team_id?: true
-    year?: true
+    time?: true
   }
 
   export type PlayerTeamAchievementsMaxAggregateInputType = {
@@ -12158,7 +12173,7 @@ export namespace Prisma {
     place?: true
     league_id?: true
     team_id?: true
-    year?: true
+    time?: true
   }
 
   export type PlayerTeamAchievementsCountAggregateInputType = {
@@ -12167,7 +12182,7 @@ export namespace Prisma {
     place?: true
     league_id?: true
     team_id?: true
-    year?: true
+    time?: true
     _all?: true
   }
 
@@ -12209,18 +12224,6 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Select which fields to average
-    **/
-    _avg?: PlayerTeamAchievementsAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: PlayerTeamAchievementsSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
      * Select which fields to find the minimum value
     **/
     _min?: PlayerTeamAchievementsMinAggregateInputType
@@ -12251,22 +12254,18 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: PlayerTeamAchievementsCountAggregateInputType | true
-    _avg?: PlayerTeamAchievementsAvgAggregateInputType
-    _sum?: PlayerTeamAchievementsSumAggregateInputType
     _min?: PlayerTeamAchievementsMinAggregateInputType
     _max?: PlayerTeamAchievementsMaxAggregateInputType
   }
 
   export type PlayerTeamAchievementsGroupByOutputType = {
-    id: number
+    id: string
     player_id: string
     place: string
     league_id: string
     team_id: string
-    year: number
+    time: string
     _count: PlayerTeamAchievementsCountAggregateOutputType | null
-    _avg: PlayerTeamAchievementsAvgAggregateOutputType | null
-    _sum: PlayerTeamAchievementsSumAggregateOutputType | null
     _min: PlayerTeamAchievementsMinAggregateOutputType | null
     _max: PlayerTeamAchievementsMaxAggregateOutputType | null
   }
@@ -12291,7 +12290,7 @@ export namespace Prisma {
     place?: boolean
     league_id?: boolean
     team_id?: boolean
-    year?: boolean
+    time?: boolean
     player?: boolean | PlayersDefaultArgs<ExtArgs>
     league?: boolean | LeaguesDefaultArgs<ExtArgs>
     team?: boolean | TeamsDefaultArgs<ExtArgs>
@@ -12303,7 +12302,7 @@ export namespace Prisma {
     place?: boolean
     league_id?: boolean
     team_id?: boolean
-    year?: boolean
+    time?: boolean
     player?: boolean | PlayersDefaultArgs<ExtArgs>
     league?: boolean | LeaguesDefaultArgs<ExtArgs>
     team?: boolean | TeamsDefaultArgs<ExtArgs>
@@ -12315,7 +12314,7 @@ export namespace Prisma {
     place?: boolean
     league_id?: boolean
     team_id?: boolean
-    year?: boolean
+    time?: boolean
     player?: boolean | PlayersDefaultArgs<ExtArgs>
     league?: boolean | LeaguesDefaultArgs<ExtArgs>
     team?: boolean | TeamsDefaultArgs<ExtArgs>
@@ -12327,10 +12326,10 @@ export namespace Prisma {
     place?: boolean
     league_id?: boolean
     team_id?: boolean
-    year?: boolean
+    time?: boolean
   }
 
-  export type PlayerTeamAchievementsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "player_id" | "place" | "league_id" | "team_id" | "year", ExtArgs["result"]["playerTeamAchievements"]>
+  export type PlayerTeamAchievementsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "player_id" | "place" | "league_id" | "team_id" | "time", ExtArgs["result"]["playerTeamAchievements"]>
   export type PlayerTeamAchievementsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     player?: boolean | PlayersDefaultArgs<ExtArgs>
     league?: boolean | LeaguesDefaultArgs<ExtArgs>
@@ -12355,12 +12354,12 @@ export namespace Prisma {
       team: Prisma.$TeamsPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: number
+      id: string
       player_id: string
       place: string
       league_id: string
       team_id: string
-      year: number
+      time: string
     }, ExtArgs["result"]["playerTeamAchievements"]>
     composites: {}
   }
@@ -12787,12 +12786,12 @@ export namespace Prisma {
    * Fields of the PlayerTeamAchievements model
    */
   interface PlayerTeamAchievementsFieldRefs {
-    readonly id: FieldRef<"PlayerTeamAchievements", 'Int'>
+    readonly id: FieldRef<"PlayerTeamAchievements", 'String'>
     readonly player_id: FieldRef<"PlayerTeamAchievements", 'String'>
     readonly place: FieldRef<"PlayerTeamAchievements", 'String'>
     readonly league_id: FieldRef<"PlayerTeamAchievements", 'String'>
     readonly team_id: FieldRef<"PlayerTeamAchievements", 'String'>
-    readonly year: FieldRef<"PlayerTeamAchievements", 'Int'>
+    readonly time: FieldRef<"PlayerTeamAchievements", 'String'>
   }
     
 
@@ -13213,76 +13212,64 @@ export namespace Prisma {
 
   export type AggregatePlayerPersonalAchievements = {
     _count: PlayerPersonalAchievementsCountAggregateOutputType | null
-    _avg: PlayerPersonalAchievementsAvgAggregateOutputType | null
-    _sum: PlayerPersonalAchievementsSumAggregateOutputType | null
     _min: PlayerPersonalAchievementsMinAggregateOutputType | null
     _max: PlayerPersonalAchievementsMaxAggregateOutputType | null
   }
 
-  export type PlayerPersonalAchievementsAvgAggregateOutputType = {
-    year: number | null
-  }
-
-  export type PlayerPersonalAchievementsSumAggregateOutputType = {
-    year: number | null
-  }
-
   export type PlayerPersonalAchievementsMinAggregateOutputType = {
+    id: string | null
     player_id: string | null
     achievement_id: string | null
-    league: string | null
+    league_id: string | null
     team_id: string | null
-    year: number | null
+    time: string | null
   }
 
   export type PlayerPersonalAchievementsMaxAggregateOutputType = {
+    id: string | null
     player_id: string | null
     achievement_id: string | null
-    league: string | null
+    league_id: string | null
     team_id: string | null
-    year: number | null
+    time: string | null
   }
 
   export type PlayerPersonalAchievementsCountAggregateOutputType = {
+    id: number
     player_id: number
     achievement_id: number
-    league: number
+    league_id: number
     team_id: number
-    year: number
+    time: number
     _all: number
   }
 
 
-  export type PlayerPersonalAchievementsAvgAggregateInputType = {
-    year?: true
-  }
-
-  export type PlayerPersonalAchievementsSumAggregateInputType = {
-    year?: true
-  }
-
   export type PlayerPersonalAchievementsMinAggregateInputType = {
+    id?: true
     player_id?: true
     achievement_id?: true
-    league?: true
+    league_id?: true
     team_id?: true
-    year?: true
+    time?: true
   }
 
   export type PlayerPersonalAchievementsMaxAggregateInputType = {
+    id?: true
     player_id?: true
     achievement_id?: true
-    league?: true
+    league_id?: true
     team_id?: true
-    year?: true
+    time?: true
   }
 
   export type PlayerPersonalAchievementsCountAggregateInputType = {
+    id?: true
     player_id?: true
     achievement_id?: true
-    league?: true
+    league_id?: true
     team_id?: true
-    year?: true
+    time?: true
     _all?: true
   }
 
@@ -13324,18 +13311,6 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Select which fields to average
-    **/
-    _avg?: PlayerPersonalAchievementsAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: PlayerPersonalAchievementsSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
      * Select which fields to find the minimum value
     **/
     _min?: PlayerPersonalAchievementsMinAggregateInputType
@@ -13366,21 +13341,18 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: PlayerPersonalAchievementsCountAggregateInputType | true
-    _avg?: PlayerPersonalAchievementsAvgAggregateInputType
-    _sum?: PlayerPersonalAchievementsSumAggregateInputType
     _min?: PlayerPersonalAchievementsMinAggregateInputType
     _max?: PlayerPersonalAchievementsMaxAggregateInputType
   }
 
   export type PlayerPersonalAchievementsGroupByOutputType = {
+    id: string
     player_id: string
     achievement_id: string
-    league: string
+    league_id: string
     team_id: string
-    year: number
+    time: string
     _count: PlayerPersonalAchievementsCountAggregateOutputType | null
-    _avg: PlayerPersonalAchievementsAvgAggregateOutputType | null
-    _sum: PlayerPersonalAchievementsSumAggregateOutputType | null
     _min: PlayerPersonalAchievementsMinAggregateOutputType | null
     _max: PlayerPersonalAchievementsMaxAggregateOutputType | null
   }
@@ -13400,61 +13372,71 @@ export namespace Prisma {
 
 
   export type PlayerPersonalAchievementsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
     player_id?: boolean
     achievement_id?: boolean
-    league?: boolean
+    league_id?: boolean
     team_id?: boolean
-    year?: boolean
+    time?: boolean
     player?: boolean | PlayersDefaultArgs<ExtArgs>
     achievement?: boolean | PersonalAchievementsDefaultArgs<ExtArgs>
     team?: boolean | TeamsDefaultArgs<ExtArgs>
+    league?: boolean | LeaguesDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["playerPersonalAchievements"]>
 
   export type PlayerPersonalAchievementsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
     player_id?: boolean
     achievement_id?: boolean
-    league?: boolean
+    league_id?: boolean
     team_id?: boolean
-    year?: boolean
+    time?: boolean
     player?: boolean | PlayersDefaultArgs<ExtArgs>
     achievement?: boolean | PersonalAchievementsDefaultArgs<ExtArgs>
     team?: boolean | TeamsDefaultArgs<ExtArgs>
+    league?: boolean | LeaguesDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["playerPersonalAchievements"]>
 
   export type PlayerPersonalAchievementsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
     player_id?: boolean
     achievement_id?: boolean
-    league?: boolean
+    league_id?: boolean
     team_id?: boolean
-    year?: boolean
+    time?: boolean
     player?: boolean | PlayersDefaultArgs<ExtArgs>
     achievement?: boolean | PersonalAchievementsDefaultArgs<ExtArgs>
     team?: boolean | TeamsDefaultArgs<ExtArgs>
+    league?: boolean | LeaguesDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["playerPersonalAchievements"]>
 
   export type PlayerPersonalAchievementsSelectScalar = {
+    id?: boolean
     player_id?: boolean
     achievement_id?: boolean
-    league?: boolean
+    league_id?: boolean
     team_id?: boolean
-    year?: boolean
+    time?: boolean
   }
 
-  export type PlayerPersonalAchievementsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"player_id" | "achievement_id" | "league" | "team_id" | "year", ExtArgs["result"]["playerPersonalAchievements"]>
+  export type PlayerPersonalAchievementsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "player_id" | "achievement_id" | "league_id" | "team_id" | "time", ExtArgs["result"]["playerPersonalAchievements"]>
   export type PlayerPersonalAchievementsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     player?: boolean | PlayersDefaultArgs<ExtArgs>
     achievement?: boolean | PersonalAchievementsDefaultArgs<ExtArgs>
     team?: boolean | TeamsDefaultArgs<ExtArgs>
+    league?: boolean | LeaguesDefaultArgs<ExtArgs>
   }
   export type PlayerPersonalAchievementsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     player?: boolean | PlayersDefaultArgs<ExtArgs>
     achievement?: boolean | PersonalAchievementsDefaultArgs<ExtArgs>
     team?: boolean | TeamsDefaultArgs<ExtArgs>
+    league?: boolean | LeaguesDefaultArgs<ExtArgs>
   }
   export type PlayerPersonalAchievementsIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     player?: boolean | PlayersDefaultArgs<ExtArgs>
     achievement?: boolean | PersonalAchievementsDefaultArgs<ExtArgs>
     team?: boolean | TeamsDefaultArgs<ExtArgs>
+    league?: boolean | LeaguesDefaultArgs<ExtArgs>
   }
 
   export type $PlayerPersonalAchievementsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -13463,13 +13445,15 @@ export namespace Prisma {
       player: Prisma.$PlayersPayload<ExtArgs>
       achievement: Prisma.$PersonalAchievementsPayload<ExtArgs>
       team: Prisma.$TeamsPayload<ExtArgs>
+      league: Prisma.$LeaguesPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
+      id: string
       player_id: string
       achievement_id: string
-      league: string
+      league_id: string
       team_id: string
-      year: number
+      time: string
     }, ExtArgs["result"]["playerPersonalAchievements"]>
     composites: {}
   }
@@ -13553,8 +13537,8 @@ export namespace Prisma {
      * // Get first 10 PlayerPersonalAchievements
      * const playerPersonalAchievements = await prisma.playerPersonalAchievements.findMany({ take: 10 })
      * 
-     * // Only select the `player_id`
-     * const playerPersonalAchievementsWithPlayer_idOnly = await prisma.playerPersonalAchievements.findMany({ select: { player_id: true } })
+     * // Only select the `id`
+     * const playerPersonalAchievementsWithIdOnly = await prisma.playerPersonalAchievements.findMany({ select: { id: true } })
      * 
      */
     findMany<T extends PlayerPersonalAchievementsFindManyArgs>(args?: SelectSubset<T, PlayerPersonalAchievementsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PlayerPersonalAchievementsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
@@ -13598,9 +13582,9 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Create many PlayerPersonalAchievements and only return the `player_id`
-     * const playerPersonalAchievementsWithPlayer_idOnly = await prisma.playerPersonalAchievements.createManyAndReturn({
-     *   select: { player_id: true },
+     * // Create many PlayerPersonalAchievements and only return the `id`
+     * const playerPersonalAchievementsWithIdOnly = await prisma.playerPersonalAchievements.createManyAndReturn({
+     *   select: { id: true },
      *   data: [
      *     // ... provide data here
      *   ]
@@ -13689,9 +13673,9 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more PlayerPersonalAchievements and only return the `player_id`
-     * const playerPersonalAchievementsWithPlayer_idOnly = await prisma.playerPersonalAchievements.updateManyAndReturn({
-     *   select: { player_id: true },
+     * // Update zero or more PlayerPersonalAchievements and only return the `id`
+     * const playerPersonalAchievementsWithIdOnly = await prisma.playerPersonalAchievements.updateManyAndReturn({
+     *   select: { id: true },
      *   where: {
      *     // ... provide filter here
      *   },
@@ -13867,6 +13851,7 @@ export namespace Prisma {
     player<T extends PlayersDefaultArgs<ExtArgs> = {}>(args?: Subset<T, PlayersDefaultArgs<ExtArgs>>): Prisma__PlayersClient<$Result.GetResult<Prisma.$PlayersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     achievement<T extends PersonalAchievementsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, PersonalAchievementsDefaultArgs<ExtArgs>>): Prisma__PersonalAchievementsClient<$Result.GetResult<Prisma.$PersonalAchievementsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     team<T extends TeamsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, TeamsDefaultArgs<ExtArgs>>): Prisma__TeamsClient<$Result.GetResult<Prisma.$TeamsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    league<T extends LeaguesDefaultArgs<ExtArgs> = {}>(args?: Subset<T, LeaguesDefaultArgs<ExtArgs>>): Prisma__LeaguesClient<$Result.GetResult<Prisma.$LeaguesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -13896,11 +13881,12 @@ export namespace Prisma {
    * Fields of the PlayerPersonalAchievements model
    */
   interface PlayerPersonalAchievementsFieldRefs {
+    readonly id: FieldRef<"PlayerPersonalAchievements", 'String'>
     readonly player_id: FieldRef<"PlayerPersonalAchievements", 'String'>
     readonly achievement_id: FieldRef<"PlayerPersonalAchievements", 'String'>
-    readonly league: FieldRef<"PlayerPersonalAchievements", 'String'>
+    readonly league_id: FieldRef<"PlayerPersonalAchievements", 'String'>
     readonly team_id: FieldRef<"PlayerPersonalAchievements", 'String'>
-    readonly year: FieldRef<"PlayerPersonalAchievements", 'Int'>
+    readonly time: FieldRef<"PlayerPersonalAchievements", 'String'>
   }
     
 
@@ -15516,18 +15502,19 @@ export namespace Prisma {
     place: 'place',
     league_id: 'league_id',
     team_id: 'team_id',
-    year: 'year'
+    time: 'time'
   };
 
   export type PlayerTeamAchievementsScalarFieldEnum = (typeof PlayerTeamAchievementsScalarFieldEnum)[keyof typeof PlayerTeamAchievementsScalarFieldEnum]
 
 
   export const PlayerPersonalAchievementsScalarFieldEnum: {
+    id: 'id',
     player_id: 'player_id',
     achievement_id: 'achievement_id',
-    league: 'league',
+    league_id: 'league_id',
     team_id: 'team_id',
-    year: 'year'
+    time: 'time'
   };
 
   export type PlayerPersonalAchievementsScalarFieldEnum = (typeof PlayerPersonalAchievementsScalarFieldEnum)[keyof typeof PlayerPersonalAchievementsScalarFieldEnum]
@@ -15874,12 +15861,14 @@ export namespace Prisma {
     id?: StringFilter<"Leagues"> | string
     name?: StringFilter<"Leagues"> | string
     league_achievement?: PlayerTeamAchievementsListRelationFilter
+    personal_achievement?: PlayerPersonalAchievementsListRelationFilter
   }
 
   export type LeaguesOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
     league_achievement?: PlayerTeamAchievementsOrderByRelationAggregateInput
+    personal_achievement?: PlayerPersonalAchievementsOrderByRelationAggregateInput
   }
 
   export type LeaguesWhereUniqueInput = Prisma.AtLeast<{
@@ -15889,6 +15878,7 @@ export namespace Prisma {
     NOT?: LeaguesWhereInput | LeaguesWhereInput[]
     name?: StringFilter<"Leagues"> | string
     league_achievement?: PlayerTeamAchievementsListRelationFilter
+    personal_achievement?: PlayerPersonalAchievementsListRelationFilter
   }, "id">
 
   export type LeaguesOrderByWithAggregationInput = {
@@ -16142,12 +16132,12 @@ export namespace Prisma {
     AND?: PlayerTeamAchievementsWhereInput | PlayerTeamAchievementsWhereInput[]
     OR?: PlayerTeamAchievementsWhereInput[]
     NOT?: PlayerTeamAchievementsWhereInput | PlayerTeamAchievementsWhereInput[]
-    id?: IntFilter<"PlayerTeamAchievements"> | number
+    id?: StringFilter<"PlayerTeamAchievements"> | string
     player_id?: StringFilter<"PlayerTeamAchievements"> | string
     place?: StringFilter<"PlayerTeamAchievements"> | string
     league_id?: StringFilter<"PlayerTeamAchievements"> | string
     team_id?: StringFilter<"PlayerTeamAchievements"> | string
-    year?: IntFilter<"PlayerTeamAchievements"> | number
+    time?: StringFilter<"PlayerTeamAchievements"> | string
     player?: XOR<PlayersScalarRelationFilter, PlayersWhereInput>
     league?: XOR<LeaguesScalarRelationFilter, LeaguesWhereInput>
     team?: XOR<TeamsScalarRelationFilter, TeamsWhereInput>
@@ -16159,14 +16149,14 @@ export namespace Prisma {
     place?: SortOrder
     league_id?: SortOrder
     team_id?: SortOrder
-    year?: SortOrder
+    time?: SortOrder
     player?: PlayersOrderByWithRelationInput
     league?: LeaguesOrderByWithRelationInput
     team?: TeamsOrderByWithRelationInput
   }
 
   export type PlayerTeamAchievementsWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
+    id?: string
     AND?: PlayerTeamAchievementsWhereInput | PlayerTeamAchievementsWhereInput[]
     OR?: PlayerTeamAchievementsWhereInput[]
     NOT?: PlayerTeamAchievementsWhereInput | PlayerTeamAchievementsWhereInput[]
@@ -16174,7 +16164,7 @@ export namespace Prisma {
     place?: StringFilter<"PlayerTeamAchievements"> | string
     league_id?: StringFilter<"PlayerTeamAchievements"> | string
     team_id?: StringFilter<"PlayerTeamAchievements"> | string
-    year?: IntFilter<"PlayerTeamAchievements"> | number
+    time?: StringFilter<"PlayerTeamAchievements"> | string
     player?: XOR<PlayersScalarRelationFilter, PlayersWhereInput>
     league?: XOR<LeaguesScalarRelationFilter, LeaguesWhereInput>
     team?: XOR<TeamsScalarRelationFilter, TeamsWhereInput>
@@ -16186,87 +16176,91 @@ export namespace Prisma {
     place?: SortOrder
     league_id?: SortOrder
     team_id?: SortOrder
-    year?: SortOrder
+    time?: SortOrder
     _count?: PlayerTeamAchievementsCountOrderByAggregateInput
-    _avg?: PlayerTeamAchievementsAvgOrderByAggregateInput
     _max?: PlayerTeamAchievementsMaxOrderByAggregateInput
     _min?: PlayerTeamAchievementsMinOrderByAggregateInput
-    _sum?: PlayerTeamAchievementsSumOrderByAggregateInput
   }
 
   export type PlayerTeamAchievementsScalarWhereWithAggregatesInput = {
     AND?: PlayerTeamAchievementsScalarWhereWithAggregatesInput | PlayerTeamAchievementsScalarWhereWithAggregatesInput[]
     OR?: PlayerTeamAchievementsScalarWhereWithAggregatesInput[]
     NOT?: PlayerTeamAchievementsScalarWhereWithAggregatesInput | PlayerTeamAchievementsScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"PlayerTeamAchievements"> | number
+    id?: StringWithAggregatesFilter<"PlayerTeamAchievements"> | string
     player_id?: StringWithAggregatesFilter<"PlayerTeamAchievements"> | string
     place?: StringWithAggregatesFilter<"PlayerTeamAchievements"> | string
     league_id?: StringWithAggregatesFilter<"PlayerTeamAchievements"> | string
     team_id?: StringWithAggregatesFilter<"PlayerTeamAchievements"> | string
-    year?: IntWithAggregatesFilter<"PlayerTeamAchievements"> | number
+    time?: StringWithAggregatesFilter<"PlayerTeamAchievements"> | string
   }
 
   export type PlayerPersonalAchievementsWhereInput = {
     AND?: PlayerPersonalAchievementsWhereInput | PlayerPersonalAchievementsWhereInput[]
     OR?: PlayerPersonalAchievementsWhereInput[]
     NOT?: PlayerPersonalAchievementsWhereInput | PlayerPersonalAchievementsWhereInput[]
+    id?: StringFilter<"PlayerPersonalAchievements"> | string
     player_id?: StringFilter<"PlayerPersonalAchievements"> | string
     achievement_id?: StringFilter<"PlayerPersonalAchievements"> | string
-    league?: StringFilter<"PlayerPersonalAchievements"> | string
+    league_id?: StringFilter<"PlayerPersonalAchievements"> | string
     team_id?: StringFilter<"PlayerPersonalAchievements"> | string
-    year?: IntFilter<"PlayerPersonalAchievements"> | number
+    time?: StringFilter<"PlayerPersonalAchievements"> | string
     player?: XOR<PlayersScalarRelationFilter, PlayersWhereInput>
     achievement?: XOR<PersonalAchievementsScalarRelationFilter, PersonalAchievementsWhereInput>
     team?: XOR<TeamsScalarRelationFilter, TeamsWhereInput>
+    league?: XOR<LeaguesScalarRelationFilter, LeaguesWhereInput>
   }
 
   export type PlayerPersonalAchievementsOrderByWithRelationInput = {
+    id?: SortOrder
     player_id?: SortOrder
     achievement_id?: SortOrder
-    league?: SortOrder
+    league_id?: SortOrder
     team_id?: SortOrder
-    year?: SortOrder
+    time?: SortOrder
     player?: PlayersOrderByWithRelationInput
     achievement?: PersonalAchievementsOrderByWithRelationInput
     team?: TeamsOrderByWithRelationInput
+    league?: LeaguesOrderByWithRelationInput
   }
 
   export type PlayerPersonalAchievementsWhereUniqueInput = Prisma.AtLeast<{
-    player_id?: string
+    id?: string
     AND?: PlayerPersonalAchievementsWhereInput | PlayerPersonalAchievementsWhereInput[]
     OR?: PlayerPersonalAchievementsWhereInput[]
     NOT?: PlayerPersonalAchievementsWhereInput | PlayerPersonalAchievementsWhereInput[]
+    player_id?: StringFilter<"PlayerPersonalAchievements"> | string
     achievement_id?: StringFilter<"PlayerPersonalAchievements"> | string
-    league?: StringFilter<"PlayerPersonalAchievements"> | string
+    league_id?: StringFilter<"PlayerPersonalAchievements"> | string
     team_id?: StringFilter<"PlayerPersonalAchievements"> | string
-    year?: IntFilter<"PlayerPersonalAchievements"> | number
+    time?: StringFilter<"PlayerPersonalAchievements"> | string
     player?: XOR<PlayersScalarRelationFilter, PlayersWhereInput>
     achievement?: XOR<PersonalAchievementsScalarRelationFilter, PersonalAchievementsWhereInput>
     team?: XOR<TeamsScalarRelationFilter, TeamsWhereInput>
-  }, "player_id">
+    league?: XOR<LeaguesScalarRelationFilter, LeaguesWhereInput>
+  }, "id">
 
   export type PlayerPersonalAchievementsOrderByWithAggregationInput = {
+    id?: SortOrder
     player_id?: SortOrder
     achievement_id?: SortOrder
-    league?: SortOrder
+    league_id?: SortOrder
     team_id?: SortOrder
-    year?: SortOrder
+    time?: SortOrder
     _count?: PlayerPersonalAchievementsCountOrderByAggregateInput
-    _avg?: PlayerPersonalAchievementsAvgOrderByAggregateInput
     _max?: PlayerPersonalAchievementsMaxOrderByAggregateInput
     _min?: PlayerPersonalAchievementsMinOrderByAggregateInput
-    _sum?: PlayerPersonalAchievementsSumOrderByAggregateInput
   }
 
   export type PlayerPersonalAchievementsScalarWhereWithAggregatesInput = {
     AND?: PlayerPersonalAchievementsScalarWhereWithAggregatesInput | PlayerPersonalAchievementsScalarWhereWithAggregatesInput[]
     OR?: PlayerPersonalAchievementsScalarWhereWithAggregatesInput[]
     NOT?: PlayerPersonalAchievementsScalarWhereWithAggregatesInput | PlayerPersonalAchievementsScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"PlayerPersonalAchievements"> | string
     player_id?: StringWithAggregatesFilter<"PlayerPersonalAchievements"> | string
     achievement_id?: StringWithAggregatesFilter<"PlayerPersonalAchievements"> | string
-    league?: StringWithAggregatesFilter<"PlayerPersonalAchievements"> | string
+    league_id?: StringWithAggregatesFilter<"PlayerPersonalAchievements"> | string
     team_id?: StringWithAggregatesFilter<"PlayerPersonalAchievements"> | string
-    year?: IntWithAggregatesFilter<"PlayerPersonalAchievements"> | number
+    time?: StringWithAggregatesFilter<"PlayerPersonalAchievements"> | string
   }
 
   export type PlayerTeammateThoughtsWhereInput = {
@@ -16570,24 +16564,28 @@ export namespace Prisma {
     id: string
     name: string
     league_achievement?: PlayerTeamAchievementsCreateNestedManyWithoutLeagueInput
+    personal_achievement?: PlayerPersonalAchievementsCreateNestedManyWithoutLeagueInput
   }
 
   export type LeaguesUncheckedCreateInput = {
     id: string
     name: string
     league_achievement?: PlayerTeamAchievementsUncheckedCreateNestedManyWithoutLeagueInput
+    personal_achievement?: PlayerPersonalAchievementsUncheckedCreateNestedManyWithoutLeagueInput
   }
 
   export type LeaguesUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     league_achievement?: PlayerTeamAchievementsUpdateManyWithoutLeagueNestedInput
+    personal_achievement?: PlayerPersonalAchievementsUpdateManyWithoutLeagueNestedInput
   }
 
   export type LeaguesUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     league_achievement?: PlayerTeamAchievementsUncheckedUpdateManyWithoutLeagueNestedInput
+    personal_achievement?: PlayerPersonalAchievementsUncheckedUpdateManyWithoutLeagueNestedInput
   }
 
   export type LeaguesCreateManyInput = {
@@ -16838,116 +16836,122 @@ export namespace Prisma {
   }
 
   export type PlayerTeamAchievementsCreateInput = {
-    id: number
+    id: string
     place: string
-    year: number
+    time: string
     player: PlayersCreateNestedOneWithoutPlayer_team_achievementInput
     league: LeaguesCreateNestedOneWithoutLeague_achievementInput
     team: TeamsCreateNestedOneWithoutLeague_achievementInput
   }
 
   export type PlayerTeamAchievementsUncheckedCreateInput = {
-    id: number
+    id: string
     player_id: string
     place: string
     league_id: string
     team_id: string
-    year: number
+    time: string
   }
 
   export type PlayerTeamAchievementsUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     place?: StringFieldUpdateOperationsInput | string
-    year?: IntFieldUpdateOperationsInput | number
+    time?: StringFieldUpdateOperationsInput | string
     player?: PlayersUpdateOneRequiredWithoutPlayer_team_achievementNestedInput
     league?: LeaguesUpdateOneRequiredWithoutLeague_achievementNestedInput
     team?: TeamsUpdateOneRequiredWithoutLeague_achievementNestedInput
   }
 
   export type PlayerTeamAchievementsUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     player_id?: StringFieldUpdateOperationsInput | string
     place?: StringFieldUpdateOperationsInput | string
     league_id?: StringFieldUpdateOperationsInput | string
     team_id?: StringFieldUpdateOperationsInput | string
-    year?: IntFieldUpdateOperationsInput | number
+    time?: StringFieldUpdateOperationsInput | string
   }
 
   export type PlayerTeamAchievementsCreateManyInput = {
-    id: number
+    id: string
     player_id: string
     place: string
     league_id: string
     team_id: string
-    year: number
+    time: string
   }
 
   export type PlayerTeamAchievementsUpdateManyMutationInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     place?: StringFieldUpdateOperationsInput | string
-    year?: IntFieldUpdateOperationsInput | number
+    time?: StringFieldUpdateOperationsInput | string
   }
 
   export type PlayerTeamAchievementsUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     player_id?: StringFieldUpdateOperationsInput | string
     place?: StringFieldUpdateOperationsInput | string
     league_id?: StringFieldUpdateOperationsInput | string
     team_id?: StringFieldUpdateOperationsInput | string
-    year?: IntFieldUpdateOperationsInput | number
+    time?: StringFieldUpdateOperationsInput | string
   }
 
   export type PlayerPersonalAchievementsCreateInput = {
-    league: string
-    year: number
+    id: string
+    time: string
     player: PlayersCreateNestedOneWithoutPlayer_personal_achievementInput
     achievement: PersonalAchievementsCreateNestedOneWithoutPersonal_achievementInput
     team: TeamsCreateNestedOneWithoutPersonal_achievementInput
+    league: LeaguesCreateNestedOneWithoutPersonal_achievementInput
   }
 
   export type PlayerPersonalAchievementsUncheckedCreateInput = {
+    id: string
     player_id: string
     achievement_id: string
-    league: string
+    league_id: string
     team_id: string
-    year: number
+    time: string
   }
 
   export type PlayerPersonalAchievementsUpdateInput = {
-    league?: StringFieldUpdateOperationsInput | string
-    year?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
+    time?: StringFieldUpdateOperationsInput | string
     player?: PlayersUpdateOneRequiredWithoutPlayer_personal_achievementNestedInput
     achievement?: PersonalAchievementsUpdateOneRequiredWithoutPersonal_achievementNestedInput
     team?: TeamsUpdateOneRequiredWithoutPersonal_achievementNestedInput
+    league?: LeaguesUpdateOneRequiredWithoutPersonal_achievementNestedInput
   }
 
   export type PlayerPersonalAchievementsUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
     player_id?: StringFieldUpdateOperationsInput | string
     achievement_id?: StringFieldUpdateOperationsInput | string
-    league?: StringFieldUpdateOperationsInput | string
+    league_id?: StringFieldUpdateOperationsInput | string
     team_id?: StringFieldUpdateOperationsInput | string
-    year?: IntFieldUpdateOperationsInput | number
+    time?: StringFieldUpdateOperationsInput | string
   }
 
   export type PlayerPersonalAchievementsCreateManyInput = {
+    id: string
     player_id: string
     achievement_id: string
-    league: string
+    league_id: string
     team_id: string
-    year: number
+    time: string
   }
 
   export type PlayerPersonalAchievementsUpdateManyMutationInput = {
-    league?: StringFieldUpdateOperationsInput | string
-    year?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
+    time?: StringFieldUpdateOperationsInput | string
   }
 
   export type PlayerPersonalAchievementsUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
     player_id?: StringFieldUpdateOperationsInput | string
     achievement_id?: StringFieldUpdateOperationsInput | string
-    league?: StringFieldUpdateOperationsInput | string
+    league_id?: StringFieldUpdateOperationsInput | string
     team_id?: StringFieldUpdateOperationsInput | string
-    year?: IntFieldUpdateOperationsInput | number
+    time?: StringFieldUpdateOperationsInput | string
   }
 
   export type PlayerTeammateThoughtsCreateInput = {
@@ -17443,12 +17447,7 @@ export namespace Prisma {
     place?: SortOrder
     league_id?: SortOrder
     team_id?: SortOrder
-    year?: SortOrder
-  }
-
-  export type PlayerTeamAchievementsAvgOrderByAggregateInput = {
-    id?: SortOrder
-    year?: SortOrder
+    time?: SortOrder
   }
 
   export type PlayerTeamAchievementsMaxOrderByAggregateInput = {
@@ -17457,7 +17456,7 @@ export namespace Prisma {
     place?: SortOrder
     league_id?: SortOrder
     team_id?: SortOrder
-    year?: SortOrder
+    time?: SortOrder
   }
 
   export type PlayerTeamAchievementsMinOrderByAggregateInput = {
@@ -17466,12 +17465,7 @@ export namespace Prisma {
     place?: SortOrder
     league_id?: SortOrder
     team_id?: SortOrder
-    year?: SortOrder
-  }
-
-  export type PlayerTeamAchievementsSumOrderByAggregateInput = {
-    id?: SortOrder
-    year?: SortOrder
+    time?: SortOrder
   }
 
   export type PersonalAchievementsScalarRelationFilter = {
@@ -17480,35 +17474,30 @@ export namespace Prisma {
   }
 
   export type PlayerPersonalAchievementsCountOrderByAggregateInput = {
+    id?: SortOrder
     player_id?: SortOrder
     achievement_id?: SortOrder
-    league?: SortOrder
+    league_id?: SortOrder
     team_id?: SortOrder
-    year?: SortOrder
-  }
-
-  export type PlayerPersonalAchievementsAvgOrderByAggregateInput = {
-    year?: SortOrder
+    time?: SortOrder
   }
 
   export type PlayerPersonalAchievementsMaxOrderByAggregateInput = {
+    id?: SortOrder
     player_id?: SortOrder
     achievement_id?: SortOrder
-    league?: SortOrder
+    league_id?: SortOrder
     team_id?: SortOrder
-    year?: SortOrder
+    time?: SortOrder
   }
 
   export type PlayerPersonalAchievementsMinOrderByAggregateInput = {
+    id?: SortOrder
     player_id?: SortOrder
     achievement_id?: SortOrder
-    league?: SortOrder
+    league_id?: SortOrder
     team_id?: SortOrder
-    year?: SortOrder
-  }
-
-  export type PlayerPersonalAchievementsSumOrderByAggregateInput = {
-    year?: SortOrder
+    time?: SortOrder
   }
 
   export type PlayerTeammateThoughtsCountOrderByAggregateInput = {
@@ -18065,11 +18054,25 @@ export namespace Prisma {
     connect?: PlayerTeamAchievementsWhereUniqueInput | PlayerTeamAchievementsWhereUniqueInput[]
   }
 
+  export type PlayerPersonalAchievementsCreateNestedManyWithoutLeagueInput = {
+    create?: XOR<PlayerPersonalAchievementsCreateWithoutLeagueInput, PlayerPersonalAchievementsUncheckedCreateWithoutLeagueInput> | PlayerPersonalAchievementsCreateWithoutLeagueInput[] | PlayerPersonalAchievementsUncheckedCreateWithoutLeagueInput[]
+    connectOrCreate?: PlayerPersonalAchievementsCreateOrConnectWithoutLeagueInput | PlayerPersonalAchievementsCreateOrConnectWithoutLeagueInput[]
+    createMany?: PlayerPersonalAchievementsCreateManyLeagueInputEnvelope
+    connect?: PlayerPersonalAchievementsWhereUniqueInput | PlayerPersonalAchievementsWhereUniqueInput[]
+  }
+
   export type PlayerTeamAchievementsUncheckedCreateNestedManyWithoutLeagueInput = {
     create?: XOR<PlayerTeamAchievementsCreateWithoutLeagueInput, PlayerTeamAchievementsUncheckedCreateWithoutLeagueInput> | PlayerTeamAchievementsCreateWithoutLeagueInput[] | PlayerTeamAchievementsUncheckedCreateWithoutLeagueInput[]
     connectOrCreate?: PlayerTeamAchievementsCreateOrConnectWithoutLeagueInput | PlayerTeamAchievementsCreateOrConnectWithoutLeagueInput[]
     createMany?: PlayerTeamAchievementsCreateManyLeagueInputEnvelope
     connect?: PlayerTeamAchievementsWhereUniqueInput | PlayerTeamAchievementsWhereUniqueInput[]
+  }
+
+  export type PlayerPersonalAchievementsUncheckedCreateNestedManyWithoutLeagueInput = {
+    create?: XOR<PlayerPersonalAchievementsCreateWithoutLeagueInput, PlayerPersonalAchievementsUncheckedCreateWithoutLeagueInput> | PlayerPersonalAchievementsCreateWithoutLeagueInput[] | PlayerPersonalAchievementsUncheckedCreateWithoutLeagueInput[]
+    connectOrCreate?: PlayerPersonalAchievementsCreateOrConnectWithoutLeagueInput | PlayerPersonalAchievementsCreateOrConnectWithoutLeagueInput[]
+    createMany?: PlayerPersonalAchievementsCreateManyLeagueInputEnvelope
+    connect?: PlayerPersonalAchievementsWhereUniqueInput | PlayerPersonalAchievementsWhereUniqueInput[]
   }
 
   export type PlayerTeamAchievementsUpdateManyWithoutLeagueNestedInput = {
@@ -18086,6 +18089,20 @@ export namespace Prisma {
     deleteMany?: PlayerTeamAchievementsScalarWhereInput | PlayerTeamAchievementsScalarWhereInput[]
   }
 
+  export type PlayerPersonalAchievementsUpdateManyWithoutLeagueNestedInput = {
+    create?: XOR<PlayerPersonalAchievementsCreateWithoutLeagueInput, PlayerPersonalAchievementsUncheckedCreateWithoutLeagueInput> | PlayerPersonalAchievementsCreateWithoutLeagueInput[] | PlayerPersonalAchievementsUncheckedCreateWithoutLeagueInput[]
+    connectOrCreate?: PlayerPersonalAchievementsCreateOrConnectWithoutLeagueInput | PlayerPersonalAchievementsCreateOrConnectWithoutLeagueInput[]
+    upsert?: PlayerPersonalAchievementsUpsertWithWhereUniqueWithoutLeagueInput | PlayerPersonalAchievementsUpsertWithWhereUniqueWithoutLeagueInput[]
+    createMany?: PlayerPersonalAchievementsCreateManyLeagueInputEnvelope
+    set?: PlayerPersonalAchievementsWhereUniqueInput | PlayerPersonalAchievementsWhereUniqueInput[]
+    disconnect?: PlayerPersonalAchievementsWhereUniqueInput | PlayerPersonalAchievementsWhereUniqueInput[]
+    delete?: PlayerPersonalAchievementsWhereUniqueInput | PlayerPersonalAchievementsWhereUniqueInput[]
+    connect?: PlayerPersonalAchievementsWhereUniqueInput | PlayerPersonalAchievementsWhereUniqueInput[]
+    update?: PlayerPersonalAchievementsUpdateWithWhereUniqueWithoutLeagueInput | PlayerPersonalAchievementsUpdateWithWhereUniqueWithoutLeagueInput[]
+    updateMany?: PlayerPersonalAchievementsUpdateManyWithWhereWithoutLeagueInput | PlayerPersonalAchievementsUpdateManyWithWhereWithoutLeagueInput[]
+    deleteMany?: PlayerPersonalAchievementsScalarWhereInput | PlayerPersonalAchievementsScalarWhereInput[]
+  }
+
   export type PlayerTeamAchievementsUncheckedUpdateManyWithoutLeagueNestedInput = {
     create?: XOR<PlayerTeamAchievementsCreateWithoutLeagueInput, PlayerTeamAchievementsUncheckedCreateWithoutLeagueInput> | PlayerTeamAchievementsCreateWithoutLeagueInput[] | PlayerTeamAchievementsUncheckedCreateWithoutLeagueInput[]
     connectOrCreate?: PlayerTeamAchievementsCreateOrConnectWithoutLeagueInput | PlayerTeamAchievementsCreateOrConnectWithoutLeagueInput[]
@@ -18098,6 +18115,20 @@ export namespace Prisma {
     update?: PlayerTeamAchievementsUpdateWithWhereUniqueWithoutLeagueInput | PlayerTeamAchievementsUpdateWithWhereUniqueWithoutLeagueInput[]
     updateMany?: PlayerTeamAchievementsUpdateManyWithWhereWithoutLeagueInput | PlayerTeamAchievementsUpdateManyWithWhereWithoutLeagueInput[]
     deleteMany?: PlayerTeamAchievementsScalarWhereInput | PlayerTeamAchievementsScalarWhereInput[]
+  }
+
+  export type PlayerPersonalAchievementsUncheckedUpdateManyWithoutLeagueNestedInput = {
+    create?: XOR<PlayerPersonalAchievementsCreateWithoutLeagueInput, PlayerPersonalAchievementsUncheckedCreateWithoutLeagueInput> | PlayerPersonalAchievementsCreateWithoutLeagueInput[] | PlayerPersonalAchievementsUncheckedCreateWithoutLeagueInput[]
+    connectOrCreate?: PlayerPersonalAchievementsCreateOrConnectWithoutLeagueInput | PlayerPersonalAchievementsCreateOrConnectWithoutLeagueInput[]
+    upsert?: PlayerPersonalAchievementsUpsertWithWhereUniqueWithoutLeagueInput | PlayerPersonalAchievementsUpsertWithWhereUniqueWithoutLeagueInput[]
+    createMany?: PlayerPersonalAchievementsCreateManyLeagueInputEnvelope
+    set?: PlayerPersonalAchievementsWhereUniqueInput | PlayerPersonalAchievementsWhereUniqueInput[]
+    disconnect?: PlayerPersonalAchievementsWhereUniqueInput | PlayerPersonalAchievementsWhereUniqueInput[]
+    delete?: PlayerPersonalAchievementsWhereUniqueInput | PlayerPersonalAchievementsWhereUniqueInput[]
+    connect?: PlayerPersonalAchievementsWhereUniqueInput | PlayerPersonalAchievementsWhereUniqueInput[]
+    update?: PlayerPersonalAchievementsUpdateWithWhereUniqueWithoutLeagueInput | PlayerPersonalAchievementsUpdateWithWhereUniqueWithoutLeagueInput[]
+    updateMany?: PlayerPersonalAchievementsUpdateManyWithWhereWithoutLeagueInput | PlayerPersonalAchievementsUpdateManyWithWhereWithoutLeagueInput[]
+    deleteMany?: PlayerPersonalAchievementsScalarWhereInput | PlayerPersonalAchievementsScalarWhereInput[]
   }
 
   export type PlayerPersonalAchievementsCreateNestedManyWithoutAchievementInput = {
@@ -18248,6 +18279,12 @@ export namespace Prisma {
     connect?: TeamsWhereUniqueInput
   }
 
+  export type LeaguesCreateNestedOneWithoutPersonal_achievementInput = {
+    create?: XOR<LeaguesCreateWithoutPersonal_achievementInput, LeaguesUncheckedCreateWithoutPersonal_achievementInput>
+    connectOrCreate?: LeaguesCreateOrConnectWithoutPersonal_achievementInput
+    connect?: LeaguesWhereUniqueInput
+  }
+
   export type PlayersUpdateOneRequiredWithoutPlayer_personal_achievementNestedInput = {
     create?: XOR<PlayersCreateWithoutPlayer_personal_achievementInput, PlayersUncheckedCreateWithoutPlayer_personal_achievementInput>
     connectOrCreate?: PlayersCreateOrConnectWithoutPlayer_personal_achievementInput
@@ -18270,6 +18307,14 @@ export namespace Prisma {
     upsert?: TeamsUpsertWithoutPersonal_achievementInput
     connect?: TeamsWhereUniqueInput
     update?: XOR<XOR<TeamsUpdateToOneWithWhereWithoutPersonal_achievementInput, TeamsUpdateWithoutPersonal_achievementInput>, TeamsUncheckedUpdateWithoutPersonal_achievementInput>
+  }
+
+  export type LeaguesUpdateOneRequiredWithoutPersonal_achievementNestedInput = {
+    create?: XOR<LeaguesCreateWithoutPersonal_achievementInput, LeaguesUncheckedCreateWithoutPersonal_achievementInput>
+    connectOrCreate?: LeaguesCreateOrConnectWithoutPersonal_achievementInput
+    upsert?: LeaguesUpsertWithoutPersonal_achievementInput
+    connect?: LeaguesWhereUniqueInput
+    update?: XOR<XOR<LeaguesUpdateToOneWithWhereWithoutPersonal_achievementInput, LeaguesUpdateWithoutPersonal_achievementInput>, LeaguesUncheckedUpdateWithoutPersonal_achievementInput>
   }
 
   export type PlayersCreateNestedOneWithoutThoughtsAuthoredInput = {
@@ -18474,19 +18519,19 @@ export namespace Prisma {
   }
 
   export type PlayerTeamAchievementsCreateWithoutTeamInput = {
-    id: number
+    id: string
     place: string
-    year: number
+    time: string
     player: PlayersCreateNestedOneWithoutPlayer_team_achievementInput
     league: LeaguesCreateNestedOneWithoutLeague_achievementInput
   }
 
   export type PlayerTeamAchievementsUncheckedCreateWithoutTeamInput = {
-    id: number
+    id: string
     player_id: string
     place: string
     league_id: string
-    year: number
+    time: string
   }
 
   export type PlayerTeamAchievementsCreateOrConnectWithoutTeamInput = {
@@ -18500,17 +18545,19 @@ export namespace Prisma {
   }
 
   export type PlayerPersonalAchievementsCreateWithoutTeamInput = {
-    league: string
-    year: number
+    id: string
+    time: string
     player: PlayersCreateNestedOneWithoutPlayer_personal_achievementInput
     achievement: PersonalAchievementsCreateNestedOneWithoutPersonal_achievementInput
+    league: LeaguesCreateNestedOneWithoutPersonal_achievementInput
   }
 
   export type PlayerPersonalAchievementsUncheckedCreateWithoutTeamInput = {
+    id: string
     player_id: string
     achievement_id: string
-    league: string
-    year: number
+    league_id: string
+    time: string
   }
 
   export type PlayerPersonalAchievementsCreateOrConnectWithoutTeamInput = {
@@ -18620,12 +18667,12 @@ export namespace Prisma {
     AND?: PlayerTeamAchievementsScalarWhereInput | PlayerTeamAchievementsScalarWhereInput[]
     OR?: PlayerTeamAchievementsScalarWhereInput[]
     NOT?: PlayerTeamAchievementsScalarWhereInput | PlayerTeamAchievementsScalarWhereInput[]
-    id?: IntFilter<"PlayerTeamAchievements"> | number
+    id?: StringFilter<"PlayerTeamAchievements"> | string
     player_id?: StringFilter<"PlayerTeamAchievements"> | string
     place?: StringFilter<"PlayerTeamAchievements"> | string
     league_id?: StringFilter<"PlayerTeamAchievements"> | string
     team_id?: StringFilter<"PlayerTeamAchievements"> | string
-    year?: IntFilter<"PlayerTeamAchievements"> | number
+    time?: StringFilter<"PlayerTeamAchievements"> | string
   }
 
   export type PlayerPersonalAchievementsUpsertWithWhereUniqueWithoutTeamInput = {
@@ -18648,11 +18695,12 @@ export namespace Prisma {
     AND?: PlayerPersonalAchievementsScalarWhereInput | PlayerPersonalAchievementsScalarWhereInput[]
     OR?: PlayerPersonalAchievementsScalarWhereInput[]
     NOT?: PlayerPersonalAchievementsScalarWhereInput | PlayerPersonalAchievementsScalarWhereInput[]
+    id?: StringFilter<"PlayerPersonalAchievements"> | string
     player_id?: StringFilter<"PlayerPersonalAchievements"> | string
     achievement_id?: StringFilter<"PlayerPersonalAchievements"> | string
-    league?: StringFilter<"PlayerPersonalAchievements"> | string
+    league_id?: StringFilter<"PlayerPersonalAchievements"> | string
     team_id?: StringFilter<"PlayerPersonalAchievements"> | string
-    year?: IntFilter<"PlayerPersonalAchievements"> | number
+    time?: StringFilter<"PlayerPersonalAchievements"> | string
   }
 
   export type TeamsCreateWithoutEmployeeInput = {
@@ -18825,19 +18873,19 @@ export namespace Prisma {
   }
 
   export type PlayerTeamAchievementsCreateWithoutPlayerInput = {
-    id: number
+    id: string
     place: string
-    year: number
+    time: string
     league: LeaguesCreateNestedOneWithoutLeague_achievementInput
     team: TeamsCreateNestedOneWithoutLeague_achievementInput
   }
 
   export type PlayerTeamAchievementsUncheckedCreateWithoutPlayerInput = {
-    id: number
+    id: string
     place: string
     league_id: string
     team_id: string
-    year: number
+    time: string
   }
 
   export type PlayerTeamAchievementsCreateOrConnectWithoutPlayerInput = {
@@ -18851,17 +18899,19 @@ export namespace Prisma {
   }
 
   export type PlayerPersonalAchievementsCreateWithoutPlayerInput = {
-    league: string
-    year: number
+    id: string
+    time: string
     achievement: PersonalAchievementsCreateNestedOneWithoutPersonal_achievementInput
     team: TeamsCreateNestedOneWithoutPersonal_achievementInput
+    league: LeaguesCreateNestedOneWithoutPersonal_achievementInput
   }
 
   export type PlayerPersonalAchievementsUncheckedCreateWithoutPlayerInput = {
+    id: string
     achievement_id: string
-    league: string
+    league_id: string
     team_id: string
-    year: number
+    time: string
   }
 
   export type PlayerPersonalAchievementsCreateOrConnectWithoutPlayerInput = {
@@ -19126,19 +19176,19 @@ export namespace Prisma {
   }
 
   export type PlayerTeamAchievementsCreateWithoutLeagueInput = {
-    id: number
+    id: string
     place: string
-    year: number
+    time: string
     player: PlayersCreateNestedOneWithoutPlayer_team_achievementInput
     team: TeamsCreateNestedOneWithoutLeague_achievementInput
   }
 
   export type PlayerTeamAchievementsUncheckedCreateWithoutLeagueInput = {
-    id: number
+    id: string
     player_id: string
     place: string
     team_id: string
-    year: number
+    time: string
   }
 
   export type PlayerTeamAchievementsCreateOrConnectWithoutLeagueInput = {
@@ -19148,6 +19198,32 @@ export namespace Prisma {
 
   export type PlayerTeamAchievementsCreateManyLeagueInputEnvelope = {
     data: PlayerTeamAchievementsCreateManyLeagueInput | PlayerTeamAchievementsCreateManyLeagueInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type PlayerPersonalAchievementsCreateWithoutLeagueInput = {
+    id: string
+    time: string
+    player: PlayersCreateNestedOneWithoutPlayer_personal_achievementInput
+    achievement: PersonalAchievementsCreateNestedOneWithoutPersonal_achievementInput
+    team: TeamsCreateNestedOneWithoutPersonal_achievementInput
+  }
+
+  export type PlayerPersonalAchievementsUncheckedCreateWithoutLeagueInput = {
+    id: string
+    player_id: string
+    achievement_id: string
+    team_id: string
+    time: string
+  }
+
+  export type PlayerPersonalAchievementsCreateOrConnectWithoutLeagueInput = {
+    where: PlayerPersonalAchievementsWhereUniqueInput
+    create: XOR<PlayerPersonalAchievementsCreateWithoutLeagueInput, PlayerPersonalAchievementsUncheckedCreateWithoutLeagueInput>
+  }
+
+  export type PlayerPersonalAchievementsCreateManyLeagueInputEnvelope = {
+    data: PlayerPersonalAchievementsCreateManyLeagueInput | PlayerPersonalAchievementsCreateManyLeagueInput[]
     skipDuplicates?: boolean
   }
 
@@ -19167,18 +19243,36 @@ export namespace Prisma {
     data: XOR<PlayerTeamAchievementsUpdateManyMutationInput, PlayerTeamAchievementsUncheckedUpdateManyWithoutLeagueInput>
   }
 
+  export type PlayerPersonalAchievementsUpsertWithWhereUniqueWithoutLeagueInput = {
+    where: PlayerPersonalAchievementsWhereUniqueInput
+    update: XOR<PlayerPersonalAchievementsUpdateWithoutLeagueInput, PlayerPersonalAchievementsUncheckedUpdateWithoutLeagueInput>
+    create: XOR<PlayerPersonalAchievementsCreateWithoutLeagueInput, PlayerPersonalAchievementsUncheckedCreateWithoutLeagueInput>
+  }
+
+  export type PlayerPersonalAchievementsUpdateWithWhereUniqueWithoutLeagueInput = {
+    where: PlayerPersonalAchievementsWhereUniqueInput
+    data: XOR<PlayerPersonalAchievementsUpdateWithoutLeagueInput, PlayerPersonalAchievementsUncheckedUpdateWithoutLeagueInput>
+  }
+
+  export type PlayerPersonalAchievementsUpdateManyWithWhereWithoutLeagueInput = {
+    where: PlayerPersonalAchievementsScalarWhereInput
+    data: XOR<PlayerPersonalAchievementsUpdateManyMutationInput, PlayerPersonalAchievementsUncheckedUpdateManyWithoutLeagueInput>
+  }
+
   export type PlayerPersonalAchievementsCreateWithoutAchievementInput = {
-    league: string
-    year: number
+    id: string
+    time: string
     player: PlayersCreateNestedOneWithoutPlayer_personal_achievementInput
     team: TeamsCreateNestedOneWithoutPersonal_achievementInput
+    league: LeaguesCreateNestedOneWithoutPersonal_achievementInput
   }
 
   export type PlayerPersonalAchievementsUncheckedCreateWithoutAchievementInput = {
+    id: string
     player_id: string
-    league: string
+    league_id: string
     team_id: string
-    year: number
+    time: string
   }
 
   export type PlayerPersonalAchievementsCreateOrConnectWithoutAchievementInput = {
@@ -19473,11 +19567,13 @@ export namespace Prisma {
   export type LeaguesCreateWithoutLeague_achievementInput = {
     id: string
     name: string
+    personal_achievement?: PlayerPersonalAchievementsCreateNestedManyWithoutLeagueInput
   }
 
   export type LeaguesUncheckedCreateWithoutLeague_achievementInput = {
     id: string
     name: string
+    personal_achievement?: PlayerPersonalAchievementsUncheckedCreateNestedManyWithoutLeagueInput
   }
 
   export type LeaguesCreateOrConnectWithoutLeague_achievementInput = {
@@ -19563,11 +19659,13 @@ export namespace Prisma {
   export type LeaguesUpdateWithoutLeague_achievementInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    personal_achievement?: PlayerPersonalAchievementsUpdateManyWithoutLeagueNestedInput
   }
 
   export type LeaguesUncheckedUpdateWithoutLeague_achievementInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    personal_achievement?: PlayerPersonalAchievementsUncheckedUpdateManyWithoutLeagueNestedInput
   }
 
   export type TeamsUpsertWithoutLeague_achievementInput = {
@@ -19672,6 +19770,23 @@ export namespace Prisma {
     create: XOR<TeamsCreateWithoutPersonal_achievementInput, TeamsUncheckedCreateWithoutPersonal_achievementInput>
   }
 
+  export type LeaguesCreateWithoutPersonal_achievementInput = {
+    id: string
+    name: string
+    league_achievement?: PlayerTeamAchievementsCreateNestedManyWithoutLeagueInput
+  }
+
+  export type LeaguesUncheckedCreateWithoutPersonal_achievementInput = {
+    id: string
+    name: string
+    league_achievement?: PlayerTeamAchievementsUncheckedCreateNestedManyWithoutLeagueInput
+  }
+
+  export type LeaguesCreateOrConnectWithoutPersonal_achievementInput = {
+    where: LeaguesWhereUniqueInput
+    create: XOR<LeaguesCreateWithoutPersonal_achievementInput, LeaguesUncheckedCreateWithoutPersonal_achievementInput>
+  }
+
   export type PlayersUpsertWithoutPlayer_personal_achievementInput = {
     update: XOR<PlayersUpdateWithoutPlayer_personal_achievementInput, PlayersUncheckedUpdateWithoutPlayer_personal_achievementInput>
     create: XOR<PlayersCreateWithoutPlayer_personal_achievementInput, PlayersUncheckedCreateWithoutPlayer_personal_achievementInput>
@@ -19761,6 +19876,29 @@ export namespace Prisma {
     chairman?: ChairmanUncheckedUpdateOneWithoutTeamNestedInput
     player?: PlayersUncheckedUpdateManyWithoutTeamNestedInput
     league_achievement?: PlayerTeamAchievementsUncheckedUpdateManyWithoutTeamNestedInput
+  }
+
+  export type LeaguesUpsertWithoutPersonal_achievementInput = {
+    update: XOR<LeaguesUpdateWithoutPersonal_achievementInput, LeaguesUncheckedUpdateWithoutPersonal_achievementInput>
+    create: XOR<LeaguesCreateWithoutPersonal_achievementInput, LeaguesUncheckedCreateWithoutPersonal_achievementInput>
+    where?: LeaguesWhereInput
+  }
+
+  export type LeaguesUpdateToOneWithWhereWithoutPersonal_achievementInput = {
+    where?: LeaguesWhereInput
+    data: XOR<LeaguesUpdateWithoutPersonal_achievementInput, LeaguesUncheckedUpdateWithoutPersonal_achievementInput>
+  }
+
+  export type LeaguesUpdateWithoutPersonal_achievementInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    league_achievement?: PlayerTeamAchievementsUpdateManyWithoutLeagueNestedInput
+  }
+
+  export type LeaguesUncheckedUpdateWithoutPersonal_achievementInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    league_achievement?: PlayerTeamAchievementsUncheckedUpdateManyWithoutLeagueNestedInput
   }
 
   export type PlayersCreateWithoutThoughtsAuthoredInput = {
@@ -19931,18 +20069,19 @@ export namespace Prisma {
   }
 
   export type PlayerTeamAchievementsCreateManyTeamInput = {
-    id: number
+    id: string
     player_id: string
     place: string
     league_id: string
-    year: number
+    time: string
   }
 
   export type PlayerPersonalAchievementsCreateManyTeamInput = {
+    id: string
     player_id: string
     achievement_id: string
-    league: string
-    year: number
+    league_id: string
+    time: string
   }
 
   export type EmployeeUpdateWithoutTeamInput = {
@@ -20004,63 +20143,67 @@ export namespace Prisma {
   }
 
   export type PlayerTeamAchievementsUpdateWithoutTeamInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     place?: StringFieldUpdateOperationsInput | string
-    year?: IntFieldUpdateOperationsInput | number
+    time?: StringFieldUpdateOperationsInput | string
     player?: PlayersUpdateOneRequiredWithoutPlayer_team_achievementNestedInput
     league?: LeaguesUpdateOneRequiredWithoutLeague_achievementNestedInput
   }
 
   export type PlayerTeamAchievementsUncheckedUpdateWithoutTeamInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     player_id?: StringFieldUpdateOperationsInput | string
     place?: StringFieldUpdateOperationsInput | string
     league_id?: StringFieldUpdateOperationsInput | string
-    year?: IntFieldUpdateOperationsInput | number
+    time?: StringFieldUpdateOperationsInput | string
   }
 
   export type PlayerTeamAchievementsUncheckedUpdateManyWithoutTeamInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     player_id?: StringFieldUpdateOperationsInput | string
     place?: StringFieldUpdateOperationsInput | string
     league_id?: StringFieldUpdateOperationsInput | string
-    year?: IntFieldUpdateOperationsInput | number
+    time?: StringFieldUpdateOperationsInput | string
   }
 
   export type PlayerPersonalAchievementsUpdateWithoutTeamInput = {
-    league?: StringFieldUpdateOperationsInput | string
-    year?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
+    time?: StringFieldUpdateOperationsInput | string
     player?: PlayersUpdateOneRequiredWithoutPlayer_personal_achievementNestedInput
     achievement?: PersonalAchievementsUpdateOneRequiredWithoutPersonal_achievementNestedInput
+    league?: LeaguesUpdateOneRequiredWithoutPersonal_achievementNestedInput
   }
 
   export type PlayerPersonalAchievementsUncheckedUpdateWithoutTeamInput = {
+    id?: StringFieldUpdateOperationsInput | string
     player_id?: StringFieldUpdateOperationsInput | string
     achievement_id?: StringFieldUpdateOperationsInput | string
-    league?: StringFieldUpdateOperationsInput | string
-    year?: IntFieldUpdateOperationsInput | number
+    league_id?: StringFieldUpdateOperationsInput | string
+    time?: StringFieldUpdateOperationsInput | string
   }
 
   export type PlayerPersonalAchievementsUncheckedUpdateManyWithoutTeamInput = {
+    id?: StringFieldUpdateOperationsInput | string
     player_id?: StringFieldUpdateOperationsInput | string
     achievement_id?: StringFieldUpdateOperationsInput | string
-    league?: StringFieldUpdateOperationsInput | string
-    year?: IntFieldUpdateOperationsInput | number
+    league_id?: StringFieldUpdateOperationsInput | string
+    time?: StringFieldUpdateOperationsInput | string
   }
 
   export type PlayerTeamAchievementsCreateManyPlayerInput = {
-    id: number
+    id: string
     place: string
     league_id: string
     team_id: string
-    year: number
+    time: string
   }
 
   export type PlayerPersonalAchievementsCreateManyPlayerInput = {
+    id: string
     achievement_id: string
-    league: string
+    league_id: string
     team_id: string
-    year: number
+    time: string
   }
 
   export type PlayerTeammateThoughtsCreateManyAuthorInput = {
@@ -20076,48 +20219,51 @@ export namespace Prisma {
   }
 
   export type PlayerTeamAchievementsUpdateWithoutPlayerInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     place?: StringFieldUpdateOperationsInput | string
-    year?: IntFieldUpdateOperationsInput | number
+    time?: StringFieldUpdateOperationsInput | string
     league?: LeaguesUpdateOneRequiredWithoutLeague_achievementNestedInput
     team?: TeamsUpdateOneRequiredWithoutLeague_achievementNestedInput
   }
 
   export type PlayerTeamAchievementsUncheckedUpdateWithoutPlayerInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     place?: StringFieldUpdateOperationsInput | string
     league_id?: StringFieldUpdateOperationsInput | string
     team_id?: StringFieldUpdateOperationsInput | string
-    year?: IntFieldUpdateOperationsInput | number
+    time?: StringFieldUpdateOperationsInput | string
   }
 
   export type PlayerTeamAchievementsUncheckedUpdateManyWithoutPlayerInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     place?: StringFieldUpdateOperationsInput | string
     league_id?: StringFieldUpdateOperationsInput | string
     team_id?: StringFieldUpdateOperationsInput | string
-    year?: IntFieldUpdateOperationsInput | number
+    time?: StringFieldUpdateOperationsInput | string
   }
 
   export type PlayerPersonalAchievementsUpdateWithoutPlayerInput = {
-    league?: StringFieldUpdateOperationsInput | string
-    year?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
+    time?: StringFieldUpdateOperationsInput | string
     achievement?: PersonalAchievementsUpdateOneRequiredWithoutPersonal_achievementNestedInput
     team?: TeamsUpdateOneRequiredWithoutPersonal_achievementNestedInput
+    league?: LeaguesUpdateOneRequiredWithoutPersonal_achievementNestedInput
   }
 
   export type PlayerPersonalAchievementsUncheckedUpdateWithoutPlayerInput = {
+    id?: StringFieldUpdateOperationsInput | string
     achievement_id?: StringFieldUpdateOperationsInput | string
-    league?: StringFieldUpdateOperationsInput | string
+    league_id?: StringFieldUpdateOperationsInput | string
     team_id?: StringFieldUpdateOperationsInput | string
-    year?: IntFieldUpdateOperationsInput | number
+    time?: StringFieldUpdateOperationsInput | string
   }
 
   export type PlayerPersonalAchievementsUncheckedUpdateManyWithoutPlayerInput = {
+    id?: StringFieldUpdateOperationsInput | string
     achievement_id?: StringFieldUpdateOperationsInput | string
-    league?: StringFieldUpdateOperationsInput | string
+    league_id?: StringFieldUpdateOperationsInput | string
     team_id?: StringFieldUpdateOperationsInput | string
-    year?: IntFieldUpdateOperationsInput | number
+    time?: StringFieldUpdateOperationsInput | string
   }
 
   export type PlayerTeammateThoughtsUpdateWithoutAuthorInput = {
@@ -20155,63 +20301,99 @@ export namespace Prisma {
   }
 
   export type PlayerTeamAchievementsCreateManyLeagueInput = {
-    id: number
+    id: string
     player_id: string
     place: string
     team_id: string
-    year: number
+    time: string
+  }
+
+  export type PlayerPersonalAchievementsCreateManyLeagueInput = {
+    id: string
+    player_id: string
+    achievement_id: string
+    team_id: string
+    time: string
   }
 
   export type PlayerTeamAchievementsUpdateWithoutLeagueInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     place?: StringFieldUpdateOperationsInput | string
-    year?: IntFieldUpdateOperationsInput | number
+    time?: StringFieldUpdateOperationsInput | string
     player?: PlayersUpdateOneRequiredWithoutPlayer_team_achievementNestedInput
     team?: TeamsUpdateOneRequiredWithoutLeague_achievementNestedInput
   }
 
   export type PlayerTeamAchievementsUncheckedUpdateWithoutLeagueInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     player_id?: StringFieldUpdateOperationsInput | string
     place?: StringFieldUpdateOperationsInput | string
     team_id?: StringFieldUpdateOperationsInput | string
-    year?: IntFieldUpdateOperationsInput | number
+    time?: StringFieldUpdateOperationsInput | string
   }
 
   export type PlayerTeamAchievementsUncheckedUpdateManyWithoutLeagueInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     player_id?: StringFieldUpdateOperationsInput | string
     place?: StringFieldUpdateOperationsInput | string
     team_id?: StringFieldUpdateOperationsInput | string
-    year?: IntFieldUpdateOperationsInput | number
+    time?: StringFieldUpdateOperationsInput | string
   }
 
-  export type PlayerPersonalAchievementsCreateManyAchievementInput = {
-    player_id: string
-    league: string
-    team_id: string
-    year: number
-  }
-
-  export type PlayerPersonalAchievementsUpdateWithoutAchievementInput = {
-    league?: StringFieldUpdateOperationsInput | string
-    year?: IntFieldUpdateOperationsInput | number
+  export type PlayerPersonalAchievementsUpdateWithoutLeagueInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    time?: StringFieldUpdateOperationsInput | string
     player?: PlayersUpdateOneRequiredWithoutPlayer_personal_achievementNestedInput
+    achievement?: PersonalAchievementsUpdateOneRequiredWithoutPersonal_achievementNestedInput
     team?: TeamsUpdateOneRequiredWithoutPersonal_achievementNestedInput
   }
 
-  export type PlayerPersonalAchievementsUncheckedUpdateWithoutAchievementInput = {
+  export type PlayerPersonalAchievementsUncheckedUpdateWithoutLeagueInput = {
+    id?: StringFieldUpdateOperationsInput | string
     player_id?: StringFieldUpdateOperationsInput | string
-    league?: StringFieldUpdateOperationsInput | string
+    achievement_id?: StringFieldUpdateOperationsInput | string
     team_id?: StringFieldUpdateOperationsInput | string
-    year?: IntFieldUpdateOperationsInput | number
+    time?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type PlayerPersonalAchievementsUncheckedUpdateManyWithoutLeagueInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    player_id?: StringFieldUpdateOperationsInput | string
+    achievement_id?: StringFieldUpdateOperationsInput | string
+    team_id?: StringFieldUpdateOperationsInput | string
+    time?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type PlayerPersonalAchievementsCreateManyAchievementInput = {
+    id: string
+    player_id: string
+    league_id: string
+    team_id: string
+    time: string
+  }
+
+  export type PlayerPersonalAchievementsUpdateWithoutAchievementInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    time?: StringFieldUpdateOperationsInput | string
+    player?: PlayersUpdateOneRequiredWithoutPlayer_personal_achievementNestedInput
+    team?: TeamsUpdateOneRequiredWithoutPersonal_achievementNestedInput
+    league?: LeaguesUpdateOneRequiredWithoutPersonal_achievementNestedInput
+  }
+
+  export type PlayerPersonalAchievementsUncheckedUpdateWithoutAchievementInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    player_id?: StringFieldUpdateOperationsInput | string
+    league_id?: StringFieldUpdateOperationsInput | string
+    team_id?: StringFieldUpdateOperationsInput | string
+    time?: StringFieldUpdateOperationsInput | string
   }
 
   export type PlayerPersonalAchievementsUncheckedUpdateManyWithoutAchievementInput = {
+    id?: StringFieldUpdateOperationsInput | string
     player_id?: StringFieldUpdateOperationsInput | string
-    league?: StringFieldUpdateOperationsInput | string
+    league_id?: StringFieldUpdateOperationsInput | string
     team_id?: StringFieldUpdateOperationsInput | string
-    year?: IntFieldUpdateOperationsInput | number
+    time?: StringFieldUpdateOperationsInput | string
   }
 
 

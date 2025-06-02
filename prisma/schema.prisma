@@ -103,23 +103,24 @@ model PlayerStats {
 }
 
 model PlayerTeamAchievements {
-    id        Int     @id
+    id        String  @id
     player_id String
     place     String
     league_id String
     team_id   String
-    year      Int
+    time      String
     player    Players @relation(fields: [player_id], references: [id])
     league    Leagues @relation(fields: [league_id], references: [id])
     team      Teams   @relation(fields: [team_id], references: [id])
 }
 
 model PlayerPersonalAchievements {
-    player_id      String               @id
+    id             String               @id
+    player_id      String
     achievement_id String
     league_id      String
     team_id        String
-    year           Int
+    time           String
     player         Players              @relation(fields: [player_id], references: [id])
     achievement    PersonalAchievements @relation(fields: [achievement_id], references: [id])
     team           Teams                @relation(fields: [team_id], references: [id])

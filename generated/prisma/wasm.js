@@ -193,15 +193,16 @@ exports.Prisma.PlayerTeamAchievementsScalarFieldEnum = {
   place: 'place',
   league_id: 'league_id',
   team_id: 'team_id',
-  year: 'year'
+  time: 'time'
 };
 
 exports.Prisma.PlayerPersonalAchievementsScalarFieldEnum = {
+  id: 'id',
   player_id: 'player_id',
   achievement_id: 'achievement_id',
-  league: 'league',
+  league_id: 'league_id',
   team_id: 'team_id',
-  year: 'year'
+  time: 'time'
 };
 
 exports.Prisma.PlayerTeammateThoughtsScalarFieldEnum = {

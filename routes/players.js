@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { PrismaClient } = require("@prisma/client");
+const { PrismaClient } = require("../generated/prisma");
 const prisma = new PrismaClient();
 
 router.get("/:id", async (req, res) => {
@@ -26,6 +26,24 @@ router.get("/:id", async (req, res) => {
       where: { player_id: id },
     });
 
+    const teamachievement = await prisma.playerTeamAchievements.findMany({
+      where: { player_id: id },
+      include: {
+        team: true,
+        league: true,
+      },
+    });
+
+    const personalachievement =
+      await prisma.playerPersonalAchievements.findMany({
+        where: { player_id: id },
+        include: {
+          team: true,
+          league: true,
+          achievement: true,
+        },
+      });
+
     const teammatethoughts = await prisma.playerTeammateThoughts.findMany({
       where: { sent_to: id },
       include: {
@@ -44,6 +62,8 @@ router.get("/:id", async (req, res) => {
       playerinfo,
       playerstats,
       teammatethoughts,
+      teamachievement,
+      personalachievement,
     });
   } catch (error) {
     console.error(error);

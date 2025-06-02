@@ -24,6 +24,8 @@
         const playerratings = data.playerratings;
         const playerinfo = data.playerinfo;
         const playerstats = data.playerstats;
+        const teamachievements = data.teamachievement;
+        const personalachievements = data.personalachievement;
 
         if (players.error) {
           document.getElementById("player-info").innerText =
@@ -110,8 +112,14 @@
                     }</strong></li>
                 </ul>
             </div>
-            <div id="achivements" class="objects">
+            <div id="achievements" class="objects">
                 <h3>Achievements</h3>
+                <div id="list-achievements">
+                    <div id="team-achievement">
+                    </div>
+                    <div id="player-achievement">
+                    </div>
+                </div>
             </div>
         </div>
         <div id="middle">
@@ -199,6 +207,67 @@
           p.innerText = `${paragraph}`;
           biography.appendChild(p);
         });
+
+        if (teamachievements !== null) {
+          const team_achievements = document.getElementById("team-achievement");
+          if (
+            teamachievements.some((item) => item.place === "Champions") === true
+          ) {
+            const header = document.createElement("h4");
+            header.innerText = "Champions";
+
+            team_achievements.appendChild(header);
+
+            const trophy_list = document.createElement("ul");
+            teamachievements.forEach((achievement) => {
+              if (achievement.place === "Champions") {
+                const league = achievement.league;
+                const team = achievement.team;
+                trophy_list.innerHTML = `<li>${league.name}: <strong>${achievement.time}</strong> - with ${team.name}</li>`;
+              }
+              team_achievements.appendChild(trophy_list);
+            });
+          }
+          if (
+            teamachievements.some((item) => item.place === "Runner-up") === true
+          ) {
+            const header = document.createElement("h4");
+            header.innerText = "Runner-up";
+
+            team_achievements.appendChild(header);
+
+            const trophy_list = document.createElement("ul");
+            teamachievements.forEach((achievement) => {
+              if (achievement.place === "Runner-up") {
+                const league = achievement.league;
+                const team = achievement.team;
+                trophy_list.innerHTML = `<li>${league.name}: <strong>${achievement.time}</strong> - with ${team.name}</li>`;
+              }
+
+              team_achievements.appendChild(trophy_list);
+            });
+          }
+        }
+
+        if (personalachievements.length !== 0) {
+          const personal_awards = document.getElementById("player-achievement");
+
+          const header = document.createElement("h4");
+          header.innerText = "Personal Awards";
+
+          personal_awards.appendChild(header);
+
+          const awardlist = document.createElement("ul");
+          personalachievements.forEach((achievement) => {
+            const award = document.createElement("li");
+            const league = achievement.league;
+            const personalaward = achievement.achievement;
+            award.innerHTML = `${personalaward.name} of ${league.name}: <strong>${achievement.time}</strong>`;
+            awardlist.appendChild(award);
+          });
+
+          personal_awards.append(awardlist);
+        }
 
         const teammate = document.getElementById("teammates");
         teammatethoughts.forEach((thought) => {

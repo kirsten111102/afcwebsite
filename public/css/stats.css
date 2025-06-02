@@ -58,8 +58,16 @@ ul li {
   width: 10%;
 }
 
-#achivements {
+#achievements {
   width: 41%;
+}
+
+#list-achievements {
+  display: flex;
+}
+
+#team-achievement {
+  margin-right: 1%;
 }
 
 #middle {
