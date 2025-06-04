@@ -17,13 +17,19 @@ datasource db {
 model Teams {
   id                   String                       @id
   name                 String
-  //qualify              Boolean
   employee             Employee[]
   chairman             Chairman?
   player               Players[]
   league_achievement   PlayerTeamAchievements[]
   personal_achievement PlayerPersonalAchievements[]
   player_stats         PlayerStats[]
+  is_participant       Is_Participant[]
+}
+
+model Is_Participant {
+  team_id        String  @id
+  is_participant Boolean
+  team           Teams   @relation(fields: [team_id], references: [id])
 }
 
 model Employee {

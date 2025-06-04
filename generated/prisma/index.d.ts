@@ -19,6 +19,11 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
  */
 export type Teams = $Result.DefaultSelection<Prisma.$TeamsPayload>
 /**
+ * Model Is_Participant
+ * 
+ */
+export type Is_Participant = $Result.DefaultSelection<Prisma.$Is_ParticipantPayload>
+/**
  * Model Employee
  * 
  */
@@ -208,6 +213,16 @@ export class PrismaClient<
     * ```
     */
   get teams(): Prisma.TeamsDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.is_Participant`: Exposes CRUD operations for the **Is_Participant** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Is_Participants
+    * const is_Participants = await prisma.is_Participant.findMany()
+    * ```
+    */
+  get is_Participant(): Prisma.Is_ParticipantDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.employee`: Exposes CRUD operations for the **Employee** model.
@@ -759,6 +774,7 @@ export namespace Prisma {
 
   export const ModelName: {
     Teams: 'Teams',
+    Is_Participant: 'Is_Participant',
     Employee: 'Employee',
     Chairman: 'Chairman',
     Players: 'Players',
@@ -788,7 +804,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "teams" | "employee" | "chairman" | "players" | "leagues" | "personalAchievements" | "playerInfo" | "playerRatings" | "playerStats" | "playerTeamAchievements" | "playerPersonalAchievements" | "playerTeammateThoughts"
+      modelProps: "teams" | "is_Participant" | "employee" | "chairman" | "players" | "leagues" | "personalAchievements" | "playerInfo" | "playerRatings" | "playerStats" | "playerTeamAchievements" | "playerPersonalAchievements" | "playerTeammateThoughts"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -863,6 +879,80 @@ export namespace Prisma {
           count: {
             args: Prisma.TeamsCountArgs<ExtArgs>
             result: $Utils.Optional<TeamsCountAggregateOutputType> | number
+          }
+        }
+      }
+      Is_Participant: {
+        payload: Prisma.$Is_ParticipantPayload<ExtArgs>
+        fields: Prisma.Is_ParticipantFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.Is_ParticipantFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Is_ParticipantPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.Is_ParticipantFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Is_ParticipantPayload>
+          }
+          findFirst: {
+            args: Prisma.Is_ParticipantFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Is_ParticipantPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.Is_ParticipantFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Is_ParticipantPayload>
+          }
+          findMany: {
+            args: Prisma.Is_ParticipantFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Is_ParticipantPayload>[]
+          }
+          create: {
+            args: Prisma.Is_ParticipantCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Is_ParticipantPayload>
+          }
+          createMany: {
+            args: Prisma.Is_ParticipantCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.Is_ParticipantCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Is_ParticipantPayload>[]
+          }
+          delete: {
+            args: Prisma.Is_ParticipantDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Is_ParticipantPayload>
+          }
+          update: {
+            args: Prisma.Is_ParticipantUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Is_ParticipantPayload>
+          }
+          deleteMany: {
+            args: Prisma.Is_ParticipantDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.Is_ParticipantUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.Is_ParticipantUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Is_ParticipantPayload>[]
+          }
+          upsert: {
+            args: Prisma.Is_ParticipantUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Is_ParticipantPayload>
+          }
+          aggregate: {
+            args: Prisma.Is_ParticipantAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateIs_Participant>
+          }
+          groupBy: {
+            args: Prisma.Is_ParticipantGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Is_ParticipantGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.Is_ParticipantCountArgs<ExtArgs>
+            result: $Utils.Optional<Is_ParticipantCountAggregateOutputType> | number
           }
         }
       }
@@ -1765,6 +1855,7 @@ export namespace Prisma {
   }
   export type GlobalOmitConfig = {
     teams?: TeamsOmit
+    is_Participant?: Is_ParticipantOmit
     employee?: EmployeeOmit
     chairman?: ChairmanOmit
     players?: PlayersOmit
@@ -1875,6 +1966,7 @@ export namespace Prisma {
     league_achievement: number
     personal_achievement: number
     player_stats: number
+    is_participant: number
   }
 
   export type TeamsCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -1883,6 +1975,7 @@ export namespace Prisma {
     league_achievement?: boolean | TeamsCountOutputTypeCountLeague_achievementArgs
     personal_achievement?: boolean | TeamsCountOutputTypeCountPersonal_achievementArgs
     player_stats?: boolean | TeamsCountOutputTypeCountPlayer_statsArgs
+    is_participant?: boolean | TeamsCountOutputTypeCountIs_participantArgs
   }
 
   // Custom InputTypes
@@ -1929,6 +2022,13 @@ export namespace Prisma {
    */
   export type TeamsCountOutputTypeCountPlayer_statsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: PlayerStatsWhereInput
+  }
+
+  /**
+   * TeamsCountOutputType without action
+   */
+  export type TeamsCountOutputTypeCountIs_participantArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: Is_ParticipantWhereInput
   }
 
 
@@ -2229,6 +2329,7 @@ export namespace Prisma {
     league_achievement?: boolean | Teams$league_achievementArgs<ExtArgs>
     personal_achievement?: boolean | Teams$personal_achievementArgs<ExtArgs>
     player_stats?: boolean | Teams$player_statsArgs<ExtArgs>
+    is_participant?: boolean | Teams$is_participantArgs<ExtArgs>
     _count?: boolean | TeamsCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["teams"]>
 
@@ -2255,6 +2356,7 @@ export namespace Prisma {
     league_achievement?: boolean | Teams$league_achievementArgs<ExtArgs>
     personal_achievement?: boolean | Teams$personal_achievementArgs<ExtArgs>
     player_stats?: boolean | Teams$player_statsArgs<ExtArgs>
+    is_participant?: boolean | Teams$is_participantArgs<ExtArgs>
     _count?: boolean | TeamsCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type TeamsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -2269,6 +2371,7 @@ export namespace Prisma {
       league_achievement: Prisma.$PlayerTeamAchievementsPayload<ExtArgs>[]
       personal_achievement: Prisma.$PlayerPersonalAchievementsPayload<ExtArgs>[]
       player_stats: Prisma.$PlayerStatsPayload<ExtArgs>[]
+      is_participant: Prisma.$Is_ParticipantPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -2673,6 +2776,7 @@ export namespace Prisma {
     league_achievement<T extends Teams$league_achievementArgs<ExtArgs> = {}>(args?: Subset<T, Teams$league_achievementArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PlayerTeamAchievementsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     personal_achievement<T extends Teams$personal_achievementArgs<ExtArgs> = {}>(args?: Subset<T, Teams$personal_achievementArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PlayerPersonalAchievementsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     player_stats<T extends Teams$player_statsArgs<ExtArgs> = {}>(args?: Subset<T, Teams$player_statsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PlayerStatsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    is_participant<T extends Teams$is_participantArgs<ExtArgs> = {}>(args?: Subset<T, Teams$is_participantArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Is_ParticipantPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3231,6 +3335,30 @@ export namespace Prisma {
   }
 
   /**
+   * Teams.is_participant
+   */
+  export type Teams$is_participantArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Is_Participant
+     */
+    select?: Is_ParticipantSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Is_Participant
+     */
+    omit?: Is_ParticipantOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Is_ParticipantInclude<ExtArgs> | null
+    where?: Is_ParticipantWhereInput
+    orderBy?: Is_ParticipantOrderByWithRelationInput | Is_ParticipantOrderByWithRelationInput[]
+    cursor?: Is_ParticipantWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Is_ParticipantScalarFieldEnum | Is_ParticipantScalarFieldEnum[]
+  }
+
+  /**
    * Teams without action
    */
   export type TeamsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3246,6 +3374,1025 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: TeamsInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Is_Participant
+   */
+
+  export type AggregateIs_Participant = {
+    _count: Is_ParticipantCountAggregateOutputType | null
+    _min: Is_ParticipantMinAggregateOutputType | null
+    _max: Is_ParticipantMaxAggregateOutputType | null
+  }
+
+  export type Is_ParticipantMinAggregateOutputType = {
+    team_id: string | null
+    is_participant: boolean | null
+  }
+
+  export type Is_ParticipantMaxAggregateOutputType = {
+    team_id: string | null
+    is_participant: boolean | null
+  }
+
+  export type Is_ParticipantCountAggregateOutputType = {
+    team_id: number
+    is_participant: number
+    _all: number
+  }
+
+
+  export type Is_ParticipantMinAggregateInputType = {
+    team_id?: true
+    is_participant?: true
+  }
+
+  export type Is_ParticipantMaxAggregateInputType = {
+    team_id?: true
+    is_participant?: true
+  }
+
+  export type Is_ParticipantCountAggregateInputType = {
+    team_id?: true
+    is_participant?: true
+    _all?: true
+  }
+
+  export type Is_ParticipantAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Is_Participant to aggregate.
+     */
+    where?: Is_ParticipantWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Is_Participants to fetch.
+     */
+    orderBy?: Is_ParticipantOrderByWithRelationInput | Is_ParticipantOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: Is_ParticipantWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Is_Participants from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Is_Participants.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Is_Participants
+    **/
+    _count?: true | Is_ParticipantCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Is_ParticipantMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Is_ParticipantMaxAggregateInputType
+  }
+
+  export type GetIs_ParticipantAggregateType<T extends Is_ParticipantAggregateArgs> = {
+        [P in keyof T & keyof AggregateIs_Participant]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateIs_Participant[P]>
+      : GetScalarType<T[P], AggregateIs_Participant[P]>
+  }
+
+
+
+
+  export type Is_ParticipantGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: Is_ParticipantWhereInput
+    orderBy?: Is_ParticipantOrderByWithAggregationInput | Is_ParticipantOrderByWithAggregationInput[]
+    by: Is_ParticipantScalarFieldEnum[] | Is_ParticipantScalarFieldEnum
+    having?: Is_ParticipantScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Is_ParticipantCountAggregateInputType | true
+    _min?: Is_ParticipantMinAggregateInputType
+    _max?: Is_ParticipantMaxAggregateInputType
+  }
+
+  export type Is_ParticipantGroupByOutputType = {
+    team_id: string
+    is_participant: boolean
+    _count: Is_ParticipantCountAggregateOutputType | null
+    _min: Is_ParticipantMinAggregateOutputType | null
+    _max: Is_ParticipantMaxAggregateOutputType | null
+  }
+
+  type GetIs_ParticipantGroupByPayload<T extends Is_ParticipantGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Is_ParticipantGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Is_ParticipantGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Is_ParticipantGroupByOutputType[P]>
+            : GetScalarType<T[P], Is_ParticipantGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type Is_ParticipantSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    team_id?: boolean
+    is_participant?: boolean
+    team?: boolean | TeamsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["is_Participant"]>
+
+  export type Is_ParticipantSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    team_id?: boolean
+    is_participant?: boolean
+    team?: boolean | TeamsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["is_Participant"]>
+
+  export type Is_ParticipantSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    team_id?: boolean
+    is_participant?: boolean
+    team?: boolean | TeamsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["is_Participant"]>
+
+  export type Is_ParticipantSelectScalar = {
+    team_id?: boolean
+    is_participant?: boolean
+  }
+
+  export type Is_ParticipantOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"team_id" | "is_participant", ExtArgs["result"]["is_Participant"]>
+  export type Is_ParticipantInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    team?: boolean | TeamsDefaultArgs<ExtArgs>
+  }
+  export type Is_ParticipantIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    team?: boolean | TeamsDefaultArgs<ExtArgs>
+  }
+  export type Is_ParticipantIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    team?: boolean | TeamsDefaultArgs<ExtArgs>
+  }
+
+  export type $Is_ParticipantPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Is_Participant"
+    objects: {
+      team: Prisma.$TeamsPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      team_id: string
+      is_participant: boolean
+    }, ExtArgs["result"]["is_Participant"]>
+    composites: {}
+  }
+
+  type Is_ParticipantGetPayload<S extends boolean | null | undefined | Is_ParticipantDefaultArgs> = $Result.GetResult<Prisma.$Is_ParticipantPayload, S>
+
+  type Is_ParticipantCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<Is_ParticipantFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: Is_ParticipantCountAggregateInputType | true
+    }
+
+  export interface Is_ParticipantDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Is_Participant'], meta: { name: 'Is_Participant' } }
+    /**
+     * Find zero or one Is_Participant that matches the filter.
+     * @param {Is_ParticipantFindUniqueArgs} args - Arguments to find a Is_Participant
+     * @example
+     * // Get one Is_Participant
+     * const is_Participant = await prisma.is_Participant.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends Is_ParticipantFindUniqueArgs>(args: SelectSubset<T, Is_ParticipantFindUniqueArgs<ExtArgs>>): Prisma__Is_ParticipantClient<$Result.GetResult<Prisma.$Is_ParticipantPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Is_Participant that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {Is_ParticipantFindUniqueOrThrowArgs} args - Arguments to find a Is_Participant
+     * @example
+     * // Get one Is_Participant
+     * const is_Participant = await prisma.is_Participant.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends Is_ParticipantFindUniqueOrThrowArgs>(args: SelectSubset<T, Is_ParticipantFindUniqueOrThrowArgs<ExtArgs>>): Prisma__Is_ParticipantClient<$Result.GetResult<Prisma.$Is_ParticipantPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Is_Participant that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Is_ParticipantFindFirstArgs} args - Arguments to find a Is_Participant
+     * @example
+     * // Get one Is_Participant
+     * const is_Participant = await prisma.is_Participant.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends Is_ParticipantFindFirstArgs>(args?: SelectSubset<T, Is_ParticipantFindFirstArgs<ExtArgs>>): Prisma__Is_ParticipantClient<$Result.GetResult<Prisma.$Is_ParticipantPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Is_Participant that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Is_ParticipantFindFirstOrThrowArgs} args - Arguments to find a Is_Participant
+     * @example
+     * // Get one Is_Participant
+     * const is_Participant = await prisma.is_Participant.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends Is_ParticipantFindFirstOrThrowArgs>(args?: SelectSubset<T, Is_ParticipantFindFirstOrThrowArgs<ExtArgs>>): Prisma__Is_ParticipantClient<$Result.GetResult<Prisma.$Is_ParticipantPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Is_Participants that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Is_ParticipantFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Is_Participants
+     * const is_Participants = await prisma.is_Participant.findMany()
+     * 
+     * // Get first 10 Is_Participants
+     * const is_Participants = await prisma.is_Participant.findMany({ take: 10 })
+     * 
+     * // Only select the `team_id`
+     * const is_ParticipantWithTeam_idOnly = await prisma.is_Participant.findMany({ select: { team_id: true } })
+     * 
+     */
+    findMany<T extends Is_ParticipantFindManyArgs>(args?: SelectSubset<T, Is_ParticipantFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Is_ParticipantPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Is_Participant.
+     * @param {Is_ParticipantCreateArgs} args - Arguments to create a Is_Participant.
+     * @example
+     * // Create one Is_Participant
+     * const Is_Participant = await prisma.is_Participant.create({
+     *   data: {
+     *     // ... data to create a Is_Participant
+     *   }
+     * })
+     * 
+     */
+    create<T extends Is_ParticipantCreateArgs>(args: SelectSubset<T, Is_ParticipantCreateArgs<ExtArgs>>): Prisma__Is_ParticipantClient<$Result.GetResult<Prisma.$Is_ParticipantPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Is_Participants.
+     * @param {Is_ParticipantCreateManyArgs} args - Arguments to create many Is_Participants.
+     * @example
+     * // Create many Is_Participants
+     * const is_Participant = await prisma.is_Participant.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends Is_ParticipantCreateManyArgs>(args?: SelectSubset<T, Is_ParticipantCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Is_Participants and returns the data saved in the database.
+     * @param {Is_ParticipantCreateManyAndReturnArgs} args - Arguments to create many Is_Participants.
+     * @example
+     * // Create many Is_Participants
+     * const is_Participant = await prisma.is_Participant.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Is_Participants and only return the `team_id`
+     * const is_ParticipantWithTeam_idOnly = await prisma.is_Participant.createManyAndReturn({
+     *   select: { team_id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends Is_ParticipantCreateManyAndReturnArgs>(args?: SelectSubset<T, Is_ParticipantCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Is_ParticipantPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Is_Participant.
+     * @param {Is_ParticipantDeleteArgs} args - Arguments to delete one Is_Participant.
+     * @example
+     * // Delete one Is_Participant
+     * const Is_Participant = await prisma.is_Participant.delete({
+     *   where: {
+     *     // ... filter to delete one Is_Participant
+     *   }
+     * })
+     * 
+     */
+    delete<T extends Is_ParticipantDeleteArgs>(args: SelectSubset<T, Is_ParticipantDeleteArgs<ExtArgs>>): Prisma__Is_ParticipantClient<$Result.GetResult<Prisma.$Is_ParticipantPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Is_Participant.
+     * @param {Is_ParticipantUpdateArgs} args - Arguments to update one Is_Participant.
+     * @example
+     * // Update one Is_Participant
+     * const is_Participant = await prisma.is_Participant.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends Is_ParticipantUpdateArgs>(args: SelectSubset<T, Is_ParticipantUpdateArgs<ExtArgs>>): Prisma__Is_ParticipantClient<$Result.GetResult<Prisma.$Is_ParticipantPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Is_Participants.
+     * @param {Is_ParticipantDeleteManyArgs} args - Arguments to filter Is_Participants to delete.
+     * @example
+     * // Delete a few Is_Participants
+     * const { count } = await prisma.is_Participant.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends Is_ParticipantDeleteManyArgs>(args?: SelectSubset<T, Is_ParticipantDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Is_Participants.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Is_ParticipantUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Is_Participants
+     * const is_Participant = await prisma.is_Participant.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends Is_ParticipantUpdateManyArgs>(args: SelectSubset<T, Is_ParticipantUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Is_Participants and returns the data updated in the database.
+     * @param {Is_ParticipantUpdateManyAndReturnArgs} args - Arguments to update many Is_Participants.
+     * @example
+     * // Update many Is_Participants
+     * const is_Participant = await prisma.is_Participant.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Is_Participants and only return the `team_id`
+     * const is_ParticipantWithTeam_idOnly = await prisma.is_Participant.updateManyAndReturn({
+     *   select: { team_id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends Is_ParticipantUpdateManyAndReturnArgs>(args: SelectSubset<T, Is_ParticipantUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Is_ParticipantPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Is_Participant.
+     * @param {Is_ParticipantUpsertArgs} args - Arguments to update or create a Is_Participant.
+     * @example
+     * // Update or create a Is_Participant
+     * const is_Participant = await prisma.is_Participant.upsert({
+     *   create: {
+     *     // ... data to create a Is_Participant
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Is_Participant we want to update
+     *   }
+     * })
+     */
+    upsert<T extends Is_ParticipantUpsertArgs>(args: SelectSubset<T, Is_ParticipantUpsertArgs<ExtArgs>>): Prisma__Is_ParticipantClient<$Result.GetResult<Prisma.$Is_ParticipantPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Is_Participants.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Is_ParticipantCountArgs} args - Arguments to filter Is_Participants to count.
+     * @example
+     * // Count the number of Is_Participants
+     * const count = await prisma.is_Participant.count({
+     *   where: {
+     *     // ... the filter for the Is_Participants we want to count
+     *   }
+     * })
+    **/
+    count<T extends Is_ParticipantCountArgs>(
+      args?: Subset<T, Is_ParticipantCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Is_ParticipantCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Is_Participant.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Is_ParticipantAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Is_ParticipantAggregateArgs>(args: Subset<T, Is_ParticipantAggregateArgs>): Prisma.PrismaPromise<GetIs_ParticipantAggregateType<T>>
+
+    /**
+     * Group by Is_Participant.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Is_ParticipantGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends Is_ParticipantGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: Is_ParticipantGroupByArgs['orderBy'] }
+        : { orderBy?: Is_ParticipantGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, Is_ParticipantGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetIs_ParticipantGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Is_Participant model
+   */
+  readonly fields: Is_ParticipantFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Is_Participant.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__Is_ParticipantClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    team<T extends TeamsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, TeamsDefaultArgs<ExtArgs>>): Prisma__TeamsClient<$Result.GetResult<Prisma.$TeamsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Is_Participant model
+   */
+  interface Is_ParticipantFieldRefs {
+    readonly team_id: FieldRef<"Is_Participant", 'String'>
+    readonly is_participant: FieldRef<"Is_Participant", 'Boolean'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Is_Participant findUnique
+   */
+  export type Is_ParticipantFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Is_Participant
+     */
+    select?: Is_ParticipantSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Is_Participant
+     */
+    omit?: Is_ParticipantOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Is_ParticipantInclude<ExtArgs> | null
+    /**
+     * Filter, which Is_Participant to fetch.
+     */
+    where: Is_ParticipantWhereUniqueInput
+  }
+
+  /**
+   * Is_Participant findUniqueOrThrow
+   */
+  export type Is_ParticipantFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Is_Participant
+     */
+    select?: Is_ParticipantSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Is_Participant
+     */
+    omit?: Is_ParticipantOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Is_ParticipantInclude<ExtArgs> | null
+    /**
+     * Filter, which Is_Participant to fetch.
+     */
+    where: Is_ParticipantWhereUniqueInput
+  }
+
+  /**
+   * Is_Participant findFirst
+   */
+  export type Is_ParticipantFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Is_Participant
+     */
+    select?: Is_ParticipantSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Is_Participant
+     */
+    omit?: Is_ParticipantOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Is_ParticipantInclude<ExtArgs> | null
+    /**
+     * Filter, which Is_Participant to fetch.
+     */
+    where?: Is_ParticipantWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Is_Participants to fetch.
+     */
+    orderBy?: Is_ParticipantOrderByWithRelationInput | Is_ParticipantOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Is_Participants.
+     */
+    cursor?: Is_ParticipantWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Is_Participants from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Is_Participants.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Is_Participants.
+     */
+    distinct?: Is_ParticipantScalarFieldEnum | Is_ParticipantScalarFieldEnum[]
+  }
+
+  /**
+   * Is_Participant findFirstOrThrow
+   */
+  export type Is_ParticipantFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Is_Participant
+     */
+    select?: Is_ParticipantSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Is_Participant
+     */
+    omit?: Is_ParticipantOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Is_ParticipantInclude<ExtArgs> | null
+    /**
+     * Filter, which Is_Participant to fetch.
+     */
+    where?: Is_ParticipantWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Is_Participants to fetch.
+     */
+    orderBy?: Is_ParticipantOrderByWithRelationInput | Is_ParticipantOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Is_Participants.
+     */
+    cursor?: Is_ParticipantWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Is_Participants from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Is_Participants.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Is_Participants.
+     */
+    distinct?: Is_ParticipantScalarFieldEnum | Is_ParticipantScalarFieldEnum[]
+  }
+
+  /**
+   * Is_Participant findMany
+   */
+  export type Is_ParticipantFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Is_Participant
+     */
+    select?: Is_ParticipantSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Is_Participant
+     */
+    omit?: Is_ParticipantOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Is_ParticipantInclude<ExtArgs> | null
+    /**
+     * Filter, which Is_Participants to fetch.
+     */
+    where?: Is_ParticipantWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Is_Participants to fetch.
+     */
+    orderBy?: Is_ParticipantOrderByWithRelationInput | Is_ParticipantOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Is_Participants.
+     */
+    cursor?: Is_ParticipantWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Is_Participants from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Is_Participants.
+     */
+    skip?: number
+    distinct?: Is_ParticipantScalarFieldEnum | Is_ParticipantScalarFieldEnum[]
+  }
+
+  /**
+   * Is_Participant create
+   */
+  export type Is_ParticipantCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Is_Participant
+     */
+    select?: Is_ParticipantSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Is_Participant
+     */
+    omit?: Is_ParticipantOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Is_ParticipantInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Is_Participant.
+     */
+    data: XOR<Is_ParticipantCreateInput, Is_ParticipantUncheckedCreateInput>
+  }
+
+  /**
+   * Is_Participant createMany
+   */
+  export type Is_ParticipantCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Is_Participants.
+     */
+    data: Is_ParticipantCreateManyInput | Is_ParticipantCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Is_Participant createManyAndReturn
+   */
+  export type Is_ParticipantCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Is_Participant
+     */
+    select?: Is_ParticipantSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Is_Participant
+     */
+    omit?: Is_ParticipantOmit<ExtArgs> | null
+    /**
+     * The data used to create many Is_Participants.
+     */
+    data: Is_ParticipantCreateManyInput | Is_ParticipantCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Is_ParticipantIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Is_Participant update
+   */
+  export type Is_ParticipantUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Is_Participant
+     */
+    select?: Is_ParticipantSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Is_Participant
+     */
+    omit?: Is_ParticipantOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Is_ParticipantInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Is_Participant.
+     */
+    data: XOR<Is_ParticipantUpdateInput, Is_ParticipantUncheckedUpdateInput>
+    /**
+     * Choose, which Is_Participant to update.
+     */
+    where: Is_ParticipantWhereUniqueInput
+  }
+
+  /**
+   * Is_Participant updateMany
+   */
+  export type Is_ParticipantUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Is_Participants.
+     */
+    data: XOR<Is_ParticipantUpdateManyMutationInput, Is_ParticipantUncheckedUpdateManyInput>
+    /**
+     * Filter which Is_Participants to update
+     */
+    where?: Is_ParticipantWhereInput
+    /**
+     * Limit how many Is_Participants to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Is_Participant updateManyAndReturn
+   */
+  export type Is_ParticipantUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Is_Participant
+     */
+    select?: Is_ParticipantSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Is_Participant
+     */
+    omit?: Is_ParticipantOmit<ExtArgs> | null
+    /**
+     * The data used to update Is_Participants.
+     */
+    data: XOR<Is_ParticipantUpdateManyMutationInput, Is_ParticipantUncheckedUpdateManyInput>
+    /**
+     * Filter which Is_Participants to update
+     */
+    where?: Is_ParticipantWhereInput
+    /**
+     * Limit how many Is_Participants to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Is_ParticipantIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Is_Participant upsert
+   */
+  export type Is_ParticipantUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Is_Participant
+     */
+    select?: Is_ParticipantSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Is_Participant
+     */
+    omit?: Is_ParticipantOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Is_ParticipantInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Is_Participant to update in case it exists.
+     */
+    where: Is_ParticipantWhereUniqueInput
+    /**
+     * In case the Is_Participant found by the `where` argument doesn't exist, create a new Is_Participant with this data.
+     */
+    create: XOR<Is_ParticipantCreateInput, Is_ParticipantUncheckedCreateInput>
+    /**
+     * In case the Is_Participant was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<Is_ParticipantUpdateInput, Is_ParticipantUncheckedUpdateInput>
+  }
+
+  /**
+   * Is_Participant delete
+   */
+  export type Is_ParticipantDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Is_Participant
+     */
+    select?: Is_ParticipantSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Is_Participant
+     */
+    omit?: Is_ParticipantOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Is_ParticipantInclude<ExtArgs> | null
+    /**
+     * Filter which Is_Participant to delete.
+     */
+    where: Is_ParticipantWhereUniqueInput
+  }
+
+  /**
+   * Is_Participant deleteMany
+   */
+  export type Is_ParticipantDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Is_Participants to delete
+     */
+    where?: Is_ParticipantWhereInput
+    /**
+     * Limit how many Is_Participants to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Is_Participant without action
+   */
+  export type Is_ParticipantDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Is_Participant
+     */
+    select?: Is_ParticipantSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Is_Participant
+     */
+    omit?: Is_ParticipantOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Is_ParticipantInclude<ExtArgs> | null
   }
 
 
@@ -15570,6 +16717,14 @@ export namespace Prisma {
   export type TeamsScalarFieldEnum = (typeof TeamsScalarFieldEnum)[keyof typeof TeamsScalarFieldEnum]
 
 
+  export const Is_ParticipantScalarFieldEnum: {
+    team_id: 'team_id',
+    is_participant: 'is_participant'
+  };
+
+  export type Is_ParticipantScalarFieldEnum = (typeof Is_ParticipantScalarFieldEnum)[keyof typeof Is_ParticipantScalarFieldEnum]
+
+
   export const EmployeeScalarFieldEnum: {
     id: 'id',
     name: 'name',
@@ -15730,6 +16885,13 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'Boolean'
+   */
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
+    
+
+
+  /**
    * Reference to a field of type 'Int'
    */
   export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
@@ -15786,6 +16948,7 @@ export namespace Prisma {
     league_achievement?: PlayerTeamAchievementsListRelationFilter
     personal_achievement?: PlayerPersonalAchievementsListRelationFilter
     player_stats?: PlayerStatsListRelationFilter
+    is_participant?: Is_ParticipantListRelationFilter
   }
 
   export type TeamsOrderByWithRelationInput = {
@@ -15797,6 +16960,7 @@ export namespace Prisma {
     league_achievement?: PlayerTeamAchievementsOrderByRelationAggregateInput
     personal_achievement?: PlayerPersonalAchievementsOrderByRelationAggregateInput
     player_stats?: PlayerStatsOrderByRelationAggregateInput
+    is_participant?: Is_ParticipantOrderByRelationAggregateInput
   }
 
   export type TeamsWhereUniqueInput = Prisma.AtLeast<{
@@ -15811,6 +16975,7 @@ export namespace Prisma {
     league_achievement?: PlayerTeamAchievementsListRelationFilter
     personal_achievement?: PlayerPersonalAchievementsListRelationFilter
     player_stats?: PlayerStatsListRelationFilter
+    is_participant?: Is_ParticipantListRelationFilter
   }, "id">
 
   export type TeamsOrderByWithAggregationInput = {
@@ -15827,6 +16992,46 @@ export namespace Prisma {
     NOT?: TeamsScalarWhereWithAggregatesInput | TeamsScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Teams"> | string
     name?: StringWithAggregatesFilter<"Teams"> | string
+  }
+
+  export type Is_ParticipantWhereInput = {
+    AND?: Is_ParticipantWhereInput | Is_ParticipantWhereInput[]
+    OR?: Is_ParticipantWhereInput[]
+    NOT?: Is_ParticipantWhereInput | Is_ParticipantWhereInput[]
+    team_id?: StringFilter<"Is_Participant"> | string
+    is_participant?: BoolFilter<"Is_Participant"> | boolean
+    team?: XOR<TeamsScalarRelationFilter, TeamsWhereInput>
+  }
+
+  export type Is_ParticipantOrderByWithRelationInput = {
+    team_id?: SortOrder
+    is_participant?: SortOrder
+    team?: TeamsOrderByWithRelationInput
+  }
+
+  export type Is_ParticipantWhereUniqueInput = Prisma.AtLeast<{
+    team_id?: string
+    AND?: Is_ParticipantWhereInput | Is_ParticipantWhereInput[]
+    OR?: Is_ParticipantWhereInput[]
+    NOT?: Is_ParticipantWhereInput | Is_ParticipantWhereInput[]
+    is_participant?: BoolFilter<"Is_Participant"> | boolean
+    team?: XOR<TeamsScalarRelationFilter, TeamsWhereInput>
+  }, "team_id">
+
+  export type Is_ParticipantOrderByWithAggregationInput = {
+    team_id?: SortOrder
+    is_participant?: SortOrder
+    _count?: Is_ParticipantCountOrderByAggregateInput
+    _max?: Is_ParticipantMaxOrderByAggregateInput
+    _min?: Is_ParticipantMinOrderByAggregateInput
+  }
+
+  export type Is_ParticipantScalarWhereWithAggregatesInput = {
+    AND?: Is_ParticipantScalarWhereWithAggregatesInput | Is_ParticipantScalarWhereWithAggregatesInput[]
+    OR?: Is_ParticipantScalarWhereWithAggregatesInput[]
+    NOT?: Is_ParticipantScalarWhereWithAggregatesInput | Is_ParticipantScalarWhereWithAggregatesInput[]
+    team_id?: StringWithAggregatesFilter<"Is_Participant"> | string
+    is_participant?: BoolWithAggregatesFilter<"Is_Participant"> | boolean
   }
 
   export type EmployeeWhereInput = {
@@ -16523,6 +17728,7 @@ export namespace Prisma {
     league_achievement?: PlayerTeamAchievementsCreateNestedManyWithoutTeamInput
     personal_achievement?: PlayerPersonalAchievementsCreateNestedManyWithoutTeamInput
     player_stats?: PlayerStatsCreateNestedManyWithoutTeamInput
+    is_participant?: Is_ParticipantCreateNestedManyWithoutTeamInput
   }
 
   export type TeamsUncheckedCreateInput = {
@@ -16534,6 +17740,7 @@ export namespace Prisma {
     league_achievement?: PlayerTeamAchievementsUncheckedCreateNestedManyWithoutTeamInput
     personal_achievement?: PlayerPersonalAchievementsUncheckedCreateNestedManyWithoutTeamInput
     player_stats?: PlayerStatsUncheckedCreateNestedManyWithoutTeamInput
+    is_participant?: Is_ParticipantUncheckedCreateNestedManyWithoutTeamInput
   }
 
   export type TeamsUpdateInput = {
@@ -16545,6 +17752,7 @@ export namespace Prisma {
     league_achievement?: PlayerTeamAchievementsUpdateManyWithoutTeamNestedInput
     personal_achievement?: PlayerPersonalAchievementsUpdateManyWithoutTeamNestedInput
     player_stats?: PlayerStatsUpdateManyWithoutTeamNestedInput
+    is_participant?: Is_ParticipantUpdateManyWithoutTeamNestedInput
   }
 
   export type TeamsUncheckedUpdateInput = {
@@ -16556,6 +17764,7 @@ export namespace Prisma {
     league_achievement?: PlayerTeamAchievementsUncheckedUpdateManyWithoutTeamNestedInput
     personal_achievement?: PlayerPersonalAchievementsUncheckedUpdateManyWithoutTeamNestedInput
     player_stats?: PlayerStatsUncheckedUpdateManyWithoutTeamNestedInput
+    is_participant?: Is_ParticipantUncheckedUpdateManyWithoutTeamNestedInput
   }
 
   export type TeamsCreateManyInput = {
@@ -16571,6 +17780,40 @@ export namespace Prisma {
   export type TeamsUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type Is_ParticipantCreateInput = {
+    is_participant: boolean
+    team: TeamsCreateNestedOneWithoutIs_participantInput
+  }
+
+  export type Is_ParticipantUncheckedCreateInput = {
+    team_id: string
+    is_participant: boolean
+  }
+
+  export type Is_ParticipantUpdateInput = {
+    is_participant?: BoolFieldUpdateOperationsInput | boolean
+    team?: TeamsUpdateOneRequiredWithoutIs_participantNestedInput
+  }
+
+  export type Is_ParticipantUncheckedUpdateInput = {
+    team_id?: StringFieldUpdateOperationsInput | string
+    is_participant?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type Is_ParticipantCreateManyInput = {
+    team_id: string
+    is_participant: boolean
+  }
+
+  export type Is_ParticipantUpdateManyMutationInput = {
+    is_participant?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type Is_ParticipantUncheckedUpdateManyInput = {
+    team_id?: StringFieldUpdateOperationsInput | string
+    is_participant?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type EmployeeCreateInput = {
@@ -17278,6 +18521,12 @@ export namespace Prisma {
     none?: PlayerStatsWhereInput
   }
 
+  export type Is_ParticipantListRelationFilter = {
+    every?: Is_ParticipantWhereInput
+    some?: Is_ParticipantWhereInput
+    none?: Is_ParticipantWhereInput
+  }
+
   export type EmployeeOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
@@ -17295,6 +18544,10 @@ export namespace Prisma {
   }
 
   export type PlayerStatsOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type Is_ParticipantOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -17331,6 +18584,39 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
+  export type BoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
+  export type TeamsScalarRelationFilter = {
+    is?: TeamsWhereInput
+    isNot?: TeamsWhereInput
+  }
+
+  export type Is_ParticipantCountOrderByAggregateInput = {
+    team_id?: SortOrder
+    is_participant?: SortOrder
+  }
+
+  export type Is_ParticipantMaxOrderByAggregateInput = {
+    team_id?: SortOrder
+    is_participant?: SortOrder
+  }
+
+  export type Is_ParticipantMinOrderByAggregateInput = {
+    team_id?: SortOrder
+    is_participant?: SortOrder
+  }
+
+  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
   export type IntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -17340,11 +18626,6 @@ export namespace Prisma {
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
     not?: NestedIntFilter<$PrismaModel> | number
-  }
-
-  export type TeamsScalarRelationFilter = {
-    is?: TeamsWhereInput
-    isNot?: TeamsWhereInput
   }
 
   export type EmployeeCountOrderByAggregateInput = {
@@ -17819,6 +19100,13 @@ export namespace Prisma {
     connect?: PlayerStatsWhereUniqueInput | PlayerStatsWhereUniqueInput[]
   }
 
+  export type Is_ParticipantCreateNestedManyWithoutTeamInput = {
+    create?: XOR<Is_ParticipantCreateWithoutTeamInput, Is_ParticipantUncheckedCreateWithoutTeamInput> | Is_ParticipantCreateWithoutTeamInput[] | Is_ParticipantUncheckedCreateWithoutTeamInput[]
+    connectOrCreate?: Is_ParticipantCreateOrConnectWithoutTeamInput | Is_ParticipantCreateOrConnectWithoutTeamInput[]
+    createMany?: Is_ParticipantCreateManyTeamInputEnvelope
+    connect?: Is_ParticipantWhereUniqueInput | Is_ParticipantWhereUniqueInput[]
+  }
+
   export type EmployeeUncheckedCreateNestedManyWithoutTeamInput = {
     create?: XOR<EmployeeCreateWithoutTeamInput, EmployeeUncheckedCreateWithoutTeamInput> | EmployeeCreateWithoutTeamInput[] | EmployeeUncheckedCreateWithoutTeamInput[]
     connectOrCreate?: EmployeeCreateOrConnectWithoutTeamInput | EmployeeCreateOrConnectWithoutTeamInput[]
@@ -17858,6 +19146,13 @@ export namespace Prisma {
     connectOrCreate?: PlayerStatsCreateOrConnectWithoutTeamInput | PlayerStatsCreateOrConnectWithoutTeamInput[]
     createMany?: PlayerStatsCreateManyTeamInputEnvelope
     connect?: PlayerStatsWhereUniqueInput | PlayerStatsWhereUniqueInput[]
+  }
+
+  export type Is_ParticipantUncheckedCreateNestedManyWithoutTeamInput = {
+    create?: XOR<Is_ParticipantCreateWithoutTeamInput, Is_ParticipantUncheckedCreateWithoutTeamInput> | Is_ParticipantCreateWithoutTeamInput[] | Is_ParticipantUncheckedCreateWithoutTeamInput[]
+    connectOrCreate?: Is_ParticipantCreateOrConnectWithoutTeamInput | Is_ParticipantCreateOrConnectWithoutTeamInput[]
+    createMany?: Is_ParticipantCreateManyTeamInputEnvelope
+    connect?: Is_ParticipantWhereUniqueInput | Is_ParticipantWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -17944,6 +19239,20 @@ export namespace Prisma {
     deleteMany?: PlayerStatsScalarWhereInput | PlayerStatsScalarWhereInput[]
   }
 
+  export type Is_ParticipantUpdateManyWithoutTeamNestedInput = {
+    create?: XOR<Is_ParticipantCreateWithoutTeamInput, Is_ParticipantUncheckedCreateWithoutTeamInput> | Is_ParticipantCreateWithoutTeamInput[] | Is_ParticipantUncheckedCreateWithoutTeamInput[]
+    connectOrCreate?: Is_ParticipantCreateOrConnectWithoutTeamInput | Is_ParticipantCreateOrConnectWithoutTeamInput[]
+    upsert?: Is_ParticipantUpsertWithWhereUniqueWithoutTeamInput | Is_ParticipantUpsertWithWhereUniqueWithoutTeamInput[]
+    createMany?: Is_ParticipantCreateManyTeamInputEnvelope
+    set?: Is_ParticipantWhereUniqueInput | Is_ParticipantWhereUniqueInput[]
+    disconnect?: Is_ParticipantWhereUniqueInput | Is_ParticipantWhereUniqueInput[]
+    delete?: Is_ParticipantWhereUniqueInput | Is_ParticipantWhereUniqueInput[]
+    connect?: Is_ParticipantWhereUniqueInput | Is_ParticipantWhereUniqueInput[]
+    update?: Is_ParticipantUpdateWithWhereUniqueWithoutTeamInput | Is_ParticipantUpdateWithWhereUniqueWithoutTeamInput[]
+    updateMany?: Is_ParticipantUpdateManyWithWhereWithoutTeamInput | Is_ParticipantUpdateManyWithWhereWithoutTeamInput[]
+    deleteMany?: Is_ParticipantScalarWhereInput | Is_ParticipantScalarWhereInput[]
+  }
+
   export type EmployeeUncheckedUpdateManyWithoutTeamNestedInput = {
     create?: XOR<EmployeeCreateWithoutTeamInput, EmployeeUncheckedCreateWithoutTeamInput> | EmployeeCreateWithoutTeamInput[] | EmployeeUncheckedCreateWithoutTeamInput[]
     connectOrCreate?: EmployeeCreateOrConnectWithoutTeamInput | EmployeeCreateOrConnectWithoutTeamInput[]
@@ -18022,6 +19331,38 @@ export namespace Prisma {
     update?: PlayerStatsUpdateWithWhereUniqueWithoutTeamInput | PlayerStatsUpdateWithWhereUniqueWithoutTeamInput[]
     updateMany?: PlayerStatsUpdateManyWithWhereWithoutTeamInput | PlayerStatsUpdateManyWithWhereWithoutTeamInput[]
     deleteMany?: PlayerStatsScalarWhereInput | PlayerStatsScalarWhereInput[]
+  }
+
+  export type Is_ParticipantUncheckedUpdateManyWithoutTeamNestedInput = {
+    create?: XOR<Is_ParticipantCreateWithoutTeamInput, Is_ParticipantUncheckedCreateWithoutTeamInput> | Is_ParticipantCreateWithoutTeamInput[] | Is_ParticipantUncheckedCreateWithoutTeamInput[]
+    connectOrCreate?: Is_ParticipantCreateOrConnectWithoutTeamInput | Is_ParticipantCreateOrConnectWithoutTeamInput[]
+    upsert?: Is_ParticipantUpsertWithWhereUniqueWithoutTeamInput | Is_ParticipantUpsertWithWhereUniqueWithoutTeamInput[]
+    createMany?: Is_ParticipantCreateManyTeamInputEnvelope
+    set?: Is_ParticipantWhereUniqueInput | Is_ParticipantWhereUniqueInput[]
+    disconnect?: Is_ParticipantWhereUniqueInput | Is_ParticipantWhereUniqueInput[]
+    delete?: Is_ParticipantWhereUniqueInput | Is_ParticipantWhereUniqueInput[]
+    connect?: Is_ParticipantWhereUniqueInput | Is_ParticipantWhereUniqueInput[]
+    update?: Is_ParticipantUpdateWithWhereUniqueWithoutTeamInput | Is_ParticipantUpdateWithWhereUniqueWithoutTeamInput[]
+    updateMany?: Is_ParticipantUpdateManyWithWhereWithoutTeamInput | Is_ParticipantUpdateManyWithWhereWithoutTeamInput[]
+    deleteMany?: Is_ParticipantScalarWhereInput | Is_ParticipantScalarWhereInput[]
+  }
+
+  export type TeamsCreateNestedOneWithoutIs_participantInput = {
+    create?: XOR<TeamsCreateWithoutIs_participantInput, TeamsUncheckedCreateWithoutIs_participantInput>
+    connectOrCreate?: TeamsCreateOrConnectWithoutIs_participantInput
+    connect?: TeamsWhereUniqueInput
+  }
+
+  export type BoolFieldUpdateOperationsInput = {
+    set?: boolean
+  }
+
+  export type TeamsUpdateOneRequiredWithoutIs_participantNestedInput = {
+    create?: XOR<TeamsCreateWithoutIs_participantInput, TeamsUncheckedCreateWithoutIs_participantInput>
+    connectOrCreate?: TeamsCreateOrConnectWithoutIs_participantInput
+    upsert?: TeamsUpsertWithoutIs_participantInput
+    connect?: TeamsWhereUniqueInput
+    update?: XOR<XOR<TeamsUpdateToOneWithWhereWithoutIs_participantInput, TeamsUpdateWithoutIs_participantInput>, TeamsUncheckedUpdateWithoutIs_participantInput>
   }
 
   export type TeamsCreateNestedOneWithoutEmployeeInput = {
@@ -18758,6 +20099,19 @@ export namespace Prisma {
     not?: NestedIntFilter<$PrismaModel> | number
   }
 
+  export type NestedBoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
+  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -18975,6 +20329,24 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type Is_ParticipantCreateWithoutTeamInput = {
+    is_participant: boolean
+  }
+
+  export type Is_ParticipantUncheckedCreateWithoutTeamInput = {
+    is_participant: boolean
+  }
+
+  export type Is_ParticipantCreateOrConnectWithoutTeamInput = {
+    where: Is_ParticipantWhereUniqueInput
+    create: XOR<Is_ParticipantCreateWithoutTeamInput, Is_ParticipantUncheckedCreateWithoutTeamInput>
+  }
+
+  export type Is_ParticipantCreateManyTeamInputEnvelope = {
+    data: Is_ParticipantCreateManyTeamInput | Is_ParticipantCreateManyTeamInput[]
+    skipDuplicates?: boolean
+  }
+
   export type EmployeeUpsertWithWhereUniqueWithoutTeamInput = {
     where: EmployeeWhereUniqueInput
     update: XOR<EmployeeUpdateWithoutTeamInput, EmployeeUncheckedUpdateWithoutTeamInput>
@@ -19140,6 +20512,90 @@ export namespace Prisma {
     year?: IntFilter<"PlayerStats"> | number
   }
 
+  export type Is_ParticipantUpsertWithWhereUniqueWithoutTeamInput = {
+    where: Is_ParticipantWhereUniqueInput
+    update: XOR<Is_ParticipantUpdateWithoutTeamInput, Is_ParticipantUncheckedUpdateWithoutTeamInput>
+    create: XOR<Is_ParticipantCreateWithoutTeamInput, Is_ParticipantUncheckedCreateWithoutTeamInput>
+  }
+
+  export type Is_ParticipantUpdateWithWhereUniqueWithoutTeamInput = {
+    where: Is_ParticipantWhereUniqueInput
+    data: XOR<Is_ParticipantUpdateWithoutTeamInput, Is_ParticipantUncheckedUpdateWithoutTeamInput>
+  }
+
+  export type Is_ParticipantUpdateManyWithWhereWithoutTeamInput = {
+    where: Is_ParticipantScalarWhereInput
+    data: XOR<Is_ParticipantUpdateManyMutationInput, Is_ParticipantUncheckedUpdateManyWithoutTeamInput>
+  }
+
+  export type Is_ParticipantScalarWhereInput = {
+    AND?: Is_ParticipantScalarWhereInput | Is_ParticipantScalarWhereInput[]
+    OR?: Is_ParticipantScalarWhereInput[]
+    NOT?: Is_ParticipantScalarWhereInput | Is_ParticipantScalarWhereInput[]
+    team_id?: StringFilter<"Is_Participant"> | string
+    is_participant?: BoolFilter<"Is_Participant"> | boolean
+  }
+
+  export type TeamsCreateWithoutIs_participantInput = {
+    id: string
+    name: string
+    employee?: EmployeeCreateNestedManyWithoutTeamInput
+    chairman?: ChairmanCreateNestedOneWithoutTeamInput
+    player?: PlayersCreateNestedManyWithoutTeamInput
+    league_achievement?: PlayerTeamAchievementsCreateNestedManyWithoutTeamInput
+    personal_achievement?: PlayerPersonalAchievementsCreateNestedManyWithoutTeamInput
+    player_stats?: PlayerStatsCreateNestedManyWithoutTeamInput
+  }
+
+  export type TeamsUncheckedCreateWithoutIs_participantInput = {
+    id: string
+    name: string
+    employee?: EmployeeUncheckedCreateNestedManyWithoutTeamInput
+    chairman?: ChairmanUncheckedCreateNestedOneWithoutTeamInput
+    player?: PlayersUncheckedCreateNestedManyWithoutTeamInput
+    league_achievement?: PlayerTeamAchievementsUncheckedCreateNestedManyWithoutTeamInput
+    personal_achievement?: PlayerPersonalAchievementsUncheckedCreateNestedManyWithoutTeamInput
+    player_stats?: PlayerStatsUncheckedCreateNestedManyWithoutTeamInput
+  }
+
+  export type TeamsCreateOrConnectWithoutIs_participantInput = {
+    where: TeamsWhereUniqueInput
+    create: XOR<TeamsCreateWithoutIs_participantInput, TeamsUncheckedCreateWithoutIs_participantInput>
+  }
+
+  export type TeamsUpsertWithoutIs_participantInput = {
+    update: XOR<TeamsUpdateWithoutIs_participantInput, TeamsUncheckedUpdateWithoutIs_participantInput>
+    create: XOR<TeamsCreateWithoutIs_participantInput, TeamsUncheckedCreateWithoutIs_participantInput>
+    where?: TeamsWhereInput
+  }
+
+  export type TeamsUpdateToOneWithWhereWithoutIs_participantInput = {
+    where?: TeamsWhereInput
+    data: XOR<TeamsUpdateWithoutIs_participantInput, TeamsUncheckedUpdateWithoutIs_participantInput>
+  }
+
+  export type TeamsUpdateWithoutIs_participantInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    employee?: EmployeeUpdateManyWithoutTeamNestedInput
+    chairman?: ChairmanUpdateOneWithoutTeamNestedInput
+    player?: PlayersUpdateManyWithoutTeamNestedInput
+    league_achievement?: PlayerTeamAchievementsUpdateManyWithoutTeamNestedInput
+    personal_achievement?: PlayerPersonalAchievementsUpdateManyWithoutTeamNestedInput
+    player_stats?: PlayerStatsUpdateManyWithoutTeamNestedInput
+  }
+
+  export type TeamsUncheckedUpdateWithoutIs_participantInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    employee?: EmployeeUncheckedUpdateManyWithoutTeamNestedInput
+    chairman?: ChairmanUncheckedUpdateOneWithoutTeamNestedInput
+    player?: PlayersUncheckedUpdateManyWithoutTeamNestedInput
+    league_achievement?: PlayerTeamAchievementsUncheckedUpdateManyWithoutTeamNestedInput
+    personal_achievement?: PlayerPersonalAchievementsUncheckedUpdateManyWithoutTeamNestedInput
+    player_stats?: PlayerStatsUncheckedUpdateManyWithoutTeamNestedInput
+  }
+
   export type TeamsCreateWithoutEmployeeInput = {
     id: string
     name: string
@@ -19148,6 +20604,7 @@ export namespace Prisma {
     league_achievement?: PlayerTeamAchievementsCreateNestedManyWithoutTeamInput
     personal_achievement?: PlayerPersonalAchievementsCreateNestedManyWithoutTeamInput
     player_stats?: PlayerStatsCreateNestedManyWithoutTeamInput
+    is_participant?: Is_ParticipantCreateNestedManyWithoutTeamInput
   }
 
   export type TeamsUncheckedCreateWithoutEmployeeInput = {
@@ -19158,6 +20615,7 @@ export namespace Prisma {
     league_achievement?: PlayerTeamAchievementsUncheckedCreateNestedManyWithoutTeamInput
     personal_achievement?: PlayerPersonalAchievementsUncheckedCreateNestedManyWithoutTeamInput
     player_stats?: PlayerStatsUncheckedCreateNestedManyWithoutTeamInput
+    is_participant?: Is_ParticipantUncheckedCreateNestedManyWithoutTeamInput
   }
 
   export type TeamsCreateOrConnectWithoutEmployeeInput = {
@@ -19184,6 +20642,7 @@ export namespace Prisma {
     league_achievement?: PlayerTeamAchievementsUpdateManyWithoutTeamNestedInput
     personal_achievement?: PlayerPersonalAchievementsUpdateManyWithoutTeamNestedInput
     player_stats?: PlayerStatsUpdateManyWithoutTeamNestedInput
+    is_participant?: Is_ParticipantUpdateManyWithoutTeamNestedInput
   }
 
   export type TeamsUncheckedUpdateWithoutEmployeeInput = {
@@ -19194,6 +20653,7 @@ export namespace Prisma {
     league_achievement?: PlayerTeamAchievementsUncheckedUpdateManyWithoutTeamNestedInput
     personal_achievement?: PlayerPersonalAchievementsUncheckedUpdateManyWithoutTeamNestedInput
     player_stats?: PlayerStatsUncheckedUpdateManyWithoutTeamNestedInput
+    is_participant?: Is_ParticipantUncheckedUpdateManyWithoutTeamNestedInput
   }
 
   export type TeamsCreateWithoutChairmanInput = {
@@ -19204,6 +20664,7 @@ export namespace Prisma {
     league_achievement?: PlayerTeamAchievementsCreateNestedManyWithoutTeamInput
     personal_achievement?: PlayerPersonalAchievementsCreateNestedManyWithoutTeamInput
     player_stats?: PlayerStatsCreateNestedManyWithoutTeamInput
+    is_participant?: Is_ParticipantCreateNestedManyWithoutTeamInput
   }
 
   export type TeamsUncheckedCreateWithoutChairmanInput = {
@@ -19214,6 +20675,7 @@ export namespace Prisma {
     league_achievement?: PlayerTeamAchievementsUncheckedCreateNestedManyWithoutTeamInput
     personal_achievement?: PlayerPersonalAchievementsUncheckedCreateNestedManyWithoutTeamInput
     player_stats?: PlayerStatsUncheckedCreateNestedManyWithoutTeamInput
+    is_participant?: Is_ParticipantUncheckedCreateNestedManyWithoutTeamInput
   }
 
   export type TeamsCreateOrConnectWithoutChairmanInput = {
@@ -19240,6 +20702,7 @@ export namespace Prisma {
     league_achievement?: PlayerTeamAchievementsUpdateManyWithoutTeamNestedInput
     personal_achievement?: PlayerPersonalAchievementsUpdateManyWithoutTeamNestedInput
     player_stats?: PlayerStatsUpdateManyWithoutTeamNestedInput
+    is_participant?: Is_ParticipantUpdateManyWithoutTeamNestedInput
   }
 
   export type TeamsUncheckedUpdateWithoutChairmanInput = {
@@ -19250,6 +20713,7 @@ export namespace Prisma {
     league_achievement?: PlayerTeamAchievementsUncheckedUpdateManyWithoutTeamNestedInput
     personal_achievement?: PlayerPersonalAchievementsUncheckedUpdateManyWithoutTeamNestedInput
     player_stats?: PlayerStatsUncheckedUpdateManyWithoutTeamNestedInput
+    is_participant?: Is_ParticipantUncheckedUpdateManyWithoutTeamNestedInput
   }
 
   export type PlayerInfoCreateWithoutPlayerInput = {
@@ -19432,6 +20896,7 @@ export namespace Prisma {
     league_achievement?: PlayerTeamAchievementsCreateNestedManyWithoutTeamInput
     personal_achievement?: PlayerPersonalAchievementsCreateNestedManyWithoutTeamInput
     player_stats?: PlayerStatsCreateNestedManyWithoutTeamInput
+    is_participant?: Is_ParticipantCreateNestedManyWithoutTeamInput
   }
 
   export type TeamsUncheckedCreateWithoutPlayerInput = {
@@ -19442,6 +20907,7 @@ export namespace Prisma {
     league_achievement?: PlayerTeamAchievementsUncheckedCreateNestedManyWithoutTeamInput
     personal_achievement?: PlayerPersonalAchievementsUncheckedCreateNestedManyWithoutTeamInput
     player_stats?: PlayerStatsUncheckedCreateNestedManyWithoutTeamInput
+    is_participant?: Is_ParticipantUncheckedCreateNestedManyWithoutTeamInput
   }
 
   export type TeamsCreateOrConnectWithoutPlayerInput = {
@@ -19614,6 +21080,7 @@ export namespace Prisma {
     league_achievement?: PlayerTeamAchievementsUpdateManyWithoutTeamNestedInput
     personal_achievement?: PlayerPersonalAchievementsUpdateManyWithoutTeamNestedInput
     player_stats?: PlayerStatsUpdateManyWithoutTeamNestedInput
+    is_participant?: Is_ParticipantUpdateManyWithoutTeamNestedInput
   }
 
   export type TeamsUncheckedUpdateWithoutPlayerInput = {
@@ -19624,6 +21091,7 @@ export namespace Prisma {
     league_achievement?: PlayerTeamAchievementsUncheckedUpdateManyWithoutTeamNestedInput
     personal_achievement?: PlayerPersonalAchievementsUncheckedUpdateManyWithoutTeamNestedInput
     player_stats?: PlayerStatsUncheckedUpdateManyWithoutTeamNestedInput
+    is_participant?: Is_ParticipantUncheckedUpdateManyWithoutTeamNestedInput
   }
 
   export type PlayerTeamAchievementsCreateWithoutLeagueInput = {
@@ -20016,6 +21484,7 @@ export namespace Prisma {
     player?: PlayersCreateNestedManyWithoutTeamInput
     league_achievement?: PlayerTeamAchievementsCreateNestedManyWithoutTeamInput
     personal_achievement?: PlayerPersonalAchievementsCreateNestedManyWithoutTeamInput
+    is_participant?: Is_ParticipantCreateNestedManyWithoutTeamInput
   }
 
   export type TeamsUncheckedCreateWithoutPlayer_statsInput = {
@@ -20026,6 +21495,7 @@ export namespace Prisma {
     player?: PlayersUncheckedCreateNestedManyWithoutTeamInput
     league_achievement?: PlayerTeamAchievementsUncheckedCreateNestedManyWithoutTeamInput
     personal_achievement?: PlayerPersonalAchievementsUncheckedCreateNestedManyWithoutTeamInput
+    is_participant?: Is_ParticipantUncheckedCreateNestedManyWithoutTeamInput
   }
 
   export type TeamsCreateOrConnectWithoutPlayer_statsInput = {
@@ -20118,6 +21588,7 @@ export namespace Prisma {
     player?: PlayersUpdateManyWithoutTeamNestedInput
     league_achievement?: PlayerTeamAchievementsUpdateManyWithoutTeamNestedInput
     personal_achievement?: PlayerPersonalAchievementsUpdateManyWithoutTeamNestedInput
+    is_participant?: Is_ParticipantUpdateManyWithoutTeamNestedInput
   }
 
   export type TeamsUncheckedUpdateWithoutPlayer_statsInput = {
@@ -20128,6 +21599,7 @@ export namespace Prisma {
     player?: PlayersUncheckedUpdateManyWithoutTeamNestedInput
     league_achievement?: PlayerTeamAchievementsUncheckedUpdateManyWithoutTeamNestedInput
     personal_achievement?: PlayerPersonalAchievementsUncheckedUpdateManyWithoutTeamNestedInput
+    is_participant?: Is_ParticipantUncheckedUpdateManyWithoutTeamNestedInput
   }
 
   export type PlayersCreateWithoutPlayer_team_achievementInput = {
@@ -20192,6 +21664,7 @@ export namespace Prisma {
     player?: PlayersCreateNestedManyWithoutTeamInput
     personal_achievement?: PlayerPersonalAchievementsCreateNestedManyWithoutTeamInput
     player_stats?: PlayerStatsCreateNestedManyWithoutTeamInput
+    is_participant?: Is_ParticipantCreateNestedManyWithoutTeamInput
   }
 
   export type TeamsUncheckedCreateWithoutLeague_achievementInput = {
@@ -20202,6 +21675,7 @@ export namespace Prisma {
     player?: PlayersUncheckedCreateNestedManyWithoutTeamInput
     personal_achievement?: PlayerPersonalAchievementsUncheckedCreateNestedManyWithoutTeamInput
     player_stats?: PlayerStatsUncheckedCreateNestedManyWithoutTeamInput
+    is_participant?: Is_ParticipantUncheckedCreateNestedManyWithoutTeamInput
   }
 
   export type TeamsCreateOrConnectWithoutLeague_achievementInput = {
@@ -20294,6 +21768,7 @@ export namespace Prisma {
     player?: PlayersUpdateManyWithoutTeamNestedInput
     personal_achievement?: PlayerPersonalAchievementsUpdateManyWithoutTeamNestedInput
     player_stats?: PlayerStatsUpdateManyWithoutTeamNestedInput
+    is_participant?: Is_ParticipantUpdateManyWithoutTeamNestedInput
   }
 
   export type TeamsUncheckedUpdateWithoutLeague_achievementInput = {
@@ -20304,6 +21779,7 @@ export namespace Prisma {
     player?: PlayersUncheckedUpdateManyWithoutTeamNestedInput
     personal_achievement?: PlayerPersonalAchievementsUncheckedUpdateManyWithoutTeamNestedInput
     player_stats?: PlayerStatsUncheckedUpdateManyWithoutTeamNestedInput
+    is_participant?: Is_ParticipantUncheckedUpdateManyWithoutTeamNestedInput
   }
 
   export type PlayersCreateWithoutPlayer_personal_achievementInput = {
@@ -20364,6 +21840,7 @@ export namespace Prisma {
     player?: PlayersCreateNestedManyWithoutTeamInput
     league_achievement?: PlayerTeamAchievementsCreateNestedManyWithoutTeamInput
     player_stats?: PlayerStatsCreateNestedManyWithoutTeamInput
+    is_participant?: Is_ParticipantCreateNestedManyWithoutTeamInput
   }
 
   export type TeamsUncheckedCreateWithoutPersonal_achievementInput = {
@@ -20374,6 +21851,7 @@ export namespace Prisma {
     player?: PlayersUncheckedCreateNestedManyWithoutTeamInput
     league_achievement?: PlayerTeamAchievementsUncheckedCreateNestedManyWithoutTeamInput
     player_stats?: PlayerStatsUncheckedCreateNestedManyWithoutTeamInput
+    is_participant?: Is_ParticipantUncheckedCreateNestedManyWithoutTeamInput
   }
 
   export type TeamsCreateOrConnectWithoutPersonal_achievementInput = {
@@ -20481,6 +21959,7 @@ export namespace Prisma {
     player?: PlayersUpdateManyWithoutTeamNestedInput
     league_achievement?: PlayerTeamAchievementsUpdateManyWithoutTeamNestedInput
     player_stats?: PlayerStatsUpdateManyWithoutTeamNestedInput
+    is_participant?: Is_ParticipantUpdateManyWithoutTeamNestedInput
   }
 
   export type TeamsUncheckedUpdateWithoutPersonal_achievementInput = {
@@ -20491,6 +21970,7 @@ export namespace Prisma {
     player?: PlayersUncheckedUpdateManyWithoutTeamNestedInput
     league_achievement?: PlayerTeamAchievementsUncheckedUpdateManyWithoutTeamNestedInput
     player_stats?: PlayerStatsUncheckedUpdateManyWithoutTeamNestedInput
+    is_participant?: Is_ParticipantUncheckedUpdateManyWithoutTeamNestedInput
   }
 
   export type LeaguesUpsertWithoutPersonal_achievementInput = {
@@ -20713,6 +22193,10 @@ export namespace Prisma {
     year: number
   }
 
+  export type Is_ParticipantCreateManyTeamInput = {
+    is_participant: boolean
+  }
+
   export type EmployeeUpdateWithoutTeamInput = {
     name?: StringFieldUpdateOperationsInput | string
     age?: IntFieldUpdateOperationsInput | number
@@ -20853,6 +22337,18 @@ export namespace Prisma {
     red_cards?: IntFieldUpdateOperationsInput | number
     league_id?: StringFieldUpdateOperationsInput | string
     year?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type Is_ParticipantUpdateWithoutTeamInput = {
+    is_participant?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type Is_ParticipantUncheckedUpdateWithoutTeamInput = {
+    is_participant?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type Is_ParticipantUncheckedUpdateManyWithoutTeamInput = {
+    is_participant?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type PlayerStatsCreateManyPlayerInput = {

@@ -118,14 +118,6 @@ h3 {
   width: 100%;
 }
 
-tr:nth-child(even) {
-  background-color: lightgrey;
-}
-
-tr:nth-child(odd) {
-  background-color: whitesmoke;
-}
-
 td.team {
   height: auto;
   overflow: visible;

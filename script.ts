@@ -3,45 +3,21 @@ import { PrismaClient } from "./generated/prisma";
 const prisma = new PrismaClient();
 
 async function main() {
-  /*const allTeams = await prisma.teams.createMany({
-        data: [
-            {id: "aot", name: "Attack on Titan"},
-            {id: "bleach", name: "Bleach"},
-            {id: "boboiboy", name: "Boboiboy"},
-            {id: "boruto", name: "Boruto"},
-            {id: "cote", name: "Classroom of the Elite"},
-            {id: "dfc", name: "Detective FC"},
-            {id: "ds", name: "Demon Slayer"},
-            {id: "dbz", name: "Dragon Ball Z"},
-            {id: "doraemon", name: "Doraemon"},
-            {id: "ft", name: "Fairy Tail"},
-            {id: "hxh", name: "Hunter x Hunter"},
-            {id: "ie", name: "Inazuma Eleven"},
-            {id: "op", name: "One Piece"},
-            {id: "pl", name: "Pokemon Legends"},
-            {id: "pw", name: "Pokemon Warriors"},
-            {id: "ta", name: "Team Anime"},
-            {id: "tfs", name: "Tsubasa: Football Stars"},
-            {id: "u&i", name: "Upin and Ipin"},
-        ]
-    })*/
-  /*const updatePlayer = await prisma.players.update({
-    where: { id: "ds_30" },
-    data: {
-      age: 24,
-    },
-  });*/
-  /*const updateTeams = await prisma.teams.update({
-    where: { id: "u&i" },
-    data: {
-      id: "u_and_i",
-    },
-  });*/
-  /*const newCoaches = await prisma.employee.createMany({
+  await prisma.employee.deleteMany();
+  const newCoaches = await prisma.employee.createMany({
     data: [
+      { name: "Uchiha Sasuke", age: 36, position: "Coach", team_id: "aot" },
+      {
+        name: "Sarutobi Konohamaru",
+        age: 36,
+        position: "Coach",
+        team_id: "boboiboy",
+      },
+      { name: "Hatake Kakashi", age: 50, position: "Coach", team_id: "boruto" },
+      { name: "Sakayanagi Arisu", age: 18, position: "Coach", team_id: "cote" },
       { name: "Kisuke Urahara", age: 35, position: "Coach", team_id: "bleach" },
-      { name: "Hiroshi Agasha", age: 52, position: "Coach", team_id: "dfc" },
-      { name: "Kaguya Ubuyashiki", age: 30, position: "Coach", team_id: "ds" },
+      { name: "Hiroshi Agasa", age: 52, position: "Coach", team_id: "dfc" },
+      { name: "Ubuyashiki Kagaya", age: 30, position: "Coach", team_id: "ds" },
       {
         name: "Elichiro Senjou",
         age: 52,
@@ -64,50 +40,11 @@ async function main() {
         team_id: "u_and_i",
       },
     ],
-  });*/
-  /*const updateCoach = await prisma.employee.updateMany({
-    where: { team_id: "ds" },
-    data: {
-      name: "Ubuyashiki Kagaya",
-    },
-  });*/
-  /*const newPlayer = await prisma.players.create({
-    data: {
-      id: "ft_5",
-      name: "Elfman Strauss",
-      age: 23,
-      team_id: "ft",
-      position: "Midfielder",
-      shirt_no: 5,
-    },
-  });*/
+  });
+
   const allPlayers = await prisma.players.findMany();
-  /*const ratings = await prisma.playerRatings.create({
-    data: {
-      player_id: "cote_10",
-      pace: 80,
-      shooting: 91,
-      passing: 62,
-      dribbling: 60,
-      defending: 67,
-      physical: 63,
-    },
-  });*/
-  /*const info = await prisma.playerInfo.create({
-    data: {
-      player_id: "cote_10",
-      dob: new Date("1900-10-20"),
-      birthplace: "Japan",
-      gender: "Male",
-      height: 176,
-      biography:
-        "Genius of White Room, Mastermind of everywhere he goes, great tactician, but little who know he really is.; Good skills for playing football, can evaluate and analyse what happened in the pitch, but only keeps in his mind while he is playing, need to be understood or his team will lose because of disconnection.",
-    },
-  });*/
-  /*const deletedRatings = await prisma.playerRatings.delete({
-    where: { player_id: "cote_10" },
-  });*/
-  /*const thoughts = await prisma.playerTeammateThoughts.createMany({
+  await prisma.playerTeammateThoughts.deleteMany();
+  const thoughts = await prisma.playerTeammateThoughts.createMany({
     data: [
       {
         player_id: "cote_8",
@@ -121,31 +58,61 @@ async function main() {
         sent_to: "cote_10",
       },
     ],
-  });*/
-  /*const allinfo = await prisma.playerInfo.findMany();*/
+  });
+  const player = await prisma.players.findUnique({ where: { id: "bleach_8" } });
+  console.log(player);
   var fs = require("fs");
 
-  fs.writeFile(
-    "allplayers.txt",
-    JSON.stringify(allPlayers),
-    function (err: any) {
-      if (err) throw err;
-      console.log("Updated!");
-    }
+  const rawdatateams = fs.readFileSync("./txt/all_teams_info.txt", "utf-8");
+  const teamsarray = JSON.parse(rawdatateams);
+  const teams = await prisma.teams.createMany({
+    data: teamsarray,
+    skipDuplicates: true,
+  });
+
+  const rawdatateamsstatus = fs.readFileSync(
+    "./txt/all_teams_qualify_status.txt",
+    "utf-8"
   );
+  const teamsstatusarray = JSON.parse(rawdatateamsstatus);
+  await prisma.is_Participant.deleteMany();
+  teamsstatusarray.forEach(async (team: any) => {
+    const teamsstatus = await prisma.is_Participant.create({
+      data: {
+        team_id: team["id"],
+        is_participant: team["is_participant"],
+      },
+    });
+  });
+
+  const rawdataplayers = fs.readFileSync("allplayersdata.txt", "utf-8");
+  const playersarray = JSON.parse(rawdataplayers);
+  /*const players = await prisma.players.createMany({
+    data: playersarray,
+    skipDuplicates: true,
+  });*/
+
+  /*const update = await prisma.players.update({
+    where: { id: "bleach_8" },
+    data: {
+      position: "Midfielder",
+    },
+  });*/
 
   const rawdata = fs.readFileSync("all_player_stats.txt", "utf-8");
   const playerStatsArray = JSON.parse(rawdata);
-  /*await prisma.playerStats.deleteMany();
+  await prisma.playerStats.deleteMany();
   const stats = await prisma.playerStats.createMany({
     data: playerStatsArray,
-  });*/
+    skipDuplicates: true,
+  });
 
   const rawdata_b = fs.readFileSync("all_player_stats_b.txt", "utf-8");
   const playerStatsArray_B = JSON.parse(rawdata_b);
-  /*const stats_b = await prisma.playerStats.createMany({
+  const stats_b = await prisma.playerStats.createMany({
     data: playerStatsArray_B,
-  });*/
+    skipDuplicates: true,
+  });
   //console.log(await prisma.playerStats.findMany());
 
   const csvtojson = require("csvtojson");
@@ -168,14 +135,15 @@ async function main() {
       return [];
     });
 
-  /*await prisma.playerRatings.deleteMany();
+  await prisma.playerRatings.deleteMany();
   const ratings = await prisma.playerRatings.createMany({
     data: playerRatingsArray,
-  });*/
+    skipDuplicates: true,
+  });
 
   const rawinfo = fs.readFileSync("all_player_info.txt", "utf-8");
   const playerInfoArray = JSON.parse(rawinfo);
-  /*await prisma.playerInfo.deleteMany();
+  await prisma.playerInfo.deleteMany();
   playerInfoArray.forEach(async (player: any) => {
     const info = await prisma.playerInfo.create({
       data: {
@@ -187,7 +155,7 @@ async function main() {
         biography: player.biography,
       },
     });
-  });*/
+  });
 
   //console.log(await prisma.playerInfo.findMany());
 

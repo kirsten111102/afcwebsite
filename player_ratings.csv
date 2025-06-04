@@ -1,4 +1,4 @@
-Id,name,goals,assists,yellow_cards,red_cards,matches,team_goals_conceded,position,team_id,player_id,league_id,Time,pace,shooting,passing,dribbling,defending,physical,overall
+id,name,goals,assists,yellow_cards,red_cards,matches,team_goals_conceded,position,team_id,player_id,league_id,year,pace,shooting,passing,dribbling,defending,physical,overall
 cote_10_AFC_2024,Kiyotaka Ayanokouji,18,2,2,0,34,135,Striker,cote,cote_10,AFC_A,2024,70,76,57,64,51,60,69
 cote_7_AFC_2024,Manabu Horikita,5,9,0,0,34,135,Midfielder,cote,cote_7,AFC_A,2024,67,60,66,58,60,65,63
 cote_25_AFC_2024,Kakeru Ryuen,0,3,6,4,26,135,Goalkeeper,cote,cote_25,AFC_A,2024,62,51,55,52,40,46,40

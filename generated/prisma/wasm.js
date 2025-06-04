@@ -125,6 +125,11 @@ exports.Prisma.TeamsScalarFieldEnum = {
   name: 'name'
 };
 
+exports.Prisma.Is_ParticipantScalarFieldEnum = {
+  team_id: 'team_id',
+  is_participant: 'is_participant'
+};
+
 exports.Prisma.EmployeeScalarFieldEnum = {
   id: 'id',
   name: 'name',
@@ -229,6 +234,7 @@ exports.Prisma.QueryMode = {
 
 exports.Prisma.ModelName = {
   Teams: 'Teams',
+  Is_Participant: 'Is_Participant',
   Employee: 'Employee',
   Chairman: 'Chairman',
   Players: 'Players',
