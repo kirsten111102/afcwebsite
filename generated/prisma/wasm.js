@@ -179,12 +179,16 @@ exports.Prisma.PlayerRatingsScalarFieldEnum = {
 };
 
 exports.Prisma.PlayerStatsScalarFieldEnum = {
+  id: 'id',
   player_id: 'player_id',
   matches: 'matches',
   goals: 'goals',
   assists: 'assists',
   yellow_cards: 'yellow_cards',
-  red_cards: 'red_cards'
+  red_cards: 'red_cards',
+  league_id: 'league_id',
+  team_id: 'team_id',
+  year: 'year'
 };
 
 exports.Prisma.PlayerTeamAchievementsScalarFieldEnum = {

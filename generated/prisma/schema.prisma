@@ -17,11 +17,13 @@ datasource db {
 model Teams {
   id                   String                       @id
   name                 String
+  //qualify              Boolean
   employee             Employee[]
   chairman             Chairman?
   player               Players[]
   league_achievement   PlayerTeamAchievements[]
   personal_achievement PlayerPersonalAchievements[]
+  player_stats         PlayerStats[]
 }
 
 model Employee {
@@ -50,7 +52,7 @@ model Players {
   shirt_no                    Int
   player_info                 PlayerInfo?
   player_rating               PlayerRatings?
-  player_stats                PlayerStats?
+  player_stats                PlayerStats[]
   player_team_achievement     PlayerTeamAchievements[]
   player_personal_achievement PlayerPersonalAchievements[]
   thoughtsAuthored            PlayerTeammateThoughts[]     @relation("Author")
@@ -63,6 +65,7 @@ model Leagues {
   name                 String
   league_achievement   PlayerTeamAchievements[]
   personal_achievement PlayerPersonalAchievements[]
+  player_stats         PlayerStats[]
 }
 
 model PersonalAchievements {
@@ -93,13 +96,19 @@ model PlayerRatings {
 }
 
 model PlayerStats {
-  player_id    String  @id
+  id           String  @id
+  player_id    String
   matches      Int
   goals        Int
   assists      Int
   yellow_cards Int
   red_cards    Int
+  league_id    String
+  team_id      String
+  year         Int
+  league       Leagues @relation(fields: [league_id], references: [id])
   player       Players @relation(fields: [player_id], references: [id])
+  team         Teams   @relation(fields: [team_id], references: [id])
 }
 
 model PlayerTeamAchievements {

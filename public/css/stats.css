@@ -13,6 +13,10 @@ body {
   margin-right: 0.25%;
   padding: 0 5px;
   border: 1px solid;
+  height: auto;
+  overflow: visible;
+  white-space: normal;
+  vertical-align: top;
 }
 
 #top {
@@ -76,22 +80,79 @@ ul li {
 }
 
 #biography {
-  width: 60%;
+  width: 33%;
   border: 1px solid;
 }
 
 h2,
 h3 {
   text-decoration: underline;
-  line-height: 5px;
+  line-height: 1.2;
+}
+
+h2 {
+  margin: 0 0 0 0;
+}
+
+h3 {
+  margin: 8% 0 0 0;
+}
+
+#achievements h3 {
+  margin: 2% 0 0 0;
 }
 
 #biography p {
   line-height: normal;
 }
 
+#season {
+  width: 33%;
+}
+
+.teamavt {
+  width: 10%;
+}
+
+.teamavt img {
+  width: 100%;
+}
+
+tr:nth-child(even) {
+  background-color: lightgrey;
+}
+
+tr:nth-child(odd) {
+  background-color: whitesmoke;
+}
+
+td.team {
+  height: auto;
+  overflow: visible;
+  white-space: normal;
+}
+
+td.team h3,
+td.team p {
+  margin: 0;
+  line-height: 1.2;
+}
+
+td.team p {
+  font-size: small;
+}
+
+td.team h3 {
+  text-decoration: none;
+}
+
+.info {
+  text-align: center;
+  width: 7%;
+}
+
 #teammates {
-  width: 39%;
+  width: 33%;
 }
 
 #teammates p {

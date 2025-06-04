@@ -1,101 +1,101 @@
-name,goals,assists,yellow_cards,red_cards,matches,team_goals_conceded,position,team_id,player_id,pace,shooting,passing,dribbling,defending,physical,overall
-Kiyotaka Ayanokouji,18,2,2,0,34,135,Striker,cote,cote_10,70,76,57,64,51,60,69
-Manabu Horikita,5,9,0,0,34,135,Midfielder,cote,cote_7,67,60,66,58,60,65,63
-Kakeru Ryuen,0,3,6,4,26,135,Goalkeeper,cote,cote_25,62,51,55,52,40,46,40
-Yosuke Hirata,1,10,2,0,34,135,Midfielder,cote,cote_8,66,54,67,56,51,60,61
-Eren Yeager,23,14,1,0,34,71,Striker,aot,aot_10,71,86,78,73,62,67,76
-Levi Ackerman,22,22,2,0,34,71,Midfielder,aot,aot_8,71,87,92,76,57,64,78
-Armin Arlelt,10,6,1,0,34,71,Midfielder,aot,aot_7,68,66,62,60,62,67,62
-Zeke Yeager,2,3,0,0,34,71,Goalkeeper,aot,aot_25,66,54,56,53,66,70,82
-Jean Kirstein,0,9,0,0,34,71,Defender,aot,aot_3,65,53,65,54,66,70,67
-Fang,5,3,0,0,34,102,Midfielder,boboiboy,boboiboy_8,67,58,56,55,63,67,59
-Gopal,0,3,0,1,34,102,Goalkeeper,boboiboy,boboiboy_1,65,51,55,52,54,67,67
-Boboiboy,7,14,0,0,34,102,Striker,boboiboy,boboiboy_10,67,64,75,62,63,67,65
-Probe,0,0,0,0,16,102,Defensive Midfielder,boboiboy,boboiboy_3,57,50,50,50,63,61,54
-Adu Du,1,1,0,0,23,102,Forward,boboiboy,boboiboy_20,61,52,52,51,63,64,56
-Mitsuki,22,26,1,0,34,41,Midfielder,boruto,boruto_8,71,89,99,78,65,69,83
-Shinki,0,2,0,0,10,41,Goalkeeper,boruto,boruto_25,54,51,53,51,69,63,74
-Metal Lee,0,4,0,0,24,41,Goalkeeper,boruto,boruto_1,61,51,57,52,69,68,81
-Naru Shikadai,4,2,0,0,11,41,Midfielder,boruto,boruto_17,56,56,54,54,69,63,57
-Yamanaka Inojin,2,4,0,0,11,41,Midfielder,boruto,boruto_12,55,54,57,53,69,63,58
-Uzumaki Boruto,29,29,1,0,34,41,Striker,boruto,boruto_10,73,99,99,85,65,69,84
-Kawaki,31,19,1,0,34,41,Striker,boruto,boruto_7,73,99,88,81,65,69,83
-Ichigo Kurosaki,35,9,4,0,34,60,Striker,bleach,bleach_7,74,99,72,79,50,59,81
-Byakuya Kuchiki,13,25,3,0,34,60,Midfielder,bleach,bleach_8,69,76,95,72,54,62,77
-Hitsugaya Toshiro,0,8,3,0,34,60,Goalkeeper,bleach,bleach_1,65,52,64,54,54,62,83
-Aizen Sosuke,11,21,2,0,34,60,Midfielder,bleach,bleach_10,68,72,88,68,58,65,74
-Grimmjow Jaegerjaquez,12,4,4,0,34,60,Defender,bleach,bleach_5,68,68,59,60,50,59,57
-Edogawa Conan,11,9,0,0,34,114,Striker,dfc,dfc_10,68,68,68,62,62,67,67
-Heiji Hatori,6,9,0,0,34,114,Striker,dfc,dfc_7,67,61,66,59,62,67,63
-Subaru Okiya,6,1,0,0,34,114,Midfielder,dfc,dfc_8,67,59,53,55,62,67,57
-Mitsuhiko Tsuburaya,2,5,0,0,34,114,Midfielder,dfc,dfc_16,66,54,59,54,62,67,59
-Makoto Kyogoku,0,0,0,0,0,114,Midfielder,dfc,dfc_17,50,50,50,50,62,55,52
-Genta Kojima,0,0,0,0,34,114,Goalkeeper,dfc,dfc_1,65,50,50,50,62,67,75
-Giyuu Tomioka,14,16,2,0,34,81,Midfielder,ds,ds_10,69,74,80,68,56,63,71
-Zenitsu Agatsuma,23,6,3,0,34,81,Striker,ds,ds_7,71,84,65,69,52,60,74
-Sanemi Shinazugawa,12,6,5,0,34,81,Midfielder,ds,ds_16,68,69,63,61,43,55,59
-Tanjiro Kamado,4,21,0,0,31,81,Goalkeeper,ds,ds_1,65,62,86,63,65,68,79
-Tengen Uzui,0,0,2,0,3,81,Goalkeeper,ds,ds_30,51,50,50,50,56,52,65
-Inosuke Hashibira,11,10,5,0,34,81,Striker,ds,ds_17,68,68,69,63,43,55,65
-Doraemon,22,24,2,0,30,35,Midfielder,doraemon,doraemon_10,69,88,95,77,61,65,80
-Nobita Nobi,39,17,2,0,30,35,Striker,doraemon,doraemon_7,73,99,87,86,61,65,84
-Dekisugi Hidetoshi,16,5,1,0,34,35,Attacking Midfielder,doraemon,doraemon_8,69,74,62,64,66,69,64
-Suneo Honekawa,8,8,2,0,34,35,Midfielder,doraemon,doraemon_11,67,64,65,60,61,66,63
-Takeshi Gouda,1,24,4,0,34,35,Goalkeeper,doraemon,doraemon_1,66,59,91,63,52,61,87
-Son Gohan,28,16,2,0,28,37,Striker,dbz,dbz_10,70,94,83,78,61,64,79
-Trunks,25,23,2,0,27,37,Striker,dbz,dbz_7,68,92,94,79,61,64,78
-Krillin,15,9,1,0,20,37,Midfielder,dbz,dbz_8,63,74,68,65,65,64,66
-Frieza,13,5,1,0,20,37,Midfielder,dbz,dbz_6,62,70,61,62,65,64,62
-Cell,7,6,0,0,10,37,Midfielder,dbz,dbz_17,56,62,62,58,70,63,62
-Majin Buu,0,25,2,0,34,37,Goalkeeper,dbz,dbz_1,65,58,92,62,61,66,87
-Natsu Dragneel,31,21,1,0,34,41,Striker,ft,ft_10,73,99,92,82,65,69,83
-Gray Fullbuster,32,23,1,0,34,41,Striker,ft,ft_7,73,99,96,84,65,69,84
-Laxus Dreyar,7,4,0,0,22,41,Midfielder,ft,ft_6,62,61,58,57,69,67,61
-Elfman Strauss,5,5,0,0,22,41,Midfielder,ft,ft_5,61,58,60,56,69,67,61
-Jellal Fernandes,0,0,0,0,0,41,Midfielder,ft,ft_23,50,50,50,50,69,60,54
-Gajeel Redfox,4,20,1,0,34,41,Goalkeeper,ft,ft_1,66,62,85,63,65,69,86
-Hisoka Morow,35,15,4,0,34,44,Striker,hxh,hxh_10,74,99,82,82,51,60,82
-Killua Zoldyck,34,22,4,0,34,44,Striker,hxh,hxh_7,74,99,94,85,51,60,83
-Kurapika Kurta,14,13,1,0,34,44,Midfielder,hxh,hxh_11,69,74,75,66,65,68,70
-Chrollo Lucifer,11,10,1,0,34,44,Defender,hxh,hxh_4,68,68,69,63,65,68,67
-Gon Freecs,5,33,2,0,34,44,Goalkeeper,hxh,hxh_1,67,67,99,70,60,66,86
-Kiyama Hiroto,23,7,1,0,34,64,Center Forward,ie,ie_11,71,84,66,70,63,67,75
-Kazemaru Ichirouta,15,1,1,0,34,64,Midfielder,ie,ie_2,69,71,55,61,63,67,60
-Gouenji Shuuya,13,8,1,0,34,64,Striker,ie,ie_10,69,71,66,63,63,67,68
-Kidou Yuuto,10,5,0,0,34,64,Midfielder,ie,ie_14,68,66,60,60,67,70,63
-Endou Mamoru,0,35,0,0,29,64,Goalkeeper,ie,ie_1,63,60,99,68,67,68,80
-Tachimukai Yuuki,0,0,0,0,5,64,Goalkeeper,ie,ie_20,52,50,50,50,67,60,68
-Vinsmoke Sanji,34,22,1,0,27,42,Striker,op,op_7,71,99,94,85,65,66,83
-Roronoa Zoro,25,17,2,0,27,42,Striker,op,op_10,68,90,84,76,60,63,77
-Koby,10,4,0,0,30,42,Midfielder,op,op_6,66,65,59,59,69,70,62
-Franky,7,6,0,0,15,42,Defender,op,op_4,58,62,62,58,69,65,65
-Monkey D. Luffy,10,24,0,0,27,42,Goalkeeper,op,op_1,65,71,93,69,69,69,82
-Jinbei,0,4,1,0,7,42,Goalkeeper,op,op_23,53,51,57,52,65,59,72
-Pikachu,20,10,0,0,34,75,Striker,pw,pw_10,70,81,71,69,66,69,73
-Charizard,6,8,0,0,34,75,Midfielder,pw,pw_6,67,61,65,58,66,69,64
-Venusaur,0,1,0,0,34,75,Defender,pw,pw_4,65,50,52,50,66,69,65
-Machamp,2,7,1,0,34,75,Goalkeeper,pw,pw_1,66,55,62,55,62,66,81
-Arcanine,13,10,0,0,34,75,Striker,pw,pw_9,69,71,70,64,66,69,69
-Landorus,15,11,0,0,34,81,Striker,pl,pl_7,69,74,72,66,65,69,70
-Mewtwo,17,10,0,1,32,81,Striker,pl,pl_10,69,77,70,67,56,68,71
-Thundurus,10,9,0,0,34,81,Midfielder,pl,pl_9,68,67,67,62,65,69,66
-Tornadus,9,4,0,0,34,81,Midfielder,pl,pl_11,68,64,59,58,65,69,61
-Heatran,1,13,0,0,34,81,Goalkeeper,pl,pl_1,66,55,72,57,65,69,80
-Charlotte Katakuri,43,4,0,0,25,39,Striker,ta,ta_7,72,99,65,82,70,68,83
-Trafalgar D. Law,12,44,0,0,29,39,Midfielder,ta,ta_10,66,80,99,80,70,70,85
-Portgas D. Ace,26,11,0,0,29,39,Striker,ta,ta_9,70,90,74,74,70,70,78
-Sabo,14,17,0,0,24,39,Midfielder,ta,ta_11,64,75,82,68,70,68,74
-Eustass Kid,2,15,0,0,27,39,Goalkeeper/Midfielder,ta,ta_25,63,57,76,59,70,69,69
-Bartholomew Kuma,1,3,0,0,7,39,Goalkeeper,ta,ta_1,53,52,55,52,70,62,73
-Tsubasa Ozora,31,22,0,0,34,61,Striker,tfs,tfs_10,73,99,94,83,67,70,84
-Kojiro Hyuga,10,6,0,0,34,61,Striker,tfs,tfs_9,68,66,62,60,67,70,66
-Jun Mizugi,15,28,0,0,34,61,Midfielder,tfs,tfs_14,69,79,99,74,67,70,82
-Hikaru Matsuyama,10,3,0,0,34,61,Defender,tfs,tfs_12,68,65,57,58,67,70,67
-Ken Wakashimazu,1,2,0,0,19,61,Goalkeeper,tfs,tfs_25,59,52,54,52,67,65,76
-Genzo Wakabayashi,0,2,0,0,15,61,Goalkeeper,tfs,tfs_1,57,51,53,51,67,64,74
-Ijat,10,6,0,0,27,60,Midfielder,u_and_i,u_and_i_10,65,66,62,60,68,68,63
-Upin,20,16,0,0,29,60,Striker,u_and_i,u_and_i_9,68,83,81,72,68,68,74
-Ipin,12,26,0,0,29,60,Midfielder,u_and_i,u_and_i_11,66,75,97,71,68,68,81
-Ehsan,6,1,1,0,17,60,Defender,u_and_i,u_and_i_7,59,59,53,55,63,61,61
-Jarjit,12,2,0,0,22,60,Midfielder,u_and_i,u_and_i_3,63,67,56,59,68,66,60
-Dzul,0,6,0,0,34,60,Goalkeeper,u_and_i,u_and_i_1,65,52,60,53,68,70,83
+Id,name,goals,assists,yellow_cards,red_cards,matches,team_goals_conceded,position,team_id,player_id,league_id,Time,pace,shooting,passing,dribbling,defending,physical,overall
+cote_10_AFC_2024,Kiyotaka Ayanokouji,18,2,2,0,34,135,Striker,cote,cote_10,AFC_A,2024,70,76,57,64,51,60,69
+cote_7_AFC_2024,Manabu Horikita,5,9,0,0,34,135,Midfielder,cote,cote_7,AFC_A,2024,67,60,66,58,60,65,63
+cote_25_AFC_2024,Kakeru Ryuen,0,3,6,4,26,135,Goalkeeper,cote,cote_25,AFC_A,2024,62,51,55,52,40,46,40
+cote_8_AFC_2024,Yosuke Hirata,1,10,2,0,34,135,Midfielder,cote,cote_8,AFC_A,2024,66,54,67,56,51,60,61
+aot_10_AFC_2024,Eren Yeager,23,14,1,0,34,71,Striker,aot,aot_10,AFC_A,2024,71,86,78,73,62,67,76
+aot_8_AFC_2024,Levi Ackerman,22,22,2,0,34,71,Midfielder,aot,aot_8,AFC_A,2024,71,87,92,76,57,64,78
+aot_7_AFC_2024,Armin Arlelt,10,6,1,0,34,71,Midfielder,aot,aot_7,AFC_A,2024,68,66,62,60,62,67,62
+aot_25_AFC_2024,Zeke Yeager,2,3,0,0,34,71,Goalkeeper,aot,aot_25,AFC_A,2024,66,54,56,53,66,70,82
+aot_3_AFC_2024,Jean Kirstein,0,9,0,0,34,71,Defender,aot,aot_3,AFC_A,2024,65,53,65,54,66,70,67
+boboiboy_8_AFC_2024,Fang,5,3,0,0,34,102,Midfielder,boboiboy,boboiboy_8,AFC_A,2024,67,58,56,55,63,67,59
+boboiboy_1_AFC_2024,Gopal,0,3,0,1,34,102,Goalkeeper,boboiboy,boboiboy_1,AFC_A,2024,65,51,55,52,54,67,67
+boboiboy_10_AFC_2024,Boboiboy,7,14,0,0,34,102,Striker,boboiboy,boboiboy_10,AFC_A,2024,67,64,75,62,63,67,65
+boboiboy_3_AFC_2024,Probe,0,0,0,0,16,102,Defensive Midfielder,boboiboy,boboiboy_3,AFC_A,2024,57,50,50,50,63,61,54
+boboiboy_20_AFC_2024,Adu Du,1,1,0,0,23,102,Forward,boboiboy,boboiboy_20,AFC_A,2024,61,52,52,51,63,64,56
+boruto_8_AFC_2024,Mitsuki,22,26,1,0,34,41,Midfielder,boruto,boruto_8,AFC_A,2024,71,89,99,78,65,69,83
+boruto_25_AFC_2024,Shinki,0,2,0,0,10,41,Goalkeeper,boruto,boruto_25,AFC_A,2024,54,51,53,51,69,63,74
+boruto_1_AFC_2024,Metal Lee,0,4,0,0,24,41,Goalkeeper,boruto,boruto_1,AFC_A,2024,61,51,57,52,69,68,81
+boruto_17_AFC_2024,Naru Shikadai,4,2,0,0,11,41,Midfielder,boruto,boruto_17,AFC_A,2024,56,56,54,54,69,63,57
+boruto_12_AFC_2024,Yamanaka Inojin,2,4,0,0,11,41,Midfielder,boruto,boruto_12,AFC_A,2024,55,54,57,53,69,63,58
+boruto_10_AFC_2024,Uzumaki Boruto,29,29,1,0,34,41,Striker,boruto,boruto_10,AFC_A,2024,73,99,99,85,65,69,84
+boruto_7_AFC_2024,Kawaki,31,19,1,0,34,41,Striker,boruto,boruto_7,AFC_A,2024,73,99,88,81,65,69,83
+bleach_7_AFC_2024,Ichigo Kurosaki,35,9,4,0,34,60,Striker,bleach,bleach_7,AFC_A,2024,74,99,72,79,50,59,81
+bleach_8_AFC_2024,Byakuya Kuchiki,13,25,3,0,34,60,Midfielder,bleach,bleach_8,AFC_A,2024,69,76,95,72,54,62,77
+bleach_1_AFC_2024,Hitsugaya Toshiro,0,8,3,0,34,60,Goalkeeper,bleach,bleach_1,AFC_A,2024,65,52,64,54,54,62,83
+bleach_10_AFC_2024,Aizen Sosuke,11,21,2,0,34,60,Midfielder,bleach,bleach_10,AFC_A,2024,68,72,88,68,58,65,74
+bleach_5_AFC_2024,Grimmjow Jaegerjaquez,12,4,4,0,34,60,Defender,bleach,bleach_5,AFC_A,2024,68,68,59,60,50,59,57
+dfc_10_AFC_2024,Edogawa Conan,11,9,0,0,34,114,Striker,dfc,dfc_10,AFC_A,2024,68,68,68,62,62,67,67
+dfc_7_AFC_2024,Heiji Hatori,6,9,0,0,34,114,Striker,dfc,dfc_7,AFC_A,2024,67,61,66,59,62,67,63
+dfc_8_AFC_2024,Subaru Okiya,6,1,0,0,34,114,Midfielder,dfc,dfc_8,AFC_A,2024,67,59,53,55,62,67,57
+dfc_16_AFC_2024,Mitsuhiko Tsuburaya,2,5,0,0,34,114,Midfielder,dfc,dfc_16,AFC_A,2024,66,54,59,54,62,67,59
+dfc_17_AFC_2024,Makoto Kyogoku,0,0,0,0,0,114,Midfielder,dfc,dfc_17,AFC_A,2024,50,50,50,50,62,55,52
+dfc_1_AFC_2024,Genta Kojima,0,0,0,0,34,114,Goalkeeper,dfc,dfc_1,AFC_A,2024,65,50,50,50,62,67,75
+ds_10_AFC_2024,Giyuu Tomioka,14,16,2,0,34,81,Midfielder,ds,ds_10,AFC_A,2024,69,74,80,68,56,63,71
+ds_7_AFC_2024,Zenitsu Agatsuma,23,6,3,0,34,81,Striker,ds,ds_7,AFC_A,2024,71,84,65,69,52,60,74
+ds_16_AFC_2024,Sanemi Shinazugawa,12,6,5,0,34,81,Midfielder,ds,ds_16,AFC_A,2024,68,69,63,61,43,55,59
+ds_1_AFC_2024,Tanjiro Kamado,4,21,0,0,31,81,Goalkeeper,ds,ds_1,AFC_A,2024,65,62,86,63,65,68,79
+ds_30_AFC_2024,Tengen Uzui,0,0,2,0,3,81,Goalkeeper,ds,ds_30,AFC_A,2024,51,50,50,50,56,52,65
+ds_17_AFC_2024,Inosuke Hashibira,11,10,5,0,34,81,Striker,ds,ds_17,AFC_A,2024,68,68,69,63,43,55,65
+doraemon_10_AFC_2024,Doraemon,22,24,2,0,30,35,Midfielder,doraemon,doraemon_10,AFC_A,2024,69,88,95,77,61,65,80
+doraemon_7_AFC_2024,Nobita Nobi,39,17,2,0,30,35,Striker,doraemon,doraemon_7,AFC_A,2024,73,99,87,86,61,65,84
+doraemon_8_AFC_2024,Dekisugi Hidetoshi,16,5,1,0,34,35,Attacking Midfielder,doraemon,doraemon_8,AFC_A,2024,69,74,62,64,66,69,64
+doraemon_11_AFC_2024,Suneo Honekawa,8,8,2,0,34,35,Midfielder,doraemon,doraemon_11,AFC_A,2024,67,64,65,60,61,66,63
+doraemon_1_AFC_2024,Takeshi Gouda,1,24,4,0,34,35,Goalkeeper,doraemon,doraemon_1,AFC_A,2024,66,59,91,63,52,61,87
+dbz_10_AFC_2024,Son Gohan,28,16,2,0,28,37,Striker,dbz,dbz_10,AFC_A,2024,70,94,83,78,61,64,79
+dbz_7_AFC_2024,Trunks,25,23,2,0,27,37,Striker,dbz,dbz_7,AFC_A,2024,68,92,94,79,61,64,78
+dbz_8_AFC_2024,Krillin,15,9,1,0,20,37,Midfielder,dbz,dbz_8,AFC_A,2024,63,74,68,65,65,64,66
+dbz_6_AFC_2024,Frieza,13,5,1,0,20,37,Midfielder,dbz,dbz_6,AFC_A,2024,62,70,61,62,65,64,62
+dbz_17_AFC_2024,Cell,7,6,0,0,10,37,Midfielder,dbz,dbz_17,AFC_A,2024,56,62,62,58,70,63,62
+dbz_1_AFC_2024,Majin Buu,0,25,2,0,34,37,Goalkeeper,dbz,dbz_1,AFC_A,2024,65,58,92,62,61,66,87
+ft_10_AFC_2024,Natsu Dragneel,31,21,1,0,34,41,Striker,ft,ft_10,AFC_A,2024,73,99,92,82,65,69,83
+ft_7_AFC_2024,Gray Fullbuster,32,23,1,0,34,41,Striker,ft,ft_7,AFC_A,2024,73,99,96,84,65,69,84
+ft_6_AFC_2024,Laxus Dreyar,7,4,0,0,22,41,Midfielder,ft,ft_6,AFC_A,2024,62,61,58,57,69,67,61
+ft_5_AFC_2024,Elfman Strauss,5,5,0,0,22,41,Midfielder,ft,ft_5,AFC_A,2024,61,58,60,56,69,67,61
+ft_23_AFC_2024,Jellal Fernandes,0,0,0,0,0,41,Midfielder,ft,ft_23,AFC_A,2024,50,50,50,50,69,60,54
+ft_1_AFC_2024,Gajeel Redfox,4,20,1,0,34,41,Goalkeeper,ft,ft_1,AFC_A,2024,66,62,85,63,65,69,86
+hxh_10_AFC_2024,Hisoka Morow,35,15,4,0,34,44,Striker,hxh,hxh_10,AFC_A,2024,74,99,82,82,51,60,82
+hxh_7_AFC_2024,Killua Zoldyck,34,22,4,0,34,44,Striker,hxh,hxh_7,AFC_A,2024,74,99,94,85,51,60,83
+hxh_11_AFC_2024,Kurapika Kurta,14,13,1,0,34,44,Midfielder,hxh,hxh_11,AFC_A,2024,69,74,75,66,65,68,70
+hxh_4_AFC_2024,Chrollo Lucifer,11,10,1,0,34,44,Defender,hxh,hxh_4,AFC_A,2024,68,68,69,63,65,68,67
+hxh_1_AFC_2024,Gon Freecs,5,33,2,0,34,44,Goalkeeper,hxh,hxh_1,AFC_A,2024,67,67,99,70,60,66,86
+ie_11_AFC_2024,Kiyama Hiroto,23,7,1,0,34,64,Center Forward,ie,ie_11,AFC_A,2024,71,84,66,70,63,67,75
+ie_2_AFC_2024,Kazemaru Ichirouta,15,1,1,0,34,64,Midfielder,ie,ie_2,AFC_A,2024,69,71,55,61,63,67,60
+ie_10_AFC_2024,Gouenji Shuuya,13,8,1,0,34,64,Striker,ie,ie_10,AFC_A,2024,69,71,66,63,63,67,68
+ie_14_AFC_2024,Kidou Yuuto,10,5,0,0,34,64,Midfielder,ie,ie_14,AFC_A,2024,68,66,60,60,67,70,63
+ie_1_AFC_2024,Endou Mamoru,0,35,0,0,29,64,Goalkeeper,ie,ie_1,AFC_A,2024,63,60,99,68,67,68,80
+ie_20_AFC_2024,Tachimukai Yuuki,0,0,0,0,5,64,Goalkeeper,ie,ie_20,AFC_A,2024,52,50,50,50,67,60,68
+op_7_AFC_2024,Vinsmoke Sanji,34,22,1,0,27,42,Striker,op,op_7,AFC_A,2024,71,99,94,85,65,66,83
+op_10_AFC_2024,Roronoa Zoro,25,17,2,0,27,42,Striker,op,op_10,AFC_A,2024,68,90,84,76,60,63,77
+op_6_AFC_2024,Koby,10,4,0,0,30,42,Midfielder,op,op_6,AFC_A,2024,66,65,59,59,69,70,62
+op_4_AFC_2024,Franky,7,6,0,0,15,42,Defender,op,op_4,AFC_A,2024,58,62,62,58,69,65,65
+op_1_AFC_2024,Monkey D. Luffy,10,24,0,0,27,42,Goalkeeper,op,op_1,AFC_A,2024,65,71,93,69,69,69,82
+op_23_AFC_2024,Jinbei,0,4,1,0,7,42,Goalkeeper,op,op_23,AFC_A,2024,53,51,57,52,65,59,72
+pw_10_AFC_2024,Pikachu,20,10,0,0,34,75,Striker,pw,pw_10,AFC_A,2024,70,81,71,69,66,69,73
+pw_6_AFC_2024,Charizard,6,8,0,0,34,75,Midfielder,pw,pw_6,AFC_A,2024,67,61,65,58,66,69,64
+pw_4_AFC_2024,Venusaur,0,1,0,0,34,75,Defender,pw,pw_4,AFC_A,2024,65,50,52,50,66,69,65
+pw_1_AFC_2024,Machamp,2,7,1,0,34,75,Goalkeeper,pw,pw_1,AFC_A,2024,66,55,62,55,62,66,81
+pw_9_AFC_2024,Arcanine,13,10,0,0,34,75,Striker,pw,pw_9,AFC_A,2024,69,71,70,64,66,69,69
+pl_7_AFC_2024,Landorus,15,11,0,0,34,81,Striker,pl,pl_7,AFC_A,2024,69,74,72,66,65,69,70
+pl_10_AFC_2024,Mewtwo,17,10,0,1,32,81,Striker,pl,pl_10,AFC_A,2024,69,77,70,67,56,68,71
+pl_9_AFC_2024,Thundurus,10,9,0,0,34,81,Midfielder,pl,pl_9,AFC_A,2024,68,67,67,62,65,69,66
+pl_11_AFC_2024,Tornadus,9,4,0,0,34,81,Midfielder,pl,pl_11,AFC_A,2024,68,64,59,58,65,69,61
+pl_1_AFC_2024,Heatran,1,13,0,0,34,81,Goalkeeper,pl,pl_1,AFC_A,2024,66,55,72,57,65,69,80
+ta_7_AFC_2024,Charlotte Katakuri,43,4,0,0,25,39,Striker,ta,ta_7,AFC_A,2024,72,99,65,82,70,68,83
+ta_10_AFC_2024,Trafalgar D. Law,12,44,0,0,29,39,Midfielder,ta,ta_10,AFC_A,2024,66,80,99,80,70,70,85
+ta_9_AFC_2024,Portgas D. Ace,26,11,0,0,29,39,Striker,ta,ta_9,AFC_A,2024,70,90,74,74,70,70,78
+ta_11_AFC_2024,Sabo,14,17,0,0,24,39,Midfielder,ta,ta_11,AFC_A,2024,64,75,82,68,70,68,74
+ta_25_AFC_2024,Eustass Kid,2,15,0,0,27,39,Goalkeeper/Midfielder,ta,ta_25,AFC_A,2024,63,57,76,59,70,69,69
+ta_1_AFC_2024,Bartholomew Kuma,1,3,0,0,7,39,Goalkeeper,ta,ta_1,AFC_A,2024,53,52,55,52,70,62,73
+tfs_10_AFC_2024,Tsubasa Ozora,31,22,0,0,34,61,Striker,tfs,tfs_10,AFC_A,2024,73,99,94,83,67,70,84
+tfs_9_AFC_2024,Kojiro Hyuga,10,6,0,0,34,61,Striker,tfs,tfs_9,AFC_A,2024,68,66,62,60,67,70,66
+tfs_14_AFC_2024,Jun Mizugi,15,28,0,0,34,61,Midfielder,tfs,tfs_14,AFC_A,2024,69,79,99,74,67,70,82
+tfs_12_AFC_2024,Hikaru Matsuyama,10,3,0,0,34,61,Defender,tfs,tfs_12,AFC_A,2024,68,65,57,58,67,70,67
+tfs_25_AFC_2024,Ken Wakashimazu,1,2,0,0,19,61,Goalkeeper,tfs,tfs_25,AFC_A,2024,59,52,54,52,67,65,76
+tfs_1_AFC_2024,Genzo Wakabayashi,0,2,0,0,15,61,Goalkeeper,tfs,tfs_1,AFC_A,2024,57,51,53,51,67,64,74
+u_and_i_10_AFC_2024,Ijat,10,6,0,0,27,60,Midfielder,u_and_i,u_and_i_10,AFC_A,2024,65,66,62,60,68,68,63
+u_and_i_9_AFC_2024,Upin,20,16,0,0,29,60,Striker,u_and_i,u_and_i_9,AFC_A,2024,68,83,81,72,68,68,74
+u_and_i_11_AFC_2024,Ipin,12,26,0,0,29,60,Midfielder,u_and_i,u_and_i_11,AFC_A,2024,66,75,97,71,68,68,81
+u_and_i_7_AFC_2024,Ehsan,6,1,1,0,17,60,Defender,u_and_i,u_and_i_7,AFC_A,2024,59,59,53,55,63,61,61
+u_and_i_3_AFC_2024,Jarjit,12,2,0,0,22,60,Midfielder,u_and_i,u_and_i_3,AFC_A,2024,63,67,56,59,68,66,60
+u_and_i_1_AFC_2024,Dzul,0,6,0,0,34,60,Goalkeeper,u_and_i,u_and_i_1,AFC_A,2024,65,52,60,53,68,70,83

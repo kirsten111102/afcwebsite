@@ -100,16 +100,7 @@
             </div>
             <div id="stats" class="objects">
                 <h3>Career</h3>
-                <ul>
-                    <li>Matches: <strong>${playerstats.matches}</strong></li>
-                    <li>Goals: <strong>${playerstats.goals}</strong></li>
-                    <li>Assists: <strong>${playerstats.assists}</strong></li>
-                    <li>Yellow Cards: <strong>${
-                      playerstats.yellow_cards
-                    }</strong></li>
-                    <li>Red Cards: <strong>${
-                      playerstats.red_cards
-                    }</strong></li>
+                <ul id="career">
                 </ul>
             </div>
             <div id="achievements" class="objects">
@@ -125,6 +116,9 @@
         <div id="middle">
             <div id="biography" class="objects">
                 <h2>Biography</h2>
+            </div>
+            <div id="season" class="objects">
+              <h2>Seasons</h2>
             </div>
             <div id="teammates" class="objects">
                 <h2>Teammate Thoughts</h2>
@@ -197,6 +191,67 @@
             <li>Height: <strong>${playerinfo.height}cm</strong></li>
           `;
           info.appendChild(infolist);
+        }
+
+        if (playerstats !== null) {
+          const seasons = document.getElementById("season");
+          const table = document.createElement("table");
+          table.id = "season_stats";
+
+          table.innerHTML = `
+            <thead>
+              <th colspan="2">Teams</th>
+              <th>League</th>
+              <th>Matches</th>
+              <th>Goals</th>
+              <th>Assists</th>
+            </thead>
+            <tbody id="season-stats"></tbody>
+          `;
+
+          seasons.appendChild(table);
+
+          const seasons_stats = document.getElementById("season-stats");
+
+          let matches = 0;
+          let goals = 0;
+          let assists = 0;
+          let yellow_cards = 0;
+          let red_cards = 0;
+
+          playerstats.forEach((season) => {
+            const row = document.createElement("tr");
+            const team = season.team;
+            const league = season.league;
+            row.innerHTML = `
+              <td class="teamavt"><img src="/img/teamslogo/${season.team_id}logo.png"></td>
+              <td class="team">
+                <h3>${team.name}</h3>
+                <p>${season.year}</p>
+              </td>
+              <td>${league.name}</td>
+              <td class="info">${season.matches}</td>
+              <td class="info">${season.goals}</td>
+              <td class="info">${season.assists}</td>
+            `;
+            seasons_stats.appendChild(row);
+
+            matches += season.matches;
+            goals += season.goals;
+            assists += season.assists;
+            yellow_cards += season.yellow_cards;
+            red_cards += season.red_cards;
+            console.log(season);
+          });
+
+          const career = document.getElementById("career");
+          career.innerHTML = `
+            <li>Matches: <strong>${matches}</strong></li>
+            <li>Goals: <strong>${goals}</strong></li>
+            <li>Assists: <strong>${assists}</strong></li>
+            <li>Yellow Cards: <strong>${yellow_cards}</strong></li>
+            <li>Red Cards: <strong>${red_cards}</strong></li>
+            `;
         }
 
         const playerbio = playerinfo.biography.split("; ");

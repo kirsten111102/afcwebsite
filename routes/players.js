@@ -22,8 +22,12 @@ router.get("/:id", async (req, res) => {
       where: { player_id: id },
     });
 
-    const playerstats = await prisma.playerStats.findUnique({
+    const playerstats = await prisma.playerStats.findMany({
       where: { player_id: id },
+      include: {
+        team: true,
+        league: true,
+      },
     });
 
     const teamachievement = await prisma.playerTeamAchievements.findMany({

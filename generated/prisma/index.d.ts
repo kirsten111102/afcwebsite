@@ -1874,6 +1874,7 @@ export namespace Prisma {
     player: number
     league_achievement: number
     personal_achievement: number
+    player_stats: number
   }
 
   export type TeamsCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -1881,6 +1882,7 @@ export namespace Prisma {
     player?: boolean | TeamsCountOutputTypeCountPlayerArgs
     league_achievement?: boolean | TeamsCountOutputTypeCountLeague_achievementArgs
     personal_achievement?: boolean | TeamsCountOutputTypeCountPersonal_achievementArgs
+    player_stats?: boolean | TeamsCountOutputTypeCountPlayer_statsArgs
   }
 
   // Custom InputTypes
@@ -1922,12 +1924,20 @@ export namespace Prisma {
     where?: PlayerPersonalAchievementsWhereInput
   }
 
+  /**
+   * TeamsCountOutputType without action
+   */
+  export type TeamsCountOutputTypeCountPlayer_statsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PlayerStatsWhereInput
+  }
+
 
   /**
    * Count Type PlayersCountOutputType
    */
 
   export type PlayersCountOutputType = {
+    player_stats: number
     player_team_achievement: number
     player_personal_achievement: number
     thoughtsAuthored: number
@@ -1935,6 +1945,7 @@ export namespace Prisma {
   }
 
   export type PlayersCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    player_stats?: boolean | PlayersCountOutputTypeCountPlayer_statsArgs
     player_team_achievement?: boolean | PlayersCountOutputTypeCountPlayer_team_achievementArgs
     player_personal_achievement?: boolean | PlayersCountOutputTypeCountPlayer_personal_achievementArgs
     thoughtsAuthored?: boolean | PlayersCountOutputTypeCountThoughtsAuthoredArgs
@@ -1950,6 +1961,13 @@ export namespace Prisma {
      * Select specific fields to fetch from the PlayersCountOutputType
      */
     select?: PlayersCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * PlayersCountOutputType without action
+   */
+  export type PlayersCountOutputTypeCountPlayer_statsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PlayerStatsWhereInput
   }
 
   /**
@@ -1988,11 +2006,13 @@ export namespace Prisma {
   export type LeaguesCountOutputType = {
     league_achievement: number
     personal_achievement: number
+    player_stats: number
   }
 
   export type LeaguesCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     league_achievement?: boolean | LeaguesCountOutputTypeCountLeague_achievementArgs
     personal_achievement?: boolean | LeaguesCountOutputTypeCountPersonal_achievementArgs
+    player_stats?: boolean | LeaguesCountOutputTypeCountPlayer_statsArgs
   }
 
   // Custom InputTypes
@@ -2018,6 +2038,13 @@ export namespace Prisma {
    */
   export type LeaguesCountOutputTypeCountPersonal_achievementArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: PlayerPersonalAchievementsWhereInput
+  }
+
+  /**
+   * LeaguesCountOutputType without action
+   */
+  export type LeaguesCountOutputTypeCountPlayer_statsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PlayerStatsWhereInput
   }
 
 
@@ -2201,6 +2228,7 @@ export namespace Prisma {
     player?: boolean | Teams$playerArgs<ExtArgs>
     league_achievement?: boolean | Teams$league_achievementArgs<ExtArgs>
     personal_achievement?: boolean | Teams$personal_achievementArgs<ExtArgs>
+    player_stats?: boolean | Teams$player_statsArgs<ExtArgs>
     _count?: boolean | TeamsCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["teams"]>
 
@@ -2226,6 +2254,7 @@ export namespace Prisma {
     player?: boolean | Teams$playerArgs<ExtArgs>
     league_achievement?: boolean | Teams$league_achievementArgs<ExtArgs>
     personal_achievement?: boolean | Teams$personal_achievementArgs<ExtArgs>
+    player_stats?: boolean | Teams$player_statsArgs<ExtArgs>
     _count?: boolean | TeamsCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type TeamsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -2239,6 +2268,7 @@ export namespace Prisma {
       player: Prisma.$PlayersPayload<ExtArgs>[]
       league_achievement: Prisma.$PlayerTeamAchievementsPayload<ExtArgs>[]
       personal_achievement: Prisma.$PlayerPersonalAchievementsPayload<ExtArgs>[]
+      player_stats: Prisma.$PlayerStatsPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -2642,6 +2672,7 @@ export namespace Prisma {
     player<T extends Teams$playerArgs<ExtArgs> = {}>(args?: Subset<T, Teams$playerArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PlayersPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     league_achievement<T extends Teams$league_achievementArgs<ExtArgs> = {}>(args?: Subset<T, Teams$league_achievementArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PlayerTeamAchievementsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     personal_achievement<T extends Teams$personal_achievementArgs<ExtArgs> = {}>(args?: Subset<T, Teams$personal_achievementArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PlayerPersonalAchievementsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    player_stats<T extends Teams$player_statsArgs<ExtArgs> = {}>(args?: Subset<T, Teams$player_statsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PlayerStatsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3173,6 +3204,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: PlayerPersonalAchievementsScalarFieldEnum | PlayerPersonalAchievementsScalarFieldEnum[]
+  }
+
+  /**
+   * Teams.player_stats
+   */
+  export type Teams$player_statsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PlayerStats
+     */
+    select?: PlayerStatsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PlayerStats
+     */
+    omit?: PlayerStatsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PlayerStatsInclude<ExtArgs> | null
+    where?: PlayerStatsWhereInput
+    orderBy?: PlayerStatsOrderByWithRelationInput | PlayerStatsOrderByWithRelationInput[]
+    cursor?: PlayerStatsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: PlayerStatsScalarFieldEnum | PlayerStatsScalarFieldEnum[]
   }
 
   /**
@@ -5647,7 +5702,7 @@ export namespace Prisma {
     objects: {
       player_info: Prisma.$PlayerInfoPayload<ExtArgs> | null
       player_rating: Prisma.$PlayerRatingsPayload<ExtArgs> | null
-      player_stats: Prisma.$PlayerStatsPayload<ExtArgs> | null
+      player_stats: Prisma.$PlayerStatsPayload<ExtArgs>[]
       player_team_achievement: Prisma.$PlayerTeamAchievementsPayload<ExtArgs>[]
       player_personal_achievement: Prisma.$PlayerPersonalAchievementsPayload<ExtArgs>[]
       thoughtsAuthored: Prisma.$PlayerTeammateThoughtsPayload<ExtArgs>[]
@@ -6057,7 +6112,7 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     player_info<T extends Players$player_infoArgs<ExtArgs> = {}>(args?: Subset<T, Players$player_infoArgs<ExtArgs>>): Prisma__PlayerInfoClient<$Result.GetResult<Prisma.$PlayerInfoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     player_rating<T extends Players$player_ratingArgs<ExtArgs> = {}>(args?: Subset<T, Players$player_ratingArgs<ExtArgs>>): Prisma__PlayerRatingsClient<$Result.GetResult<Prisma.$PlayerRatingsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-    player_stats<T extends Players$player_statsArgs<ExtArgs> = {}>(args?: Subset<T, Players$player_statsArgs<ExtArgs>>): Prisma__PlayerStatsClient<$Result.GetResult<Prisma.$PlayerStatsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    player_stats<T extends Players$player_statsArgs<ExtArgs> = {}>(args?: Subset<T, Players$player_statsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PlayerStatsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     player_team_achievement<T extends Players$player_team_achievementArgs<ExtArgs> = {}>(args?: Subset<T, Players$player_team_achievementArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PlayerTeamAchievementsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     player_personal_achievement<T extends Players$player_personal_achievementArgs<ExtArgs> = {}>(args?: Subset<T, Players$player_personal_achievementArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PlayerPersonalAchievementsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     thoughtsAuthored<T extends Players$thoughtsAuthoredArgs<ExtArgs> = {}>(args?: Subset<T, Players$thoughtsAuthoredArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PlayerTeammateThoughtsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -6548,6 +6603,11 @@ export namespace Prisma {
      */
     include?: PlayerStatsInclude<ExtArgs> | null
     where?: PlayerStatsWhereInput
+    orderBy?: PlayerStatsOrderByWithRelationInput | PlayerStatsOrderByWithRelationInput[]
+    cursor?: PlayerStatsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: PlayerStatsScalarFieldEnum | PlayerStatsScalarFieldEnum[]
   }
 
   /**
@@ -6807,6 +6867,7 @@ export namespace Prisma {
     name?: boolean
     league_achievement?: boolean | Leagues$league_achievementArgs<ExtArgs>
     personal_achievement?: boolean | Leagues$personal_achievementArgs<ExtArgs>
+    player_stats?: boolean | Leagues$player_statsArgs<ExtArgs>
     _count?: boolean | LeaguesCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["leagues"]>
 
@@ -6829,6 +6890,7 @@ export namespace Prisma {
   export type LeaguesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     league_achievement?: boolean | Leagues$league_achievementArgs<ExtArgs>
     personal_achievement?: boolean | Leagues$personal_achievementArgs<ExtArgs>
+    player_stats?: boolean | Leagues$player_statsArgs<ExtArgs>
     _count?: boolean | LeaguesCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type LeaguesIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -6839,6 +6901,7 @@ export namespace Prisma {
     objects: {
       league_achievement: Prisma.$PlayerTeamAchievementsPayload<ExtArgs>[]
       personal_achievement: Prisma.$PlayerPersonalAchievementsPayload<ExtArgs>[]
+      player_stats: Prisma.$PlayerStatsPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -7239,6 +7302,7 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     league_achievement<T extends Leagues$league_achievementArgs<ExtArgs> = {}>(args?: Subset<T, Leagues$league_achievementArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PlayerTeamAchievementsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     personal_achievement<T extends Leagues$personal_achievementArgs<ExtArgs> = {}>(args?: Subset<T, Leagues$personal_achievementArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PlayerPersonalAchievementsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    player_stats<T extends Leagues$player_statsArgs<ExtArgs> = {}>(args?: Subset<T, Leagues$player_statsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PlayerStatsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -7703,6 +7767,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: PlayerPersonalAchievementsScalarFieldEnum | PlayerPersonalAchievementsScalarFieldEnum[]
+  }
+
+  /**
+   * Leagues.player_stats
+   */
+  export type Leagues$player_statsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PlayerStats
+     */
+    select?: PlayerStatsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PlayerStats
+     */
+    omit?: PlayerStatsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PlayerStatsInclude<ExtArgs> | null
+    where?: PlayerStatsWhereInput
+    orderBy?: PlayerStatsOrderByWithRelationInput | PlayerStatsOrderByWithRelationInput[]
+    cursor?: PlayerStatsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: PlayerStatsScalarFieldEnum | PlayerStatsScalarFieldEnum[]
   }
 
   /**
@@ -11016,6 +11104,7 @@ export namespace Prisma {
     assists: number | null
     yellow_cards: number | null
     red_cards: number | null
+    year: number | null
   }
 
   export type PlayerStatsSumAggregateOutputType = {
@@ -11024,33 +11113,46 @@ export namespace Prisma {
     assists: number | null
     yellow_cards: number | null
     red_cards: number | null
+    year: number | null
   }
 
   export type PlayerStatsMinAggregateOutputType = {
+    id: string | null
     player_id: string | null
     matches: number | null
     goals: number | null
     assists: number | null
     yellow_cards: number | null
     red_cards: number | null
+    league_id: string | null
+    team_id: string | null
+    year: number | null
   }
 
   export type PlayerStatsMaxAggregateOutputType = {
+    id: string | null
     player_id: string | null
     matches: number | null
     goals: number | null
     assists: number | null
     yellow_cards: number | null
     red_cards: number | null
+    league_id: string | null
+    team_id: string | null
+    year: number | null
   }
 
   export type PlayerStatsCountAggregateOutputType = {
+    id: number
     player_id: number
     matches: number
     goals: number
     assists: number
     yellow_cards: number
     red_cards: number
+    league_id: number
+    team_id: number
+    year: number
     _all: number
   }
 
@@ -11061,6 +11163,7 @@ export namespace Prisma {
     assists?: true
     yellow_cards?: true
     red_cards?: true
+    year?: true
   }
 
   export type PlayerStatsSumAggregateInputType = {
@@ -11069,33 +11172,46 @@ export namespace Prisma {
     assists?: true
     yellow_cards?: true
     red_cards?: true
+    year?: true
   }
 
   export type PlayerStatsMinAggregateInputType = {
+    id?: true
     player_id?: true
     matches?: true
     goals?: true
     assists?: true
     yellow_cards?: true
     red_cards?: true
+    league_id?: true
+    team_id?: true
+    year?: true
   }
 
   export type PlayerStatsMaxAggregateInputType = {
+    id?: true
     player_id?: true
     matches?: true
     goals?: true
     assists?: true
     yellow_cards?: true
     red_cards?: true
+    league_id?: true
+    team_id?: true
+    year?: true
   }
 
   export type PlayerStatsCountAggregateInputType = {
+    id?: true
     player_id?: true
     matches?: true
     goals?: true
     assists?: true
     yellow_cards?: true
     red_cards?: true
+    league_id?: true
+    team_id?: true
+    year?: true
     _all?: true
   }
 
@@ -11186,12 +11302,16 @@ export namespace Prisma {
   }
 
   export type PlayerStatsGroupByOutputType = {
+    id: string
     player_id: string
     matches: number
     goals: number
     assists: number
     yellow_cards: number
     red_cards: number
+    league_id: string
+    team_id: string
+    year: number
     _count: PlayerStatsCountAggregateOutputType | null
     _avg: PlayerStatsAvgAggregateOutputType | null
     _sum: PlayerStatsSumAggregateOutputType | null
@@ -11214,67 +11334,101 @@ export namespace Prisma {
 
 
   export type PlayerStatsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
     player_id?: boolean
     matches?: boolean
     goals?: boolean
     assists?: boolean
     yellow_cards?: boolean
     red_cards?: boolean
+    league_id?: boolean
+    team_id?: boolean
+    year?: boolean
+    league?: boolean | LeaguesDefaultArgs<ExtArgs>
     player?: boolean | PlayersDefaultArgs<ExtArgs>
+    team?: boolean | TeamsDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["playerStats"]>
 
   export type PlayerStatsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
     player_id?: boolean
     matches?: boolean
     goals?: boolean
     assists?: boolean
     yellow_cards?: boolean
     red_cards?: boolean
+    league_id?: boolean
+    team_id?: boolean
+    year?: boolean
+    league?: boolean | LeaguesDefaultArgs<ExtArgs>
     player?: boolean | PlayersDefaultArgs<ExtArgs>
+    team?: boolean | TeamsDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["playerStats"]>
 
   export type PlayerStatsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
     player_id?: boolean
     matches?: boolean
     goals?: boolean
     assists?: boolean
     yellow_cards?: boolean
     red_cards?: boolean
+    league_id?: boolean
+    team_id?: boolean
+    year?: boolean
+    league?: boolean | LeaguesDefaultArgs<ExtArgs>
     player?: boolean | PlayersDefaultArgs<ExtArgs>
+    team?: boolean | TeamsDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["playerStats"]>
 
   export type PlayerStatsSelectScalar = {
+    id?: boolean
     player_id?: boolean
     matches?: boolean
     goals?: boolean
     assists?: boolean
     yellow_cards?: boolean
     red_cards?: boolean
+    league_id?: boolean
+    team_id?: boolean
+    year?: boolean
   }
 
-  export type PlayerStatsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"player_id" | "matches" | "goals" | "assists" | "yellow_cards" | "red_cards", ExtArgs["result"]["playerStats"]>
+  export type PlayerStatsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "player_id" | "matches" | "goals" | "assists" | "yellow_cards" | "red_cards" | "league_id" | "team_id" | "year", ExtArgs["result"]["playerStats"]>
   export type PlayerStatsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    league?: boolean | LeaguesDefaultArgs<ExtArgs>
     player?: boolean | PlayersDefaultArgs<ExtArgs>
+    team?: boolean | TeamsDefaultArgs<ExtArgs>
   }
   export type PlayerStatsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    league?: boolean | LeaguesDefaultArgs<ExtArgs>
     player?: boolean | PlayersDefaultArgs<ExtArgs>
+    team?: boolean | TeamsDefaultArgs<ExtArgs>
   }
   export type PlayerStatsIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    league?: boolean | LeaguesDefaultArgs<ExtArgs>
     player?: boolean | PlayersDefaultArgs<ExtArgs>
+    team?: boolean | TeamsDefaultArgs<ExtArgs>
   }
 
   export type $PlayerStatsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "PlayerStats"
     objects: {
+      league: Prisma.$LeaguesPayload<ExtArgs>
       player: Prisma.$PlayersPayload<ExtArgs>
+      team: Prisma.$TeamsPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
+      id: string
       player_id: string
       matches: number
       goals: number
       assists: number
       yellow_cards: number
       red_cards: number
+      league_id: string
+      team_id: string
+      year: number
     }, ExtArgs["result"]["playerStats"]>
     composites: {}
   }
@@ -11358,8 +11512,8 @@ export namespace Prisma {
      * // Get first 10 PlayerStats
      * const playerStats = await prisma.playerStats.findMany({ take: 10 })
      * 
-     * // Only select the `player_id`
-     * const playerStatsWithPlayer_idOnly = await prisma.playerStats.findMany({ select: { player_id: true } })
+     * // Only select the `id`
+     * const playerStatsWithIdOnly = await prisma.playerStats.findMany({ select: { id: true } })
      * 
      */
     findMany<T extends PlayerStatsFindManyArgs>(args?: SelectSubset<T, PlayerStatsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PlayerStatsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
@@ -11403,9 +11557,9 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Create many PlayerStats and only return the `player_id`
-     * const playerStatsWithPlayer_idOnly = await prisma.playerStats.createManyAndReturn({
-     *   select: { player_id: true },
+     * // Create many PlayerStats and only return the `id`
+     * const playerStatsWithIdOnly = await prisma.playerStats.createManyAndReturn({
+     *   select: { id: true },
      *   data: [
      *     // ... provide data here
      *   ]
@@ -11494,9 +11648,9 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more PlayerStats and only return the `player_id`
-     * const playerStatsWithPlayer_idOnly = await prisma.playerStats.updateManyAndReturn({
-     *   select: { player_id: true },
+     * // Update zero or more PlayerStats and only return the `id`
+     * const playerStatsWithIdOnly = await prisma.playerStats.updateManyAndReturn({
+     *   select: { id: true },
      *   where: {
      *     // ... provide filter here
      *   },
@@ -11669,7 +11823,9 @@ export namespace Prisma {
    */
   export interface Prisma__PlayerStatsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    league<T extends LeaguesDefaultArgs<ExtArgs> = {}>(args?: Subset<T, LeaguesDefaultArgs<ExtArgs>>): Prisma__LeaguesClient<$Result.GetResult<Prisma.$LeaguesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     player<T extends PlayersDefaultArgs<ExtArgs> = {}>(args?: Subset<T, PlayersDefaultArgs<ExtArgs>>): Prisma__PlayersClient<$Result.GetResult<Prisma.$PlayersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    team<T extends TeamsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, TeamsDefaultArgs<ExtArgs>>): Prisma__TeamsClient<$Result.GetResult<Prisma.$TeamsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -11699,12 +11855,16 @@ export namespace Prisma {
    * Fields of the PlayerStats model
    */
   interface PlayerStatsFieldRefs {
+    readonly id: FieldRef<"PlayerStats", 'String'>
     readonly player_id: FieldRef<"PlayerStats", 'String'>
     readonly matches: FieldRef<"PlayerStats", 'Int'>
     readonly goals: FieldRef<"PlayerStats", 'Int'>
     readonly assists: FieldRef<"PlayerStats", 'Int'>
     readonly yellow_cards: FieldRef<"PlayerStats", 'Int'>
     readonly red_cards: FieldRef<"PlayerStats", 'Int'>
+    readonly league_id: FieldRef<"PlayerStats", 'String'>
+    readonly team_id: FieldRef<"PlayerStats", 'String'>
+    readonly year: FieldRef<"PlayerStats", 'Int'>
   }
     
 
@@ -15485,12 +15645,16 @@ export namespace Prisma {
 
 
   export const PlayerStatsScalarFieldEnum: {
+    id: 'id',
     player_id: 'player_id',
     matches: 'matches',
     goals: 'goals',
     assists: 'assists',
     yellow_cards: 'yellow_cards',
-    red_cards: 'red_cards'
+    red_cards: 'red_cards',
+    league_id: 'league_id',
+    team_id: 'team_id',
+    year: 'year'
   };
 
   export type PlayerStatsScalarFieldEnum = (typeof PlayerStatsScalarFieldEnum)[keyof typeof PlayerStatsScalarFieldEnum]
@@ -15621,6 +15785,7 @@ export namespace Prisma {
     player?: PlayersListRelationFilter
     league_achievement?: PlayerTeamAchievementsListRelationFilter
     personal_achievement?: PlayerPersonalAchievementsListRelationFilter
+    player_stats?: PlayerStatsListRelationFilter
   }
 
   export type TeamsOrderByWithRelationInput = {
@@ -15631,6 +15796,7 @@ export namespace Prisma {
     player?: PlayersOrderByRelationAggregateInput
     league_achievement?: PlayerTeamAchievementsOrderByRelationAggregateInput
     personal_achievement?: PlayerPersonalAchievementsOrderByRelationAggregateInput
+    player_stats?: PlayerStatsOrderByRelationAggregateInput
   }
 
   export type TeamsWhereUniqueInput = Prisma.AtLeast<{
@@ -15644,6 +15810,7 @@ export namespace Prisma {
     player?: PlayersListRelationFilter
     league_achievement?: PlayerTeamAchievementsListRelationFilter
     personal_achievement?: PlayerPersonalAchievementsListRelationFilter
+    player_stats?: PlayerStatsListRelationFilter
   }, "id">
 
   export type TeamsOrderByWithAggregationInput = {
@@ -15783,7 +15950,7 @@ export namespace Prisma {
     shirt_no?: IntFilter<"Players"> | number
     player_info?: XOR<PlayerInfoNullableScalarRelationFilter, PlayerInfoWhereInput> | null
     player_rating?: XOR<PlayerRatingsNullableScalarRelationFilter, PlayerRatingsWhereInput> | null
-    player_stats?: XOR<PlayerStatsNullableScalarRelationFilter, PlayerStatsWhereInput> | null
+    player_stats?: PlayerStatsListRelationFilter
     player_team_achievement?: PlayerTeamAchievementsListRelationFilter
     player_personal_achievement?: PlayerPersonalAchievementsListRelationFilter
     thoughtsAuthored?: PlayerTeammateThoughtsListRelationFilter
@@ -15800,7 +15967,7 @@ export namespace Prisma {
     shirt_no?: SortOrder
     player_info?: PlayerInfoOrderByWithRelationInput
     player_rating?: PlayerRatingsOrderByWithRelationInput
-    player_stats?: PlayerStatsOrderByWithRelationInput
+    player_stats?: PlayerStatsOrderByRelationAggregateInput
     player_team_achievement?: PlayerTeamAchievementsOrderByRelationAggregateInput
     player_personal_achievement?: PlayerPersonalAchievementsOrderByRelationAggregateInput
     thoughtsAuthored?: PlayerTeammateThoughtsOrderByRelationAggregateInput
@@ -15820,7 +15987,7 @@ export namespace Prisma {
     shirt_no?: IntFilter<"Players"> | number
     player_info?: XOR<PlayerInfoNullableScalarRelationFilter, PlayerInfoWhereInput> | null
     player_rating?: XOR<PlayerRatingsNullableScalarRelationFilter, PlayerRatingsWhereInput> | null
-    player_stats?: XOR<PlayerStatsNullableScalarRelationFilter, PlayerStatsWhereInput> | null
+    player_stats?: PlayerStatsListRelationFilter
     player_team_achievement?: PlayerTeamAchievementsListRelationFilter
     player_personal_achievement?: PlayerPersonalAchievementsListRelationFilter
     thoughtsAuthored?: PlayerTeammateThoughtsListRelationFilter
@@ -15862,6 +16029,7 @@ export namespace Prisma {
     name?: StringFilter<"Leagues"> | string
     league_achievement?: PlayerTeamAchievementsListRelationFilter
     personal_achievement?: PlayerPersonalAchievementsListRelationFilter
+    player_stats?: PlayerStatsListRelationFilter
   }
 
   export type LeaguesOrderByWithRelationInput = {
@@ -15869,6 +16037,7 @@ export namespace Prisma {
     name?: SortOrder
     league_achievement?: PlayerTeamAchievementsOrderByRelationAggregateInput
     personal_achievement?: PlayerPersonalAchievementsOrderByRelationAggregateInput
+    player_stats?: PlayerStatsOrderByRelationAggregateInput
   }
 
   export type LeaguesWhereUniqueInput = Prisma.AtLeast<{
@@ -15879,6 +16048,7 @@ export namespace Prisma {
     name?: StringFilter<"Leagues"> | string
     league_achievement?: PlayerTeamAchievementsListRelationFilter
     personal_achievement?: PlayerPersonalAchievementsListRelationFilter
+    player_stats?: PlayerStatsListRelationFilter
   }, "id">
 
   export type LeaguesOrderByWithAggregationInput = {
@@ -16070,45 +16240,67 @@ export namespace Prisma {
     AND?: PlayerStatsWhereInput | PlayerStatsWhereInput[]
     OR?: PlayerStatsWhereInput[]
     NOT?: PlayerStatsWhereInput | PlayerStatsWhereInput[]
+    id?: StringFilter<"PlayerStats"> | string
     player_id?: StringFilter<"PlayerStats"> | string
     matches?: IntFilter<"PlayerStats"> | number
     goals?: IntFilter<"PlayerStats"> | number
     assists?: IntFilter<"PlayerStats"> | number
     yellow_cards?: IntFilter<"PlayerStats"> | number
     red_cards?: IntFilter<"PlayerStats"> | number
+    league_id?: StringFilter<"PlayerStats"> | string
+    team_id?: StringFilter<"PlayerStats"> | string
+    year?: IntFilter<"PlayerStats"> | number
+    league?: XOR<LeaguesScalarRelationFilter, LeaguesWhereInput>
     player?: XOR<PlayersScalarRelationFilter, PlayersWhereInput>
+    team?: XOR<TeamsScalarRelationFilter, TeamsWhereInput>
   }
 
   export type PlayerStatsOrderByWithRelationInput = {
+    id?: SortOrder
     player_id?: SortOrder
     matches?: SortOrder
     goals?: SortOrder
     assists?: SortOrder
     yellow_cards?: SortOrder
     red_cards?: SortOrder
+    league_id?: SortOrder
+    team_id?: SortOrder
+    year?: SortOrder
+    league?: LeaguesOrderByWithRelationInput
     player?: PlayersOrderByWithRelationInput
+    team?: TeamsOrderByWithRelationInput
   }
 
   export type PlayerStatsWhereUniqueInput = Prisma.AtLeast<{
-    player_id?: string
+    id?: string
     AND?: PlayerStatsWhereInput | PlayerStatsWhereInput[]
     OR?: PlayerStatsWhereInput[]
     NOT?: PlayerStatsWhereInput | PlayerStatsWhereInput[]
+    player_id?: StringFilter<"PlayerStats"> | string
     matches?: IntFilter<"PlayerStats"> | number
     goals?: IntFilter<"PlayerStats"> | number
     assists?: IntFilter<"PlayerStats"> | number
     yellow_cards?: IntFilter<"PlayerStats"> | number
     red_cards?: IntFilter<"PlayerStats"> | number
+    league_id?: StringFilter<"PlayerStats"> | string
+    team_id?: StringFilter<"PlayerStats"> | string
+    year?: IntFilter<"PlayerStats"> | number
+    league?: XOR<LeaguesScalarRelationFilter, LeaguesWhereInput>
     player?: XOR<PlayersScalarRelationFilter, PlayersWhereInput>
-  }, "player_id">
+    team?: XOR<TeamsScalarRelationFilter, TeamsWhereInput>
+  }, "id">
 
   export type PlayerStatsOrderByWithAggregationInput = {
+    id?: SortOrder
     player_id?: SortOrder
     matches?: SortOrder
     goals?: SortOrder
     assists?: SortOrder
     yellow_cards?: SortOrder
     red_cards?: SortOrder
+    league_id?: SortOrder
+    team_id?: SortOrder
+    year?: SortOrder
     _count?: PlayerStatsCountOrderByAggregateInput
     _avg?: PlayerStatsAvgOrderByAggregateInput
     _max?: PlayerStatsMaxOrderByAggregateInput
@@ -16120,12 +16312,16 @@ export namespace Prisma {
     AND?: PlayerStatsScalarWhereWithAggregatesInput | PlayerStatsScalarWhereWithAggregatesInput[]
     OR?: PlayerStatsScalarWhereWithAggregatesInput[]
     NOT?: PlayerStatsScalarWhereWithAggregatesInput | PlayerStatsScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"PlayerStats"> | string
     player_id?: StringWithAggregatesFilter<"PlayerStats"> | string
     matches?: IntWithAggregatesFilter<"PlayerStats"> | number
     goals?: IntWithAggregatesFilter<"PlayerStats"> | number
     assists?: IntWithAggregatesFilter<"PlayerStats"> | number
     yellow_cards?: IntWithAggregatesFilter<"PlayerStats"> | number
     red_cards?: IntWithAggregatesFilter<"PlayerStats"> | number
+    league_id?: StringWithAggregatesFilter<"PlayerStats"> | string
+    team_id?: StringWithAggregatesFilter<"PlayerStats"> | string
+    year?: IntWithAggregatesFilter<"PlayerStats"> | number
   }
 
   export type PlayerTeamAchievementsWhereInput = {
@@ -16326,6 +16522,7 @@ export namespace Prisma {
     player?: PlayersCreateNestedManyWithoutTeamInput
     league_achievement?: PlayerTeamAchievementsCreateNestedManyWithoutTeamInput
     personal_achievement?: PlayerPersonalAchievementsCreateNestedManyWithoutTeamInput
+    player_stats?: PlayerStatsCreateNestedManyWithoutTeamInput
   }
 
   export type TeamsUncheckedCreateInput = {
@@ -16336,6 +16533,7 @@ export namespace Prisma {
     player?: PlayersUncheckedCreateNestedManyWithoutTeamInput
     league_achievement?: PlayerTeamAchievementsUncheckedCreateNestedManyWithoutTeamInput
     personal_achievement?: PlayerPersonalAchievementsUncheckedCreateNestedManyWithoutTeamInput
+    player_stats?: PlayerStatsUncheckedCreateNestedManyWithoutTeamInput
   }
 
   export type TeamsUpdateInput = {
@@ -16346,6 +16544,7 @@ export namespace Prisma {
     player?: PlayersUpdateManyWithoutTeamNestedInput
     league_achievement?: PlayerTeamAchievementsUpdateManyWithoutTeamNestedInput
     personal_achievement?: PlayerPersonalAchievementsUpdateManyWithoutTeamNestedInput
+    player_stats?: PlayerStatsUpdateManyWithoutTeamNestedInput
   }
 
   export type TeamsUncheckedUpdateInput = {
@@ -16356,6 +16555,7 @@ export namespace Prisma {
     player?: PlayersUncheckedUpdateManyWithoutTeamNestedInput
     league_achievement?: PlayerTeamAchievementsUncheckedUpdateManyWithoutTeamNestedInput
     personal_achievement?: PlayerPersonalAchievementsUncheckedUpdateManyWithoutTeamNestedInput
+    player_stats?: PlayerStatsUncheckedUpdateManyWithoutTeamNestedInput
   }
 
   export type TeamsCreateManyInput = {
@@ -16478,7 +16678,7 @@ export namespace Prisma {
     shirt_no: number
     player_info?: PlayerInfoCreateNestedOneWithoutPlayerInput
     player_rating?: PlayerRatingsCreateNestedOneWithoutPlayerInput
-    player_stats?: PlayerStatsCreateNestedOneWithoutPlayerInput
+    player_stats?: PlayerStatsCreateNestedManyWithoutPlayerInput
     player_team_achievement?: PlayerTeamAchievementsCreateNestedManyWithoutPlayerInput
     player_personal_achievement?: PlayerPersonalAchievementsCreateNestedManyWithoutPlayerInput
     thoughtsAuthored?: PlayerTeammateThoughtsCreateNestedManyWithoutAuthorInput
@@ -16495,7 +16695,7 @@ export namespace Prisma {
     shirt_no: number
     player_info?: PlayerInfoUncheckedCreateNestedOneWithoutPlayerInput
     player_rating?: PlayerRatingsUncheckedCreateNestedOneWithoutPlayerInput
-    player_stats?: PlayerStatsUncheckedCreateNestedOneWithoutPlayerInput
+    player_stats?: PlayerStatsUncheckedCreateNestedManyWithoutPlayerInput
     player_team_achievement?: PlayerTeamAchievementsUncheckedCreateNestedManyWithoutPlayerInput
     player_personal_achievement?: PlayerPersonalAchievementsUncheckedCreateNestedManyWithoutPlayerInput
     thoughtsAuthored?: PlayerTeammateThoughtsUncheckedCreateNestedManyWithoutAuthorInput
@@ -16510,7 +16710,7 @@ export namespace Prisma {
     shirt_no?: IntFieldUpdateOperationsInput | number
     player_info?: PlayerInfoUpdateOneWithoutPlayerNestedInput
     player_rating?: PlayerRatingsUpdateOneWithoutPlayerNestedInput
-    player_stats?: PlayerStatsUpdateOneWithoutPlayerNestedInput
+    player_stats?: PlayerStatsUpdateManyWithoutPlayerNestedInput
     player_team_achievement?: PlayerTeamAchievementsUpdateManyWithoutPlayerNestedInput
     player_personal_achievement?: PlayerPersonalAchievementsUpdateManyWithoutPlayerNestedInput
     thoughtsAuthored?: PlayerTeammateThoughtsUpdateManyWithoutAuthorNestedInput
@@ -16527,7 +16727,7 @@ export namespace Prisma {
     shirt_no?: IntFieldUpdateOperationsInput | number
     player_info?: PlayerInfoUncheckedUpdateOneWithoutPlayerNestedInput
     player_rating?: PlayerRatingsUncheckedUpdateOneWithoutPlayerNestedInput
-    player_stats?: PlayerStatsUncheckedUpdateOneWithoutPlayerNestedInput
+    player_stats?: PlayerStatsUncheckedUpdateManyWithoutPlayerNestedInput
     player_team_achievement?: PlayerTeamAchievementsUncheckedUpdateManyWithoutPlayerNestedInput
     player_personal_achievement?: PlayerPersonalAchievementsUncheckedUpdateManyWithoutPlayerNestedInput
     thoughtsAuthored?: PlayerTeammateThoughtsUncheckedUpdateManyWithoutAuthorNestedInput
@@ -16565,6 +16765,7 @@ export namespace Prisma {
     name: string
     league_achievement?: PlayerTeamAchievementsCreateNestedManyWithoutLeagueInput
     personal_achievement?: PlayerPersonalAchievementsCreateNestedManyWithoutLeagueInput
+    player_stats?: PlayerStatsCreateNestedManyWithoutLeagueInput
   }
 
   export type LeaguesUncheckedCreateInput = {
@@ -16572,6 +16773,7 @@ export namespace Prisma {
     name: string
     league_achievement?: PlayerTeamAchievementsUncheckedCreateNestedManyWithoutLeagueInput
     personal_achievement?: PlayerPersonalAchievementsUncheckedCreateNestedManyWithoutLeagueInput
+    player_stats?: PlayerStatsUncheckedCreateNestedManyWithoutLeagueInput
   }
 
   export type LeaguesUpdateInput = {
@@ -16579,6 +16781,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     league_achievement?: PlayerTeamAchievementsUpdateManyWithoutLeagueNestedInput
     personal_achievement?: PlayerPersonalAchievementsUpdateManyWithoutLeagueNestedInput
+    player_stats?: PlayerStatsUpdateManyWithoutLeagueNestedInput
   }
 
   export type LeaguesUncheckedUpdateInput = {
@@ -16586,6 +16789,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     league_achievement?: PlayerTeamAchievementsUncheckedUpdateManyWithoutLeagueNestedInput
     personal_achievement?: PlayerPersonalAchievementsUncheckedUpdateManyWithoutLeagueNestedInput
+    player_stats?: PlayerStatsUncheckedUpdateManyWithoutLeagueNestedInput
   }
 
   export type LeaguesCreateManyInput = {
@@ -16774,65 +16978,91 @@ export namespace Prisma {
   }
 
   export type PlayerStatsCreateInput = {
+    id: string
     matches: number
     goals: number
     assists: number
     yellow_cards: number
     red_cards: number
+    year: number
+    league: LeaguesCreateNestedOneWithoutPlayer_statsInput
     player: PlayersCreateNestedOneWithoutPlayer_statsInput
+    team: TeamsCreateNestedOneWithoutPlayer_statsInput
   }
 
   export type PlayerStatsUncheckedCreateInput = {
+    id: string
     player_id: string
     matches: number
     goals: number
     assists: number
     yellow_cards: number
     red_cards: number
+    league_id: string
+    team_id: string
+    year: number
   }
 
   export type PlayerStatsUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
     matches?: IntFieldUpdateOperationsInput | number
     goals?: IntFieldUpdateOperationsInput | number
     assists?: IntFieldUpdateOperationsInput | number
     yellow_cards?: IntFieldUpdateOperationsInput | number
     red_cards?: IntFieldUpdateOperationsInput | number
+    year?: IntFieldUpdateOperationsInput | number
+    league?: LeaguesUpdateOneRequiredWithoutPlayer_statsNestedInput
     player?: PlayersUpdateOneRequiredWithoutPlayer_statsNestedInput
+    team?: TeamsUpdateOneRequiredWithoutPlayer_statsNestedInput
   }
 
   export type PlayerStatsUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
     player_id?: StringFieldUpdateOperationsInput | string
     matches?: IntFieldUpdateOperationsInput | number
     goals?: IntFieldUpdateOperationsInput | number
     assists?: IntFieldUpdateOperationsInput | number
     yellow_cards?: IntFieldUpdateOperationsInput | number
     red_cards?: IntFieldUpdateOperationsInput | number
+    league_id?: StringFieldUpdateOperationsInput | string
+    team_id?: StringFieldUpdateOperationsInput | string
+    year?: IntFieldUpdateOperationsInput | number
   }
 
   export type PlayerStatsCreateManyInput = {
+    id: string
     player_id: string
     matches: number
     goals: number
     assists: number
     yellow_cards: number
     red_cards: number
+    league_id: string
+    team_id: string
+    year: number
   }
 
   export type PlayerStatsUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
     matches?: IntFieldUpdateOperationsInput | number
     goals?: IntFieldUpdateOperationsInput | number
     assists?: IntFieldUpdateOperationsInput | number
     yellow_cards?: IntFieldUpdateOperationsInput | number
     red_cards?: IntFieldUpdateOperationsInput | number
+    year?: IntFieldUpdateOperationsInput | number
   }
 
   export type PlayerStatsUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
     player_id?: StringFieldUpdateOperationsInput | string
     matches?: IntFieldUpdateOperationsInput | number
     goals?: IntFieldUpdateOperationsInput | number
     assists?: IntFieldUpdateOperationsInput | number
     yellow_cards?: IntFieldUpdateOperationsInput | number
     red_cards?: IntFieldUpdateOperationsInput | number
+    league_id?: StringFieldUpdateOperationsInput | string
+    team_id?: StringFieldUpdateOperationsInput | string
+    year?: IntFieldUpdateOperationsInput | number
   }
 
   export type PlayerTeamAchievementsCreateInput = {
@@ -17042,6 +17272,12 @@ export namespace Prisma {
     none?: PlayerPersonalAchievementsWhereInput
   }
 
+  export type PlayerStatsListRelationFilter = {
+    every?: PlayerStatsWhereInput
+    some?: PlayerStatsWhereInput
+    none?: PlayerStatsWhereInput
+  }
+
   export type EmployeeOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
@@ -17055,6 +17291,10 @@ export namespace Prisma {
   }
 
   export type PlayerPersonalAchievementsOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type PlayerStatsOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -17196,11 +17436,6 @@ export namespace Prisma {
   export type PlayerRatingsNullableScalarRelationFilter = {
     is?: PlayerRatingsWhereInput | null
     isNot?: PlayerRatingsWhereInput | null
-  }
-
-  export type PlayerStatsNullableScalarRelationFilter = {
-    is?: PlayerStatsWhereInput | null
-    isNot?: PlayerStatsWhereInput | null
   }
 
   export type PlayerTeammateThoughtsListRelationFilter = {
@@ -17393,13 +17628,22 @@ export namespace Prisma {
     dribbling?: SortOrder
   }
 
+  export type LeaguesScalarRelationFilter = {
+    is?: LeaguesWhereInput
+    isNot?: LeaguesWhereInput
+  }
+
   export type PlayerStatsCountOrderByAggregateInput = {
+    id?: SortOrder
     player_id?: SortOrder
     matches?: SortOrder
     goals?: SortOrder
     assists?: SortOrder
     yellow_cards?: SortOrder
     red_cards?: SortOrder
+    league_id?: SortOrder
+    team_id?: SortOrder
+    year?: SortOrder
   }
 
   export type PlayerStatsAvgOrderByAggregateInput = {
@@ -17408,24 +17652,33 @@ export namespace Prisma {
     assists?: SortOrder
     yellow_cards?: SortOrder
     red_cards?: SortOrder
+    year?: SortOrder
   }
 
   export type PlayerStatsMaxOrderByAggregateInput = {
+    id?: SortOrder
     player_id?: SortOrder
     matches?: SortOrder
     goals?: SortOrder
     assists?: SortOrder
     yellow_cards?: SortOrder
     red_cards?: SortOrder
+    league_id?: SortOrder
+    team_id?: SortOrder
+    year?: SortOrder
   }
 
   export type PlayerStatsMinOrderByAggregateInput = {
+    id?: SortOrder
     player_id?: SortOrder
     matches?: SortOrder
     goals?: SortOrder
     assists?: SortOrder
     yellow_cards?: SortOrder
     red_cards?: SortOrder
+    league_id?: SortOrder
+    team_id?: SortOrder
+    year?: SortOrder
   }
 
   export type PlayerStatsSumOrderByAggregateInput = {
@@ -17434,11 +17687,7 @@ export namespace Prisma {
     assists?: SortOrder
     yellow_cards?: SortOrder
     red_cards?: SortOrder
-  }
-
-  export type LeaguesScalarRelationFilter = {
-    is?: LeaguesWhereInput
-    isNot?: LeaguesWhereInput
+    year?: SortOrder
   }
 
   export type PlayerTeamAchievementsCountOrderByAggregateInput = {
@@ -17563,6 +17812,13 @@ export namespace Prisma {
     connect?: PlayerPersonalAchievementsWhereUniqueInput | PlayerPersonalAchievementsWhereUniqueInput[]
   }
 
+  export type PlayerStatsCreateNestedManyWithoutTeamInput = {
+    create?: XOR<PlayerStatsCreateWithoutTeamInput, PlayerStatsUncheckedCreateWithoutTeamInput> | PlayerStatsCreateWithoutTeamInput[] | PlayerStatsUncheckedCreateWithoutTeamInput[]
+    connectOrCreate?: PlayerStatsCreateOrConnectWithoutTeamInput | PlayerStatsCreateOrConnectWithoutTeamInput[]
+    createMany?: PlayerStatsCreateManyTeamInputEnvelope
+    connect?: PlayerStatsWhereUniqueInput | PlayerStatsWhereUniqueInput[]
+  }
+
   export type EmployeeUncheckedCreateNestedManyWithoutTeamInput = {
     create?: XOR<EmployeeCreateWithoutTeamInput, EmployeeUncheckedCreateWithoutTeamInput> | EmployeeCreateWithoutTeamInput[] | EmployeeUncheckedCreateWithoutTeamInput[]
     connectOrCreate?: EmployeeCreateOrConnectWithoutTeamInput | EmployeeCreateOrConnectWithoutTeamInput[]
@@ -17595,6 +17851,13 @@ export namespace Prisma {
     connectOrCreate?: PlayerPersonalAchievementsCreateOrConnectWithoutTeamInput | PlayerPersonalAchievementsCreateOrConnectWithoutTeamInput[]
     createMany?: PlayerPersonalAchievementsCreateManyTeamInputEnvelope
     connect?: PlayerPersonalAchievementsWhereUniqueInput | PlayerPersonalAchievementsWhereUniqueInput[]
+  }
+
+  export type PlayerStatsUncheckedCreateNestedManyWithoutTeamInput = {
+    create?: XOR<PlayerStatsCreateWithoutTeamInput, PlayerStatsUncheckedCreateWithoutTeamInput> | PlayerStatsCreateWithoutTeamInput[] | PlayerStatsUncheckedCreateWithoutTeamInput[]
+    connectOrCreate?: PlayerStatsCreateOrConnectWithoutTeamInput | PlayerStatsCreateOrConnectWithoutTeamInput[]
+    createMany?: PlayerStatsCreateManyTeamInputEnvelope
+    connect?: PlayerStatsWhereUniqueInput | PlayerStatsWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -17667,6 +17930,20 @@ export namespace Prisma {
     deleteMany?: PlayerPersonalAchievementsScalarWhereInput | PlayerPersonalAchievementsScalarWhereInput[]
   }
 
+  export type PlayerStatsUpdateManyWithoutTeamNestedInput = {
+    create?: XOR<PlayerStatsCreateWithoutTeamInput, PlayerStatsUncheckedCreateWithoutTeamInput> | PlayerStatsCreateWithoutTeamInput[] | PlayerStatsUncheckedCreateWithoutTeamInput[]
+    connectOrCreate?: PlayerStatsCreateOrConnectWithoutTeamInput | PlayerStatsCreateOrConnectWithoutTeamInput[]
+    upsert?: PlayerStatsUpsertWithWhereUniqueWithoutTeamInput | PlayerStatsUpsertWithWhereUniqueWithoutTeamInput[]
+    createMany?: PlayerStatsCreateManyTeamInputEnvelope
+    set?: PlayerStatsWhereUniqueInput | PlayerStatsWhereUniqueInput[]
+    disconnect?: PlayerStatsWhereUniqueInput | PlayerStatsWhereUniqueInput[]
+    delete?: PlayerStatsWhereUniqueInput | PlayerStatsWhereUniqueInput[]
+    connect?: PlayerStatsWhereUniqueInput | PlayerStatsWhereUniqueInput[]
+    update?: PlayerStatsUpdateWithWhereUniqueWithoutTeamInput | PlayerStatsUpdateWithWhereUniqueWithoutTeamInput[]
+    updateMany?: PlayerStatsUpdateManyWithWhereWithoutTeamInput | PlayerStatsUpdateManyWithWhereWithoutTeamInput[]
+    deleteMany?: PlayerStatsScalarWhereInput | PlayerStatsScalarWhereInput[]
+  }
+
   export type EmployeeUncheckedUpdateManyWithoutTeamNestedInput = {
     create?: XOR<EmployeeCreateWithoutTeamInput, EmployeeUncheckedCreateWithoutTeamInput> | EmployeeCreateWithoutTeamInput[] | EmployeeUncheckedCreateWithoutTeamInput[]
     connectOrCreate?: EmployeeCreateOrConnectWithoutTeamInput | EmployeeCreateOrConnectWithoutTeamInput[]
@@ -17733,6 +18010,20 @@ export namespace Prisma {
     deleteMany?: PlayerPersonalAchievementsScalarWhereInput | PlayerPersonalAchievementsScalarWhereInput[]
   }
 
+  export type PlayerStatsUncheckedUpdateManyWithoutTeamNestedInput = {
+    create?: XOR<PlayerStatsCreateWithoutTeamInput, PlayerStatsUncheckedCreateWithoutTeamInput> | PlayerStatsCreateWithoutTeamInput[] | PlayerStatsUncheckedCreateWithoutTeamInput[]
+    connectOrCreate?: PlayerStatsCreateOrConnectWithoutTeamInput | PlayerStatsCreateOrConnectWithoutTeamInput[]
+    upsert?: PlayerStatsUpsertWithWhereUniqueWithoutTeamInput | PlayerStatsUpsertWithWhereUniqueWithoutTeamInput[]
+    createMany?: PlayerStatsCreateManyTeamInputEnvelope
+    set?: PlayerStatsWhereUniqueInput | PlayerStatsWhereUniqueInput[]
+    disconnect?: PlayerStatsWhereUniqueInput | PlayerStatsWhereUniqueInput[]
+    delete?: PlayerStatsWhereUniqueInput | PlayerStatsWhereUniqueInput[]
+    connect?: PlayerStatsWhereUniqueInput | PlayerStatsWhereUniqueInput[]
+    update?: PlayerStatsUpdateWithWhereUniqueWithoutTeamInput | PlayerStatsUpdateWithWhereUniqueWithoutTeamInput[]
+    updateMany?: PlayerStatsUpdateManyWithWhereWithoutTeamInput | PlayerStatsUpdateManyWithWhereWithoutTeamInput[]
+    deleteMany?: PlayerStatsScalarWhereInput | PlayerStatsScalarWhereInput[]
+  }
+
   export type TeamsCreateNestedOneWithoutEmployeeInput = {
     create?: XOR<TeamsCreateWithoutEmployeeInput, TeamsUncheckedCreateWithoutEmployeeInput>
     connectOrCreate?: TeamsCreateOrConnectWithoutEmployeeInput
@@ -17781,10 +18072,11 @@ export namespace Prisma {
     connect?: PlayerRatingsWhereUniqueInput
   }
 
-  export type PlayerStatsCreateNestedOneWithoutPlayerInput = {
-    create?: XOR<PlayerStatsCreateWithoutPlayerInput, PlayerStatsUncheckedCreateWithoutPlayerInput>
-    connectOrCreate?: PlayerStatsCreateOrConnectWithoutPlayerInput
-    connect?: PlayerStatsWhereUniqueInput
+  export type PlayerStatsCreateNestedManyWithoutPlayerInput = {
+    create?: XOR<PlayerStatsCreateWithoutPlayerInput, PlayerStatsUncheckedCreateWithoutPlayerInput> | PlayerStatsCreateWithoutPlayerInput[] | PlayerStatsUncheckedCreateWithoutPlayerInput[]
+    connectOrCreate?: PlayerStatsCreateOrConnectWithoutPlayerInput | PlayerStatsCreateOrConnectWithoutPlayerInput[]
+    createMany?: PlayerStatsCreateManyPlayerInputEnvelope
+    connect?: PlayerStatsWhereUniqueInput | PlayerStatsWhereUniqueInput[]
   }
 
   export type PlayerTeamAchievementsCreateNestedManyWithoutPlayerInput = {
@@ -17833,10 +18125,11 @@ export namespace Prisma {
     connect?: PlayerRatingsWhereUniqueInput
   }
 
-  export type PlayerStatsUncheckedCreateNestedOneWithoutPlayerInput = {
-    create?: XOR<PlayerStatsCreateWithoutPlayerInput, PlayerStatsUncheckedCreateWithoutPlayerInput>
-    connectOrCreate?: PlayerStatsCreateOrConnectWithoutPlayerInput
-    connect?: PlayerStatsWhereUniqueInput
+  export type PlayerStatsUncheckedCreateNestedManyWithoutPlayerInput = {
+    create?: XOR<PlayerStatsCreateWithoutPlayerInput, PlayerStatsUncheckedCreateWithoutPlayerInput> | PlayerStatsCreateWithoutPlayerInput[] | PlayerStatsUncheckedCreateWithoutPlayerInput[]
+    connectOrCreate?: PlayerStatsCreateOrConnectWithoutPlayerInput | PlayerStatsCreateOrConnectWithoutPlayerInput[]
+    createMany?: PlayerStatsCreateManyPlayerInputEnvelope
+    connect?: PlayerStatsWhereUniqueInput | PlayerStatsWhereUniqueInput[]
   }
 
   export type PlayerTeamAchievementsUncheckedCreateNestedManyWithoutPlayerInput = {
@@ -17887,14 +18180,18 @@ export namespace Prisma {
     update?: XOR<XOR<PlayerRatingsUpdateToOneWithWhereWithoutPlayerInput, PlayerRatingsUpdateWithoutPlayerInput>, PlayerRatingsUncheckedUpdateWithoutPlayerInput>
   }
 
-  export type PlayerStatsUpdateOneWithoutPlayerNestedInput = {
-    create?: XOR<PlayerStatsCreateWithoutPlayerInput, PlayerStatsUncheckedCreateWithoutPlayerInput>
-    connectOrCreate?: PlayerStatsCreateOrConnectWithoutPlayerInput
-    upsert?: PlayerStatsUpsertWithoutPlayerInput
-    disconnect?: PlayerStatsWhereInput | boolean
-    delete?: PlayerStatsWhereInput | boolean
-    connect?: PlayerStatsWhereUniqueInput
-    update?: XOR<XOR<PlayerStatsUpdateToOneWithWhereWithoutPlayerInput, PlayerStatsUpdateWithoutPlayerInput>, PlayerStatsUncheckedUpdateWithoutPlayerInput>
+  export type PlayerStatsUpdateManyWithoutPlayerNestedInput = {
+    create?: XOR<PlayerStatsCreateWithoutPlayerInput, PlayerStatsUncheckedCreateWithoutPlayerInput> | PlayerStatsCreateWithoutPlayerInput[] | PlayerStatsUncheckedCreateWithoutPlayerInput[]
+    connectOrCreate?: PlayerStatsCreateOrConnectWithoutPlayerInput | PlayerStatsCreateOrConnectWithoutPlayerInput[]
+    upsert?: PlayerStatsUpsertWithWhereUniqueWithoutPlayerInput | PlayerStatsUpsertWithWhereUniqueWithoutPlayerInput[]
+    createMany?: PlayerStatsCreateManyPlayerInputEnvelope
+    set?: PlayerStatsWhereUniqueInput | PlayerStatsWhereUniqueInput[]
+    disconnect?: PlayerStatsWhereUniqueInput | PlayerStatsWhereUniqueInput[]
+    delete?: PlayerStatsWhereUniqueInput | PlayerStatsWhereUniqueInput[]
+    connect?: PlayerStatsWhereUniqueInput | PlayerStatsWhereUniqueInput[]
+    update?: PlayerStatsUpdateWithWhereUniqueWithoutPlayerInput | PlayerStatsUpdateWithWhereUniqueWithoutPlayerInput[]
+    updateMany?: PlayerStatsUpdateManyWithWhereWithoutPlayerInput | PlayerStatsUpdateManyWithWhereWithoutPlayerInput[]
+    deleteMany?: PlayerStatsScalarWhereInput | PlayerStatsScalarWhereInput[]
   }
 
   export type PlayerTeamAchievementsUpdateManyWithoutPlayerNestedInput = {
@@ -17981,14 +18278,18 @@ export namespace Prisma {
     update?: XOR<XOR<PlayerRatingsUpdateToOneWithWhereWithoutPlayerInput, PlayerRatingsUpdateWithoutPlayerInput>, PlayerRatingsUncheckedUpdateWithoutPlayerInput>
   }
 
-  export type PlayerStatsUncheckedUpdateOneWithoutPlayerNestedInput = {
-    create?: XOR<PlayerStatsCreateWithoutPlayerInput, PlayerStatsUncheckedCreateWithoutPlayerInput>
-    connectOrCreate?: PlayerStatsCreateOrConnectWithoutPlayerInput
-    upsert?: PlayerStatsUpsertWithoutPlayerInput
-    disconnect?: PlayerStatsWhereInput | boolean
-    delete?: PlayerStatsWhereInput | boolean
-    connect?: PlayerStatsWhereUniqueInput
-    update?: XOR<XOR<PlayerStatsUpdateToOneWithWhereWithoutPlayerInput, PlayerStatsUpdateWithoutPlayerInput>, PlayerStatsUncheckedUpdateWithoutPlayerInput>
+  export type PlayerStatsUncheckedUpdateManyWithoutPlayerNestedInput = {
+    create?: XOR<PlayerStatsCreateWithoutPlayerInput, PlayerStatsUncheckedCreateWithoutPlayerInput> | PlayerStatsCreateWithoutPlayerInput[] | PlayerStatsUncheckedCreateWithoutPlayerInput[]
+    connectOrCreate?: PlayerStatsCreateOrConnectWithoutPlayerInput | PlayerStatsCreateOrConnectWithoutPlayerInput[]
+    upsert?: PlayerStatsUpsertWithWhereUniqueWithoutPlayerInput | PlayerStatsUpsertWithWhereUniqueWithoutPlayerInput[]
+    createMany?: PlayerStatsCreateManyPlayerInputEnvelope
+    set?: PlayerStatsWhereUniqueInput | PlayerStatsWhereUniqueInput[]
+    disconnect?: PlayerStatsWhereUniqueInput | PlayerStatsWhereUniqueInput[]
+    delete?: PlayerStatsWhereUniqueInput | PlayerStatsWhereUniqueInput[]
+    connect?: PlayerStatsWhereUniqueInput | PlayerStatsWhereUniqueInput[]
+    update?: PlayerStatsUpdateWithWhereUniqueWithoutPlayerInput | PlayerStatsUpdateWithWhereUniqueWithoutPlayerInput[]
+    updateMany?: PlayerStatsUpdateManyWithWhereWithoutPlayerInput | PlayerStatsUpdateManyWithWhereWithoutPlayerInput[]
+    deleteMany?: PlayerStatsScalarWhereInput | PlayerStatsScalarWhereInput[]
   }
 
   export type PlayerTeamAchievementsUncheckedUpdateManyWithoutPlayerNestedInput = {
@@ -18061,6 +18362,13 @@ export namespace Prisma {
     connect?: PlayerPersonalAchievementsWhereUniqueInput | PlayerPersonalAchievementsWhereUniqueInput[]
   }
 
+  export type PlayerStatsCreateNestedManyWithoutLeagueInput = {
+    create?: XOR<PlayerStatsCreateWithoutLeagueInput, PlayerStatsUncheckedCreateWithoutLeagueInput> | PlayerStatsCreateWithoutLeagueInput[] | PlayerStatsUncheckedCreateWithoutLeagueInput[]
+    connectOrCreate?: PlayerStatsCreateOrConnectWithoutLeagueInput | PlayerStatsCreateOrConnectWithoutLeagueInput[]
+    createMany?: PlayerStatsCreateManyLeagueInputEnvelope
+    connect?: PlayerStatsWhereUniqueInput | PlayerStatsWhereUniqueInput[]
+  }
+
   export type PlayerTeamAchievementsUncheckedCreateNestedManyWithoutLeagueInput = {
     create?: XOR<PlayerTeamAchievementsCreateWithoutLeagueInput, PlayerTeamAchievementsUncheckedCreateWithoutLeagueInput> | PlayerTeamAchievementsCreateWithoutLeagueInput[] | PlayerTeamAchievementsUncheckedCreateWithoutLeagueInput[]
     connectOrCreate?: PlayerTeamAchievementsCreateOrConnectWithoutLeagueInput | PlayerTeamAchievementsCreateOrConnectWithoutLeagueInput[]
@@ -18073,6 +18381,13 @@ export namespace Prisma {
     connectOrCreate?: PlayerPersonalAchievementsCreateOrConnectWithoutLeagueInput | PlayerPersonalAchievementsCreateOrConnectWithoutLeagueInput[]
     createMany?: PlayerPersonalAchievementsCreateManyLeagueInputEnvelope
     connect?: PlayerPersonalAchievementsWhereUniqueInput | PlayerPersonalAchievementsWhereUniqueInput[]
+  }
+
+  export type PlayerStatsUncheckedCreateNestedManyWithoutLeagueInput = {
+    create?: XOR<PlayerStatsCreateWithoutLeagueInput, PlayerStatsUncheckedCreateWithoutLeagueInput> | PlayerStatsCreateWithoutLeagueInput[] | PlayerStatsUncheckedCreateWithoutLeagueInput[]
+    connectOrCreate?: PlayerStatsCreateOrConnectWithoutLeagueInput | PlayerStatsCreateOrConnectWithoutLeagueInput[]
+    createMany?: PlayerStatsCreateManyLeagueInputEnvelope
+    connect?: PlayerStatsWhereUniqueInput | PlayerStatsWhereUniqueInput[]
   }
 
   export type PlayerTeamAchievementsUpdateManyWithoutLeagueNestedInput = {
@@ -18103,6 +18418,20 @@ export namespace Prisma {
     deleteMany?: PlayerPersonalAchievementsScalarWhereInput | PlayerPersonalAchievementsScalarWhereInput[]
   }
 
+  export type PlayerStatsUpdateManyWithoutLeagueNestedInput = {
+    create?: XOR<PlayerStatsCreateWithoutLeagueInput, PlayerStatsUncheckedCreateWithoutLeagueInput> | PlayerStatsCreateWithoutLeagueInput[] | PlayerStatsUncheckedCreateWithoutLeagueInput[]
+    connectOrCreate?: PlayerStatsCreateOrConnectWithoutLeagueInput | PlayerStatsCreateOrConnectWithoutLeagueInput[]
+    upsert?: PlayerStatsUpsertWithWhereUniqueWithoutLeagueInput | PlayerStatsUpsertWithWhereUniqueWithoutLeagueInput[]
+    createMany?: PlayerStatsCreateManyLeagueInputEnvelope
+    set?: PlayerStatsWhereUniqueInput | PlayerStatsWhereUniqueInput[]
+    disconnect?: PlayerStatsWhereUniqueInput | PlayerStatsWhereUniqueInput[]
+    delete?: PlayerStatsWhereUniqueInput | PlayerStatsWhereUniqueInput[]
+    connect?: PlayerStatsWhereUniqueInput | PlayerStatsWhereUniqueInput[]
+    update?: PlayerStatsUpdateWithWhereUniqueWithoutLeagueInput | PlayerStatsUpdateWithWhereUniqueWithoutLeagueInput[]
+    updateMany?: PlayerStatsUpdateManyWithWhereWithoutLeagueInput | PlayerStatsUpdateManyWithWhereWithoutLeagueInput[]
+    deleteMany?: PlayerStatsScalarWhereInput | PlayerStatsScalarWhereInput[]
+  }
+
   export type PlayerTeamAchievementsUncheckedUpdateManyWithoutLeagueNestedInput = {
     create?: XOR<PlayerTeamAchievementsCreateWithoutLeagueInput, PlayerTeamAchievementsUncheckedCreateWithoutLeagueInput> | PlayerTeamAchievementsCreateWithoutLeagueInput[] | PlayerTeamAchievementsUncheckedCreateWithoutLeagueInput[]
     connectOrCreate?: PlayerTeamAchievementsCreateOrConnectWithoutLeagueInput | PlayerTeamAchievementsCreateOrConnectWithoutLeagueInput[]
@@ -18129,6 +18458,20 @@ export namespace Prisma {
     update?: PlayerPersonalAchievementsUpdateWithWhereUniqueWithoutLeagueInput | PlayerPersonalAchievementsUpdateWithWhereUniqueWithoutLeagueInput[]
     updateMany?: PlayerPersonalAchievementsUpdateManyWithWhereWithoutLeagueInput | PlayerPersonalAchievementsUpdateManyWithWhereWithoutLeagueInput[]
     deleteMany?: PlayerPersonalAchievementsScalarWhereInput | PlayerPersonalAchievementsScalarWhereInput[]
+  }
+
+  export type PlayerStatsUncheckedUpdateManyWithoutLeagueNestedInput = {
+    create?: XOR<PlayerStatsCreateWithoutLeagueInput, PlayerStatsUncheckedCreateWithoutLeagueInput> | PlayerStatsCreateWithoutLeagueInput[] | PlayerStatsUncheckedCreateWithoutLeagueInput[]
+    connectOrCreate?: PlayerStatsCreateOrConnectWithoutLeagueInput | PlayerStatsCreateOrConnectWithoutLeagueInput[]
+    upsert?: PlayerStatsUpsertWithWhereUniqueWithoutLeagueInput | PlayerStatsUpsertWithWhereUniqueWithoutLeagueInput[]
+    createMany?: PlayerStatsCreateManyLeagueInputEnvelope
+    set?: PlayerStatsWhereUniqueInput | PlayerStatsWhereUniqueInput[]
+    disconnect?: PlayerStatsWhereUniqueInput | PlayerStatsWhereUniqueInput[]
+    delete?: PlayerStatsWhereUniqueInput | PlayerStatsWhereUniqueInput[]
+    connect?: PlayerStatsWhereUniqueInput | PlayerStatsWhereUniqueInput[]
+    update?: PlayerStatsUpdateWithWhereUniqueWithoutLeagueInput | PlayerStatsUpdateWithWhereUniqueWithoutLeagueInput[]
+    updateMany?: PlayerStatsUpdateManyWithWhereWithoutLeagueInput | PlayerStatsUpdateManyWithWhereWithoutLeagueInput[]
+    deleteMany?: PlayerStatsScalarWhereInput | PlayerStatsScalarWhereInput[]
   }
 
   export type PlayerPersonalAchievementsCreateNestedManyWithoutAchievementInput = {
@@ -18205,10 +18548,30 @@ export namespace Prisma {
     update?: XOR<XOR<PlayersUpdateToOneWithWhereWithoutPlayer_ratingInput, PlayersUpdateWithoutPlayer_ratingInput>, PlayersUncheckedUpdateWithoutPlayer_ratingInput>
   }
 
+  export type LeaguesCreateNestedOneWithoutPlayer_statsInput = {
+    create?: XOR<LeaguesCreateWithoutPlayer_statsInput, LeaguesUncheckedCreateWithoutPlayer_statsInput>
+    connectOrCreate?: LeaguesCreateOrConnectWithoutPlayer_statsInput
+    connect?: LeaguesWhereUniqueInput
+  }
+
   export type PlayersCreateNestedOneWithoutPlayer_statsInput = {
     create?: XOR<PlayersCreateWithoutPlayer_statsInput, PlayersUncheckedCreateWithoutPlayer_statsInput>
     connectOrCreate?: PlayersCreateOrConnectWithoutPlayer_statsInput
     connect?: PlayersWhereUniqueInput
+  }
+
+  export type TeamsCreateNestedOneWithoutPlayer_statsInput = {
+    create?: XOR<TeamsCreateWithoutPlayer_statsInput, TeamsUncheckedCreateWithoutPlayer_statsInput>
+    connectOrCreate?: TeamsCreateOrConnectWithoutPlayer_statsInput
+    connect?: TeamsWhereUniqueInput
+  }
+
+  export type LeaguesUpdateOneRequiredWithoutPlayer_statsNestedInput = {
+    create?: XOR<LeaguesCreateWithoutPlayer_statsInput, LeaguesUncheckedCreateWithoutPlayer_statsInput>
+    connectOrCreate?: LeaguesCreateOrConnectWithoutPlayer_statsInput
+    upsert?: LeaguesUpsertWithoutPlayer_statsInput
+    connect?: LeaguesWhereUniqueInput
+    update?: XOR<XOR<LeaguesUpdateToOneWithWhereWithoutPlayer_statsInput, LeaguesUpdateWithoutPlayer_statsInput>, LeaguesUncheckedUpdateWithoutPlayer_statsInput>
   }
 
   export type PlayersUpdateOneRequiredWithoutPlayer_statsNestedInput = {
@@ -18217,6 +18580,14 @@ export namespace Prisma {
     upsert?: PlayersUpsertWithoutPlayer_statsInput
     connect?: PlayersWhereUniqueInput
     update?: XOR<XOR<PlayersUpdateToOneWithWhereWithoutPlayer_statsInput, PlayersUpdateWithoutPlayer_statsInput>, PlayersUncheckedUpdateWithoutPlayer_statsInput>
+  }
+
+  export type TeamsUpdateOneRequiredWithoutPlayer_statsNestedInput = {
+    create?: XOR<TeamsCreateWithoutPlayer_statsInput, TeamsUncheckedCreateWithoutPlayer_statsInput>
+    connectOrCreate?: TeamsCreateOrConnectWithoutPlayer_statsInput
+    upsert?: TeamsUpsertWithoutPlayer_statsInput
+    connect?: TeamsWhereUniqueInput
+    update?: XOR<XOR<TeamsUpdateToOneWithWhereWithoutPlayer_statsInput, TeamsUpdateWithoutPlayer_statsInput>, TeamsUncheckedUpdateWithoutPlayer_statsInput>
   }
 
   export type PlayersCreateNestedOneWithoutPlayer_team_achievementInput = {
@@ -18486,7 +18857,7 @@ export namespace Prisma {
     shirt_no: number
     player_info?: PlayerInfoCreateNestedOneWithoutPlayerInput
     player_rating?: PlayerRatingsCreateNestedOneWithoutPlayerInput
-    player_stats?: PlayerStatsCreateNestedOneWithoutPlayerInput
+    player_stats?: PlayerStatsCreateNestedManyWithoutPlayerInput
     player_team_achievement?: PlayerTeamAchievementsCreateNestedManyWithoutPlayerInput
     player_personal_achievement?: PlayerPersonalAchievementsCreateNestedManyWithoutPlayerInput
     thoughtsAuthored?: PlayerTeammateThoughtsCreateNestedManyWithoutAuthorInput
@@ -18501,7 +18872,7 @@ export namespace Prisma {
     shirt_no: number
     player_info?: PlayerInfoUncheckedCreateNestedOneWithoutPlayerInput
     player_rating?: PlayerRatingsUncheckedCreateNestedOneWithoutPlayerInput
-    player_stats?: PlayerStatsUncheckedCreateNestedOneWithoutPlayerInput
+    player_stats?: PlayerStatsUncheckedCreateNestedManyWithoutPlayerInput
     player_team_achievement?: PlayerTeamAchievementsUncheckedCreateNestedManyWithoutPlayerInput
     player_personal_achievement?: PlayerPersonalAchievementsUncheckedCreateNestedManyWithoutPlayerInput
     thoughtsAuthored?: PlayerTeammateThoughtsUncheckedCreateNestedManyWithoutAuthorInput
@@ -18567,6 +18938,40 @@ export namespace Prisma {
 
   export type PlayerPersonalAchievementsCreateManyTeamInputEnvelope = {
     data: PlayerPersonalAchievementsCreateManyTeamInput | PlayerPersonalAchievementsCreateManyTeamInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type PlayerStatsCreateWithoutTeamInput = {
+    id: string
+    matches: number
+    goals: number
+    assists: number
+    yellow_cards: number
+    red_cards: number
+    year: number
+    league: LeaguesCreateNestedOneWithoutPlayer_statsInput
+    player: PlayersCreateNestedOneWithoutPlayer_statsInput
+  }
+
+  export type PlayerStatsUncheckedCreateWithoutTeamInput = {
+    id: string
+    player_id: string
+    matches: number
+    goals: number
+    assists: number
+    yellow_cards: number
+    red_cards: number
+    league_id: string
+    year: number
+  }
+
+  export type PlayerStatsCreateOrConnectWithoutTeamInput = {
+    where: PlayerStatsWhereUniqueInput
+    create: XOR<PlayerStatsCreateWithoutTeamInput, PlayerStatsUncheckedCreateWithoutTeamInput>
+  }
+
+  export type PlayerStatsCreateManyTeamInputEnvelope = {
+    data: PlayerStatsCreateManyTeamInput | PlayerStatsCreateManyTeamInput[]
     skipDuplicates?: boolean
   }
 
@@ -18703,6 +19108,38 @@ export namespace Prisma {
     time?: StringFilter<"PlayerPersonalAchievements"> | string
   }
 
+  export type PlayerStatsUpsertWithWhereUniqueWithoutTeamInput = {
+    where: PlayerStatsWhereUniqueInput
+    update: XOR<PlayerStatsUpdateWithoutTeamInput, PlayerStatsUncheckedUpdateWithoutTeamInput>
+    create: XOR<PlayerStatsCreateWithoutTeamInput, PlayerStatsUncheckedCreateWithoutTeamInput>
+  }
+
+  export type PlayerStatsUpdateWithWhereUniqueWithoutTeamInput = {
+    where: PlayerStatsWhereUniqueInput
+    data: XOR<PlayerStatsUpdateWithoutTeamInput, PlayerStatsUncheckedUpdateWithoutTeamInput>
+  }
+
+  export type PlayerStatsUpdateManyWithWhereWithoutTeamInput = {
+    where: PlayerStatsScalarWhereInput
+    data: XOR<PlayerStatsUpdateManyMutationInput, PlayerStatsUncheckedUpdateManyWithoutTeamInput>
+  }
+
+  export type PlayerStatsScalarWhereInput = {
+    AND?: PlayerStatsScalarWhereInput | PlayerStatsScalarWhereInput[]
+    OR?: PlayerStatsScalarWhereInput[]
+    NOT?: PlayerStatsScalarWhereInput | PlayerStatsScalarWhereInput[]
+    id?: StringFilter<"PlayerStats"> | string
+    player_id?: StringFilter<"PlayerStats"> | string
+    matches?: IntFilter<"PlayerStats"> | number
+    goals?: IntFilter<"PlayerStats"> | number
+    assists?: IntFilter<"PlayerStats"> | number
+    yellow_cards?: IntFilter<"PlayerStats"> | number
+    red_cards?: IntFilter<"PlayerStats"> | number
+    league_id?: StringFilter<"PlayerStats"> | string
+    team_id?: StringFilter<"PlayerStats"> | string
+    year?: IntFilter<"PlayerStats"> | number
+  }
+
   export type TeamsCreateWithoutEmployeeInput = {
     id: string
     name: string
@@ -18710,6 +19147,7 @@ export namespace Prisma {
     player?: PlayersCreateNestedManyWithoutTeamInput
     league_achievement?: PlayerTeamAchievementsCreateNestedManyWithoutTeamInput
     personal_achievement?: PlayerPersonalAchievementsCreateNestedManyWithoutTeamInput
+    player_stats?: PlayerStatsCreateNestedManyWithoutTeamInput
   }
 
   export type TeamsUncheckedCreateWithoutEmployeeInput = {
@@ -18719,6 +19157,7 @@ export namespace Prisma {
     player?: PlayersUncheckedCreateNestedManyWithoutTeamInput
     league_achievement?: PlayerTeamAchievementsUncheckedCreateNestedManyWithoutTeamInput
     personal_achievement?: PlayerPersonalAchievementsUncheckedCreateNestedManyWithoutTeamInput
+    player_stats?: PlayerStatsUncheckedCreateNestedManyWithoutTeamInput
   }
 
   export type TeamsCreateOrConnectWithoutEmployeeInput = {
@@ -18744,6 +19183,7 @@ export namespace Prisma {
     player?: PlayersUpdateManyWithoutTeamNestedInput
     league_achievement?: PlayerTeamAchievementsUpdateManyWithoutTeamNestedInput
     personal_achievement?: PlayerPersonalAchievementsUpdateManyWithoutTeamNestedInput
+    player_stats?: PlayerStatsUpdateManyWithoutTeamNestedInput
   }
 
   export type TeamsUncheckedUpdateWithoutEmployeeInput = {
@@ -18753,6 +19193,7 @@ export namespace Prisma {
     player?: PlayersUncheckedUpdateManyWithoutTeamNestedInput
     league_achievement?: PlayerTeamAchievementsUncheckedUpdateManyWithoutTeamNestedInput
     personal_achievement?: PlayerPersonalAchievementsUncheckedUpdateManyWithoutTeamNestedInput
+    player_stats?: PlayerStatsUncheckedUpdateManyWithoutTeamNestedInput
   }
 
   export type TeamsCreateWithoutChairmanInput = {
@@ -18762,6 +19203,7 @@ export namespace Prisma {
     player?: PlayersCreateNestedManyWithoutTeamInput
     league_achievement?: PlayerTeamAchievementsCreateNestedManyWithoutTeamInput
     personal_achievement?: PlayerPersonalAchievementsCreateNestedManyWithoutTeamInput
+    player_stats?: PlayerStatsCreateNestedManyWithoutTeamInput
   }
 
   export type TeamsUncheckedCreateWithoutChairmanInput = {
@@ -18771,6 +19213,7 @@ export namespace Prisma {
     player?: PlayersUncheckedCreateNestedManyWithoutTeamInput
     league_achievement?: PlayerTeamAchievementsUncheckedCreateNestedManyWithoutTeamInput
     personal_achievement?: PlayerPersonalAchievementsUncheckedCreateNestedManyWithoutTeamInput
+    player_stats?: PlayerStatsUncheckedCreateNestedManyWithoutTeamInput
   }
 
   export type TeamsCreateOrConnectWithoutChairmanInput = {
@@ -18796,6 +19239,7 @@ export namespace Prisma {
     player?: PlayersUpdateManyWithoutTeamNestedInput
     league_achievement?: PlayerTeamAchievementsUpdateManyWithoutTeamNestedInput
     personal_achievement?: PlayerPersonalAchievementsUpdateManyWithoutTeamNestedInput
+    player_stats?: PlayerStatsUpdateManyWithoutTeamNestedInput
   }
 
   export type TeamsUncheckedUpdateWithoutChairmanInput = {
@@ -18805,6 +19249,7 @@ export namespace Prisma {
     player?: PlayersUncheckedUpdateManyWithoutTeamNestedInput
     league_achievement?: PlayerTeamAchievementsUncheckedUpdateManyWithoutTeamNestedInput
     personal_achievement?: PlayerPersonalAchievementsUncheckedUpdateManyWithoutTeamNestedInput
+    player_stats?: PlayerStatsUncheckedUpdateManyWithoutTeamNestedInput
   }
 
   export type PlayerInfoCreateWithoutPlayerInput = {
@@ -18852,24 +19297,37 @@ export namespace Prisma {
   }
 
   export type PlayerStatsCreateWithoutPlayerInput = {
+    id: string
     matches: number
     goals: number
     assists: number
     yellow_cards: number
     red_cards: number
+    year: number
+    league: LeaguesCreateNestedOneWithoutPlayer_statsInput
+    team: TeamsCreateNestedOneWithoutPlayer_statsInput
   }
 
   export type PlayerStatsUncheckedCreateWithoutPlayerInput = {
+    id: string
     matches: number
     goals: number
     assists: number
     yellow_cards: number
     red_cards: number
+    league_id: string
+    team_id: string
+    year: number
   }
 
   export type PlayerStatsCreateOrConnectWithoutPlayerInput = {
     where: PlayerStatsWhereUniqueInput
     create: XOR<PlayerStatsCreateWithoutPlayerInput, PlayerStatsUncheckedCreateWithoutPlayerInput>
+  }
+
+  export type PlayerStatsCreateManyPlayerInputEnvelope = {
+    data: PlayerStatsCreateManyPlayerInput | PlayerStatsCreateManyPlayerInput[]
+    skipDuplicates?: boolean
   }
 
   export type PlayerTeamAchievementsCreateWithoutPlayerInput = {
@@ -18973,6 +19431,7 @@ export namespace Prisma {
     chairman?: ChairmanCreateNestedOneWithoutTeamInput
     league_achievement?: PlayerTeamAchievementsCreateNestedManyWithoutTeamInput
     personal_achievement?: PlayerPersonalAchievementsCreateNestedManyWithoutTeamInput
+    player_stats?: PlayerStatsCreateNestedManyWithoutTeamInput
   }
 
   export type TeamsUncheckedCreateWithoutPlayerInput = {
@@ -18982,6 +19441,7 @@ export namespace Prisma {
     chairman?: ChairmanUncheckedCreateNestedOneWithoutTeamInput
     league_achievement?: PlayerTeamAchievementsUncheckedCreateNestedManyWithoutTeamInput
     personal_achievement?: PlayerPersonalAchievementsUncheckedCreateNestedManyWithoutTeamInput
+    player_stats?: PlayerStatsUncheckedCreateNestedManyWithoutTeamInput
   }
 
   export type TeamsCreateOrConnectWithoutPlayerInput = {
@@ -19045,31 +19505,20 @@ export namespace Prisma {
     dribbling?: IntFieldUpdateOperationsInput | number
   }
 
-  export type PlayerStatsUpsertWithoutPlayerInput = {
+  export type PlayerStatsUpsertWithWhereUniqueWithoutPlayerInput = {
+    where: PlayerStatsWhereUniqueInput
     update: XOR<PlayerStatsUpdateWithoutPlayerInput, PlayerStatsUncheckedUpdateWithoutPlayerInput>
     create: XOR<PlayerStatsCreateWithoutPlayerInput, PlayerStatsUncheckedCreateWithoutPlayerInput>
-    where?: PlayerStatsWhereInput
   }
 
-  export type PlayerStatsUpdateToOneWithWhereWithoutPlayerInput = {
-    where?: PlayerStatsWhereInput
+  export type PlayerStatsUpdateWithWhereUniqueWithoutPlayerInput = {
+    where: PlayerStatsWhereUniqueInput
     data: XOR<PlayerStatsUpdateWithoutPlayerInput, PlayerStatsUncheckedUpdateWithoutPlayerInput>
   }
 
-  export type PlayerStatsUpdateWithoutPlayerInput = {
-    matches?: IntFieldUpdateOperationsInput | number
-    goals?: IntFieldUpdateOperationsInput | number
-    assists?: IntFieldUpdateOperationsInput | number
-    yellow_cards?: IntFieldUpdateOperationsInput | number
-    red_cards?: IntFieldUpdateOperationsInput | number
-  }
-
-  export type PlayerStatsUncheckedUpdateWithoutPlayerInput = {
-    matches?: IntFieldUpdateOperationsInput | number
-    goals?: IntFieldUpdateOperationsInput | number
-    assists?: IntFieldUpdateOperationsInput | number
-    yellow_cards?: IntFieldUpdateOperationsInput | number
-    red_cards?: IntFieldUpdateOperationsInput | number
+  export type PlayerStatsUpdateManyWithWhereWithoutPlayerInput = {
+    where: PlayerStatsScalarWhereInput
+    data: XOR<PlayerStatsUpdateManyMutationInput, PlayerStatsUncheckedUpdateManyWithoutPlayerInput>
   }
 
   export type PlayerTeamAchievementsUpsertWithWhereUniqueWithoutPlayerInput = {
@@ -19164,6 +19613,7 @@ export namespace Prisma {
     chairman?: ChairmanUpdateOneWithoutTeamNestedInput
     league_achievement?: PlayerTeamAchievementsUpdateManyWithoutTeamNestedInput
     personal_achievement?: PlayerPersonalAchievementsUpdateManyWithoutTeamNestedInput
+    player_stats?: PlayerStatsUpdateManyWithoutTeamNestedInput
   }
 
   export type TeamsUncheckedUpdateWithoutPlayerInput = {
@@ -19173,6 +19623,7 @@ export namespace Prisma {
     chairman?: ChairmanUncheckedUpdateOneWithoutTeamNestedInput
     league_achievement?: PlayerTeamAchievementsUncheckedUpdateManyWithoutTeamNestedInput
     personal_achievement?: PlayerPersonalAchievementsUncheckedUpdateManyWithoutTeamNestedInput
+    player_stats?: PlayerStatsUncheckedUpdateManyWithoutTeamNestedInput
   }
 
   export type PlayerTeamAchievementsCreateWithoutLeagueInput = {
@@ -19227,6 +19678,40 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type PlayerStatsCreateWithoutLeagueInput = {
+    id: string
+    matches: number
+    goals: number
+    assists: number
+    yellow_cards: number
+    red_cards: number
+    year: number
+    player: PlayersCreateNestedOneWithoutPlayer_statsInput
+    team: TeamsCreateNestedOneWithoutPlayer_statsInput
+  }
+
+  export type PlayerStatsUncheckedCreateWithoutLeagueInput = {
+    id: string
+    player_id: string
+    matches: number
+    goals: number
+    assists: number
+    yellow_cards: number
+    red_cards: number
+    team_id: string
+    year: number
+  }
+
+  export type PlayerStatsCreateOrConnectWithoutLeagueInput = {
+    where: PlayerStatsWhereUniqueInput
+    create: XOR<PlayerStatsCreateWithoutLeagueInput, PlayerStatsUncheckedCreateWithoutLeagueInput>
+  }
+
+  export type PlayerStatsCreateManyLeagueInputEnvelope = {
+    data: PlayerStatsCreateManyLeagueInput | PlayerStatsCreateManyLeagueInput[]
+    skipDuplicates?: boolean
+  }
+
   export type PlayerTeamAchievementsUpsertWithWhereUniqueWithoutLeagueInput = {
     where: PlayerTeamAchievementsWhereUniqueInput
     update: XOR<PlayerTeamAchievementsUpdateWithoutLeagueInput, PlayerTeamAchievementsUncheckedUpdateWithoutLeagueInput>
@@ -19257,6 +19742,22 @@ export namespace Prisma {
   export type PlayerPersonalAchievementsUpdateManyWithWhereWithoutLeagueInput = {
     where: PlayerPersonalAchievementsScalarWhereInput
     data: XOR<PlayerPersonalAchievementsUpdateManyMutationInput, PlayerPersonalAchievementsUncheckedUpdateManyWithoutLeagueInput>
+  }
+
+  export type PlayerStatsUpsertWithWhereUniqueWithoutLeagueInput = {
+    where: PlayerStatsWhereUniqueInput
+    update: XOR<PlayerStatsUpdateWithoutLeagueInput, PlayerStatsUncheckedUpdateWithoutLeagueInput>
+    create: XOR<PlayerStatsCreateWithoutLeagueInput, PlayerStatsUncheckedCreateWithoutLeagueInput>
+  }
+
+  export type PlayerStatsUpdateWithWhereUniqueWithoutLeagueInput = {
+    where: PlayerStatsWhereUniqueInput
+    data: XOR<PlayerStatsUpdateWithoutLeagueInput, PlayerStatsUncheckedUpdateWithoutLeagueInput>
+  }
+
+  export type PlayerStatsUpdateManyWithWhereWithoutLeagueInput = {
+    where: PlayerStatsScalarWhereInput
+    data: XOR<PlayerStatsUpdateManyMutationInput, PlayerStatsUncheckedUpdateManyWithoutLeagueInput>
   }
 
   export type PlayerPersonalAchievementsCreateWithoutAchievementInput = {
@@ -19308,7 +19809,7 @@ export namespace Prisma {
     position: string
     shirt_no: number
     player_rating?: PlayerRatingsCreateNestedOneWithoutPlayerInput
-    player_stats?: PlayerStatsCreateNestedOneWithoutPlayerInput
+    player_stats?: PlayerStatsCreateNestedManyWithoutPlayerInput
     player_team_achievement?: PlayerTeamAchievementsCreateNestedManyWithoutPlayerInput
     player_personal_achievement?: PlayerPersonalAchievementsCreateNestedManyWithoutPlayerInput
     thoughtsAuthored?: PlayerTeammateThoughtsCreateNestedManyWithoutAuthorInput
@@ -19324,7 +19825,7 @@ export namespace Prisma {
     team_id: string
     shirt_no: number
     player_rating?: PlayerRatingsUncheckedCreateNestedOneWithoutPlayerInput
-    player_stats?: PlayerStatsUncheckedCreateNestedOneWithoutPlayerInput
+    player_stats?: PlayerStatsUncheckedCreateNestedManyWithoutPlayerInput
     player_team_achievement?: PlayerTeamAchievementsUncheckedCreateNestedManyWithoutPlayerInput
     player_personal_achievement?: PlayerPersonalAchievementsUncheckedCreateNestedManyWithoutPlayerInput
     thoughtsAuthored?: PlayerTeammateThoughtsUncheckedCreateNestedManyWithoutAuthorInput
@@ -19354,7 +19855,7 @@ export namespace Prisma {
     position?: StringFieldUpdateOperationsInput | string
     shirt_no?: IntFieldUpdateOperationsInput | number
     player_rating?: PlayerRatingsUpdateOneWithoutPlayerNestedInput
-    player_stats?: PlayerStatsUpdateOneWithoutPlayerNestedInput
+    player_stats?: PlayerStatsUpdateManyWithoutPlayerNestedInput
     player_team_achievement?: PlayerTeamAchievementsUpdateManyWithoutPlayerNestedInput
     player_personal_achievement?: PlayerPersonalAchievementsUpdateManyWithoutPlayerNestedInput
     thoughtsAuthored?: PlayerTeammateThoughtsUpdateManyWithoutAuthorNestedInput
@@ -19370,7 +19871,7 @@ export namespace Prisma {
     team_id?: StringFieldUpdateOperationsInput | string
     shirt_no?: IntFieldUpdateOperationsInput | number
     player_rating?: PlayerRatingsUncheckedUpdateOneWithoutPlayerNestedInput
-    player_stats?: PlayerStatsUncheckedUpdateOneWithoutPlayerNestedInput
+    player_stats?: PlayerStatsUncheckedUpdateManyWithoutPlayerNestedInput
     player_team_achievement?: PlayerTeamAchievementsUncheckedUpdateManyWithoutPlayerNestedInput
     player_personal_achievement?: PlayerPersonalAchievementsUncheckedUpdateManyWithoutPlayerNestedInput
     thoughtsAuthored?: PlayerTeammateThoughtsUncheckedUpdateManyWithoutAuthorNestedInput
@@ -19384,7 +19885,7 @@ export namespace Prisma {
     position: string
     shirt_no: number
     player_info?: PlayerInfoCreateNestedOneWithoutPlayerInput
-    player_stats?: PlayerStatsCreateNestedOneWithoutPlayerInput
+    player_stats?: PlayerStatsCreateNestedManyWithoutPlayerInput
     player_team_achievement?: PlayerTeamAchievementsCreateNestedManyWithoutPlayerInput
     player_personal_achievement?: PlayerPersonalAchievementsCreateNestedManyWithoutPlayerInput
     thoughtsAuthored?: PlayerTeammateThoughtsCreateNestedManyWithoutAuthorInput
@@ -19400,7 +19901,7 @@ export namespace Prisma {
     team_id: string
     shirt_no: number
     player_info?: PlayerInfoUncheckedCreateNestedOneWithoutPlayerInput
-    player_stats?: PlayerStatsUncheckedCreateNestedOneWithoutPlayerInput
+    player_stats?: PlayerStatsUncheckedCreateNestedManyWithoutPlayerInput
     player_team_achievement?: PlayerTeamAchievementsUncheckedCreateNestedManyWithoutPlayerInput
     player_personal_achievement?: PlayerPersonalAchievementsUncheckedCreateNestedManyWithoutPlayerInput
     thoughtsAuthored?: PlayerTeammateThoughtsUncheckedCreateNestedManyWithoutAuthorInput
@@ -19430,7 +19931,7 @@ export namespace Prisma {
     position?: StringFieldUpdateOperationsInput | string
     shirt_no?: IntFieldUpdateOperationsInput | number
     player_info?: PlayerInfoUpdateOneWithoutPlayerNestedInput
-    player_stats?: PlayerStatsUpdateOneWithoutPlayerNestedInput
+    player_stats?: PlayerStatsUpdateManyWithoutPlayerNestedInput
     player_team_achievement?: PlayerTeamAchievementsUpdateManyWithoutPlayerNestedInput
     player_personal_achievement?: PlayerPersonalAchievementsUpdateManyWithoutPlayerNestedInput
     thoughtsAuthored?: PlayerTeammateThoughtsUpdateManyWithoutAuthorNestedInput
@@ -19446,11 +19947,30 @@ export namespace Prisma {
     team_id?: StringFieldUpdateOperationsInput | string
     shirt_no?: IntFieldUpdateOperationsInput | number
     player_info?: PlayerInfoUncheckedUpdateOneWithoutPlayerNestedInput
-    player_stats?: PlayerStatsUncheckedUpdateOneWithoutPlayerNestedInput
+    player_stats?: PlayerStatsUncheckedUpdateManyWithoutPlayerNestedInput
     player_team_achievement?: PlayerTeamAchievementsUncheckedUpdateManyWithoutPlayerNestedInput
     player_personal_achievement?: PlayerPersonalAchievementsUncheckedUpdateManyWithoutPlayerNestedInput
     thoughtsAuthored?: PlayerTeammateThoughtsUncheckedUpdateManyWithoutAuthorNestedInput
     thoughtsReceived?: PlayerTeammateThoughtsUncheckedUpdateManyWithoutReceiverNestedInput
+  }
+
+  export type LeaguesCreateWithoutPlayer_statsInput = {
+    id: string
+    name: string
+    league_achievement?: PlayerTeamAchievementsCreateNestedManyWithoutLeagueInput
+    personal_achievement?: PlayerPersonalAchievementsCreateNestedManyWithoutLeagueInput
+  }
+
+  export type LeaguesUncheckedCreateWithoutPlayer_statsInput = {
+    id: string
+    name: string
+    league_achievement?: PlayerTeamAchievementsUncheckedCreateNestedManyWithoutLeagueInput
+    personal_achievement?: PlayerPersonalAchievementsUncheckedCreateNestedManyWithoutLeagueInput
+  }
+
+  export type LeaguesCreateOrConnectWithoutPlayer_statsInput = {
+    where: LeaguesWhereUniqueInput
+    create: XOR<LeaguesCreateWithoutPlayer_statsInput, LeaguesUncheckedCreateWithoutPlayer_statsInput>
   }
 
   export type PlayersCreateWithoutPlayer_statsInput = {
@@ -19486,6 +20006,56 @@ export namespace Prisma {
   export type PlayersCreateOrConnectWithoutPlayer_statsInput = {
     where: PlayersWhereUniqueInput
     create: XOR<PlayersCreateWithoutPlayer_statsInput, PlayersUncheckedCreateWithoutPlayer_statsInput>
+  }
+
+  export type TeamsCreateWithoutPlayer_statsInput = {
+    id: string
+    name: string
+    employee?: EmployeeCreateNestedManyWithoutTeamInput
+    chairman?: ChairmanCreateNestedOneWithoutTeamInput
+    player?: PlayersCreateNestedManyWithoutTeamInput
+    league_achievement?: PlayerTeamAchievementsCreateNestedManyWithoutTeamInput
+    personal_achievement?: PlayerPersonalAchievementsCreateNestedManyWithoutTeamInput
+  }
+
+  export type TeamsUncheckedCreateWithoutPlayer_statsInput = {
+    id: string
+    name: string
+    employee?: EmployeeUncheckedCreateNestedManyWithoutTeamInput
+    chairman?: ChairmanUncheckedCreateNestedOneWithoutTeamInput
+    player?: PlayersUncheckedCreateNestedManyWithoutTeamInput
+    league_achievement?: PlayerTeamAchievementsUncheckedCreateNestedManyWithoutTeamInput
+    personal_achievement?: PlayerPersonalAchievementsUncheckedCreateNestedManyWithoutTeamInput
+  }
+
+  export type TeamsCreateOrConnectWithoutPlayer_statsInput = {
+    where: TeamsWhereUniqueInput
+    create: XOR<TeamsCreateWithoutPlayer_statsInput, TeamsUncheckedCreateWithoutPlayer_statsInput>
+  }
+
+  export type LeaguesUpsertWithoutPlayer_statsInput = {
+    update: XOR<LeaguesUpdateWithoutPlayer_statsInput, LeaguesUncheckedUpdateWithoutPlayer_statsInput>
+    create: XOR<LeaguesCreateWithoutPlayer_statsInput, LeaguesUncheckedCreateWithoutPlayer_statsInput>
+    where?: LeaguesWhereInput
+  }
+
+  export type LeaguesUpdateToOneWithWhereWithoutPlayer_statsInput = {
+    where?: LeaguesWhereInput
+    data: XOR<LeaguesUpdateWithoutPlayer_statsInput, LeaguesUncheckedUpdateWithoutPlayer_statsInput>
+  }
+
+  export type LeaguesUpdateWithoutPlayer_statsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    league_achievement?: PlayerTeamAchievementsUpdateManyWithoutLeagueNestedInput
+    personal_achievement?: PlayerPersonalAchievementsUpdateManyWithoutLeagueNestedInput
+  }
+
+  export type LeaguesUncheckedUpdateWithoutPlayer_statsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    league_achievement?: PlayerTeamAchievementsUncheckedUpdateManyWithoutLeagueNestedInput
+    personal_achievement?: PlayerPersonalAchievementsUncheckedUpdateManyWithoutLeagueNestedInput
   }
 
   export type PlayersUpsertWithoutPlayer_statsInput = {
@@ -19529,6 +20099,37 @@ export namespace Prisma {
     thoughtsReceived?: PlayerTeammateThoughtsUncheckedUpdateManyWithoutReceiverNestedInput
   }
 
+  export type TeamsUpsertWithoutPlayer_statsInput = {
+    update: XOR<TeamsUpdateWithoutPlayer_statsInput, TeamsUncheckedUpdateWithoutPlayer_statsInput>
+    create: XOR<TeamsCreateWithoutPlayer_statsInput, TeamsUncheckedCreateWithoutPlayer_statsInput>
+    where?: TeamsWhereInput
+  }
+
+  export type TeamsUpdateToOneWithWhereWithoutPlayer_statsInput = {
+    where?: TeamsWhereInput
+    data: XOR<TeamsUpdateWithoutPlayer_statsInput, TeamsUncheckedUpdateWithoutPlayer_statsInput>
+  }
+
+  export type TeamsUpdateWithoutPlayer_statsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    employee?: EmployeeUpdateManyWithoutTeamNestedInput
+    chairman?: ChairmanUpdateOneWithoutTeamNestedInput
+    player?: PlayersUpdateManyWithoutTeamNestedInput
+    league_achievement?: PlayerTeamAchievementsUpdateManyWithoutTeamNestedInput
+    personal_achievement?: PlayerPersonalAchievementsUpdateManyWithoutTeamNestedInput
+  }
+
+  export type TeamsUncheckedUpdateWithoutPlayer_statsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    employee?: EmployeeUncheckedUpdateManyWithoutTeamNestedInput
+    chairman?: ChairmanUncheckedUpdateOneWithoutTeamNestedInput
+    player?: PlayersUncheckedUpdateManyWithoutTeamNestedInput
+    league_achievement?: PlayerTeamAchievementsUncheckedUpdateManyWithoutTeamNestedInput
+    personal_achievement?: PlayerPersonalAchievementsUncheckedUpdateManyWithoutTeamNestedInput
+  }
+
   export type PlayersCreateWithoutPlayer_team_achievementInput = {
     id: string
     name: string
@@ -19537,7 +20138,7 @@ export namespace Prisma {
     shirt_no: number
     player_info?: PlayerInfoCreateNestedOneWithoutPlayerInput
     player_rating?: PlayerRatingsCreateNestedOneWithoutPlayerInput
-    player_stats?: PlayerStatsCreateNestedOneWithoutPlayerInput
+    player_stats?: PlayerStatsCreateNestedManyWithoutPlayerInput
     player_personal_achievement?: PlayerPersonalAchievementsCreateNestedManyWithoutPlayerInput
     thoughtsAuthored?: PlayerTeammateThoughtsCreateNestedManyWithoutAuthorInput
     thoughtsReceived?: PlayerTeammateThoughtsCreateNestedManyWithoutReceiverInput
@@ -19553,7 +20154,7 @@ export namespace Prisma {
     shirt_no: number
     player_info?: PlayerInfoUncheckedCreateNestedOneWithoutPlayerInput
     player_rating?: PlayerRatingsUncheckedCreateNestedOneWithoutPlayerInput
-    player_stats?: PlayerStatsUncheckedCreateNestedOneWithoutPlayerInput
+    player_stats?: PlayerStatsUncheckedCreateNestedManyWithoutPlayerInput
     player_personal_achievement?: PlayerPersonalAchievementsUncheckedCreateNestedManyWithoutPlayerInput
     thoughtsAuthored?: PlayerTeammateThoughtsUncheckedCreateNestedManyWithoutAuthorInput
     thoughtsReceived?: PlayerTeammateThoughtsUncheckedCreateNestedManyWithoutReceiverInput
@@ -19568,12 +20169,14 @@ export namespace Prisma {
     id: string
     name: string
     personal_achievement?: PlayerPersonalAchievementsCreateNestedManyWithoutLeagueInput
+    player_stats?: PlayerStatsCreateNestedManyWithoutLeagueInput
   }
 
   export type LeaguesUncheckedCreateWithoutLeague_achievementInput = {
     id: string
     name: string
     personal_achievement?: PlayerPersonalAchievementsUncheckedCreateNestedManyWithoutLeagueInput
+    player_stats?: PlayerStatsUncheckedCreateNestedManyWithoutLeagueInput
   }
 
   export type LeaguesCreateOrConnectWithoutLeague_achievementInput = {
@@ -19588,6 +20191,7 @@ export namespace Prisma {
     chairman?: ChairmanCreateNestedOneWithoutTeamInput
     player?: PlayersCreateNestedManyWithoutTeamInput
     personal_achievement?: PlayerPersonalAchievementsCreateNestedManyWithoutTeamInput
+    player_stats?: PlayerStatsCreateNestedManyWithoutTeamInput
   }
 
   export type TeamsUncheckedCreateWithoutLeague_achievementInput = {
@@ -19597,6 +20201,7 @@ export namespace Prisma {
     chairman?: ChairmanUncheckedCreateNestedOneWithoutTeamInput
     player?: PlayersUncheckedCreateNestedManyWithoutTeamInput
     personal_achievement?: PlayerPersonalAchievementsUncheckedCreateNestedManyWithoutTeamInput
+    player_stats?: PlayerStatsUncheckedCreateNestedManyWithoutTeamInput
   }
 
   export type TeamsCreateOrConnectWithoutLeague_achievementInput = {
@@ -19623,7 +20228,7 @@ export namespace Prisma {
     shirt_no?: IntFieldUpdateOperationsInput | number
     player_info?: PlayerInfoUpdateOneWithoutPlayerNestedInput
     player_rating?: PlayerRatingsUpdateOneWithoutPlayerNestedInput
-    player_stats?: PlayerStatsUpdateOneWithoutPlayerNestedInput
+    player_stats?: PlayerStatsUpdateManyWithoutPlayerNestedInput
     player_personal_achievement?: PlayerPersonalAchievementsUpdateManyWithoutPlayerNestedInput
     thoughtsAuthored?: PlayerTeammateThoughtsUpdateManyWithoutAuthorNestedInput
     thoughtsReceived?: PlayerTeammateThoughtsUpdateManyWithoutReceiverNestedInput
@@ -19639,7 +20244,7 @@ export namespace Prisma {
     shirt_no?: IntFieldUpdateOperationsInput | number
     player_info?: PlayerInfoUncheckedUpdateOneWithoutPlayerNestedInput
     player_rating?: PlayerRatingsUncheckedUpdateOneWithoutPlayerNestedInput
-    player_stats?: PlayerStatsUncheckedUpdateOneWithoutPlayerNestedInput
+    player_stats?: PlayerStatsUncheckedUpdateManyWithoutPlayerNestedInput
     player_personal_achievement?: PlayerPersonalAchievementsUncheckedUpdateManyWithoutPlayerNestedInput
     thoughtsAuthored?: PlayerTeammateThoughtsUncheckedUpdateManyWithoutAuthorNestedInput
     thoughtsReceived?: PlayerTeammateThoughtsUncheckedUpdateManyWithoutReceiverNestedInput
@@ -19660,12 +20265,14 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     personal_achievement?: PlayerPersonalAchievementsUpdateManyWithoutLeagueNestedInput
+    player_stats?: PlayerStatsUpdateManyWithoutLeagueNestedInput
   }
 
   export type LeaguesUncheckedUpdateWithoutLeague_achievementInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     personal_achievement?: PlayerPersonalAchievementsUncheckedUpdateManyWithoutLeagueNestedInput
+    player_stats?: PlayerStatsUncheckedUpdateManyWithoutLeagueNestedInput
   }
 
   export type TeamsUpsertWithoutLeague_achievementInput = {
@@ -19686,6 +20293,7 @@ export namespace Prisma {
     chairman?: ChairmanUpdateOneWithoutTeamNestedInput
     player?: PlayersUpdateManyWithoutTeamNestedInput
     personal_achievement?: PlayerPersonalAchievementsUpdateManyWithoutTeamNestedInput
+    player_stats?: PlayerStatsUpdateManyWithoutTeamNestedInput
   }
 
   export type TeamsUncheckedUpdateWithoutLeague_achievementInput = {
@@ -19695,6 +20303,7 @@ export namespace Prisma {
     chairman?: ChairmanUncheckedUpdateOneWithoutTeamNestedInput
     player?: PlayersUncheckedUpdateManyWithoutTeamNestedInput
     personal_achievement?: PlayerPersonalAchievementsUncheckedUpdateManyWithoutTeamNestedInput
+    player_stats?: PlayerStatsUncheckedUpdateManyWithoutTeamNestedInput
   }
 
   export type PlayersCreateWithoutPlayer_personal_achievementInput = {
@@ -19705,7 +20314,7 @@ export namespace Prisma {
     shirt_no: number
     player_info?: PlayerInfoCreateNestedOneWithoutPlayerInput
     player_rating?: PlayerRatingsCreateNestedOneWithoutPlayerInput
-    player_stats?: PlayerStatsCreateNestedOneWithoutPlayerInput
+    player_stats?: PlayerStatsCreateNestedManyWithoutPlayerInput
     player_team_achievement?: PlayerTeamAchievementsCreateNestedManyWithoutPlayerInput
     thoughtsAuthored?: PlayerTeammateThoughtsCreateNestedManyWithoutAuthorInput
     thoughtsReceived?: PlayerTeammateThoughtsCreateNestedManyWithoutReceiverInput
@@ -19721,7 +20330,7 @@ export namespace Prisma {
     shirt_no: number
     player_info?: PlayerInfoUncheckedCreateNestedOneWithoutPlayerInput
     player_rating?: PlayerRatingsUncheckedCreateNestedOneWithoutPlayerInput
-    player_stats?: PlayerStatsUncheckedCreateNestedOneWithoutPlayerInput
+    player_stats?: PlayerStatsUncheckedCreateNestedManyWithoutPlayerInput
     player_team_achievement?: PlayerTeamAchievementsUncheckedCreateNestedManyWithoutPlayerInput
     thoughtsAuthored?: PlayerTeammateThoughtsUncheckedCreateNestedManyWithoutAuthorInput
     thoughtsReceived?: PlayerTeammateThoughtsUncheckedCreateNestedManyWithoutReceiverInput
@@ -19754,6 +20363,7 @@ export namespace Prisma {
     chairman?: ChairmanCreateNestedOneWithoutTeamInput
     player?: PlayersCreateNestedManyWithoutTeamInput
     league_achievement?: PlayerTeamAchievementsCreateNestedManyWithoutTeamInput
+    player_stats?: PlayerStatsCreateNestedManyWithoutTeamInput
   }
 
   export type TeamsUncheckedCreateWithoutPersonal_achievementInput = {
@@ -19763,6 +20373,7 @@ export namespace Prisma {
     chairman?: ChairmanUncheckedCreateNestedOneWithoutTeamInput
     player?: PlayersUncheckedCreateNestedManyWithoutTeamInput
     league_achievement?: PlayerTeamAchievementsUncheckedCreateNestedManyWithoutTeamInput
+    player_stats?: PlayerStatsUncheckedCreateNestedManyWithoutTeamInput
   }
 
   export type TeamsCreateOrConnectWithoutPersonal_achievementInput = {
@@ -19774,12 +20385,14 @@ export namespace Prisma {
     id: string
     name: string
     league_achievement?: PlayerTeamAchievementsCreateNestedManyWithoutLeagueInput
+    player_stats?: PlayerStatsCreateNestedManyWithoutLeagueInput
   }
 
   export type LeaguesUncheckedCreateWithoutPersonal_achievementInput = {
     id: string
     name: string
     league_achievement?: PlayerTeamAchievementsUncheckedCreateNestedManyWithoutLeagueInput
+    player_stats?: PlayerStatsUncheckedCreateNestedManyWithoutLeagueInput
   }
 
   export type LeaguesCreateOrConnectWithoutPersonal_achievementInput = {
@@ -19806,7 +20419,7 @@ export namespace Prisma {
     shirt_no?: IntFieldUpdateOperationsInput | number
     player_info?: PlayerInfoUpdateOneWithoutPlayerNestedInput
     player_rating?: PlayerRatingsUpdateOneWithoutPlayerNestedInput
-    player_stats?: PlayerStatsUpdateOneWithoutPlayerNestedInput
+    player_stats?: PlayerStatsUpdateManyWithoutPlayerNestedInput
     player_team_achievement?: PlayerTeamAchievementsUpdateManyWithoutPlayerNestedInput
     thoughtsAuthored?: PlayerTeammateThoughtsUpdateManyWithoutAuthorNestedInput
     thoughtsReceived?: PlayerTeammateThoughtsUpdateManyWithoutReceiverNestedInput
@@ -19822,7 +20435,7 @@ export namespace Prisma {
     shirt_no?: IntFieldUpdateOperationsInput | number
     player_info?: PlayerInfoUncheckedUpdateOneWithoutPlayerNestedInput
     player_rating?: PlayerRatingsUncheckedUpdateOneWithoutPlayerNestedInput
-    player_stats?: PlayerStatsUncheckedUpdateOneWithoutPlayerNestedInput
+    player_stats?: PlayerStatsUncheckedUpdateManyWithoutPlayerNestedInput
     player_team_achievement?: PlayerTeamAchievementsUncheckedUpdateManyWithoutPlayerNestedInput
     thoughtsAuthored?: PlayerTeammateThoughtsUncheckedUpdateManyWithoutAuthorNestedInput
     thoughtsReceived?: PlayerTeammateThoughtsUncheckedUpdateManyWithoutReceiverNestedInput
@@ -19867,6 +20480,7 @@ export namespace Prisma {
     chairman?: ChairmanUpdateOneWithoutTeamNestedInput
     player?: PlayersUpdateManyWithoutTeamNestedInput
     league_achievement?: PlayerTeamAchievementsUpdateManyWithoutTeamNestedInput
+    player_stats?: PlayerStatsUpdateManyWithoutTeamNestedInput
   }
 
   export type TeamsUncheckedUpdateWithoutPersonal_achievementInput = {
@@ -19876,6 +20490,7 @@ export namespace Prisma {
     chairman?: ChairmanUncheckedUpdateOneWithoutTeamNestedInput
     player?: PlayersUncheckedUpdateManyWithoutTeamNestedInput
     league_achievement?: PlayerTeamAchievementsUncheckedUpdateManyWithoutTeamNestedInput
+    player_stats?: PlayerStatsUncheckedUpdateManyWithoutTeamNestedInput
   }
 
   export type LeaguesUpsertWithoutPersonal_achievementInput = {
@@ -19893,12 +20508,14 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     league_achievement?: PlayerTeamAchievementsUpdateManyWithoutLeagueNestedInput
+    player_stats?: PlayerStatsUpdateManyWithoutLeagueNestedInput
   }
 
   export type LeaguesUncheckedUpdateWithoutPersonal_achievementInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     league_achievement?: PlayerTeamAchievementsUncheckedUpdateManyWithoutLeagueNestedInput
+    player_stats?: PlayerStatsUncheckedUpdateManyWithoutLeagueNestedInput
   }
 
   export type PlayersCreateWithoutThoughtsAuthoredInput = {
@@ -19909,7 +20526,7 @@ export namespace Prisma {
     shirt_no: number
     player_info?: PlayerInfoCreateNestedOneWithoutPlayerInput
     player_rating?: PlayerRatingsCreateNestedOneWithoutPlayerInput
-    player_stats?: PlayerStatsCreateNestedOneWithoutPlayerInput
+    player_stats?: PlayerStatsCreateNestedManyWithoutPlayerInput
     player_team_achievement?: PlayerTeamAchievementsCreateNestedManyWithoutPlayerInput
     player_personal_achievement?: PlayerPersonalAchievementsCreateNestedManyWithoutPlayerInput
     thoughtsReceived?: PlayerTeammateThoughtsCreateNestedManyWithoutReceiverInput
@@ -19925,7 +20542,7 @@ export namespace Prisma {
     shirt_no: number
     player_info?: PlayerInfoUncheckedCreateNestedOneWithoutPlayerInput
     player_rating?: PlayerRatingsUncheckedCreateNestedOneWithoutPlayerInput
-    player_stats?: PlayerStatsUncheckedCreateNestedOneWithoutPlayerInput
+    player_stats?: PlayerStatsUncheckedCreateNestedManyWithoutPlayerInput
     player_team_achievement?: PlayerTeamAchievementsUncheckedCreateNestedManyWithoutPlayerInput
     player_personal_achievement?: PlayerPersonalAchievementsUncheckedCreateNestedManyWithoutPlayerInput
     thoughtsReceived?: PlayerTeammateThoughtsUncheckedCreateNestedManyWithoutReceiverInput
@@ -19944,7 +20561,7 @@ export namespace Prisma {
     shirt_no: number
     player_info?: PlayerInfoCreateNestedOneWithoutPlayerInput
     player_rating?: PlayerRatingsCreateNestedOneWithoutPlayerInput
-    player_stats?: PlayerStatsCreateNestedOneWithoutPlayerInput
+    player_stats?: PlayerStatsCreateNestedManyWithoutPlayerInput
     player_team_achievement?: PlayerTeamAchievementsCreateNestedManyWithoutPlayerInput
     player_personal_achievement?: PlayerPersonalAchievementsCreateNestedManyWithoutPlayerInput
     thoughtsAuthored?: PlayerTeammateThoughtsCreateNestedManyWithoutAuthorInput
@@ -19960,7 +20577,7 @@ export namespace Prisma {
     shirt_no: number
     player_info?: PlayerInfoUncheckedCreateNestedOneWithoutPlayerInput
     player_rating?: PlayerRatingsUncheckedCreateNestedOneWithoutPlayerInput
-    player_stats?: PlayerStatsUncheckedCreateNestedOneWithoutPlayerInput
+    player_stats?: PlayerStatsUncheckedCreateNestedManyWithoutPlayerInput
     player_team_achievement?: PlayerTeamAchievementsUncheckedCreateNestedManyWithoutPlayerInput
     player_personal_achievement?: PlayerPersonalAchievementsUncheckedCreateNestedManyWithoutPlayerInput
     thoughtsAuthored?: PlayerTeammateThoughtsUncheckedCreateNestedManyWithoutAuthorInput
@@ -19990,7 +20607,7 @@ export namespace Prisma {
     shirt_no?: IntFieldUpdateOperationsInput | number
     player_info?: PlayerInfoUpdateOneWithoutPlayerNestedInput
     player_rating?: PlayerRatingsUpdateOneWithoutPlayerNestedInput
-    player_stats?: PlayerStatsUpdateOneWithoutPlayerNestedInput
+    player_stats?: PlayerStatsUpdateManyWithoutPlayerNestedInput
     player_team_achievement?: PlayerTeamAchievementsUpdateManyWithoutPlayerNestedInput
     player_personal_achievement?: PlayerPersonalAchievementsUpdateManyWithoutPlayerNestedInput
     thoughtsReceived?: PlayerTeammateThoughtsUpdateManyWithoutReceiverNestedInput
@@ -20006,7 +20623,7 @@ export namespace Prisma {
     shirt_no?: IntFieldUpdateOperationsInput | number
     player_info?: PlayerInfoUncheckedUpdateOneWithoutPlayerNestedInput
     player_rating?: PlayerRatingsUncheckedUpdateOneWithoutPlayerNestedInput
-    player_stats?: PlayerStatsUncheckedUpdateOneWithoutPlayerNestedInput
+    player_stats?: PlayerStatsUncheckedUpdateManyWithoutPlayerNestedInput
     player_team_achievement?: PlayerTeamAchievementsUncheckedUpdateManyWithoutPlayerNestedInput
     player_personal_achievement?: PlayerPersonalAchievementsUncheckedUpdateManyWithoutPlayerNestedInput
     thoughtsReceived?: PlayerTeammateThoughtsUncheckedUpdateManyWithoutReceiverNestedInput
@@ -20031,7 +20648,7 @@ export namespace Prisma {
     shirt_no?: IntFieldUpdateOperationsInput | number
     player_info?: PlayerInfoUpdateOneWithoutPlayerNestedInput
     player_rating?: PlayerRatingsUpdateOneWithoutPlayerNestedInput
-    player_stats?: PlayerStatsUpdateOneWithoutPlayerNestedInput
+    player_stats?: PlayerStatsUpdateManyWithoutPlayerNestedInput
     player_team_achievement?: PlayerTeamAchievementsUpdateManyWithoutPlayerNestedInput
     player_personal_achievement?: PlayerPersonalAchievementsUpdateManyWithoutPlayerNestedInput
     thoughtsAuthored?: PlayerTeammateThoughtsUpdateManyWithoutAuthorNestedInput
@@ -20047,7 +20664,7 @@ export namespace Prisma {
     shirt_no?: IntFieldUpdateOperationsInput | number
     player_info?: PlayerInfoUncheckedUpdateOneWithoutPlayerNestedInput
     player_rating?: PlayerRatingsUncheckedUpdateOneWithoutPlayerNestedInput
-    player_stats?: PlayerStatsUncheckedUpdateOneWithoutPlayerNestedInput
+    player_stats?: PlayerStatsUncheckedUpdateManyWithoutPlayerNestedInput
     player_team_achievement?: PlayerTeamAchievementsUncheckedUpdateManyWithoutPlayerNestedInput
     player_personal_achievement?: PlayerPersonalAchievementsUncheckedUpdateManyWithoutPlayerNestedInput
     thoughtsAuthored?: PlayerTeammateThoughtsUncheckedUpdateManyWithoutAuthorNestedInput
@@ -20084,6 +20701,18 @@ export namespace Prisma {
     time: string
   }
 
+  export type PlayerStatsCreateManyTeamInput = {
+    id: string
+    player_id: string
+    matches: number
+    goals: number
+    assists: number
+    yellow_cards: number
+    red_cards: number
+    league_id: string
+    year: number
+  }
+
   export type EmployeeUpdateWithoutTeamInput = {
     name?: StringFieldUpdateOperationsInput | string
     age?: IntFieldUpdateOperationsInput | number
@@ -20112,7 +20741,7 @@ export namespace Prisma {
     shirt_no?: IntFieldUpdateOperationsInput | number
     player_info?: PlayerInfoUpdateOneWithoutPlayerNestedInput
     player_rating?: PlayerRatingsUpdateOneWithoutPlayerNestedInput
-    player_stats?: PlayerStatsUpdateOneWithoutPlayerNestedInput
+    player_stats?: PlayerStatsUpdateManyWithoutPlayerNestedInput
     player_team_achievement?: PlayerTeamAchievementsUpdateManyWithoutPlayerNestedInput
     player_personal_achievement?: PlayerPersonalAchievementsUpdateManyWithoutPlayerNestedInput
     thoughtsAuthored?: PlayerTeammateThoughtsUpdateManyWithoutAuthorNestedInput
@@ -20127,7 +20756,7 @@ export namespace Prisma {
     shirt_no?: IntFieldUpdateOperationsInput | number
     player_info?: PlayerInfoUncheckedUpdateOneWithoutPlayerNestedInput
     player_rating?: PlayerRatingsUncheckedUpdateOneWithoutPlayerNestedInput
-    player_stats?: PlayerStatsUncheckedUpdateOneWithoutPlayerNestedInput
+    player_stats?: PlayerStatsUncheckedUpdateManyWithoutPlayerNestedInput
     player_team_achievement?: PlayerTeamAchievementsUncheckedUpdateManyWithoutPlayerNestedInput
     player_personal_achievement?: PlayerPersonalAchievementsUncheckedUpdateManyWithoutPlayerNestedInput
     thoughtsAuthored?: PlayerTeammateThoughtsUncheckedUpdateManyWithoutAuthorNestedInput
@@ -20190,6 +20819,54 @@ export namespace Prisma {
     time?: StringFieldUpdateOperationsInput | string
   }
 
+  export type PlayerStatsUpdateWithoutTeamInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    matches?: IntFieldUpdateOperationsInput | number
+    goals?: IntFieldUpdateOperationsInput | number
+    assists?: IntFieldUpdateOperationsInput | number
+    yellow_cards?: IntFieldUpdateOperationsInput | number
+    red_cards?: IntFieldUpdateOperationsInput | number
+    year?: IntFieldUpdateOperationsInput | number
+    league?: LeaguesUpdateOneRequiredWithoutPlayer_statsNestedInput
+    player?: PlayersUpdateOneRequiredWithoutPlayer_statsNestedInput
+  }
+
+  export type PlayerStatsUncheckedUpdateWithoutTeamInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    player_id?: StringFieldUpdateOperationsInput | string
+    matches?: IntFieldUpdateOperationsInput | number
+    goals?: IntFieldUpdateOperationsInput | number
+    assists?: IntFieldUpdateOperationsInput | number
+    yellow_cards?: IntFieldUpdateOperationsInput | number
+    red_cards?: IntFieldUpdateOperationsInput | number
+    league_id?: StringFieldUpdateOperationsInput | string
+    year?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type PlayerStatsUncheckedUpdateManyWithoutTeamInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    player_id?: StringFieldUpdateOperationsInput | string
+    matches?: IntFieldUpdateOperationsInput | number
+    goals?: IntFieldUpdateOperationsInput | number
+    assists?: IntFieldUpdateOperationsInput | number
+    yellow_cards?: IntFieldUpdateOperationsInput | number
+    red_cards?: IntFieldUpdateOperationsInput | number
+    league_id?: StringFieldUpdateOperationsInput | string
+    year?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type PlayerStatsCreateManyPlayerInput = {
+    id: string
+    matches: number
+    goals: number
+    assists: number
+    yellow_cards: number
+    red_cards: number
+    league_id: string
+    team_id: string
+    year: number
+  }
+
   export type PlayerTeamAchievementsCreateManyPlayerInput = {
     id: string
     place: string
@@ -20216,6 +20893,42 @@ export namespace Prisma {
     id?: number
     player_id: string
     thoughts: string
+  }
+
+  export type PlayerStatsUpdateWithoutPlayerInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    matches?: IntFieldUpdateOperationsInput | number
+    goals?: IntFieldUpdateOperationsInput | number
+    assists?: IntFieldUpdateOperationsInput | number
+    yellow_cards?: IntFieldUpdateOperationsInput | number
+    red_cards?: IntFieldUpdateOperationsInput | number
+    year?: IntFieldUpdateOperationsInput | number
+    league?: LeaguesUpdateOneRequiredWithoutPlayer_statsNestedInput
+    team?: TeamsUpdateOneRequiredWithoutPlayer_statsNestedInput
+  }
+
+  export type PlayerStatsUncheckedUpdateWithoutPlayerInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    matches?: IntFieldUpdateOperationsInput | number
+    goals?: IntFieldUpdateOperationsInput | number
+    assists?: IntFieldUpdateOperationsInput | number
+    yellow_cards?: IntFieldUpdateOperationsInput | number
+    red_cards?: IntFieldUpdateOperationsInput | number
+    league_id?: StringFieldUpdateOperationsInput | string
+    team_id?: StringFieldUpdateOperationsInput | string
+    year?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type PlayerStatsUncheckedUpdateManyWithoutPlayerInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    matches?: IntFieldUpdateOperationsInput | number
+    goals?: IntFieldUpdateOperationsInput | number
+    assists?: IntFieldUpdateOperationsInput | number
+    yellow_cards?: IntFieldUpdateOperationsInput | number
+    red_cards?: IntFieldUpdateOperationsInput | number
+    league_id?: StringFieldUpdateOperationsInput | string
+    team_id?: StringFieldUpdateOperationsInput | string
+    year?: IntFieldUpdateOperationsInput | number
   }
 
   export type PlayerTeamAchievementsUpdateWithoutPlayerInput = {
@@ -20316,6 +21029,18 @@ export namespace Prisma {
     time: string
   }
 
+  export type PlayerStatsCreateManyLeagueInput = {
+    id: string
+    player_id: string
+    matches: number
+    goals: number
+    assists: number
+    yellow_cards: number
+    red_cards: number
+    team_id: string
+    year: number
+  }
+
   export type PlayerTeamAchievementsUpdateWithoutLeagueInput = {
     id?: StringFieldUpdateOperationsInput | string
     place?: StringFieldUpdateOperationsInput | string
@@ -20362,6 +21087,42 @@ export namespace Prisma {
     achievement_id?: StringFieldUpdateOperationsInput | string
     team_id?: StringFieldUpdateOperationsInput | string
     time?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type PlayerStatsUpdateWithoutLeagueInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    matches?: IntFieldUpdateOperationsInput | number
+    goals?: IntFieldUpdateOperationsInput | number
+    assists?: IntFieldUpdateOperationsInput | number
+    yellow_cards?: IntFieldUpdateOperationsInput | number
+    red_cards?: IntFieldUpdateOperationsInput | number
+    year?: IntFieldUpdateOperationsInput | number
+    player?: PlayersUpdateOneRequiredWithoutPlayer_statsNestedInput
+    team?: TeamsUpdateOneRequiredWithoutPlayer_statsNestedInput
+  }
+
+  export type PlayerStatsUncheckedUpdateWithoutLeagueInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    player_id?: StringFieldUpdateOperationsInput | string
+    matches?: IntFieldUpdateOperationsInput | number
+    goals?: IntFieldUpdateOperationsInput | number
+    assists?: IntFieldUpdateOperationsInput | number
+    yellow_cards?: IntFieldUpdateOperationsInput | number
+    red_cards?: IntFieldUpdateOperationsInput | number
+    team_id?: StringFieldUpdateOperationsInput | string
+    year?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type PlayerStatsUncheckedUpdateManyWithoutLeagueInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    player_id?: StringFieldUpdateOperationsInput | string
+    matches?: IntFieldUpdateOperationsInput | number
+    goals?: IntFieldUpdateOperationsInput | number
+    assists?: IntFieldUpdateOperationsInput | number
+    yellow_cards?: IntFieldUpdateOperationsInput | number
+    red_cards?: IntFieldUpdateOperationsInput | number
+    team_id?: StringFieldUpdateOperationsInput | string
+    year?: IntFieldUpdateOperationsInput | number
   }
 
   export type PlayerPersonalAchievementsCreateManyAchievementInput = {

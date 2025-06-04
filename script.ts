@@ -140,6 +140,12 @@ async function main() {
   const stats = await prisma.playerStats.createMany({
     data: playerStatsArray,
   });*/
+
+  const rawdata_b = fs.readFileSync("all_player_stats_b.txt", "utf-8");
+  const playerStatsArray_B = JSON.parse(rawdata_b);
+  /*const stats_b = await prisma.playerStats.createMany({
+    data: playerStatsArray_B,
+  });*/
   //console.log(await prisma.playerStats.findMany());
 
   const csvtojson = require("csvtojson");
