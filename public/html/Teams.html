@@ -121,10 +121,13 @@
             const list = document.createElement("div");
             list.className = "teamlist";
             teams.forEach((team) => {
-              const link = document.createElement("a");
-              link.href = `/html/Teams.html?id=${team.id}`;
-              link.innerHTML = `${team.name}`;
-              list.appendChild(link);
+              const status = team.is_participant[0];
+              if (status.is_participant) {
+                const link = document.createElement("a");
+                link.href = `/html/Teams.html?id=${team.id}`;
+                link.innerHTML = `${team.name}`;
+                list.appendChild(link);
+              }
             });
             dropdown.appendChild(list);
           });

@@ -87,10 +87,10 @@ async function main() {
 
   const rawdataplayers = fs.readFileSync("allplayersdata.txt", "utf-8");
   const playersarray = JSON.parse(rawdataplayers);
-  /*const players = await prisma.players.createMany({
+  const players = await prisma.players.createMany({
     data: playersarray,
     skipDuplicates: true,
-  });*/
+  });
 
   /*const update = await prisma.players.update({
     where: { id: "bleach_8" },
