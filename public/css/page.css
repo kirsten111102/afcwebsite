@@ -129,3 +129,11 @@ img {
 #u_and_i:hover {
   background-image: linear-gradient(to bottom right, yellow, black);
 }
+
+#csc:hover {
+  background-image: linear-gradient(red, white, blue);
+}
+
+#opm:hover {
+  background-color: wheat;
+}

@@ -28,6 +28,7 @@ router.get("/:id", async (req, res) => {
         team: true,
         league: true,
       },
+      orderBy: { year: "desc" },
     });
 
     const teamachievement = await prisma.playerTeamAchievements.findMany({

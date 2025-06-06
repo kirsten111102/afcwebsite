@@ -224,9 +224,13 @@
             const team = season.team;
             const league = season.league;
             row.innerHTML = `
-              <td class="teamavt"><img src="/img/teamslogo/${season.team_id}logo.png"></td>
+              <td class="teamavt">
+                <a href="/html/Teams.html?id=${team.id}">
+                   <img src="/img/teamslogo/${team.id}logo.png">
+                </a>
+              </td>
               <td class="team">
-                <h3>${team.name}</h3>
+                <h3><a href="/html/Teams.html?id=${team.id}" class="namelink">${team.name}</a></h3>
                 <p>${season.year}</p>
               </td>
               <td>${league.name}</td>

@@ -45,6 +45,7 @@ app.get("/api/:teamId-players", async (req, res) => {
 app.get("/api/teams", async (req, res) => {
   const teams = await prisma.teams.findMany({
     include: { is_participant: true },
+    orderBy: { name: "asc" },
   });
   res.json(teams);
 });
