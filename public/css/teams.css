@@ -59,6 +59,7 @@ h1 {
   font-family: cursive;
   padding: 45px 0;
   margin-top: 5px;
+  width: fit-content;
 }
 
 a {
@@ -106,12 +107,102 @@ a:hover {
   color: fuchsia;
 }
 
-#boboiboy-teamname {
+#boboiboy-teamname,
+#tfs-teamname {
   background: -webkit-linear-gradient(red, yellow);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-#boruto-teamname {
+#boruto-teamname,
+#pw-teamname {
   color: yellow;
+}
+
+#bleach-teamname {
+  background: linear-gradient(to right, red, white, blue);
+  background: -webkit-linear-gradient(to right, red, white, blue);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+#csc-teamname {
+  background: linear-gradient(to right, blue, red);
+  background: -webkit-linear-gradient(to right, blue, red);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+#ds-teamname {
+  background: -webkit-linear-gradient(red, black);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#dbz-teamname {
+  background: linear-gradient(to right, yellow, orange, red);
+  background: -webkit-linear-gradient(to right, yellow, orange, red);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+#doraemon-teamname {
+  color: rgb(65, 145, 203);
+}
+
+#ta-teamname,
+#ft-teamname {
+  color: red;
+}
+
+#hxh-teamname {
+  background: linear-gradient(to right, white, rgb(5, 206, 5), orange);
+  background: -webkit-linear-gradient(to right, white, rgb(5, 206, 5), orange);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+#ie-teamname {
+  background: -webkit-linear-gradient(yellow, orange);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#op-teamname {
+  color: rgb(93, 145, 203);
+}
+
+#pl-teamname {
+  background: linear-gradient(#fad709, #f1f4f4, #5e6365, #26b652, #b82315);
+  background: -webkit-linear-gradient(
+    #fad709,
+    #f1f4f4,
+    #5e6365,
+    #26b652,
+    #b82315
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+#u_and_i-teamname {
+  background: -webkit-linear-gradient(yellow, black);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#dfc-teamname {
+  background: -webkit-linear-gradient(red, orange);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
