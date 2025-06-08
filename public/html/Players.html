@@ -158,6 +158,7 @@
         const info = document.getElementById("basic-info");
         if (playerinfo !== null) {
           const playerdob = new Date(playerinfo.dob);
+          playerdob.setDate(playerdob.getDate() + 1);
 
           const date = playerdob.getDate().toString();
           const lastdatedigit = date.charAt(date.length - 1);
@@ -245,7 +246,6 @@
             assists += season.assists;
             yellow_cards += season.yellow_cards;
             red_cards += season.red_cards;
-            console.log(season);
           });
 
           const career = document.getElementById("career");
@@ -280,12 +280,14 @@
             const trophy_list = document.createElement("ul");
             teamachievements.forEach((achievement) => {
               if (achievement.place === "Champions") {
+                const trophy = document.createElement("li");
                 const league = achievement.league;
                 const team = achievement.team;
-                trophy_list.innerHTML = `<li>${league.name}: <strong>${achievement.time}</strong> - with ${team.name}</li>`;
+                trophy.innerHTML = `${league.name}: <strong>${achievement.time}</strong> - with ${team.name}`;
+                trophy_list.appendChild(trophy);
               }
-              team_achievements.appendChild(trophy_list);
             });
+            team_achievements.appendChild(trophy_list);
           }
           if (
             teamachievements.some((item) => item.place === "Runner-up") === true
@@ -298,13 +300,14 @@
             const trophy_list = document.createElement("ul");
             teamachievements.forEach((achievement) => {
               if (achievement.place === "Runner-up") {
+                const trophy = document.createElement("li");
                 const league = achievement.league;
                 const team = achievement.team;
-                trophy_list.innerHTML = `<li>${league.name}: <strong>${achievement.time}</strong> - with ${team.name}</li>`;
+                trophy.innerHTML = `${league.name}: <strong>${achievement.time}</strong> - with ${team.name}`;
+                trophy_list.appendChild(trophy);
               }
-
-              team_achievements.appendChild(trophy_list);
             });
+            team_achievements.appendChild(trophy_list);
           }
         }
 

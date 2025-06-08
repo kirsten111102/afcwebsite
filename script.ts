@@ -59,8 +59,6 @@ async function main() {
       },
     ],
   });
-  const player = await prisma.players.findUnique({ where: { id: "bleach_8" } });
-  console.log(player);
   var fs = require("fs");
 
   const rawdatateams = fs.readFileSync("./txt/all_teams_info.txt", "utf-8");
@@ -93,9 +91,10 @@ async function main() {
   });
 
   /*const update = await prisma.players.update({
-    where: { id: "bleach_8" },
+    where: { id: "jjk_8" },
     data: {
-      position: "Midfielder",
+      name: "Inumaki Toge",
+      age: 19,
     },
   });*/
 
@@ -177,27 +176,43 @@ async function main() {
     ],
   });*/
 
-  /*const playerleague = await prisma.playerTeamAchievements.createMany({
-    data: [
-      {
-        id: "ta10AFC2022",
-        player_id: "ta_10",
-        place: "Runner-up",
-        league_id: "AFC_A",
-        team_id: "op",
-        time: "2022",
+  const rawleaguetrophies = fs.readFileSync(
+    "./txt/player_team_achievements.txt",
+    "utf-8"
+  );
+  const leaguetrophiesArray = JSON.parse(rawleaguetrophies);
+  await prisma.playerTeamAchievements.deleteMany();
+  leaguetrophiesArray.forEach(async (achievements: any) => {
+    const team_achievements = await prisma.playerTeamAchievements.create({
+      data: {
+        id: achievements.id,
+        player_id: achievements.player_id,
+        place: achievements.place,
+        league_id: achievements.league_id,
+        team_id: achievements.team_id,
+        time: achievements.Time.toString(),
       },
-      {
-        id: "ta10BOTB2022",
-        player_id: "ta_10",
-        place: "Champions",
-        league_id: "BOTB",
-        team_id: "op",
-        time: "2022",
-      },
-    ],
-  });*/
+    });
+  });
 
+  const rawpersonalawards = fs.readFileSync(
+    "./txt/player_personal_awards.txt",
+    "utf-8"
+  );
+  const personalawardsArray = JSON.parse(rawpersonalawards);
+  await prisma.playerPersonalAchievements.deleteMany();
+  personalawardsArray.forEach(async (achievements: any) => {
+    const team_achievements = await prisma.playerPersonalAchievements.create({
+      data: {
+        id: achievements.id,
+        player_id: achievements.player_id,
+        achievement_id: achievements.achievement_id,
+        league_id: achievements.league_id,
+        team_id: achievements.team_id,
+        time: achievements.time.toString(),
+      },
+    });
+  });
   /*const playerpersonalawards =
     await prisma.playerPersonalAchievements.createMany({
       data: [
