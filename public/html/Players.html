@@ -278,15 +278,27 @@
             team_achievements.appendChild(header);
 
             const trophy_list = document.createElement("ul");
+            // Step 1: Group achievements by league + team
+            const grouped = {};
             teamachievements.forEach((achievement) => {
               if (achievement.place === "Champions") {
-                const trophy = document.createElement("li");
-                const league = achievement.league;
-                const team = achievement.team;
-                trophy.innerHTML = `${league.name}: <strong>${achievement.time}</strong> - with ${team.name}`;
-                trophy_list.appendChild(trophy);
+                const key = `${achievement.league.name} - with ${achievement.team.name}`;
+                if (!grouped[key]) {
+                  grouped[key] = [];
+                }
+                grouped[key].push(achievement.time);
               }
             });
+
+            // Step 2: Create <li> for each group
+            for (const key in grouped) {
+              const years = grouped[key].sort().join(", ");
+              const trophy = document.createElement("li");
+              trophy.innerHTML = `${
+                key.split(" - with ")[0]
+              }: <strong>${years}</strong> - with ${key.split(" - with ")[1]}`;
+              trophy_list.appendChild(trophy);
+            }
             team_achievements.appendChild(trophy_list);
           }
           if (
@@ -298,15 +310,27 @@
             team_achievements.appendChild(header);
 
             const trophy_list = document.createElement("ul");
+            // Step 1: Group achievements by league + team
+            const grouped = {};
             teamachievements.forEach((achievement) => {
               if (achievement.place === "Runner-up") {
-                const trophy = document.createElement("li");
-                const league = achievement.league;
-                const team = achievement.team;
-                trophy.innerHTML = `${league.name}: <strong>${achievement.time}</strong> - with ${team.name}`;
-                trophy_list.appendChild(trophy);
+                const key = `${achievement.league.name} - with ${achievement.team.name}`;
+                if (!grouped[key]) {
+                  grouped[key] = [];
+                }
+                grouped[key].push(achievement.time);
               }
             });
+
+            // Step 2: Create <li> for each group
+            for (const key in grouped) {
+              const years = grouped[key].sort().join(", ");
+              const trophy = document.createElement("li");
+              trophy.innerHTML = `${
+                key.split(" - with ")[0]
+              }: <strong>${years}</strong> - with ${key.split(" - with ")[1]}`;
+              trophy_list.appendChild(trophy);
+            }
             team_achievements.appendChild(trophy_list);
           }
         }
