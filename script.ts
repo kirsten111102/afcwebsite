@@ -3,45 +3,6 @@ import { PrismaClient } from "./generated/prisma";
 const prisma = new PrismaClient();
 
 async function main() {
-  await prisma.employee.deleteMany();
-  const newCoaches = await prisma.employee.createMany({
-    data: [
-      { name: "Uchiha Sasuke", age: 36, position: "Coach", team_id: "aot" },
-      {
-        name: "Sarutobi Konohamaru",
-        age: 36,
-        position: "Coach",
-        team_id: "boboiboy",
-      },
-      { name: "Hatake Kakashi", age: 50, position: "Coach", team_id: "boruto" },
-      { name: "Sakayanagi Arisu", age: 18, position: "Coach", team_id: "cote" },
-      { name: "Kisuke Urahara", age: 35, position: "Coach", team_id: "bleach" },
-      { name: "Hiroshi Agasa", age: 52, position: "Coach", team_id: "dfc" },
-      { name: "Ubuyashiki Kagaya", age: 30, position: "Coach", team_id: "ds" },
-      {
-        name: "Elichiro Senjou",
-        age: 52,
-        position: "Coach",
-        team_id: "doraemon",
-      },
-      { name: "Vegeta", age: 38, position: "Coach", team_id: "dbz" },
-      { name: "Makarov Dreyar", age: 90, position: "Coach", team_id: "ft" },
-      { name: "Ging Freecs", age: 43, position: "Coach", team_id: "hxh" },
-      { name: "Kudou Michiya", age: 41, position: "Coach", team_id: "ie" },
-      { name: "Monkey D Dragon", age: 55, position: "Coach", team_id: "op" },
-      { name: "Kukui", age: 39, position: "Coach", team_id: "pl" },
-      { name: "Ash Ketchum", age: 19, position: "Coach", team_id: "pw" },
-      { name: "Uchiha Itachi", age: 42, position: "Coach", team_id: "ta" },
-      { name: "Kozo Kira", age: 44, position: "Coach", team_id: "tfs" },
-      {
-        name: "Ismail bin Mail",
-        age: 18,
-        position: "Coach",
-        team_id: "u_and_i",
-      },
-    ],
-  });
-
   const allPlayers = await prisma.players.findMany();
   await prisma.playerTeammateThoughts.deleteMany();
   const thoughts = await prisma.playerTeammateThoughts.createMany({
@@ -81,6 +42,14 @@ async function main() {
         is_participant: team["is_participant"],
       },
     });
+  });
+
+  const rawemployees = fs.readFileSync("./txt/team_employees.txt", "utf-8");
+  const employeesarray = JSON.parse(rawemployees);
+  await prisma.employee.deleteMany();
+  const employees = await prisma.employee.createMany({
+    data: employeesarray,
+    skipDuplicates: true,
   });
 
   const rawdataplayers = fs.readFileSync("allplayersdata.txt", "utf-8");
