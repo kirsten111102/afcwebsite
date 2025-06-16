@@ -5505,31 +5505,26 @@ export namespace Prisma {
   }
 
   export type ChairmanAvgAggregateOutputType = {
-    id: number | null
     age: number | null
   }
 
   export type ChairmanSumAggregateOutputType = {
-    id: number | null
     age: number | null
   }
 
   export type ChairmanMinAggregateOutputType = {
-    id: number | null
     name: string | null
     age: number | null
     team_id: string | null
   }
 
   export type ChairmanMaxAggregateOutputType = {
-    id: number | null
     name: string | null
     age: number | null
     team_id: string | null
   }
 
   export type ChairmanCountAggregateOutputType = {
-    id: number
     name: number
     age: number
     team_id: number
@@ -5538,31 +5533,26 @@ export namespace Prisma {
 
 
   export type ChairmanAvgAggregateInputType = {
-    id?: true
     age?: true
   }
 
   export type ChairmanSumAggregateInputType = {
-    id?: true
     age?: true
   }
 
   export type ChairmanMinAggregateInputType = {
-    id?: true
     name?: true
     age?: true
     team_id?: true
   }
 
   export type ChairmanMaxAggregateInputType = {
-    id?: true
     name?: true
     age?: true
     team_id?: true
   }
 
   export type ChairmanCountAggregateInputType = {
-    id?: true
     name?: true
     age?: true
     team_id?: true
@@ -5656,7 +5646,6 @@ export namespace Prisma {
   }
 
   export type ChairmanGroupByOutputType = {
-    id: number
     name: string
     age: number
     team_id: string
@@ -5682,7 +5671,6 @@ export namespace Prisma {
 
 
   export type ChairmanSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
     name?: boolean
     age?: boolean
     team_id?: boolean
@@ -5690,7 +5678,6 @@ export namespace Prisma {
   }, ExtArgs["result"]["chairman"]>
 
   export type ChairmanSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
     name?: boolean
     age?: boolean
     team_id?: boolean
@@ -5698,7 +5685,6 @@ export namespace Prisma {
   }, ExtArgs["result"]["chairman"]>
 
   export type ChairmanSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
     name?: boolean
     age?: boolean
     team_id?: boolean
@@ -5706,13 +5692,12 @@ export namespace Prisma {
   }, ExtArgs["result"]["chairman"]>
 
   export type ChairmanSelectScalar = {
-    id?: boolean
     name?: boolean
     age?: boolean
     team_id?: boolean
   }
 
-  export type ChairmanOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "age" | "team_id", ExtArgs["result"]["chairman"]>
+  export type ChairmanOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"name" | "age" | "team_id", ExtArgs["result"]["chairman"]>
   export type ChairmanInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     team?: boolean | TeamsDefaultArgs<ExtArgs>
   }
@@ -5729,7 +5714,6 @@ export namespace Prisma {
       team: Prisma.$TeamsPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: number
       name: string
       age: number
       team_id: string
@@ -5816,8 +5800,8 @@ export namespace Prisma {
      * // Get first 10 Chairmen
      * const chairmen = await prisma.chairman.findMany({ take: 10 })
      * 
-     * // Only select the `id`
-     * const chairmanWithIdOnly = await prisma.chairman.findMany({ select: { id: true } })
+     * // Only select the `name`
+     * const chairmanWithNameOnly = await prisma.chairman.findMany({ select: { name: true } })
      * 
      */
     findMany<T extends ChairmanFindManyArgs>(args?: SelectSubset<T, ChairmanFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ChairmanPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
@@ -5861,9 +5845,9 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Create many Chairmen and only return the `id`
-     * const chairmanWithIdOnly = await prisma.chairman.createManyAndReturn({
-     *   select: { id: true },
+     * // Create many Chairmen and only return the `name`
+     * const chairmanWithNameOnly = await prisma.chairman.createManyAndReturn({
+     *   select: { name: true },
      *   data: [
      *     // ... provide data here
      *   ]
@@ -5952,9 +5936,9 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more Chairmen and only return the `id`
-     * const chairmanWithIdOnly = await prisma.chairman.updateManyAndReturn({
-     *   select: { id: true },
+     * // Update zero or more Chairmen and only return the `name`
+     * const chairmanWithNameOnly = await prisma.chairman.updateManyAndReturn({
+     *   select: { name: true },
      *   where: {
      *     // ... provide filter here
      *   },
@@ -6157,7 +6141,6 @@ export namespace Prisma {
    * Fields of the Chairman model
    */
   interface ChairmanFieldRefs {
-    readonly id: FieldRef<"Chairman", 'Int'>
     readonly name: FieldRef<"Chairman", 'String'>
     readonly age: FieldRef<"Chairman", 'Int'>
     readonly team_id: FieldRef<"Chairman", 'String'>
@@ -16737,7 +16720,6 @@ export namespace Prisma {
 
 
   export const ChairmanScalarFieldEnum: {
-    id: 'id',
     name: 'name',
     age: 'age',
     team_id: 'team_id'
@@ -17095,7 +17077,6 @@ export namespace Prisma {
     AND?: ChairmanWhereInput | ChairmanWhereInput[]
     OR?: ChairmanWhereInput[]
     NOT?: ChairmanWhereInput | ChairmanWhereInput[]
-    id?: IntFilter<"Chairman"> | number
     name?: StringFilter<"Chairman"> | string
     age?: IntFilter<"Chairman"> | number
     team_id?: StringFilter<"Chairman"> | string
@@ -17103,7 +17084,6 @@ export namespace Prisma {
   }
 
   export type ChairmanOrderByWithRelationInput = {
-    id?: SortOrder
     name?: SortOrder
     age?: SortOrder
     team_id?: SortOrder
@@ -17111,7 +17091,6 @@ export namespace Prisma {
   }
 
   export type ChairmanWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
     team_id?: string
     AND?: ChairmanWhereInput | ChairmanWhereInput[]
     OR?: ChairmanWhereInput[]
@@ -17119,10 +17098,9 @@ export namespace Prisma {
     name?: StringFilter<"Chairman"> | string
     age?: IntFilter<"Chairman"> | number
     team?: XOR<TeamsScalarRelationFilter, TeamsWhereInput>
-  }, "id" | "team_id">
+  }, "team_id">
 
   export type ChairmanOrderByWithAggregationInput = {
-    id?: SortOrder
     name?: SortOrder
     age?: SortOrder
     team_id?: SortOrder
@@ -17137,7 +17115,6 @@ export namespace Prisma {
     AND?: ChairmanScalarWhereWithAggregatesInput | ChairmanScalarWhereWithAggregatesInput[]
     OR?: ChairmanScalarWhereWithAggregatesInput[]
     NOT?: ChairmanScalarWhereWithAggregatesInput | ChairmanScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"Chairman"> | number
     name?: StringWithAggregatesFilter<"Chairman"> | string
     age?: IntWithAggregatesFilter<"Chairman"> | number
     team_id?: StringWithAggregatesFilter<"Chairman"> | string
@@ -17875,7 +17852,6 @@ export namespace Prisma {
   }
 
   export type ChairmanUncheckedCreateInput = {
-    id?: number
     name: string
     age: number
     team_id: string
@@ -17888,14 +17864,12 @@ export namespace Prisma {
   }
 
   export type ChairmanUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     age?: IntFieldUpdateOperationsInput | number
     team_id?: StringFieldUpdateOperationsInput | string
   }
 
   export type ChairmanCreateManyInput = {
-    id?: number
     name: string
     age: number
     team_id: string
@@ -17907,7 +17881,6 @@ export namespace Prisma {
   }
 
   export type ChairmanUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     age?: IntFieldUpdateOperationsInput | number
     team_id?: StringFieldUpdateOperationsInput | string
@@ -18679,33 +18652,28 @@ export namespace Prisma {
   }
 
   export type ChairmanCountOrderByAggregateInput = {
-    id?: SortOrder
     name?: SortOrder
     age?: SortOrder
     team_id?: SortOrder
   }
 
   export type ChairmanAvgOrderByAggregateInput = {
-    id?: SortOrder
     age?: SortOrder
   }
 
   export type ChairmanMaxOrderByAggregateInput = {
-    id?: SortOrder
     name?: SortOrder
     age?: SortOrder
     team_id?: SortOrder
   }
 
   export type ChairmanMinOrderByAggregateInput = {
-    id?: SortOrder
     name?: SortOrder
     age?: SortOrder
     team_id?: SortOrder
   }
 
   export type ChairmanSumOrderByAggregateInput = {
-    id?: SortOrder
     age?: SortOrder
   }
 
@@ -20193,7 +20161,6 @@ export namespace Prisma {
   }
 
   export type ChairmanUncheckedCreateWithoutTeamInput = {
-    id?: number
     name: string
     age: number
   }
@@ -20391,7 +20358,6 @@ export namespace Prisma {
   }
 
   export type ChairmanUncheckedUpdateWithoutTeamInput = {
-    id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     age?: IntFieldUpdateOperationsInput | number
   }

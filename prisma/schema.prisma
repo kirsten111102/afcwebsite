@@ -42,10 +42,9 @@ model Employee {
 }
 
 model Chairman {
-    id      Int    @id @default(autoincrement())
     name    String
     age     Int
-    team_id String @unique
+    team_id String @id
     team    Teams  @relation(fields: [team_id], references: [id])
 }
 

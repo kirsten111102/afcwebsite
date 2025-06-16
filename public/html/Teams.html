@@ -3,7 +3,12 @@
   <head>
     <link rel="stylesheet" href="/css/teams.css" />
     <link rel="stylesheet" href="/css/navbar.css" />
-    <link id="favicon" rel="icon" type="image/x-icon" />
+    <link
+      id="favicon"
+      rel="icon"
+      href="/img/teamslogo/footballlogo.png"
+      type="image/png"
+    />
     <script src="/js/dropdown.js"></script>
     <script src="/js/header.js"></script>
     <script src="/index.js"></script>
@@ -31,7 +36,13 @@
 
             document.title = team.name;
 
-            const icon = document.getElementById("favicon");
+            let icon = document.querySelector("link[rel~='icon']");
+
+            if (!icon) {
+              icon = document.createElement("link");
+              icon.rel = "icon";
+              document.head.appendChild(icon);
+            }
             icon.href = `/img/teamslogo/${teamId}logo.png`;
 
             const element = document.getElementById(teamId);
@@ -40,12 +51,20 @@
             const titleId = `${teamId}title`;
 
             const employees = team.employee;
+            const chairman = team.chairman;
 
             document.getElementById("team-info").innerHTML = `
               <div class="title" id="${titleId}">
                 <div id="blurbackground">
                   <center><h1 id="${team.id}-teamname">${team.name}</h1></center>
                 </div>
+              </div>
+              <h2>Chairman: </h2>
+              <div class="profile">
+                  <img src="/img/teamsimg/${team.id}/${team.id}_chairman.webp" class="manageravt">
+                  <a href="#">
+                      <p class="manager-name">${chairman.name}</p>
+                  </a>
               </div>
             `;
 

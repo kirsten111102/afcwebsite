@@ -12,6 +12,7 @@ router.get("/:id", async (req, res) => {
       include: {
         player: true,
         employee: true,
+        chairman: true,
       },
     });
 

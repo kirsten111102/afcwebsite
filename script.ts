@@ -44,6 +44,13 @@ async function main() {
     });
   });
 
+  const rawdatachairman = fs.readFileSync("./txt/team_chairman.txt", "utf-8");
+  const chairmanarray = JSON.parse(rawdatachairman);
+  const chairman = await prisma.chairman.createMany({
+    data: chairmanarray,
+    skipDuplicates: true,
+  });
+
   const rawemployees = fs.readFileSync("./txt/team_employees.txt", "utf-8");
   const employeesarray = JSON.parse(rawemployees);
   await prisma.employee.deleteMany();

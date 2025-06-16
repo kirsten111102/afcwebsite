@@ -139,7 +139,6 @@ exports.Prisma.EmployeeScalarFieldEnum = {
 };
 
 exports.Prisma.ChairmanScalarFieldEnum = {
-  id: 'id',
   name: 'name',
   age: 'age',
   team_id: 'team_id'
