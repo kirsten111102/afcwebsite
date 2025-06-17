@@ -54,6 +54,9 @@ async function main() {
   const rawemployees = fs.readFileSync("./txt/team_employees.txt", "utf-8");
   const employeesarray = JSON.parse(rawemployees);
   await prisma.employee.deleteMany();
+  await prisma.$executeRawUnsafe(
+    `TRUNCATE TABLE "Employee" RESTART IDENTITY CASCADE`
+  );
   const employees = await prisma.employee.createMany({
     data: employeesarray,
     skipDuplicates: true,

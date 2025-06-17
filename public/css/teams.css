@@ -87,7 +87,11 @@ a:hover {
 }
 
 .manageravt {
-  width: 100%;
+  height: 20vh;
+}
+
+.employeeavt {
+  height: 20vh;
 }
 
 .playeravt {
@@ -98,7 +102,7 @@ a:hover {
   width: 40%;
 }
 
-.employees {
+#employees {
   display: flex;
 }
 

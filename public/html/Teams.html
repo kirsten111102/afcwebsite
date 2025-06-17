@@ -6,7 +6,7 @@
     <link
       id="favicon"
       rel="icon"
-      href="/img/teamslogo/footballlogo.png"
+      href="/img/footballlogo.png"
       type="image/png"
     />
     <script src="/js/dropdown.js"></script>
@@ -83,8 +83,8 @@
             }
 
             document.getElementById("team-info").innerHTML += `
-              <p><strong>Founded:</strong> ${team.founded || "N/A"}</p>
-              <p><strong>Stadium:</strong> ${team.stadium || "N/A"}</p>
+              <h2>Medical: </h2>
+              <div id="employees"></div>
               <h2>Players:</h2>
               <table>
                 <thead>
@@ -98,6 +98,19 @@
                 <tbody id="player-list"></tbody>
               </table>
             `;
+
+            for (const employee of employees) {
+              if (employee.position === "Medical") {
+                const names = employee.name.split(" ");
+                const last_name = names[names.length - 1].toLowerCase();
+                document.getElementById("employees").innerHTML += `
+                  <div class="profile">
+                      <img src="/img/teamsimg/${teamId}/${last_name}.webp" class="employeeavt">
+                      <p class="manager-name">${employee.name}</p>
+                  </div>
+                `;
+              }
+            }
 
             const titleBG = document.getElementById(titleId);
             titleBG.style.backgroundImage = `url("/img/teamsimg/${teamId}/${teamId}logo.png")`;
