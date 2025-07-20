@@ -5,6 +5,9 @@ const prisma = new PrismaClient();
 async function main() {
   const allPlayers = await prisma.players.findMany();
   await prisma.playerTeammateThoughts.deleteMany();
+  await prisma.$executeRawUnsafe(
+    `TRUNCATE TABLE "PlayerTeammateThoughts" RESTART IDENTITY CASCADE`
+  );
   const thoughts = await prisma.playerTeammateThoughts.createMany({
     data: [
       {
@@ -192,35 +195,90 @@ async function main() {
       },
     });
   });
-  /*const playerpersonalawards =
-    await prisma.playerPersonalAchievements.createMany({
-      data: [
-        {
-          id: "ta10MVPBOTB2022",
-          player_id: "ta_10",
-          achievement_id: "MVP",
-          league_id: "BOTB",
-          team_id: "op",
-          time: "2022",
-        },
-        {
-          id: "ta10MVPAFC2024",
-          player_id: "ta_10",
-          achievement_id: "MVP",
-          league_id: "AFC_A",
-          team_id: "ta",
-          time: "2024",
-        },
-        {
-          id: "ta10PMAFC2024",
-          player_id: "ta_10",
-          achievement_id: "PM",
-          league_id: "AFC_A",
-          team_id: "ta",
-          time: "2024",
-        },
-      ],
-    });*/
+
+  const rawdatalegends = fs.readFileSync("./txt/legends_data.txt", "utf-8");
+  const legendsarray = JSON.parse(rawdatalegends);
+  const legends = await prisma.legends.createMany({
+    data: legendsarray,
+    skipDuplicates: true,
+  });
+
+  const rawlegendsinfo = fs.readFileSync("./txt/legends_info.txt", "utf-8");
+  const legendsInfoArray = JSON.parse(rawlegendsinfo);
+  await prisma.legendsInfo.deleteMany();
+  legendsInfoArray.forEach(async (legends: any) => {
+    const info = await prisma.legendsInfo.create({
+      data: {
+        player_id: legends.player_id,
+        dob: new Date(legends.dob),
+        birthplace: legends.birthplace,
+        gender: legends.gender,
+        height: legends.height,
+        biography: legends.biography,
+      },
+    });
+  });
+
+  const rawlegendsrating = fs.readFileSync("./txt/legends_rating.txt", "utf-8");
+  const legendsRatingArray = JSON.parse(rawlegendsrating);
+  await prisma.legendsRatings.deleteMany();
+  const legendsRating = await prisma.legendsRatings.createMany({
+    data: legendsRatingArray,
+    skipDuplicates: true,
+  });
+
+  const rawlegendsleaguetrophies = fs.readFileSync(
+    "./txt/legends_team_achievements.txt",
+    "utf-8"
+  );
+  const legendsleaguetrophiesArray = JSON.parse(rawlegendsleaguetrophies);
+  await prisma.legendsTeamAchievements.deleteMany();
+  legendsleaguetrophiesArray.forEach(async (achievements: any) => {
+    const team_achievements = await prisma.legendsTeamAchievements.create({
+      data: {
+        id: achievements.id,
+        player_id: achievements.player_id,
+        place: achievements.place,
+        league_id: achievements.league_id,
+        team_id: achievements.team_id,
+        time: achievements.time.toString(),
+      },
+    });
+  });
+
+  /*const rawlegendspersonalawards = fs.readFileSync(
+    "./txt/legends_personal_awards.txt",
+    "utf-8"
+  );
+  const legendspersonalawardsArray = JSON.parse(rawlegendspersonalawards);
+  await prisma.legendsPersonalAchievements.deleteMany();
+  legendspersonalawardsArray.forEach(async (achievements: any) => {
+    const team_achievements = await prisma.legendsPersonalAchievements.create({
+      data: {
+        id: achievements.id,
+        player_id: achievements.player_id,
+        achievement_id: achievements.achievement_id,
+        league_id: achievements.league_id,
+        team_id: achievements.team_id,
+        time: achievements.time.toString(),
+      },
+    });
+  });*/
+
+  const rawlegendsteammatethoughts = fs.readFileSync(
+    "./txt/legends_teammate_thoughts.txt",
+    "utf-8"
+  );
+  const legendsteammatethoughtsarray = JSON.parse(rawlegendsteammatethoughts);
+  await prisma.legendsTeammateThoughts.deleteMany();
+  await prisma.$executeRawUnsafe(
+    `TRUNCATE TABLE "LegendsTeammateThoughts" RESTART IDENTITY CASCADE`
+  );
+  const legendsteammatethoughts =
+    await prisma.legendsTeammateThoughts.createMany({
+      data: legendsteammatethoughtsarray,
+      skipDuplicates: true,
+    });
 }
 
 main()

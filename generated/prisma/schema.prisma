@@ -15,15 +15,18 @@ datasource db {
 }
 
 model Teams {
-  id                   String                       @id
-  name                 String
-  employee             Employee[]
-  chairman             Chairman?
-  player               Players[]
-  league_achievement   PlayerTeamAchievements[]
-  personal_achievement PlayerPersonalAchievements[]
-  player_stats         PlayerStats[]
-  is_participant       Is_Participant[]
+  id                          String                        @id
+  name                        String
+  employee                    Employee[]
+  chairman                    Chairman?
+  player                      Players[]
+  league_achievement          PlayerTeamAchievements[]
+  personal_achievement        PlayerPersonalAchievements[]
+  player_stats                PlayerStats[]
+  is_participant              Is_Participant[]
+  Legends                     Legends[]
+  LegendsTeamAchievements     LegendsTeamAchievements[]
+  LegendsPersonalAchievements LegendsPersonalAchievements[]
 }
 
 model Is_Participant {
@@ -66,17 +69,20 @@ model Players {
 }
 
 model Leagues {
-  id                   String                       @id
-  name                 String
-  league_achievement   PlayerTeamAchievements[]
-  personal_achievement PlayerPersonalAchievements[]
-  player_stats         PlayerStats[]
+  id                          String                        @id
+  name                        String
+  league_achievement          PlayerTeamAchievements[]
+  personal_achievement        PlayerPersonalAchievements[]
+  player_stats                PlayerStats[]
+  LegendsTeamAchievements     LegendsTeamAchievements[]
+  LegendsPersonalAchievements LegendsPersonalAchievements[]
 }
 
 model PersonalAchievements {
-  id                   String                       @id
-  name                 String
-  personal_achievement PlayerPersonalAchievements[]
+  id                          String                        @id
+  name                        String
+  personal_achievement        PlayerPersonalAchievements[]
+  LegendsPersonalAchievements LegendsPersonalAchievements[]
 }
 
 model PlayerInfo {
@@ -148,4 +154,72 @@ model PlayerTeammateThoughts {
   sent_to   String
   author    Players @relation("Author", fields: [player_id], references: [id])
   receiver  Players @relation("Receiver", fields: [sent_to], references: [id])
+}
+
+model Legends {
+  id                           String                        @id
+  name                         String
+  age                          Int
+  position                     String
+  team_id                      String
+  legends_info                 LegendsInfo?
+  legends_rating               LegendsRatings?
+  legends_team_achievement     LegendsTeamAchievements[]
+  legends_personal_achievement LegendsPersonalAchievements[]
+  thoughtsReceived             LegendsTeammateThoughts[]     @relation("Receiver")
+  team                         Teams                         @relation(fields: [team_id], references: [id])
+}
+
+model LegendsInfo {
+  player_id  String   @id
+  dob        DateTime @db.Date
+  birthplace String
+  gender     String
+  biography  String
+  height     Int
+  player     Legends  @relation(fields: [player_id], references: [id])
+}
+
+model LegendsRatings {
+  player_id String  @id
+  pace      Int
+  shooting  Int
+  passing   Int
+  physical  Int
+  defending Int
+  dribbling Int
+  player    Legends @relation(fields: [player_id], references: [id])
+}
+
+model LegendsTeamAchievements {
+  id        String  @id
+  player_id String
+  place     String
+  league_id String
+  team_id   String
+  time      String
+  player    Legends @relation(fields: [player_id], references: [id])
+  league    Leagues @relation(fields: [league_id], references: [id])
+  team      Teams   @relation(fields: [team_id], references: [id])
+}
+
+model LegendsPersonalAchievements {
+  id             String               @id
+  player_id      String
+  achievement_id String
+  league_id      String
+  team_id        String
+  time           String
+  player         Legends              @relation(fields: [player_id], references: [id])
+  achievement    PersonalAchievements @relation(fields: [achievement_id], references: [id])
+  team           Teams                @relation(fields: [team_id], references: [id])
+  league         Leagues              @relation(fields: [league_id], references: [id])
+}
+
+model LegendsTeammateThoughts {
+  id       Int     @id @default(autoincrement())
+  author   String
+  thoughts String
+  sent_to  String
+  receiver Legends @relation("Receiver", fields: [sent_to], references: [id])
 }

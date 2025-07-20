@@ -78,6 +78,36 @@ export type PlayerPersonalAchievements = $Result.DefaultSelection<Prisma.$Player
  * 
  */
 export type PlayerTeammateThoughts = $Result.DefaultSelection<Prisma.$PlayerTeammateThoughtsPayload>
+/**
+ * Model Legends
+ * 
+ */
+export type Legends = $Result.DefaultSelection<Prisma.$LegendsPayload>
+/**
+ * Model LegendsInfo
+ * 
+ */
+export type LegendsInfo = $Result.DefaultSelection<Prisma.$LegendsInfoPayload>
+/**
+ * Model LegendsRatings
+ * 
+ */
+export type LegendsRatings = $Result.DefaultSelection<Prisma.$LegendsRatingsPayload>
+/**
+ * Model LegendsTeamAchievements
+ * 
+ */
+export type LegendsTeamAchievements = $Result.DefaultSelection<Prisma.$LegendsTeamAchievementsPayload>
+/**
+ * Model LegendsPersonalAchievements
+ * 
+ */
+export type LegendsPersonalAchievements = $Result.DefaultSelection<Prisma.$LegendsPersonalAchievementsPayload>
+/**
+ * Model LegendsTeammateThoughts
+ * 
+ */
+export type LegendsTeammateThoughts = $Result.DefaultSelection<Prisma.$LegendsTeammateThoughtsPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -333,6 +363,66 @@ export class PrismaClient<
     * ```
     */
   get playerTeammateThoughts(): Prisma.PlayerTeammateThoughtsDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.legends`: Exposes CRUD operations for the **Legends** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Legends
+    * const legends = await prisma.legends.findMany()
+    * ```
+    */
+  get legends(): Prisma.LegendsDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.legendsInfo`: Exposes CRUD operations for the **LegendsInfo** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more LegendsInfos
+    * const legendsInfos = await prisma.legendsInfo.findMany()
+    * ```
+    */
+  get legendsInfo(): Prisma.LegendsInfoDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.legendsRatings`: Exposes CRUD operations for the **LegendsRatings** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more LegendsRatings
+    * const legendsRatings = await prisma.legendsRatings.findMany()
+    * ```
+    */
+  get legendsRatings(): Prisma.LegendsRatingsDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.legendsTeamAchievements`: Exposes CRUD operations for the **LegendsTeamAchievements** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more LegendsTeamAchievements
+    * const legendsTeamAchievements = await prisma.legendsTeamAchievements.findMany()
+    * ```
+    */
+  get legendsTeamAchievements(): Prisma.LegendsTeamAchievementsDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.legendsPersonalAchievements`: Exposes CRUD operations for the **LegendsPersonalAchievements** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more LegendsPersonalAchievements
+    * const legendsPersonalAchievements = await prisma.legendsPersonalAchievements.findMany()
+    * ```
+    */
+  get legendsPersonalAchievements(): Prisma.LegendsPersonalAchievementsDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.legendsTeammateThoughts`: Exposes CRUD operations for the **LegendsTeammateThoughts** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more LegendsTeammateThoughts
+    * const legendsTeammateThoughts = await prisma.legendsTeammateThoughts.findMany()
+    * ```
+    */
+  get legendsTeammateThoughts(): Prisma.LegendsTeammateThoughtsDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -785,7 +875,13 @@ export namespace Prisma {
     PlayerStats: 'PlayerStats',
     PlayerTeamAchievements: 'PlayerTeamAchievements',
     PlayerPersonalAchievements: 'PlayerPersonalAchievements',
-    PlayerTeammateThoughts: 'PlayerTeammateThoughts'
+    PlayerTeammateThoughts: 'PlayerTeammateThoughts',
+    Legends: 'Legends',
+    LegendsInfo: 'LegendsInfo',
+    LegendsRatings: 'LegendsRatings',
+    LegendsTeamAchievements: 'LegendsTeamAchievements',
+    LegendsPersonalAchievements: 'LegendsPersonalAchievements',
+    LegendsTeammateThoughts: 'LegendsTeammateThoughts'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -804,7 +900,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "teams" | "is_Participant" | "employee" | "chairman" | "players" | "leagues" | "personalAchievements" | "playerInfo" | "playerRatings" | "playerStats" | "playerTeamAchievements" | "playerPersonalAchievements" | "playerTeammateThoughts"
+      modelProps: "teams" | "is_Participant" | "employee" | "chairman" | "players" | "leagues" | "personalAchievements" | "playerInfo" | "playerRatings" | "playerStats" | "playerTeamAchievements" | "playerPersonalAchievements" | "playerTeammateThoughts" | "legends" | "legendsInfo" | "legendsRatings" | "legendsTeamAchievements" | "legendsPersonalAchievements" | "legendsTeammateThoughts"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1770,6 +1866,450 @@ export namespace Prisma {
           }
         }
       }
+      Legends: {
+        payload: Prisma.$LegendsPayload<ExtArgs>
+        fields: Prisma.LegendsFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.LegendsFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegendsPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.LegendsFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegendsPayload>
+          }
+          findFirst: {
+            args: Prisma.LegendsFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegendsPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.LegendsFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegendsPayload>
+          }
+          findMany: {
+            args: Prisma.LegendsFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegendsPayload>[]
+          }
+          create: {
+            args: Prisma.LegendsCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegendsPayload>
+          }
+          createMany: {
+            args: Prisma.LegendsCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.LegendsCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegendsPayload>[]
+          }
+          delete: {
+            args: Prisma.LegendsDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegendsPayload>
+          }
+          update: {
+            args: Prisma.LegendsUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegendsPayload>
+          }
+          deleteMany: {
+            args: Prisma.LegendsDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.LegendsUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.LegendsUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegendsPayload>[]
+          }
+          upsert: {
+            args: Prisma.LegendsUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegendsPayload>
+          }
+          aggregate: {
+            args: Prisma.LegendsAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateLegends>
+          }
+          groupBy: {
+            args: Prisma.LegendsGroupByArgs<ExtArgs>
+            result: $Utils.Optional<LegendsGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.LegendsCountArgs<ExtArgs>
+            result: $Utils.Optional<LegendsCountAggregateOutputType> | number
+          }
+        }
+      }
+      LegendsInfo: {
+        payload: Prisma.$LegendsInfoPayload<ExtArgs>
+        fields: Prisma.LegendsInfoFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.LegendsInfoFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegendsInfoPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.LegendsInfoFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegendsInfoPayload>
+          }
+          findFirst: {
+            args: Prisma.LegendsInfoFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegendsInfoPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.LegendsInfoFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegendsInfoPayload>
+          }
+          findMany: {
+            args: Prisma.LegendsInfoFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegendsInfoPayload>[]
+          }
+          create: {
+            args: Prisma.LegendsInfoCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegendsInfoPayload>
+          }
+          createMany: {
+            args: Prisma.LegendsInfoCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.LegendsInfoCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegendsInfoPayload>[]
+          }
+          delete: {
+            args: Prisma.LegendsInfoDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegendsInfoPayload>
+          }
+          update: {
+            args: Prisma.LegendsInfoUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegendsInfoPayload>
+          }
+          deleteMany: {
+            args: Prisma.LegendsInfoDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.LegendsInfoUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.LegendsInfoUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegendsInfoPayload>[]
+          }
+          upsert: {
+            args: Prisma.LegendsInfoUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegendsInfoPayload>
+          }
+          aggregate: {
+            args: Prisma.LegendsInfoAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateLegendsInfo>
+          }
+          groupBy: {
+            args: Prisma.LegendsInfoGroupByArgs<ExtArgs>
+            result: $Utils.Optional<LegendsInfoGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.LegendsInfoCountArgs<ExtArgs>
+            result: $Utils.Optional<LegendsInfoCountAggregateOutputType> | number
+          }
+        }
+      }
+      LegendsRatings: {
+        payload: Prisma.$LegendsRatingsPayload<ExtArgs>
+        fields: Prisma.LegendsRatingsFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.LegendsRatingsFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegendsRatingsPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.LegendsRatingsFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegendsRatingsPayload>
+          }
+          findFirst: {
+            args: Prisma.LegendsRatingsFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegendsRatingsPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.LegendsRatingsFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegendsRatingsPayload>
+          }
+          findMany: {
+            args: Prisma.LegendsRatingsFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegendsRatingsPayload>[]
+          }
+          create: {
+            args: Prisma.LegendsRatingsCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegendsRatingsPayload>
+          }
+          createMany: {
+            args: Prisma.LegendsRatingsCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.LegendsRatingsCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegendsRatingsPayload>[]
+          }
+          delete: {
+            args: Prisma.LegendsRatingsDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegendsRatingsPayload>
+          }
+          update: {
+            args: Prisma.LegendsRatingsUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegendsRatingsPayload>
+          }
+          deleteMany: {
+            args: Prisma.LegendsRatingsDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.LegendsRatingsUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.LegendsRatingsUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegendsRatingsPayload>[]
+          }
+          upsert: {
+            args: Prisma.LegendsRatingsUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegendsRatingsPayload>
+          }
+          aggregate: {
+            args: Prisma.LegendsRatingsAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateLegendsRatings>
+          }
+          groupBy: {
+            args: Prisma.LegendsRatingsGroupByArgs<ExtArgs>
+            result: $Utils.Optional<LegendsRatingsGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.LegendsRatingsCountArgs<ExtArgs>
+            result: $Utils.Optional<LegendsRatingsCountAggregateOutputType> | number
+          }
+        }
+      }
+      LegendsTeamAchievements: {
+        payload: Prisma.$LegendsTeamAchievementsPayload<ExtArgs>
+        fields: Prisma.LegendsTeamAchievementsFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.LegendsTeamAchievementsFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegendsTeamAchievementsPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.LegendsTeamAchievementsFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegendsTeamAchievementsPayload>
+          }
+          findFirst: {
+            args: Prisma.LegendsTeamAchievementsFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegendsTeamAchievementsPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.LegendsTeamAchievementsFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegendsTeamAchievementsPayload>
+          }
+          findMany: {
+            args: Prisma.LegendsTeamAchievementsFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegendsTeamAchievementsPayload>[]
+          }
+          create: {
+            args: Prisma.LegendsTeamAchievementsCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegendsTeamAchievementsPayload>
+          }
+          createMany: {
+            args: Prisma.LegendsTeamAchievementsCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.LegendsTeamAchievementsCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegendsTeamAchievementsPayload>[]
+          }
+          delete: {
+            args: Prisma.LegendsTeamAchievementsDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegendsTeamAchievementsPayload>
+          }
+          update: {
+            args: Prisma.LegendsTeamAchievementsUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegendsTeamAchievementsPayload>
+          }
+          deleteMany: {
+            args: Prisma.LegendsTeamAchievementsDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.LegendsTeamAchievementsUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.LegendsTeamAchievementsUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegendsTeamAchievementsPayload>[]
+          }
+          upsert: {
+            args: Prisma.LegendsTeamAchievementsUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegendsTeamAchievementsPayload>
+          }
+          aggregate: {
+            args: Prisma.LegendsTeamAchievementsAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateLegendsTeamAchievements>
+          }
+          groupBy: {
+            args: Prisma.LegendsTeamAchievementsGroupByArgs<ExtArgs>
+            result: $Utils.Optional<LegendsTeamAchievementsGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.LegendsTeamAchievementsCountArgs<ExtArgs>
+            result: $Utils.Optional<LegendsTeamAchievementsCountAggregateOutputType> | number
+          }
+        }
+      }
+      LegendsPersonalAchievements: {
+        payload: Prisma.$LegendsPersonalAchievementsPayload<ExtArgs>
+        fields: Prisma.LegendsPersonalAchievementsFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.LegendsPersonalAchievementsFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegendsPersonalAchievementsPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.LegendsPersonalAchievementsFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegendsPersonalAchievementsPayload>
+          }
+          findFirst: {
+            args: Prisma.LegendsPersonalAchievementsFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegendsPersonalAchievementsPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.LegendsPersonalAchievementsFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegendsPersonalAchievementsPayload>
+          }
+          findMany: {
+            args: Prisma.LegendsPersonalAchievementsFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegendsPersonalAchievementsPayload>[]
+          }
+          create: {
+            args: Prisma.LegendsPersonalAchievementsCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegendsPersonalAchievementsPayload>
+          }
+          createMany: {
+            args: Prisma.LegendsPersonalAchievementsCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.LegendsPersonalAchievementsCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegendsPersonalAchievementsPayload>[]
+          }
+          delete: {
+            args: Prisma.LegendsPersonalAchievementsDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegendsPersonalAchievementsPayload>
+          }
+          update: {
+            args: Prisma.LegendsPersonalAchievementsUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegendsPersonalAchievementsPayload>
+          }
+          deleteMany: {
+            args: Prisma.LegendsPersonalAchievementsDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.LegendsPersonalAchievementsUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.LegendsPersonalAchievementsUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegendsPersonalAchievementsPayload>[]
+          }
+          upsert: {
+            args: Prisma.LegendsPersonalAchievementsUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegendsPersonalAchievementsPayload>
+          }
+          aggregate: {
+            args: Prisma.LegendsPersonalAchievementsAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateLegendsPersonalAchievements>
+          }
+          groupBy: {
+            args: Prisma.LegendsPersonalAchievementsGroupByArgs<ExtArgs>
+            result: $Utils.Optional<LegendsPersonalAchievementsGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.LegendsPersonalAchievementsCountArgs<ExtArgs>
+            result: $Utils.Optional<LegendsPersonalAchievementsCountAggregateOutputType> | number
+          }
+        }
+      }
+      LegendsTeammateThoughts: {
+        payload: Prisma.$LegendsTeammateThoughtsPayload<ExtArgs>
+        fields: Prisma.LegendsTeammateThoughtsFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.LegendsTeammateThoughtsFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegendsTeammateThoughtsPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.LegendsTeammateThoughtsFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegendsTeammateThoughtsPayload>
+          }
+          findFirst: {
+            args: Prisma.LegendsTeammateThoughtsFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegendsTeammateThoughtsPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.LegendsTeammateThoughtsFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegendsTeammateThoughtsPayload>
+          }
+          findMany: {
+            args: Prisma.LegendsTeammateThoughtsFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegendsTeammateThoughtsPayload>[]
+          }
+          create: {
+            args: Prisma.LegendsTeammateThoughtsCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegendsTeammateThoughtsPayload>
+          }
+          createMany: {
+            args: Prisma.LegendsTeammateThoughtsCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.LegendsTeammateThoughtsCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegendsTeammateThoughtsPayload>[]
+          }
+          delete: {
+            args: Prisma.LegendsTeammateThoughtsDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegendsTeammateThoughtsPayload>
+          }
+          update: {
+            args: Prisma.LegendsTeammateThoughtsUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegendsTeammateThoughtsPayload>
+          }
+          deleteMany: {
+            args: Prisma.LegendsTeammateThoughtsDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.LegendsTeammateThoughtsUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.LegendsTeammateThoughtsUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegendsTeammateThoughtsPayload>[]
+          }
+          upsert: {
+            args: Prisma.LegendsTeammateThoughtsUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LegendsTeammateThoughtsPayload>
+          }
+          aggregate: {
+            args: Prisma.LegendsTeammateThoughtsAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateLegendsTeammateThoughts>
+          }
+          groupBy: {
+            args: Prisma.LegendsTeammateThoughtsGroupByArgs<ExtArgs>
+            result: $Utils.Optional<LegendsTeammateThoughtsGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.LegendsTeammateThoughtsCountArgs<ExtArgs>
+            result: $Utils.Optional<LegendsTeammateThoughtsCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1867,6 +2407,12 @@ export namespace Prisma {
     playerTeamAchievements?: PlayerTeamAchievementsOmit
     playerPersonalAchievements?: PlayerPersonalAchievementsOmit
     playerTeammateThoughts?: PlayerTeammateThoughtsOmit
+    legends?: LegendsOmit
+    legendsInfo?: LegendsInfoOmit
+    legendsRatings?: LegendsRatingsOmit
+    legendsTeamAchievements?: LegendsTeamAchievementsOmit
+    legendsPersonalAchievements?: LegendsPersonalAchievementsOmit
+    legendsTeammateThoughts?: LegendsTeammateThoughtsOmit
   }
 
   /* Types for Logging */
@@ -1967,6 +2513,9 @@ export namespace Prisma {
     personal_achievement: number
     player_stats: number
     is_participant: number
+    Legends: number
+    LegendsTeamAchievements: number
+    LegendsPersonalAchievements: number
   }
 
   export type TeamsCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -1976,6 +2525,9 @@ export namespace Prisma {
     personal_achievement?: boolean | TeamsCountOutputTypeCountPersonal_achievementArgs
     player_stats?: boolean | TeamsCountOutputTypeCountPlayer_statsArgs
     is_participant?: boolean | TeamsCountOutputTypeCountIs_participantArgs
+    Legends?: boolean | TeamsCountOutputTypeCountLegendsArgs
+    LegendsTeamAchievements?: boolean | TeamsCountOutputTypeCountLegendsTeamAchievementsArgs
+    LegendsPersonalAchievements?: boolean | TeamsCountOutputTypeCountLegendsPersonalAchievementsArgs
   }
 
   // Custom InputTypes
@@ -2029,6 +2581,27 @@ export namespace Prisma {
    */
   export type TeamsCountOutputTypeCountIs_participantArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: Is_ParticipantWhereInput
+  }
+
+  /**
+   * TeamsCountOutputType without action
+   */
+  export type TeamsCountOutputTypeCountLegendsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LegendsWhereInput
+  }
+
+  /**
+   * TeamsCountOutputType without action
+   */
+  export type TeamsCountOutputTypeCountLegendsTeamAchievementsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LegendsTeamAchievementsWhereInput
+  }
+
+  /**
+   * TeamsCountOutputType without action
+   */
+  export type TeamsCountOutputTypeCountLegendsPersonalAchievementsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LegendsPersonalAchievementsWhereInput
   }
 
 
@@ -2107,12 +2680,16 @@ export namespace Prisma {
     league_achievement: number
     personal_achievement: number
     player_stats: number
+    LegendsTeamAchievements: number
+    LegendsPersonalAchievements: number
   }
 
   export type LeaguesCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     league_achievement?: boolean | LeaguesCountOutputTypeCountLeague_achievementArgs
     personal_achievement?: boolean | LeaguesCountOutputTypeCountPersonal_achievementArgs
     player_stats?: boolean | LeaguesCountOutputTypeCountPlayer_statsArgs
+    LegendsTeamAchievements?: boolean | LeaguesCountOutputTypeCountLegendsTeamAchievementsArgs
+    LegendsPersonalAchievements?: boolean | LeaguesCountOutputTypeCountLegendsPersonalAchievementsArgs
   }
 
   // Custom InputTypes
@@ -2147,6 +2724,20 @@ export namespace Prisma {
     where?: PlayerStatsWhereInput
   }
 
+  /**
+   * LeaguesCountOutputType without action
+   */
+  export type LeaguesCountOutputTypeCountLegendsTeamAchievementsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LegendsTeamAchievementsWhereInput
+  }
+
+  /**
+   * LeaguesCountOutputType without action
+   */
+  export type LeaguesCountOutputTypeCountLegendsPersonalAchievementsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LegendsPersonalAchievementsWhereInput
+  }
+
 
   /**
    * Count Type PersonalAchievementsCountOutputType
@@ -2154,10 +2745,12 @@ export namespace Prisma {
 
   export type PersonalAchievementsCountOutputType = {
     personal_achievement: number
+    LegendsPersonalAchievements: number
   }
 
   export type PersonalAchievementsCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     personal_achievement?: boolean | PersonalAchievementsCountOutputTypeCountPersonal_achievementArgs
+    LegendsPersonalAchievements?: boolean | PersonalAchievementsCountOutputTypeCountLegendsPersonalAchievementsArgs
   }
 
   // Custom InputTypes
@@ -2176,6 +2769,62 @@ export namespace Prisma {
    */
   export type PersonalAchievementsCountOutputTypeCountPersonal_achievementArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: PlayerPersonalAchievementsWhereInput
+  }
+
+  /**
+   * PersonalAchievementsCountOutputType without action
+   */
+  export type PersonalAchievementsCountOutputTypeCountLegendsPersonalAchievementsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LegendsPersonalAchievementsWhereInput
+  }
+
+
+  /**
+   * Count Type LegendsCountOutputType
+   */
+
+  export type LegendsCountOutputType = {
+    legends_team_achievement: number
+    legends_personal_achievement: number
+    thoughtsReceived: number
+  }
+
+  export type LegendsCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    legends_team_achievement?: boolean | LegendsCountOutputTypeCountLegends_team_achievementArgs
+    legends_personal_achievement?: boolean | LegendsCountOutputTypeCountLegends_personal_achievementArgs
+    thoughtsReceived?: boolean | LegendsCountOutputTypeCountThoughtsReceivedArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * LegendsCountOutputType without action
+   */
+  export type LegendsCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsCountOutputType
+     */
+    select?: LegendsCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * LegendsCountOutputType without action
+   */
+  export type LegendsCountOutputTypeCountLegends_team_achievementArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LegendsTeamAchievementsWhereInput
+  }
+
+  /**
+   * LegendsCountOutputType without action
+   */
+  export type LegendsCountOutputTypeCountLegends_personal_achievementArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LegendsPersonalAchievementsWhereInput
+  }
+
+  /**
+   * LegendsCountOutputType without action
+   */
+  export type LegendsCountOutputTypeCountThoughtsReceivedArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LegendsTeammateThoughtsWhereInput
   }
 
 
@@ -2330,6 +2979,9 @@ export namespace Prisma {
     personal_achievement?: boolean | Teams$personal_achievementArgs<ExtArgs>
     player_stats?: boolean | Teams$player_statsArgs<ExtArgs>
     is_participant?: boolean | Teams$is_participantArgs<ExtArgs>
+    Legends?: boolean | Teams$LegendsArgs<ExtArgs>
+    LegendsTeamAchievements?: boolean | Teams$LegendsTeamAchievementsArgs<ExtArgs>
+    LegendsPersonalAchievements?: boolean | Teams$LegendsPersonalAchievementsArgs<ExtArgs>
     _count?: boolean | TeamsCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["teams"]>
 
@@ -2357,6 +3009,9 @@ export namespace Prisma {
     personal_achievement?: boolean | Teams$personal_achievementArgs<ExtArgs>
     player_stats?: boolean | Teams$player_statsArgs<ExtArgs>
     is_participant?: boolean | Teams$is_participantArgs<ExtArgs>
+    Legends?: boolean | Teams$LegendsArgs<ExtArgs>
+    LegendsTeamAchievements?: boolean | Teams$LegendsTeamAchievementsArgs<ExtArgs>
+    LegendsPersonalAchievements?: boolean | Teams$LegendsPersonalAchievementsArgs<ExtArgs>
     _count?: boolean | TeamsCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type TeamsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -2372,6 +3027,9 @@ export namespace Prisma {
       personal_achievement: Prisma.$PlayerPersonalAchievementsPayload<ExtArgs>[]
       player_stats: Prisma.$PlayerStatsPayload<ExtArgs>[]
       is_participant: Prisma.$Is_ParticipantPayload<ExtArgs>[]
+      Legends: Prisma.$LegendsPayload<ExtArgs>[]
+      LegendsTeamAchievements: Prisma.$LegendsTeamAchievementsPayload<ExtArgs>[]
+      LegendsPersonalAchievements: Prisma.$LegendsPersonalAchievementsPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -2777,6 +3435,9 @@ export namespace Prisma {
     personal_achievement<T extends Teams$personal_achievementArgs<ExtArgs> = {}>(args?: Subset<T, Teams$personal_achievementArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PlayerPersonalAchievementsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     player_stats<T extends Teams$player_statsArgs<ExtArgs> = {}>(args?: Subset<T, Teams$player_statsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PlayerStatsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     is_participant<T extends Teams$is_participantArgs<ExtArgs> = {}>(args?: Subset<T, Teams$is_participantArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Is_ParticipantPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    Legends<T extends Teams$LegendsArgs<ExtArgs> = {}>(args?: Subset<T, Teams$LegendsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LegendsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    LegendsTeamAchievements<T extends Teams$LegendsTeamAchievementsArgs<ExtArgs> = {}>(args?: Subset<T, Teams$LegendsTeamAchievementsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LegendsTeamAchievementsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    LegendsPersonalAchievements<T extends Teams$LegendsPersonalAchievementsArgs<ExtArgs> = {}>(args?: Subset<T, Teams$LegendsPersonalAchievementsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LegendsPersonalAchievementsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3356,6 +4017,78 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: Is_ParticipantScalarFieldEnum | Is_ParticipantScalarFieldEnum[]
+  }
+
+  /**
+   * Teams.Legends
+   */
+  export type Teams$LegendsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Legends
+     */
+    select?: LegendsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Legends
+     */
+    omit?: LegendsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsInclude<ExtArgs> | null
+    where?: LegendsWhereInput
+    orderBy?: LegendsOrderByWithRelationInput | LegendsOrderByWithRelationInput[]
+    cursor?: LegendsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: LegendsScalarFieldEnum | LegendsScalarFieldEnum[]
+  }
+
+  /**
+   * Teams.LegendsTeamAchievements
+   */
+  export type Teams$LegendsTeamAchievementsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsTeamAchievements
+     */
+    select?: LegendsTeamAchievementsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsTeamAchievements
+     */
+    omit?: LegendsTeamAchievementsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsTeamAchievementsInclude<ExtArgs> | null
+    where?: LegendsTeamAchievementsWhereInput
+    orderBy?: LegendsTeamAchievementsOrderByWithRelationInput | LegendsTeamAchievementsOrderByWithRelationInput[]
+    cursor?: LegendsTeamAchievementsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: LegendsTeamAchievementsScalarFieldEnum | LegendsTeamAchievementsScalarFieldEnum[]
+  }
+
+  /**
+   * Teams.LegendsPersonalAchievements
+   */
+  export type Teams$LegendsPersonalAchievementsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsPersonalAchievements
+     */
+    select?: LegendsPersonalAchievementsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsPersonalAchievements
+     */
+    omit?: LegendsPersonalAchievementsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsPersonalAchievementsInclude<ExtArgs> | null
+    where?: LegendsPersonalAchievementsWhereInput
+    orderBy?: LegendsPersonalAchievementsOrderByWithRelationInput | LegendsPersonalAchievementsOrderByWithRelationInput[]
+    cursor?: LegendsPersonalAchievementsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: LegendsPersonalAchievementsScalarFieldEnum | LegendsPersonalAchievementsScalarFieldEnum[]
   }
 
   /**
@@ -7998,6 +8731,8 @@ export namespace Prisma {
     league_achievement?: boolean | Leagues$league_achievementArgs<ExtArgs>
     personal_achievement?: boolean | Leagues$personal_achievementArgs<ExtArgs>
     player_stats?: boolean | Leagues$player_statsArgs<ExtArgs>
+    LegendsTeamAchievements?: boolean | Leagues$LegendsTeamAchievementsArgs<ExtArgs>
+    LegendsPersonalAchievements?: boolean | Leagues$LegendsPersonalAchievementsArgs<ExtArgs>
     _count?: boolean | LeaguesCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["leagues"]>
 
@@ -8021,6 +8756,8 @@ export namespace Prisma {
     league_achievement?: boolean | Leagues$league_achievementArgs<ExtArgs>
     personal_achievement?: boolean | Leagues$personal_achievementArgs<ExtArgs>
     player_stats?: boolean | Leagues$player_statsArgs<ExtArgs>
+    LegendsTeamAchievements?: boolean | Leagues$LegendsTeamAchievementsArgs<ExtArgs>
+    LegendsPersonalAchievements?: boolean | Leagues$LegendsPersonalAchievementsArgs<ExtArgs>
     _count?: boolean | LeaguesCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type LeaguesIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -8032,6 +8769,8 @@ export namespace Prisma {
       league_achievement: Prisma.$PlayerTeamAchievementsPayload<ExtArgs>[]
       personal_achievement: Prisma.$PlayerPersonalAchievementsPayload<ExtArgs>[]
       player_stats: Prisma.$PlayerStatsPayload<ExtArgs>[]
+      LegendsTeamAchievements: Prisma.$LegendsTeamAchievementsPayload<ExtArgs>[]
+      LegendsPersonalAchievements: Prisma.$LegendsPersonalAchievementsPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -8433,6 +9172,8 @@ export namespace Prisma {
     league_achievement<T extends Leagues$league_achievementArgs<ExtArgs> = {}>(args?: Subset<T, Leagues$league_achievementArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PlayerTeamAchievementsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     personal_achievement<T extends Leagues$personal_achievementArgs<ExtArgs> = {}>(args?: Subset<T, Leagues$personal_achievementArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PlayerPersonalAchievementsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     player_stats<T extends Leagues$player_statsArgs<ExtArgs> = {}>(args?: Subset<T, Leagues$player_statsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PlayerStatsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    LegendsTeamAchievements<T extends Leagues$LegendsTeamAchievementsArgs<ExtArgs> = {}>(args?: Subset<T, Leagues$LegendsTeamAchievementsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LegendsTeamAchievementsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    LegendsPersonalAchievements<T extends Leagues$LegendsPersonalAchievementsArgs<ExtArgs> = {}>(args?: Subset<T, Leagues$LegendsPersonalAchievementsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LegendsPersonalAchievementsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -8924,6 +9665,54 @@ export namespace Prisma {
   }
 
   /**
+   * Leagues.LegendsTeamAchievements
+   */
+  export type Leagues$LegendsTeamAchievementsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsTeamAchievements
+     */
+    select?: LegendsTeamAchievementsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsTeamAchievements
+     */
+    omit?: LegendsTeamAchievementsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsTeamAchievementsInclude<ExtArgs> | null
+    where?: LegendsTeamAchievementsWhereInput
+    orderBy?: LegendsTeamAchievementsOrderByWithRelationInput | LegendsTeamAchievementsOrderByWithRelationInput[]
+    cursor?: LegendsTeamAchievementsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: LegendsTeamAchievementsScalarFieldEnum | LegendsTeamAchievementsScalarFieldEnum[]
+  }
+
+  /**
+   * Leagues.LegendsPersonalAchievements
+   */
+  export type Leagues$LegendsPersonalAchievementsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsPersonalAchievements
+     */
+    select?: LegendsPersonalAchievementsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsPersonalAchievements
+     */
+    omit?: LegendsPersonalAchievementsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsPersonalAchievementsInclude<ExtArgs> | null
+    where?: LegendsPersonalAchievementsWhereInput
+    orderBy?: LegendsPersonalAchievementsOrderByWithRelationInput | LegendsPersonalAchievementsOrderByWithRelationInput[]
+    cursor?: LegendsPersonalAchievementsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: LegendsPersonalAchievementsScalarFieldEnum | LegendsPersonalAchievementsScalarFieldEnum[]
+  }
+
+  /**
    * Leagues without action
    */
   export type LeaguesDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -9083,6 +9872,7 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     personal_achievement?: boolean | PersonalAchievements$personal_achievementArgs<ExtArgs>
+    LegendsPersonalAchievements?: boolean | PersonalAchievements$LegendsPersonalAchievementsArgs<ExtArgs>
     _count?: boolean | PersonalAchievementsCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["personalAchievements"]>
 
@@ -9104,6 +9894,7 @@ export namespace Prisma {
   export type PersonalAchievementsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name", ExtArgs["result"]["personalAchievements"]>
   export type PersonalAchievementsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     personal_achievement?: boolean | PersonalAchievements$personal_achievementArgs<ExtArgs>
+    LegendsPersonalAchievements?: boolean | PersonalAchievements$LegendsPersonalAchievementsArgs<ExtArgs>
     _count?: boolean | PersonalAchievementsCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type PersonalAchievementsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -9113,6 +9904,7 @@ export namespace Prisma {
     name: "PersonalAchievements"
     objects: {
       personal_achievement: Prisma.$PlayerPersonalAchievementsPayload<ExtArgs>[]
+      LegendsPersonalAchievements: Prisma.$LegendsPersonalAchievementsPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -9512,6 +10304,7 @@ export namespace Prisma {
   export interface Prisma__PersonalAchievementsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     personal_achievement<T extends PersonalAchievements$personal_achievementArgs<ExtArgs> = {}>(args?: Subset<T, PersonalAchievements$personal_achievementArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PlayerPersonalAchievementsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    LegendsPersonalAchievements<T extends PersonalAchievements$LegendsPersonalAchievementsArgs<ExtArgs> = {}>(args?: Subset<T, PersonalAchievements$LegendsPersonalAchievementsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LegendsPersonalAchievementsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -9952,6 +10745,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: PlayerPersonalAchievementsScalarFieldEnum | PlayerPersonalAchievementsScalarFieldEnum[]
+  }
+
+  /**
+   * PersonalAchievements.LegendsPersonalAchievements
+   */
+  export type PersonalAchievements$LegendsPersonalAchievementsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsPersonalAchievements
+     */
+    select?: LegendsPersonalAchievementsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsPersonalAchievements
+     */
+    omit?: LegendsPersonalAchievementsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsPersonalAchievementsInclude<ExtArgs> | null
+    where?: LegendsPersonalAchievementsWhereInput
+    orderBy?: LegendsPersonalAchievementsOrderByWithRelationInput | LegendsPersonalAchievementsOrderByWithRelationInput[]
+    cursor?: LegendsPersonalAchievementsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: LegendsPersonalAchievementsScalarFieldEnum | LegendsPersonalAchievementsScalarFieldEnum[]
   }
 
   /**
@@ -16679,6 +17496,6734 @@ export namespace Prisma {
 
 
   /**
+   * Model Legends
+   */
+
+  export type AggregateLegends = {
+    _count: LegendsCountAggregateOutputType | null
+    _avg: LegendsAvgAggregateOutputType | null
+    _sum: LegendsSumAggregateOutputType | null
+    _min: LegendsMinAggregateOutputType | null
+    _max: LegendsMaxAggregateOutputType | null
+  }
+
+  export type LegendsAvgAggregateOutputType = {
+    age: number | null
+  }
+
+  export type LegendsSumAggregateOutputType = {
+    age: number | null
+  }
+
+  export type LegendsMinAggregateOutputType = {
+    id: string | null
+    name: string | null
+    age: number | null
+    position: string | null
+    team_id: string | null
+  }
+
+  export type LegendsMaxAggregateOutputType = {
+    id: string | null
+    name: string | null
+    age: number | null
+    position: string | null
+    team_id: string | null
+  }
+
+  export type LegendsCountAggregateOutputType = {
+    id: number
+    name: number
+    age: number
+    position: number
+    team_id: number
+    _all: number
+  }
+
+
+  export type LegendsAvgAggregateInputType = {
+    age?: true
+  }
+
+  export type LegendsSumAggregateInputType = {
+    age?: true
+  }
+
+  export type LegendsMinAggregateInputType = {
+    id?: true
+    name?: true
+    age?: true
+    position?: true
+    team_id?: true
+  }
+
+  export type LegendsMaxAggregateInputType = {
+    id?: true
+    name?: true
+    age?: true
+    position?: true
+    team_id?: true
+  }
+
+  export type LegendsCountAggregateInputType = {
+    id?: true
+    name?: true
+    age?: true
+    position?: true
+    team_id?: true
+    _all?: true
+  }
+
+  export type LegendsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Legends to aggregate.
+     */
+    where?: LegendsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Legends to fetch.
+     */
+    orderBy?: LegendsOrderByWithRelationInput | LegendsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: LegendsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Legends from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Legends.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Legends
+    **/
+    _count?: true | LegendsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: LegendsAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: LegendsSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: LegendsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: LegendsMaxAggregateInputType
+  }
+
+  export type GetLegendsAggregateType<T extends LegendsAggregateArgs> = {
+        [P in keyof T & keyof AggregateLegends]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateLegends[P]>
+      : GetScalarType<T[P], AggregateLegends[P]>
+  }
+
+
+
+
+  export type LegendsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LegendsWhereInput
+    orderBy?: LegendsOrderByWithAggregationInput | LegendsOrderByWithAggregationInput[]
+    by: LegendsScalarFieldEnum[] | LegendsScalarFieldEnum
+    having?: LegendsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: LegendsCountAggregateInputType | true
+    _avg?: LegendsAvgAggregateInputType
+    _sum?: LegendsSumAggregateInputType
+    _min?: LegendsMinAggregateInputType
+    _max?: LegendsMaxAggregateInputType
+  }
+
+  export type LegendsGroupByOutputType = {
+    id: string
+    name: string
+    age: number
+    position: string
+    team_id: string
+    _count: LegendsCountAggregateOutputType | null
+    _avg: LegendsAvgAggregateOutputType | null
+    _sum: LegendsSumAggregateOutputType | null
+    _min: LegendsMinAggregateOutputType | null
+    _max: LegendsMaxAggregateOutputType | null
+  }
+
+  type GetLegendsGroupByPayload<T extends LegendsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<LegendsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof LegendsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], LegendsGroupByOutputType[P]>
+            : GetScalarType<T[P], LegendsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type LegendsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    age?: boolean
+    position?: boolean
+    team_id?: boolean
+    legends_info?: boolean | Legends$legends_infoArgs<ExtArgs>
+    legends_rating?: boolean | Legends$legends_ratingArgs<ExtArgs>
+    legends_team_achievement?: boolean | Legends$legends_team_achievementArgs<ExtArgs>
+    legends_personal_achievement?: boolean | Legends$legends_personal_achievementArgs<ExtArgs>
+    thoughtsReceived?: boolean | Legends$thoughtsReceivedArgs<ExtArgs>
+    team?: boolean | TeamsDefaultArgs<ExtArgs>
+    _count?: boolean | LegendsCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["legends"]>
+
+  export type LegendsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    age?: boolean
+    position?: boolean
+    team_id?: boolean
+    team?: boolean | TeamsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["legends"]>
+
+  export type LegendsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    age?: boolean
+    position?: boolean
+    team_id?: boolean
+    team?: boolean | TeamsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["legends"]>
+
+  export type LegendsSelectScalar = {
+    id?: boolean
+    name?: boolean
+    age?: boolean
+    position?: boolean
+    team_id?: boolean
+  }
+
+  export type LegendsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "age" | "position" | "team_id", ExtArgs["result"]["legends"]>
+  export type LegendsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    legends_info?: boolean | Legends$legends_infoArgs<ExtArgs>
+    legends_rating?: boolean | Legends$legends_ratingArgs<ExtArgs>
+    legends_team_achievement?: boolean | Legends$legends_team_achievementArgs<ExtArgs>
+    legends_personal_achievement?: boolean | Legends$legends_personal_achievementArgs<ExtArgs>
+    thoughtsReceived?: boolean | Legends$thoughtsReceivedArgs<ExtArgs>
+    team?: boolean | TeamsDefaultArgs<ExtArgs>
+    _count?: boolean | LegendsCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type LegendsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    team?: boolean | TeamsDefaultArgs<ExtArgs>
+  }
+  export type LegendsIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    team?: boolean | TeamsDefaultArgs<ExtArgs>
+  }
+
+  export type $LegendsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Legends"
+    objects: {
+      legends_info: Prisma.$LegendsInfoPayload<ExtArgs> | null
+      legends_rating: Prisma.$LegendsRatingsPayload<ExtArgs> | null
+      legends_team_achievement: Prisma.$LegendsTeamAchievementsPayload<ExtArgs>[]
+      legends_personal_achievement: Prisma.$LegendsPersonalAchievementsPayload<ExtArgs>[]
+      thoughtsReceived: Prisma.$LegendsTeammateThoughtsPayload<ExtArgs>[]
+      team: Prisma.$TeamsPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      name: string
+      age: number
+      position: string
+      team_id: string
+    }, ExtArgs["result"]["legends"]>
+    composites: {}
+  }
+
+  type LegendsGetPayload<S extends boolean | null | undefined | LegendsDefaultArgs> = $Result.GetResult<Prisma.$LegendsPayload, S>
+
+  type LegendsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<LegendsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: LegendsCountAggregateInputType | true
+    }
+
+  export interface LegendsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Legends'], meta: { name: 'Legends' } }
+    /**
+     * Find zero or one Legends that matches the filter.
+     * @param {LegendsFindUniqueArgs} args - Arguments to find a Legends
+     * @example
+     * // Get one Legends
+     * const legends = await prisma.legends.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends LegendsFindUniqueArgs>(args: SelectSubset<T, LegendsFindUniqueArgs<ExtArgs>>): Prisma__LegendsClient<$Result.GetResult<Prisma.$LegendsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Legends that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {LegendsFindUniqueOrThrowArgs} args - Arguments to find a Legends
+     * @example
+     * // Get one Legends
+     * const legends = await prisma.legends.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends LegendsFindUniqueOrThrowArgs>(args: SelectSubset<T, LegendsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__LegendsClient<$Result.GetResult<Prisma.$LegendsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Legends that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LegendsFindFirstArgs} args - Arguments to find a Legends
+     * @example
+     * // Get one Legends
+     * const legends = await prisma.legends.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends LegendsFindFirstArgs>(args?: SelectSubset<T, LegendsFindFirstArgs<ExtArgs>>): Prisma__LegendsClient<$Result.GetResult<Prisma.$LegendsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Legends that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LegendsFindFirstOrThrowArgs} args - Arguments to find a Legends
+     * @example
+     * // Get one Legends
+     * const legends = await prisma.legends.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends LegendsFindFirstOrThrowArgs>(args?: SelectSubset<T, LegendsFindFirstOrThrowArgs<ExtArgs>>): Prisma__LegendsClient<$Result.GetResult<Prisma.$LegendsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Legends that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LegendsFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Legends
+     * const legends = await prisma.legends.findMany()
+     * 
+     * // Get first 10 Legends
+     * const legends = await prisma.legends.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const legendsWithIdOnly = await prisma.legends.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends LegendsFindManyArgs>(args?: SelectSubset<T, LegendsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LegendsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Legends.
+     * @param {LegendsCreateArgs} args - Arguments to create a Legends.
+     * @example
+     * // Create one Legends
+     * const Legends = await prisma.legends.create({
+     *   data: {
+     *     // ... data to create a Legends
+     *   }
+     * })
+     * 
+     */
+    create<T extends LegendsCreateArgs>(args: SelectSubset<T, LegendsCreateArgs<ExtArgs>>): Prisma__LegendsClient<$Result.GetResult<Prisma.$LegendsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Legends.
+     * @param {LegendsCreateManyArgs} args - Arguments to create many Legends.
+     * @example
+     * // Create many Legends
+     * const legends = await prisma.legends.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends LegendsCreateManyArgs>(args?: SelectSubset<T, LegendsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Legends and returns the data saved in the database.
+     * @param {LegendsCreateManyAndReturnArgs} args - Arguments to create many Legends.
+     * @example
+     * // Create many Legends
+     * const legends = await prisma.legends.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Legends and only return the `id`
+     * const legendsWithIdOnly = await prisma.legends.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends LegendsCreateManyAndReturnArgs>(args?: SelectSubset<T, LegendsCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LegendsPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Legends.
+     * @param {LegendsDeleteArgs} args - Arguments to delete one Legends.
+     * @example
+     * // Delete one Legends
+     * const Legends = await prisma.legends.delete({
+     *   where: {
+     *     // ... filter to delete one Legends
+     *   }
+     * })
+     * 
+     */
+    delete<T extends LegendsDeleteArgs>(args: SelectSubset<T, LegendsDeleteArgs<ExtArgs>>): Prisma__LegendsClient<$Result.GetResult<Prisma.$LegendsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Legends.
+     * @param {LegendsUpdateArgs} args - Arguments to update one Legends.
+     * @example
+     * // Update one Legends
+     * const legends = await prisma.legends.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends LegendsUpdateArgs>(args: SelectSubset<T, LegendsUpdateArgs<ExtArgs>>): Prisma__LegendsClient<$Result.GetResult<Prisma.$LegendsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Legends.
+     * @param {LegendsDeleteManyArgs} args - Arguments to filter Legends to delete.
+     * @example
+     * // Delete a few Legends
+     * const { count } = await prisma.legends.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends LegendsDeleteManyArgs>(args?: SelectSubset<T, LegendsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Legends.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LegendsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Legends
+     * const legends = await prisma.legends.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends LegendsUpdateManyArgs>(args: SelectSubset<T, LegendsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Legends and returns the data updated in the database.
+     * @param {LegendsUpdateManyAndReturnArgs} args - Arguments to update many Legends.
+     * @example
+     * // Update many Legends
+     * const legends = await prisma.legends.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Legends and only return the `id`
+     * const legendsWithIdOnly = await prisma.legends.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends LegendsUpdateManyAndReturnArgs>(args: SelectSubset<T, LegendsUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LegendsPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Legends.
+     * @param {LegendsUpsertArgs} args - Arguments to update or create a Legends.
+     * @example
+     * // Update or create a Legends
+     * const legends = await prisma.legends.upsert({
+     *   create: {
+     *     // ... data to create a Legends
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Legends we want to update
+     *   }
+     * })
+     */
+    upsert<T extends LegendsUpsertArgs>(args: SelectSubset<T, LegendsUpsertArgs<ExtArgs>>): Prisma__LegendsClient<$Result.GetResult<Prisma.$LegendsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Legends.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LegendsCountArgs} args - Arguments to filter Legends to count.
+     * @example
+     * // Count the number of Legends
+     * const count = await prisma.legends.count({
+     *   where: {
+     *     // ... the filter for the Legends we want to count
+     *   }
+     * })
+    **/
+    count<T extends LegendsCountArgs>(
+      args?: Subset<T, LegendsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], LegendsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Legends.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LegendsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends LegendsAggregateArgs>(args: Subset<T, LegendsAggregateArgs>): Prisma.PrismaPromise<GetLegendsAggregateType<T>>
+
+    /**
+     * Group by Legends.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LegendsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends LegendsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: LegendsGroupByArgs['orderBy'] }
+        : { orderBy?: LegendsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, LegendsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetLegendsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Legends model
+   */
+  readonly fields: LegendsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Legends.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__LegendsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    legends_info<T extends Legends$legends_infoArgs<ExtArgs> = {}>(args?: Subset<T, Legends$legends_infoArgs<ExtArgs>>): Prisma__LegendsInfoClient<$Result.GetResult<Prisma.$LegendsInfoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    legends_rating<T extends Legends$legends_ratingArgs<ExtArgs> = {}>(args?: Subset<T, Legends$legends_ratingArgs<ExtArgs>>): Prisma__LegendsRatingsClient<$Result.GetResult<Prisma.$LegendsRatingsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    legends_team_achievement<T extends Legends$legends_team_achievementArgs<ExtArgs> = {}>(args?: Subset<T, Legends$legends_team_achievementArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LegendsTeamAchievementsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    legends_personal_achievement<T extends Legends$legends_personal_achievementArgs<ExtArgs> = {}>(args?: Subset<T, Legends$legends_personal_achievementArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LegendsPersonalAchievementsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    thoughtsReceived<T extends Legends$thoughtsReceivedArgs<ExtArgs> = {}>(args?: Subset<T, Legends$thoughtsReceivedArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LegendsTeammateThoughtsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    team<T extends TeamsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, TeamsDefaultArgs<ExtArgs>>): Prisma__TeamsClient<$Result.GetResult<Prisma.$TeamsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Legends model
+   */
+  interface LegendsFieldRefs {
+    readonly id: FieldRef<"Legends", 'String'>
+    readonly name: FieldRef<"Legends", 'String'>
+    readonly age: FieldRef<"Legends", 'Int'>
+    readonly position: FieldRef<"Legends", 'String'>
+    readonly team_id: FieldRef<"Legends", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Legends findUnique
+   */
+  export type LegendsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Legends
+     */
+    select?: LegendsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Legends
+     */
+    omit?: LegendsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsInclude<ExtArgs> | null
+    /**
+     * Filter, which Legends to fetch.
+     */
+    where: LegendsWhereUniqueInput
+  }
+
+  /**
+   * Legends findUniqueOrThrow
+   */
+  export type LegendsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Legends
+     */
+    select?: LegendsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Legends
+     */
+    omit?: LegendsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsInclude<ExtArgs> | null
+    /**
+     * Filter, which Legends to fetch.
+     */
+    where: LegendsWhereUniqueInput
+  }
+
+  /**
+   * Legends findFirst
+   */
+  export type LegendsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Legends
+     */
+    select?: LegendsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Legends
+     */
+    omit?: LegendsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsInclude<ExtArgs> | null
+    /**
+     * Filter, which Legends to fetch.
+     */
+    where?: LegendsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Legends to fetch.
+     */
+    orderBy?: LegendsOrderByWithRelationInput | LegendsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Legends.
+     */
+    cursor?: LegendsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Legends from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Legends.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Legends.
+     */
+    distinct?: LegendsScalarFieldEnum | LegendsScalarFieldEnum[]
+  }
+
+  /**
+   * Legends findFirstOrThrow
+   */
+  export type LegendsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Legends
+     */
+    select?: LegendsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Legends
+     */
+    omit?: LegendsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsInclude<ExtArgs> | null
+    /**
+     * Filter, which Legends to fetch.
+     */
+    where?: LegendsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Legends to fetch.
+     */
+    orderBy?: LegendsOrderByWithRelationInput | LegendsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Legends.
+     */
+    cursor?: LegendsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Legends from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Legends.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Legends.
+     */
+    distinct?: LegendsScalarFieldEnum | LegendsScalarFieldEnum[]
+  }
+
+  /**
+   * Legends findMany
+   */
+  export type LegendsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Legends
+     */
+    select?: LegendsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Legends
+     */
+    omit?: LegendsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsInclude<ExtArgs> | null
+    /**
+     * Filter, which Legends to fetch.
+     */
+    where?: LegendsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Legends to fetch.
+     */
+    orderBy?: LegendsOrderByWithRelationInput | LegendsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Legends.
+     */
+    cursor?: LegendsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Legends from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Legends.
+     */
+    skip?: number
+    distinct?: LegendsScalarFieldEnum | LegendsScalarFieldEnum[]
+  }
+
+  /**
+   * Legends create
+   */
+  export type LegendsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Legends
+     */
+    select?: LegendsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Legends
+     */
+    omit?: LegendsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Legends.
+     */
+    data: XOR<LegendsCreateInput, LegendsUncheckedCreateInput>
+  }
+
+  /**
+   * Legends createMany
+   */
+  export type LegendsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Legends.
+     */
+    data: LegendsCreateManyInput | LegendsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Legends createManyAndReturn
+   */
+  export type LegendsCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Legends
+     */
+    select?: LegendsSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Legends
+     */
+    omit?: LegendsOmit<ExtArgs> | null
+    /**
+     * The data used to create many Legends.
+     */
+    data: LegendsCreateManyInput | LegendsCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Legends update
+   */
+  export type LegendsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Legends
+     */
+    select?: LegendsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Legends
+     */
+    omit?: LegendsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Legends.
+     */
+    data: XOR<LegendsUpdateInput, LegendsUncheckedUpdateInput>
+    /**
+     * Choose, which Legends to update.
+     */
+    where: LegendsWhereUniqueInput
+  }
+
+  /**
+   * Legends updateMany
+   */
+  export type LegendsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Legends.
+     */
+    data: XOR<LegendsUpdateManyMutationInput, LegendsUncheckedUpdateManyInput>
+    /**
+     * Filter which Legends to update
+     */
+    where?: LegendsWhereInput
+    /**
+     * Limit how many Legends to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Legends updateManyAndReturn
+   */
+  export type LegendsUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Legends
+     */
+    select?: LegendsSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Legends
+     */
+    omit?: LegendsOmit<ExtArgs> | null
+    /**
+     * The data used to update Legends.
+     */
+    data: XOR<LegendsUpdateManyMutationInput, LegendsUncheckedUpdateManyInput>
+    /**
+     * Filter which Legends to update
+     */
+    where?: LegendsWhereInput
+    /**
+     * Limit how many Legends to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Legends upsert
+   */
+  export type LegendsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Legends
+     */
+    select?: LegendsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Legends
+     */
+    omit?: LegendsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Legends to update in case it exists.
+     */
+    where: LegendsWhereUniqueInput
+    /**
+     * In case the Legends found by the `where` argument doesn't exist, create a new Legends with this data.
+     */
+    create: XOR<LegendsCreateInput, LegendsUncheckedCreateInput>
+    /**
+     * In case the Legends was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<LegendsUpdateInput, LegendsUncheckedUpdateInput>
+  }
+
+  /**
+   * Legends delete
+   */
+  export type LegendsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Legends
+     */
+    select?: LegendsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Legends
+     */
+    omit?: LegendsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsInclude<ExtArgs> | null
+    /**
+     * Filter which Legends to delete.
+     */
+    where: LegendsWhereUniqueInput
+  }
+
+  /**
+   * Legends deleteMany
+   */
+  export type LegendsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Legends to delete
+     */
+    where?: LegendsWhereInput
+    /**
+     * Limit how many Legends to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Legends.legends_info
+   */
+  export type Legends$legends_infoArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsInfo
+     */
+    select?: LegendsInfoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsInfo
+     */
+    omit?: LegendsInfoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsInfoInclude<ExtArgs> | null
+    where?: LegendsInfoWhereInput
+  }
+
+  /**
+   * Legends.legends_rating
+   */
+  export type Legends$legends_ratingArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsRatings
+     */
+    select?: LegendsRatingsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsRatings
+     */
+    omit?: LegendsRatingsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsRatingsInclude<ExtArgs> | null
+    where?: LegendsRatingsWhereInput
+  }
+
+  /**
+   * Legends.legends_team_achievement
+   */
+  export type Legends$legends_team_achievementArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsTeamAchievements
+     */
+    select?: LegendsTeamAchievementsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsTeamAchievements
+     */
+    omit?: LegendsTeamAchievementsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsTeamAchievementsInclude<ExtArgs> | null
+    where?: LegendsTeamAchievementsWhereInput
+    orderBy?: LegendsTeamAchievementsOrderByWithRelationInput | LegendsTeamAchievementsOrderByWithRelationInput[]
+    cursor?: LegendsTeamAchievementsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: LegendsTeamAchievementsScalarFieldEnum | LegendsTeamAchievementsScalarFieldEnum[]
+  }
+
+  /**
+   * Legends.legends_personal_achievement
+   */
+  export type Legends$legends_personal_achievementArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsPersonalAchievements
+     */
+    select?: LegendsPersonalAchievementsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsPersonalAchievements
+     */
+    omit?: LegendsPersonalAchievementsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsPersonalAchievementsInclude<ExtArgs> | null
+    where?: LegendsPersonalAchievementsWhereInput
+    orderBy?: LegendsPersonalAchievementsOrderByWithRelationInput | LegendsPersonalAchievementsOrderByWithRelationInput[]
+    cursor?: LegendsPersonalAchievementsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: LegendsPersonalAchievementsScalarFieldEnum | LegendsPersonalAchievementsScalarFieldEnum[]
+  }
+
+  /**
+   * Legends.thoughtsReceived
+   */
+  export type Legends$thoughtsReceivedArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsTeammateThoughts
+     */
+    select?: LegendsTeammateThoughtsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsTeammateThoughts
+     */
+    omit?: LegendsTeammateThoughtsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsTeammateThoughtsInclude<ExtArgs> | null
+    where?: LegendsTeammateThoughtsWhereInput
+    orderBy?: LegendsTeammateThoughtsOrderByWithRelationInput | LegendsTeammateThoughtsOrderByWithRelationInput[]
+    cursor?: LegendsTeammateThoughtsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: LegendsTeammateThoughtsScalarFieldEnum | LegendsTeammateThoughtsScalarFieldEnum[]
+  }
+
+  /**
+   * Legends without action
+   */
+  export type LegendsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Legends
+     */
+    select?: LegendsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Legends
+     */
+    omit?: LegendsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model LegendsInfo
+   */
+
+  export type AggregateLegendsInfo = {
+    _count: LegendsInfoCountAggregateOutputType | null
+    _avg: LegendsInfoAvgAggregateOutputType | null
+    _sum: LegendsInfoSumAggregateOutputType | null
+    _min: LegendsInfoMinAggregateOutputType | null
+    _max: LegendsInfoMaxAggregateOutputType | null
+  }
+
+  export type LegendsInfoAvgAggregateOutputType = {
+    height: number | null
+  }
+
+  export type LegendsInfoSumAggregateOutputType = {
+    height: number | null
+  }
+
+  export type LegendsInfoMinAggregateOutputType = {
+    player_id: string | null
+    dob: Date | null
+    birthplace: string | null
+    gender: string | null
+    biography: string | null
+    height: number | null
+  }
+
+  export type LegendsInfoMaxAggregateOutputType = {
+    player_id: string | null
+    dob: Date | null
+    birthplace: string | null
+    gender: string | null
+    biography: string | null
+    height: number | null
+  }
+
+  export type LegendsInfoCountAggregateOutputType = {
+    player_id: number
+    dob: number
+    birthplace: number
+    gender: number
+    biography: number
+    height: number
+    _all: number
+  }
+
+
+  export type LegendsInfoAvgAggregateInputType = {
+    height?: true
+  }
+
+  export type LegendsInfoSumAggregateInputType = {
+    height?: true
+  }
+
+  export type LegendsInfoMinAggregateInputType = {
+    player_id?: true
+    dob?: true
+    birthplace?: true
+    gender?: true
+    biography?: true
+    height?: true
+  }
+
+  export type LegendsInfoMaxAggregateInputType = {
+    player_id?: true
+    dob?: true
+    birthplace?: true
+    gender?: true
+    biography?: true
+    height?: true
+  }
+
+  export type LegendsInfoCountAggregateInputType = {
+    player_id?: true
+    dob?: true
+    birthplace?: true
+    gender?: true
+    biography?: true
+    height?: true
+    _all?: true
+  }
+
+  export type LegendsInfoAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which LegendsInfo to aggregate.
+     */
+    where?: LegendsInfoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LegendsInfos to fetch.
+     */
+    orderBy?: LegendsInfoOrderByWithRelationInput | LegendsInfoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: LegendsInfoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LegendsInfos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LegendsInfos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned LegendsInfos
+    **/
+    _count?: true | LegendsInfoCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: LegendsInfoAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: LegendsInfoSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: LegendsInfoMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: LegendsInfoMaxAggregateInputType
+  }
+
+  export type GetLegendsInfoAggregateType<T extends LegendsInfoAggregateArgs> = {
+        [P in keyof T & keyof AggregateLegendsInfo]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateLegendsInfo[P]>
+      : GetScalarType<T[P], AggregateLegendsInfo[P]>
+  }
+
+
+
+
+  export type LegendsInfoGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LegendsInfoWhereInput
+    orderBy?: LegendsInfoOrderByWithAggregationInput | LegendsInfoOrderByWithAggregationInput[]
+    by: LegendsInfoScalarFieldEnum[] | LegendsInfoScalarFieldEnum
+    having?: LegendsInfoScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: LegendsInfoCountAggregateInputType | true
+    _avg?: LegendsInfoAvgAggregateInputType
+    _sum?: LegendsInfoSumAggregateInputType
+    _min?: LegendsInfoMinAggregateInputType
+    _max?: LegendsInfoMaxAggregateInputType
+  }
+
+  export type LegendsInfoGroupByOutputType = {
+    player_id: string
+    dob: Date
+    birthplace: string
+    gender: string
+    biography: string
+    height: number
+    _count: LegendsInfoCountAggregateOutputType | null
+    _avg: LegendsInfoAvgAggregateOutputType | null
+    _sum: LegendsInfoSumAggregateOutputType | null
+    _min: LegendsInfoMinAggregateOutputType | null
+    _max: LegendsInfoMaxAggregateOutputType | null
+  }
+
+  type GetLegendsInfoGroupByPayload<T extends LegendsInfoGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<LegendsInfoGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof LegendsInfoGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], LegendsInfoGroupByOutputType[P]>
+            : GetScalarType<T[P], LegendsInfoGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type LegendsInfoSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    player_id?: boolean
+    dob?: boolean
+    birthplace?: boolean
+    gender?: boolean
+    biography?: boolean
+    height?: boolean
+    player?: boolean | LegendsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["legendsInfo"]>
+
+  export type LegendsInfoSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    player_id?: boolean
+    dob?: boolean
+    birthplace?: boolean
+    gender?: boolean
+    biography?: boolean
+    height?: boolean
+    player?: boolean | LegendsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["legendsInfo"]>
+
+  export type LegendsInfoSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    player_id?: boolean
+    dob?: boolean
+    birthplace?: boolean
+    gender?: boolean
+    biography?: boolean
+    height?: boolean
+    player?: boolean | LegendsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["legendsInfo"]>
+
+  export type LegendsInfoSelectScalar = {
+    player_id?: boolean
+    dob?: boolean
+    birthplace?: boolean
+    gender?: boolean
+    biography?: boolean
+    height?: boolean
+  }
+
+  export type LegendsInfoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"player_id" | "dob" | "birthplace" | "gender" | "biography" | "height", ExtArgs["result"]["legendsInfo"]>
+  export type LegendsInfoInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    player?: boolean | LegendsDefaultArgs<ExtArgs>
+  }
+  export type LegendsInfoIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    player?: boolean | LegendsDefaultArgs<ExtArgs>
+  }
+  export type LegendsInfoIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    player?: boolean | LegendsDefaultArgs<ExtArgs>
+  }
+
+  export type $LegendsInfoPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "LegendsInfo"
+    objects: {
+      player: Prisma.$LegendsPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      player_id: string
+      dob: Date
+      birthplace: string
+      gender: string
+      biography: string
+      height: number
+    }, ExtArgs["result"]["legendsInfo"]>
+    composites: {}
+  }
+
+  type LegendsInfoGetPayload<S extends boolean | null | undefined | LegendsInfoDefaultArgs> = $Result.GetResult<Prisma.$LegendsInfoPayload, S>
+
+  type LegendsInfoCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<LegendsInfoFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: LegendsInfoCountAggregateInputType | true
+    }
+
+  export interface LegendsInfoDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['LegendsInfo'], meta: { name: 'LegendsInfo' } }
+    /**
+     * Find zero or one LegendsInfo that matches the filter.
+     * @param {LegendsInfoFindUniqueArgs} args - Arguments to find a LegendsInfo
+     * @example
+     * // Get one LegendsInfo
+     * const legendsInfo = await prisma.legendsInfo.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends LegendsInfoFindUniqueArgs>(args: SelectSubset<T, LegendsInfoFindUniqueArgs<ExtArgs>>): Prisma__LegendsInfoClient<$Result.GetResult<Prisma.$LegendsInfoPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one LegendsInfo that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {LegendsInfoFindUniqueOrThrowArgs} args - Arguments to find a LegendsInfo
+     * @example
+     * // Get one LegendsInfo
+     * const legendsInfo = await prisma.legendsInfo.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends LegendsInfoFindUniqueOrThrowArgs>(args: SelectSubset<T, LegendsInfoFindUniqueOrThrowArgs<ExtArgs>>): Prisma__LegendsInfoClient<$Result.GetResult<Prisma.$LegendsInfoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first LegendsInfo that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LegendsInfoFindFirstArgs} args - Arguments to find a LegendsInfo
+     * @example
+     * // Get one LegendsInfo
+     * const legendsInfo = await prisma.legendsInfo.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends LegendsInfoFindFirstArgs>(args?: SelectSubset<T, LegendsInfoFindFirstArgs<ExtArgs>>): Prisma__LegendsInfoClient<$Result.GetResult<Prisma.$LegendsInfoPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first LegendsInfo that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LegendsInfoFindFirstOrThrowArgs} args - Arguments to find a LegendsInfo
+     * @example
+     * // Get one LegendsInfo
+     * const legendsInfo = await prisma.legendsInfo.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends LegendsInfoFindFirstOrThrowArgs>(args?: SelectSubset<T, LegendsInfoFindFirstOrThrowArgs<ExtArgs>>): Prisma__LegendsInfoClient<$Result.GetResult<Prisma.$LegendsInfoPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more LegendsInfos that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LegendsInfoFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all LegendsInfos
+     * const legendsInfos = await prisma.legendsInfo.findMany()
+     * 
+     * // Get first 10 LegendsInfos
+     * const legendsInfos = await prisma.legendsInfo.findMany({ take: 10 })
+     * 
+     * // Only select the `player_id`
+     * const legendsInfoWithPlayer_idOnly = await prisma.legendsInfo.findMany({ select: { player_id: true } })
+     * 
+     */
+    findMany<T extends LegendsInfoFindManyArgs>(args?: SelectSubset<T, LegendsInfoFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LegendsInfoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a LegendsInfo.
+     * @param {LegendsInfoCreateArgs} args - Arguments to create a LegendsInfo.
+     * @example
+     * // Create one LegendsInfo
+     * const LegendsInfo = await prisma.legendsInfo.create({
+     *   data: {
+     *     // ... data to create a LegendsInfo
+     *   }
+     * })
+     * 
+     */
+    create<T extends LegendsInfoCreateArgs>(args: SelectSubset<T, LegendsInfoCreateArgs<ExtArgs>>): Prisma__LegendsInfoClient<$Result.GetResult<Prisma.$LegendsInfoPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many LegendsInfos.
+     * @param {LegendsInfoCreateManyArgs} args - Arguments to create many LegendsInfos.
+     * @example
+     * // Create many LegendsInfos
+     * const legendsInfo = await prisma.legendsInfo.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends LegendsInfoCreateManyArgs>(args?: SelectSubset<T, LegendsInfoCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many LegendsInfos and returns the data saved in the database.
+     * @param {LegendsInfoCreateManyAndReturnArgs} args - Arguments to create many LegendsInfos.
+     * @example
+     * // Create many LegendsInfos
+     * const legendsInfo = await prisma.legendsInfo.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many LegendsInfos and only return the `player_id`
+     * const legendsInfoWithPlayer_idOnly = await prisma.legendsInfo.createManyAndReturn({
+     *   select: { player_id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends LegendsInfoCreateManyAndReturnArgs>(args?: SelectSubset<T, LegendsInfoCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LegendsInfoPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a LegendsInfo.
+     * @param {LegendsInfoDeleteArgs} args - Arguments to delete one LegendsInfo.
+     * @example
+     * // Delete one LegendsInfo
+     * const LegendsInfo = await prisma.legendsInfo.delete({
+     *   where: {
+     *     // ... filter to delete one LegendsInfo
+     *   }
+     * })
+     * 
+     */
+    delete<T extends LegendsInfoDeleteArgs>(args: SelectSubset<T, LegendsInfoDeleteArgs<ExtArgs>>): Prisma__LegendsInfoClient<$Result.GetResult<Prisma.$LegendsInfoPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one LegendsInfo.
+     * @param {LegendsInfoUpdateArgs} args - Arguments to update one LegendsInfo.
+     * @example
+     * // Update one LegendsInfo
+     * const legendsInfo = await prisma.legendsInfo.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends LegendsInfoUpdateArgs>(args: SelectSubset<T, LegendsInfoUpdateArgs<ExtArgs>>): Prisma__LegendsInfoClient<$Result.GetResult<Prisma.$LegendsInfoPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more LegendsInfos.
+     * @param {LegendsInfoDeleteManyArgs} args - Arguments to filter LegendsInfos to delete.
+     * @example
+     * // Delete a few LegendsInfos
+     * const { count } = await prisma.legendsInfo.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends LegendsInfoDeleteManyArgs>(args?: SelectSubset<T, LegendsInfoDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more LegendsInfos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LegendsInfoUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many LegendsInfos
+     * const legendsInfo = await prisma.legendsInfo.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends LegendsInfoUpdateManyArgs>(args: SelectSubset<T, LegendsInfoUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more LegendsInfos and returns the data updated in the database.
+     * @param {LegendsInfoUpdateManyAndReturnArgs} args - Arguments to update many LegendsInfos.
+     * @example
+     * // Update many LegendsInfos
+     * const legendsInfo = await prisma.legendsInfo.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more LegendsInfos and only return the `player_id`
+     * const legendsInfoWithPlayer_idOnly = await prisma.legendsInfo.updateManyAndReturn({
+     *   select: { player_id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends LegendsInfoUpdateManyAndReturnArgs>(args: SelectSubset<T, LegendsInfoUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LegendsInfoPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one LegendsInfo.
+     * @param {LegendsInfoUpsertArgs} args - Arguments to update or create a LegendsInfo.
+     * @example
+     * // Update or create a LegendsInfo
+     * const legendsInfo = await prisma.legendsInfo.upsert({
+     *   create: {
+     *     // ... data to create a LegendsInfo
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the LegendsInfo we want to update
+     *   }
+     * })
+     */
+    upsert<T extends LegendsInfoUpsertArgs>(args: SelectSubset<T, LegendsInfoUpsertArgs<ExtArgs>>): Prisma__LegendsInfoClient<$Result.GetResult<Prisma.$LegendsInfoPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of LegendsInfos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LegendsInfoCountArgs} args - Arguments to filter LegendsInfos to count.
+     * @example
+     * // Count the number of LegendsInfos
+     * const count = await prisma.legendsInfo.count({
+     *   where: {
+     *     // ... the filter for the LegendsInfos we want to count
+     *   }
+     * })
+    **/
+    count<T extends LegendsInfoCountArgs>(
+      args?: Subset<T, LegendsInfoCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], LegendsInfoCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a LegendsInfo.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LegendsInfoAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends LegendsInfoAggregateArgs>(args: Subset<T, LegendsInfoAggregateArgs>): Prisma.PrismaPromise<GetLegendsInfoAggregateType<T>>
+
+    /**
+     * Group by LegendsInfo.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LegendsInfoGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends LegendsInfoGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: LegendsInfoGroupByArgs['orderBy'] }
+        : { orderBy?: LegendsInfoGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, LegendsInfoGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetLegendsInfoGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the LegendsInfo model
+   */
+  readonly fields: LegendsInfoFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for LegendsInfo.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__LegendsInfoClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    player<T extends LegendsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, LegendsDefaultArgs<ExtArgs>>): Prisma__LegendsClient<$Result.GetResult<Prisma.$LegendsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the LegendsInfo model
+   */
+  interface LegendsInfoFieldRefs {
+    readonly player_id: FieldRef<"LegendsInfo", 'String'>
+    readonly dob: FieldRef<"LegendsInfo", 'DateTime'>
+    readonly birthplace: FieldRef<"LegendsInfo", 'String'>
+    readonly gender: FieldRef<"LegendsInfo", 'String'>
+    readonly biography: FieldRef<"LegendsInfo", 'String'>
+    readonly height: FieldRef<"LegendsInfo", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * LegendsInfo findUnique
+   */
+  export type LegendsInfoFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsInfo
+     */
+    select?: LegendsInfoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsInfo
+     */
+    omit?: LegendsInfoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsInfoInclude<ExtArgs> | null
+    /**
+     * Filter, which LegendsInfo to fetch.
+     */
+    where: LegendsInfoWhereUniqueInput
+  }
+
+  /**
+   * LegendsInfo findUniqueOrThrow
+   */
+  export type LegendsInfoFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsInfo
+     */
+    select?: LegendsInfoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsInfo
+     */
+    omit?: LegendsInfoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsInfoInclude<ExtArgs> | null
+    /**
+     * Filter, which LegendsInfo to fetch.
+     */
+    where: LegendsInfoWhereUniqueInput
+  }
+
+  /**
+   * LegendsInfo findFirst
+   */
+  export type LegendsInfoFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsInfo
+     */
+    select?: LegendsInfoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsInfo
+     */
+    omit?: LegendsInfoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsInfoInclude<ExtArgs> | null
+    /**
+     * Filter, which LegendsInfo to fetch.
+     */
+    where?: LegendsInfoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LegendsInfos to fetch.
+     */
+    orderBy?: LegendsInfoOrderByWithRelationInput | LegendsInfoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for LegendsInfos.
+     */
+    cursor?: LegendsInfoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LegendsInfos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LegendsInfos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of LegendsInfos.
+     */
+    distinct?: LegendsInfoScalarFieldEnum | LegendsInfoScalarFieldEnum[]
+  }
+
+  /**
+   * LegendsInfo findFirstOrThrow
+   */
+  export type LegendsInfoFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsInfo
+     */
+    select?: LegendsInfoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsInfo
+     */
+    omit?: LegendsInfoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsInfoInclude<ExtArgs> | null
+    /**
+     * Filter, which LegendsInfo to fetch.
+     */
+    where?: LegendsInfoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LegendsInfos to fetch.
+     */
+    orderBy?: LegendsInfoOrderByWithRelationInput | LegendsInfoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for LegendsInfos.
+     */
+    cursor?: LegendsInfoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LegendsInfos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LegendsInfos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of LegendsInfos.
+     */
+    distinct?: LegendsInfoScalarFieldEnum | LegendsInfoScalarFieldEnum[]
+  }
+
+  /**
+   * LegendsInfo findMany
+   */
+  export type LegendsInfoFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsInfo
+     */
+    select?: LegendsInfoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsInfo
+     */
+    omit?: LegendsInfoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsInfoInclude<ExtArgs> | null
+    /**
+     * Filter, which LegendsInfos to fetch.
+     */
+    where?: LegendsInfoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LegendsInfos to fetch.
+     */
+    orderBy?: LegendsInfoOrderByWithRelationInput | LegendsInfoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing LegendsInfos.
+     */
+    cursor?: LegendsInfoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LegendsInfos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LegendsInfos.
+     */
+    skip?: number
+    distinct?: LegendsInfoScalarFieldEnum | LegendsInfoScalarFieldEnum[]
+  }
+
+  /**
+   * LegendsInfo create
+   */
+  export type LegendsInfoCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsInfo
+     */
+    select?: LegendsInfoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsInfo
+     */
+    omit?: LegendsInfoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsInfoInclude<ExtArgs> | null
+    /**
+     * The data needed to create a LegendsInfo.
+     */
+    data: XOR<LegendsInfoCreateInput, LegendsInfoUncheckedCreateInput>
+  }
+
+  /**
+   * LegendsInfo createMany
+   */
+  export type LegendsInfoCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many LegendsInfos.
+     */
+    data: LegendsInfoCreateManyInput | LegendsInfoCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * LegendsInfo createManyAndReturn
+   */
+  export type LegendsInfoCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsInfo
+     */
+    select?: LegendsInfoSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsInfo
+     */
+    omit?: LegendsInfoOmit<ExtArgs> | null
+    /**
+     * The data used to create many LegendsInfos.
+     */
+    data: LegendsInfoCreateManyInput | LegendsInfoCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsInfoIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * LegendsInfo update
+   */
+  export type LegendsInfoUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsInfo
+     */
+    select?: LegendsInfoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsInfo
+     */
+    omit?: LegendsInfoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsInfoInclude<ExtArgs> | null
+    /**
+     * The data needed to update a LegendsInfo.
+     */
+    data: XOR<LegendsInfoUpdateInput, LegendsInfoUncheckedUpdateInput>
+    /**
+     * Choose, which LegendsInfo to update.
+     */
+    where: LegendsInfoWhereUniqueInput
+  }
+
+  /**
+   * LegendsInfo updateMany
+   */
+  export type LegendsInfoUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update LegendsInfos.
+     */
+    data: XOR<LegendsInfoUpdateManyMutationInput, LegendsInfoUncheckedUpdateManyInput>
+    /**
+     * Filter which LegendsInfos to update
+     */
+    where?: LegendsInfoWhereInput
+    /**
+     * Limit how many LegendsInfos to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * LegendsInfo updateManyAndReturn
+   */
+  export type LegendsInfoUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsInfo
+     */
+    select?: LegendsInfoSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsInfo
+     */
+    omit?: LegendsInfoOmit<ExtArgs> | null
+    /**
+     * The data used to update LegendsInfos.
+     */
+    data: XOR<LegendsInfoUpdateManyMutationInput, LegendsInfoUncheckedUpdateManyInput>
+    /**
+     * Filter which LegendsInfos to update
+     */
+    where?: LegendsInfoWhereInput
+    /**
+     * Limit how many LegendsInfos to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsInfoIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * LegendsInfo upsert
+   */
+  export type LegendsInfoUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsInfo
+     */
+    select?: LegendsInfoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsInfo
+     */
+    omit?: LegendsInfoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsInfoInclude<ExtArgs> | null
+    /**
+     * The filter to search for the LegendsInfo to update in case it exists.
+     */
+    where: LegendsInfoWhereUniqueInput
+    /**
+     * In case the LegendsInfo found by the `where` argument doesn't exist, create a new LegendsInfo with this data.
+     */
+    create: XOR<LegendsInfoCreateInput, LegendsInfoUncheckedCreateInput>
+    /**
+     * In case the LegendsInfo was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<LegendsInfoUpdateInput, LegendsInfoUncheckedUpdateInput>
+  }
+
+  /**
+   * LegendsInfo delete
+   */
+  export type LegendsInfoDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsInfo
+     */
+    select?: LegendsInfoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsInfo
+     */
+    omit?: LegendsInfoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsInfoInclude<ExtArgs> | null
+    /**
+     * Filter which LegendsInfo to delete.
+     */
+    where: LegendsInfoWhereUniqueInput
+  }
+
+  /**
+   * LegendsInfo deleteMany
+   */
+  export type LegendsInfoDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which LegendsInfos to delete
+     */
+    where?: LegendsInfoWhereInput
+    /**
+     * Limit how many LegendsInfos to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * LegendsInfo without action
+   */
+  export type LegendsInfoDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsInfo
+     */
+    select?: LegendsInfoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsInfo
+     */
+    omit?: LegendsInfoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsInfoInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model LegendsRatings
+   */
+
+  export type AggregateLegendsRatings = {
+    _count: LegendsRatingsCountAggregateOutputType | null
+    _avg: LegendsRatingsAvgAggregateOutputType | null
+    _sum: LegendsRatingsSumAggregateOutputType | null
+    _min: LegendsRatingsMinAggregateOutputType | null
+    _max: LegendsRatingsMaxAggregateOutputType | null
+  }
+
+  export type LegendsRatingsAvgAggregateOutputType = {
+    pace: number | null
+    shooting: number | null
+    passing: number | null
+    physical: number | null
+    defending: number | null
+    dribbling: number | null
+  }
+
+  export type LegendsRatingsSumAggregateOutputType = {
+    pace: number | null
+    shooting: number | null
+    passing: number | null
+    physical: number | null
+    defending: number | null
+    dribbling: number | null
+  }
+
+  export type LegendsRatingsMinAggregateOutputType = {
+    player_id: string | null
+    pace: number | null
+    shooting: number | null
+    passing: number | null
+    physical: number | null
+    defending: number | null
+    dribbling: number | null
+  }
+
+  export type LegendsRatingsMaxAggregateOutputType = {
+    player_id: string | null
+    pace: number | null
+    shooting: number | null
+    passing: number | null
+    physical: number | null
+    defending: number | null
+    dribbling: number | null
+  }
+
+  export type LegendsRatingsCountAggregateOutputType = {
+    player_id: number
+    pace: number
+    shooting: number
+    passing: number
+    physical: number
+    defending: number
+    dribbling: number
+    _all: number
+  }
+
+
+  export type LegendsRatingsAvgAggregateInputType = {
+    pace?: true
+    shooting?: true
+    passing?: true
+    physical?: true
+    defending?: true
+    dribbling?: true
+  }
+
+  export type LegendsRatingsSumAggregateInputType = {
+    pace?: true
+    shooting?: true
+    passing?: true
+    physical?: true
+    defending?: true
+    dribbling?: true
+  }
+
+  export type LegendsRatingsMinAggregateInputType = {
+    player_id?: true
+    pace?: true
+    shooting?: true
+    passing?: true
+    physical?: true
+    defending?: true
+    dribbling?: true
+  }
+
+  export type LegendsRatingsMaxAggregateInputType = {
+    player_id?: true
+    pace?: true
+    shooting?: true
+    passing?: true
+    physical?: true
+    defending?: true
+    dribbling?: true
+  }
+
+  export type LegendsRatingsCountAggregateInputType = {
+    player_id?: true
+    pace?: true
+    shooting?: true
+    passing?: true
+    physical?: true
+    defending?: true
+    dribbling?: true
+    _all?: true
+  }
+
+  export type LegendsRatingsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which LegendsRatings to aggregate.
+     */
+    where?: LegendsRatingsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LegendsRatings to fetch.
+     */
+    orderBy?: LegendsRatingsOrderByWithRelationInput | LegendsRatingsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: LegendsRatingsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LegendsRatings from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LegendsRatings.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned LegendsRatings
+    **/
+    _count?: true | LegendsRatingsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: LegendsRatingsAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: LegendsRatingsSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: LegendsRatingsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: LegendsRatingsMaxAggregateInputType
+  }
+
+  export type GetLegendsRatingsAggregateType<T extends LegendsRatingsAggregateArgs> = {
+        [P in keyof T & keyof AggregateLegendsRatings]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateLegendsRatings[P]>
+      : GetScalarType<T[P], AggregateLegendsRatings[P]>
+  }
+
+
+
+
+  export type LegendsRatingsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LegendsRatingsWhereInput
+    orderBy?: LegendsRatingsOrderByWithAggregationInput | LegendsRatingsOrderByWithAggregationInput[]
+    by: LegendsRatingsScalarFieldEnum[] | LegendsRatingsScalarFieldEnum
+    having?: LegendsRatingsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: LegendsRatingsCountAggregateInputType | true
+    _avg?: LegendsRatingsAvgAggregateInputType
+    _sum?: LegendsRatingsSumAggregateInputType
+    _min?: LegendsRatingsMinAggregateInputType
+    _max?: LegendsRatingsMaxAggregateInputType
+  }
+
+  export type LegendsRatingsGroupByOutputType = {
+    player_id: string
+    pace: number
+    shooting: number
+    passing: number
+    physical: number
+    defending: number
+    dribbling: number
+    _count: LegendsRatingsCountAggregateOutputType | null
+    _avg: LegendsRatingsAvgAggregateOutputType | null
+    _sum: LegendsRatingsSumAggregateOutputType | null
+    _min: LegendsRatingsMinAggregateOutputType | null
+    _max: LegendsRatingsMaxAggregateOutputType | null
+  }
+
+  type GetLegendsRatingsGroupByPayload<T extends LegendsRatingsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<LegendsRatingsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof LegendsRatingsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], LegendsRatingsGroupByOutputType[P]>
+            : GetScalarType<T[P], LegendsRatingsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type LegendsRatingsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    player_id?: boolean
+    pace?: boolean
+    shooting?: boolean
+    passing?: boolean
+    physical?: boolean
+    defending?: boolean
+    dribbling?: boolean
+    player?: boolean | LegendsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["legendsRatings"]>
+
+  export type LegendsRatingsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    player_id?: boolean
+    pace?: boolean
+    shooting?: boolean
+    passing?: boolean
+    physical?: boolean
+    defending?: boolean
+    dribbling?: boolean
+    player?: boolean | LegendsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["legendsRatings"]>
+
+  export type LegendsRatingsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    player_id?: boolean
+    pace?: boolean
+    shooting?: boolean
+    passing?: boolean
+    physical?: boolean
+    defending?: boolean
+    dribbling?: boolean
+    player?: boolean | LegendsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["legendsRatings"]>
+
+  export type LegendsRatingsSelectScalar = {
+    player_id?: boolean
+    pace?: boolean
+    shooting?: boolean
+    passing?: boolean
+    physical?: boolean
+    defending?: boolean
+    dribbling?: boolean
+  }
+
+  export type LegendsRatingsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"player_id" | "pace" | "shooting" | "passing" | "physical" | "defending" | "dribbling", ExtArgs["result"]["legendsRatings"]>
+  export type LegendsRatingsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    player?: boolean | LegendsDefaultArgs<ExtArgs>
+  }
+  export type LegendsRatingsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    player?: boolean | LegendsDefaultArgs<ExtArgs>
+  }
+  export type LegendsRatingsIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    player?: boolean | LegendsDefaultArgs<ExtArgs>
+  }
+
+  export type $LegendsRatingsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "LegendsRatings"
+    objects: {
+      player: Prisma.$LegendsPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      player_id: string
+      pace: number
+      shooting: number
+      passing: number
+      physical: number
+      defending: number
+      dribbling: number
+    }, ExtArgs["result"]["legendsRatings"]>
+    composites: {}
+  }
+
+  type LegendsRatingsGetPayload<S extends boolean | null | undefined | LegendsRatingsDefaultArgs> = $Result.GetResult<Prisma.$LegendsRatingsPayload, S>
+
+  type LegendsRatingsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<LegendsRatingsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: LegendsRatingsCountAggregateInputType | true
+    }
+
+  export interface LegendsRatingsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['LegendsRatings'], meta: { name: 'LegendsRatings' } }
+    /**
+     * Find zero or one LegendsRatings that matches the filter.
+     * @param {LegendsRatingsFindUniqueArgs} args - Arguments to find a LegendsRatings
+     * @example
+     * // Get one LegendsRatings
+     * const legendsRatings = await prisma.legendsRatings.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends LegendsRatingsFindUniqueArgs>(args: SelectSubset<T, LegendsRatingsFindUniqueArgs<ExtArgs>>): Prisma__LegendsRatingsClient<$Result.GetResult<Prisma.$LegendsRatingsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one LegendsRatings that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {LegendsRatingsFindUniqueOrThrowArgs} args - Arguments to find a LegendsRatings
+     * @example
+     * // Get one LegendsRatings
+     * const legendsRatings = await prisma.legendsRatings.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends LegendsRatingsFindUniqueOrThrowArgs>(args: SelectSubset<T, LegendsRatingsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__LegendsRatingsClient<$Result.GetResult<Prisma.$LegendsRatingsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first LegendsRatings that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LegendsRatingsFindFirstArgs} args - Arguments to find a LegendsRatings
+     * @example
+     * // Get one LegendsRatings
+     * const legendsRatings = await prisma.legendsRatings.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends LegendsRatingsFindFirstArgs>(args?: SelectSubset<T, LegendsRatingsFindFirstArgs<ExtArgs>>): Prisma__LegendsRatingsClient<$Result.GetResult<Prisma.$LegendsRatingsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first LegendsRatings that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LegendsRatingsFindFirstOrThrowArgs} args - Arguments to find a LegendsRatings
+     * @example
+     * // Get one LegendsRatings
+     * const legendsRatings = await prisma.legendsRatings.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends LegendsRatingsFindFirstOrThrowArgs>(args?: SelectSubset<T, LegendsRatingsFindFirstOrThrowArgs<ExtArgs>>): Prisma__LegendsRatingsClient<$Result.GetResult<Prisma.$LegendsRatingsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more LegendsRatings that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LegendsRatingsFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all LegendsRatings
+     * const legendsRatings = await prisma.legendsRatings.findMany()
+     * 
+     * // Get first 10 LegendsRatings
+     * const legendsRatings = await prisma.legendsRatings.findMany({ take: 10 })
+     * 
+     * // Only select the `player_id`
+     * const legendsRatingsWithPlayer_idOnly = await prisma.legendsRatings.findMany({ select: { player_id: true } })
+     * 
+     */
+    findMany<T extends LegendsRatingsFindManyArgs>(args?: SelectSubset<T, LegendsRatingsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LegendsRatingsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a LegendsRatings.
+     * @param {LegendsRatingsCreateArgs} args - Arguments to create a LegendsRatings.
+     * @example
+     * // Create one LegendsRatings
+     * const LegendsRatings = await prisma.legendsRatings.create({
+     *   data: {
+     *     // ... data to create a LegendsRatings
+     *   }
+     * })
+     * 
+     */
+    create<T extends LegendsRatingsCreateArgs>(args: SelectSubset<T, LegendsRatingsCreateArgs<ExtArgs>>): Prisma__LegendsRatingsClient<$Result.GetResult<Prisma.$LegendsRatingsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many LegendsRatings.
+     * @param {LegendsRatingsCreateManyArgs} args - Arguments to create many LegendsRatings.
+     * @example
+     * // Create many LegendsRatings
+     * const legendsRatings = await prisma.legendsRatings.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends LegendsRatingsCreateManyArgs>(args?: SelectSubset<T, LegendsRatingsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many LegendsRatings and returns the data saved in the database.
+     * @param {LegendsRatingsCreateManyAndReturnArgs} args - Arguments to create many LegendsRatings.
+     * @example
+     * // Create many LegendsRatings
+     * const legendsRatings = await prisma.legendsRatings.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many LegendsRatings and only return the `player_id`
+     * const legendsRatingsWithPlayer_idOnly = await prisma.legendsRatings.createManyAndReturn({
+     *   select: { player_id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends LegendsRatingsCreateManyAndReturnArgs>(args?: SelectSubset<T, LegendsRatingsCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LegendsRatingsPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a LegendsRatings.
+     * @param {LegendsRatingsDeleteArgs} args - Arguments to delete one LegendsRatings.
+     * @example
+     * // Delete one LegendsRatings
+     * const LegendsRatings = await prisma.legendsRatings.delete({
+     *   where: {
+     *     // ... filter to delete one LegendsRatings
+     *   }
+     * })
+     * 
+     */
+    delete<T extends LegendsRatingsDeleteArgs>(args: SelectSubset<T, LegendsRatingsDeleteArgs<ExtArgs>>): Prisma__LegendsRatingsClient<$Result.GetResult<Prisma.$LegendsRatingsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one LegendsRatings.
+     * @param {LegendsRatingsUpdateArgs} args - Arguments to update one LegendsRatings.
+     * @example
+     * // Update one LegendsRatings
+     * const legendsRatings = await prisma.legendsRatings.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends LegendsRatingsUpdateArgs>(args: SelectSubset<T, LegendsRatingsUpdateArgs<ExtArgs>>): Prisma__LegendsRatingsClient<$Result.GetResult<Prisma.$LegendsRatingsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more LegendsRatings.
+     * @param {LegendsRatingsDeleteManyArgs} args - Arguments to filter LegendsRatings to delete.
+     * @example
+     * // Delete a few LegendsRatings
+     * const { count } = await prisma.legendsRatings.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends LegendsRatingsDeleteManyArgs>(args?: SelectSubset<T, LegendsRatingsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more LegendsRatings.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LegendsRatingsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many LegendsRatings
+     * const legendsRatings = await prisma.legendsRatings.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends LegendsRatingsUpdateManyArgs>(args: SelectSubset<T, LegendsRatingsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more LegendsRatings and returns the data updated in the database.
+     * @param {LegendsRatingsUpdateManyAndReturnArgs} args - Arguments to update many LegendsRatings.
+     * @example
+     * // Update many LegendsRatings
+     * const legendsRatings = await prisma.legendsRatings.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more LegendsRatings and only return the `player_id`
+     * const legendsRatingsWithPlayer_idOnly = await prisma.legendsRatings.updateManyAndReturn({
+     *   select: { player_id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends LegendsRatingsUpdateManyAndReturnArgs>(args: SelectSubset<T, LegendsRatingsUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LegendsRatingsPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one LegendsRatings.
+     * @param {LegendsRatingsUpsertArgs} args - Arguments to update or create a LegendsRatings.
+     * @example
+     * // Update or create a LegendsRatings
+     * const legendsRatings = await prisma.legendsRatings.upsert({
+     *   create: {
+     *     // ... data to create a LegendsRatings
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the LegendsRatings we want to update
+     *   }
+     * })
+     */
+    upsert<T extends LegendsRatingsUpsertArgs>(args: SelectSubset<T, LegendsRatingsUpsertArgs<ExtArgs>>): Prisma__LegendsRatingsClient<$Result.GetResult<Prisma.$LegendsRatingsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of LegendsRatings.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LegendsRatingsCountArgs} args - Arguments to filter LegendsRatings to count.
+     * @example
+     * // Count the number of LegendsRatings
+     * const count = await prisma.legendsRatings.count({
+     *   where: {
+     *     // ... the filter for the LegendsRatings we want to count
+     *   }
+     * })
+    **/
+    count<T extends LegendsRatingsCountArgs>(
+      args?: Subset<T, LegendsRatingsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], LegendsRatingsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a LegendsRatings.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LegendsRatingsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends LegendsRatingsAggregateArgs>(args: Subset<T, LegendsRatingsAggregateArgs>): Prisma.PrismaPromise<GetLegendsRatingsAggregateType<T>>
+
+    /**
+     * Group by LegendsRatings.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LegendsRatingsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends LegendsRatingsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: LegendsRatingsGroupByArgs['orderBy'] }
+        : { orderBy?: LegendsRatingsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, LegendsRatingsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetLegendsRatingsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the LegendsRatings model
+   */
+  readonly fields: LegendsRatingsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for LegendsRatings.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__LegendsRatingsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    player<T extends LegendsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, LegendsDefaultArgs<ExtArgs>>): Prisma__LegendsClient<$Result.GetResult<Prisma.$LegendsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the LegendsRatings model
+   */
+  interface LegendsRatingsFieldRefs {
+    readonly player_id: FieldRef<"LegendsRatings", 'String'>
+    readonly pace: FieldRef<"LegendsRatings", 'Int'>
+    readonly shooting: FieldRef<"LegendsRatings", 'Int'>
+    readonly passing: FieldRef<"LegendsRatings", 'Int'>
+    readonly physical: FieldRef<"LegendsRatings", 'Int'>
+    readonly defending: FieldRef<"LegendsRatings", 'Int'>
+    readonly dribbling: FieldRef<"LegendsRatings", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * LegendsRatings findUnique
+   */
+  export type LegendsRatingsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsRatings
+     */
+    select?: LegendsRatingsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsRatings
+     */
+    omit?: LegendsRatingsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsRatingsInclude<ExtArgs> | null
+    /**
+     * Filter, which LegendsRatings to fetch.
+     */
+    where: LegendsRatingsWhereUniqueInput
+  }
+
+  /**
+   * LegendsRatings findUniqueOrThrow
+   */
+  export type LegendsRatingsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsRatings
+     */
+    select?: LegendsRatingsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsRatings
+     */
+    omit?: LegendsRatingsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsRatingsInclude<ExtArgs> | null
+    /**
+     * Filter, which LegendsRatings to fetch.
+     */
+    where: LegendsRatingsWhereUniqueInput
+  }
+
+  /**
+   * LegendsRatings findFirst
+   */
+  export type LegendsRatingsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsRatings
+     */
+    select?: LegendsRatingsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsRatings
+     */
+    omit?: LegendsRatingsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsRatingsInclude<ExtArgs> | null
+    /**
+     * Filter, which LegendsRatings to fetch.
+     */
+    where?: LegendsRatingsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LegendsRatings to fetch.
+     */
+    orderBy?: LegendsRatingsOrderByWithRelationInput | LegendsRatingsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for LegendsRatings.
+     */
+    cursor?: LegendsRatingsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LegendsRatings from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LegendsRatings.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of LegendsRatings.
+     */
+    distinct?: LegendsRatingsScalarFieldEnum | LegendsRatingsScalarFieldEnum[]
+  }
+
+  /**
+   * LegendsRatings findFirstOrThrow
+   */
+  export type LegendsRatingsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsRatings
+     */
+    select?: LegendsRatingsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsRatings
+     */
+    omit?: LegendsRatingsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsRatingsInclude<ExtArgs> | null
+    /**
+     * Filter, which LegendsRatings to fetch.
+     */
+    where?: LegendsRatingsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LegendsRatings to fetch.
+     */
+    orderBy?: LegendsRatingsOrderByWithRelationInput | LegendsRatingsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for LegendsRatings.
+     */
+    cursor?: LegendsRatingsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LegendsRatings from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LegendsRatings.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of LegendsRatings.
+     */
+    distinct?: LegendsRatingsScalarFieldEnum | LegendsRatingsScalarFieldEnum[]
+  }
+
+  /**
+   * LegendsRatings findMany
+   */
+  export type LegendsRatingsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsRatings
+     */
+    select?: LegendsRatingsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsRatings
+     */
+    omit?: LegendsRatingsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsRatingsInclude<ExtArgs> | null
+    /**
+     * Filter, which LegendsRatings to fetch.
+     */
+    where?: LegendsRatingsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LegendsRatings to fetch.
+     */
+    orderBy?: LegendsRatingsOrderByWithRelationInput | LegendsRatingsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing LegendsRatings.
+     */
+    cursor?: LegendsRatingsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LegendsRatings from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LegendsRatings.
+     */
+    skip?: number
+    distinct?: LegendsRatingsScalarFieldEnum | LegendsRatingsScalarFieldEnum[]
+  }
+
+  /**
+   * LegendsRatings create
+   */
+  export type LegendsRatingsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsRatings
+     */
+    select?: LegendsRatingsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsRatings
+     */
+    omit?: LegendsRatingsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsRatingsInclude<ExtArgs> | null
+    /**
+     * The data needed to create a LegendsRatings.
+     */
+    data: XOR<LegendsRatingsCreateInput, LegendsRatingsUncheckedCreateInput>
+  }
+
+  /**
+   * LegendsRatings createMany
+   */
+  export type LegendsRatingsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many LegendsRatings.
+     */
+    data: LegendsRatingsCreateManyInput | LegendsRatingsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * LegendsRatings createManyAndReturn
+   */
+  export type LegendsRatingsCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsRatings
+     */
+    select?: LegendsRatingsSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsRatings
+     */
+    omit?: LegendsRatingsOmit<ExtArgs> | null
+    /**
+     * The data used to create many LegendsRatings.
+     */
+    data: LegendsRatingsCreateManyInput | LegendsRatingsCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsRatingsIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * LegendsRatings update
+   */
+  export type LegendsRatingsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsRatings
+     */
+    select?: LegendsRatingsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsRatings
+     */
+    omit?: LegendsRatingsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsRatingsInclude<ExtArgs> | null
+    /**
+     * The data needed to update a LegendsRatings.
+     */
+    data: XOR<LegendsRatingsUpdateInput, LegendsRatingsUncheckedUpdateInput>
+    /**
+     * Choose, which LegendsRatings to update.
+     */
+    where: LegendsRatingsWhereUniqueInput
+  }
+
+  /**
+   * LegendsRatings updateMany
+   */
+  export type LegendsRatingsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update LegendsRatings.
+     */
+    data: XOR<LegendsRatingsUpdateManyMutationInput, LegendsRatingsUncheckedUpdateManyInput>
+    /**
+     * Filter which LegendsRatings to update
+     */
+    where?: LegendsRatingsWhereInput
+    /**
+     * Limit how many LegendsRatings to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * LegendsRatings updateManyAndReturn
+   */
+  export type LegendsRatingsUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsRatings
+     */
+    select?: LegendsRatingsSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsRatings
+     */
+    omit?: LegendsRatingsOmit<ExtArgs> | null
+    /**
+     * The data used to update LegendsRatings.
+     */
+    data: XOR<LegendsRatingsUpdateManyMutationInput, LegendsRatingsUncheckedUpdateManyInput>
+    /**
+     * Filter which LegendsRatings to update
+     */
+    where?: LegendsRatingsWhereInput
+    /**
+     * Limit how many LegendsRatings to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsRatingsIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * LegendsRatings upsert
+   */
+  export type LegendsRatingsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsRatings
+     */
+    select?: LegendsRatingsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsRatings
+     */
+    omit?: LegendsRatingsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsRatingsInclude<ExtArgs> | null
+    /**
+     * The filter to search for the LegendsRatings to update in case it exists.
+     */
+    where: LegendsRatingsWhereUniqueInput
+    /**
+     * In case the LegendsRatings found by the `where` argument doesn't exist, create a new LegendsRatings with this data.
+     */
+    create: XOR<LegendsRatingsCreateInput, LegendsRatingsUncheckedCreateInput>
+    /**
+     * In case the LegendsRatings was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<LegendsRatingsUpdateInput, LegendsRatingsUncheckedUpdateInput>
+  }
+
+  /**
+   * LegendsRatings delete
+   */
+  export type LegendsRatingsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsRatings
+     */
+    select?: LegendsRatingsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsRatings
+     */
+    omit?: LegendsRatingsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsRatingsInclude<ExtArgs> | null
+    /**
+     * Filter which LegendsRatings to delete.
+     */
+    where: LegendsRatingsWhereUniqueInput
+  }
+
+  /**
+   * LegendsRatings deleteMany
+   */
+  export type LegendsRatingsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which LegendsRatings to delete
+     */
+    where?: LegendsRatingsWhereInput
+    /**
+     * Limit how many LegendsRatings to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * LegendsRatings without action
+   */
+  export type LegendsRatingsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsRatings
+     */
+    select?: LegendsRatingsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsRatings
+     */
+    omit?: LegendsRatingsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsRatingsInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model LegendsTeamAchievements
+   */
+
+  export type AggregateLegendsTeamAchievements = {
+    _count: LegendsTeamAchievementsCountAggregateOutputType | null
+    _min: LegendsTeamAchievementsMinAggregateOutputType | null
+    _max: LegendsTeamAchievementsMaxAggregateOutputType | null
+  }
+
+  export type LegendsTeamAchievementsMinAggregateOutputType = {
+    id: string | null
+    player_id: string | null
+    place: string | null
+    league_id: string | null
+    team_id: string | null
+    time: string | null
+  }
+
+  export type LegendsTeamAchievementsMaxAggregateOutputType = {
+    id: string | null
+    player_id: string | null
+    place: string | null
+    league_id: string | null
+    team_id: string | null
+    time: string | null
+  }
+
+  export type LegendsTeamAchievementsCountAggregateOutputType = {
+    id: number
+    player_id: number
+    place: number
+    league_id: number
+    team_id: number
+    time: number
+    _all: number
+  }
+
+
+  export type LegendsTeamAchievementsMinAggregateInputType = {
+    id?: true
+    player_id?: true
+    place?: true
+    league_id?: true
+    team_id?: true
+    time?: true
+  }
+
+  export type LegendsTeamAchievementsMaxAggregateInputType = {
+    id?: true
+    player_id?: true
+    place?: true
+    league_id?: true
+    team_id?: true
+    time?: true
+  }
+
+  export type LegendsTeamAchievementsCountAggregateInputType = {
+    id?: true
+    player_id?: true
+    place?: true
+    league_id?: true
+    team_id?: true
+    time?: true
+    _all?: true
+  }
+
+  export type LegendsTeamAchievementsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which LegendsTeamAchievements to aggregate.
+     */
+    where?: LegendsTeamAchievementsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LegendsTeamAchievements to fetch.
+     */
+    orderBy?: LegendsTeamAchievementsOrderByWithRelationInput | LegendsTeamAchievementsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: LegendsTeamAchievementsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LegendsTeamAchievements from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LegendsTeamAchievements.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned LegendsTeamAchievements
+    **/
+    _count?: true | LegendsTeamAchievementsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: LegendsTeamAchievementsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: LegendsTeamAchievementsMaxAggregateInputType
+  }
+
+  export type GetLegendsTeamAchievementsAggregateType<T extends LegendsTeamAchievementsAggregateArgs> = {
+        [P in keyof T & keyof AggregateLegendsTeamAchievements]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateLegendsTeamAchievements[P]>
+      : GetScalarType<T[P], AggregateLegendsTeamAchievements[P]>
+  }
+
+
+
+
+  export type LegendsTeamAchievementsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LegendsTeamAchievementsWhereInput
+    orderBy?: LegendsTeamAchievementsOrderByWithAggregationInput | LegendsTeamAchievementsOrderByWithAggregationInput[]
+    by: LegendsTeamAchievementsScalarFieldEnum[] | LegendsTeamAchievementsScalarFieldEnum
+    having?: LegendsTeamAchievementsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: LegendsTeamAchievementsCountAggregateInputType | true
+    _min?: LegendsTeamAchievementsMinAggregateInputType
+    _max?: LegendsTeamAchievementsMaxAggregateInputType
+  }
+
+  export type LegendsTeamAchievementsGroupByOutputType = {
+    id: string
+    player_id: string
+    place: string
+    league_id: string
+    team_id: string
+    time: string
+    _count: LegendsTeamAchievementsCountAggregateOutputType | null
+    _min: LegendsTeamAchievementsMinAggregateOutputType | null
+    _max: LegendsTeamAchievementsMaxAggregateOutputType | null
+  }
+
+  type GetLegendsTeamAchievementsGroupByPayload<T extends LegendsTeamAchievementsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<LegendsTeamAchievementsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof LegendsTeamAchievementsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], LegendsTeamAchievementsGroupByOutputType[P]>
+            : GetScalarType<T[P], LegendsTeamAchievementsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type LegendsTeamAchievementsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    player_id?: boolean
+    place?: boolean
+    league_id?: boolean
+    team_id?: boolean
+    time?: boolean
+    player?: boolean | LegendsDefaultArgs<ExtArgs>
+    league?: boolean | LeaguesDefaultArgs<ExtArgs>
+    team?: boolean | TeamsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["legendsTeamAchievements"]>
+
+  export type LegendsTeamAchievementsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    player_id?: boolean
+    place?: boolean
+    league_id?: boolean
+    team_id?: boolean
+    time?: boolean
+    player?: boolean | LegendsDefaultArgs<ExtArgs>
+    league?: boolean | LeaguesDefaultArgs<ExtArgs>
+    team?: boolean | TeamsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["legendsTeamAchievements"]>
+
+  export type LegendsTeamAchievementsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    player_id?: boolean
+    place?: boolean
+    league_id?: boolean
+    team_id?: boolean
+    time?: boolean
+    player?: boolean | LegendsDefaultArgs<ExtArgs>
+    league?: boolean | LeaguesDefaultArgs<ExtArgs>
+    team?: boolean | TeamsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["legendsTeamAchievements"]>
+
+  export type LegendsTeamAchievementsSelectScalar = {
+    id?: boolean
+    player_id?: boolean
+    place?: boolean
+    league_id?: boolean
+    team_id?: boolean
+    time?: boolean
+  }
+
+  export type LegendsTeamAchievementsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "player_id" | "place" | "league_id" | "team_id" | "time", ExtArgs["result"]["legendsTeamAchievements"]>
+  export type LegendsTeamAchievementsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    player?: boolean | LegendsDefaultArgs<ExtArgs>
+    league?: boolean | LeaguesDefaultArgs<ExtArgs>
+    team?: boolean | TeamsDefaultArgs<ExtArgs>
+  }
+  export type LegendsTeamAchievementsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    player?: boolean | LegendsDefaultArgs<ExtArgs>
+    league?: boolean | LeaguesDefaultArgs<ExtArgs>
+    team?: boolean | TeamsDefaultArgs<ExtArgs>
+  }
+  export type LegendsTeamAchievementsIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    player?: boolean | LegendsDefaultArgs<ExtArgs>
+    league?: boolean | LeaguesDefaultArgs<ExtArgs>
+    team?: boolean | TeamsDefaultArgs<ExtArgs>
+  }
+
+  export type $LegendsTeamAchievementsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "LegendsTeamAchievements"
+    objects: {
+      player: Prisma.$LegendsPayload<ExtArgs>
+      league: Prisma.$LeaguesPayload<ExtArgs>
+      team: Prisma.$TeamsPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      player_id: string
+      place: string
+      league_id: string
+      team_id: string
+      time: string
+    }, ExtArgs["result"]["legendsTeamAchievements"]>
+    composites: {}
+  }
+
+  type LegendsTeamAchievementsGetPayload<S extends boolean | null | undefined | LegendsTeamAchievementsDefaultArgs> = $Result.GetResult<Prisma.$LegendsTeamAchievementsPayload, S>
+
+  type LegendsTeamAchievementsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<LegendsTeamAchievementsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: LegendsTeamAchievementsCountAggregateInputType | true
+    }
+
+  export interface LegendsTeamAchievementsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['LegendsTeamAchievements'], meta: { name: 'LegendsTeamAchievements' } }
+    /**
+     * Find zero or one LegendsTeamAchievements that matches the filter.
+     * @param {LegendsTeamAchievementsFindUniqueArgs} args - Arguments to find a LegendsTeamAchievements
+     * @example
+     * // Get one LegendsTeamAchievements
+     * const legendsTeamAchievements = await prisma.legendsTeamAchievements.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends LegendsTeamAchievementsFindUniqueArgs>(args: SelectSubset<T, LegendsTeamAchievementsFindUniqueArgs<ExtArgs>>): Prisma__LegendsTeamAchievementsClient<$Result.GetResult<Prisma.$LegendsTeamAchievementsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one LegendsTeamAchievements that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {LegendsTeamAchievementsFindUniqueOrThrowArgs} args - Arguments to find a LegendsTeamAchievements
+     * @example
+     * // Get one LegendsTeamAchievements
+     * const legendsTeamAchievements = await prisma.legendsTeamAchievements.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends LegendsTeamAchievementsFindUniqueOrThrowArgs>(args: SelectSubset<T, LegendsTeamAchievementsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__LegendsTeamAchievementsClient<$Result.GetResult<Prisma.$LegendsTeamAchievementsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first LegendsTeamAchievements that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LegendsTeamAchievementsFindFirstArgs} args - Arguments to find a LegendsTeamAchievements
+     * @example
+     * // Get one LegendsTeamAchievements
+     * const legendsTeamAchievements = await prisma.legendsTeamAchievements.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends LegendsTeamAchievementsFindFirstArgs>(args?: SelectSubset<T, LegendsTeamAchievementsFindFirstArgs<ExtArgs>>): Prisma__LegendsTeamAchievementsClient<$Result.GetResult<Prisma.$LegendsTeamAchievementsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first LegendsTeamAchievements that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LegendsTeamAchievementsFindFirstOrThrowArgs} args - Arguments to find a LegendsTeamAchievements
+     * @example
+     * // Get one LegendsTeamAchievements
+     * const legendsTeamAchievements = await prisma.legendsTeamAchievements.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends LegendsTeamAchievementsFindFirstOrThrowArgs>(args?: SelectSubset<T, LegendsTeamAchievementsFindFirstOrThrowArgs<ExtArgs>>): Prisma__LegendsTeamAchievementsClient<$Result.GetResult<Prisma.$LegendsTeamAchievementsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more LegendsTeamAchievements that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LegendsTeamAchievementsFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all LegendsTeamAchievements
+     * const legendsTeamAchievements = await prisma.legendsTeamAchievements.findMany()
+     * 
+     * // Get first 10 LegendsTeamAchievements
+     * const legendsTeamAchievements = await prisma.legendsTeamAchievements.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const legendsTeamAchievementsWithIdOnly = await prisma.legendsTeamAchievements.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends LegendsTeamAchievementsFindManyArgs>(args?: SelectSubset<T, LegendsTeamAchievementsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LegendsTeamAchievementsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a LegendsTeamAchievements.
+     * @param {LegendsTeamAchievementsCreateArgs} args - Arguments to create a LegendsTeamAchievements.
+     * @example
+     * // Create one LegendsTeamAchievements
+     * const LegendsTeamAchievements = await prisma.legendsTeamAchievements.create({
+     *   data: {
+     *     // ... data to create a LegendsTeamAchievements
+     *   }
+     * })
+     * 
+     */
+    create<T extends LegendsTeamAchievementsCreateArgs>(args: SelectSubset<T, LegendsTeamAchievementsCreateArgs<ExtArgs>>): Prisma__LegendsTeamAchievementsClient<$Result.GetResult<Prisma.$LegendsTeamAchievementsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many LegendsTeamAchievements.
+     * @param {LegendsTeamAchievementsCreateManyArgs} args - Arguments to create many LegendsTeamAchievements.
+     * @example
+     * // Create many LegendsTeamAchievements
+     * const legendsTeamAchievements = await prisma.legendsTeamAchievements.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends LegendsTeamAchievementsCreateManyArgs>(args?: SelectSubset<T, LegendsTeamAchievementsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many LegendsTeamAchievements and returns the data saved in the database.
+     * @param {LegendsTeamAchievementsCreateManyAndReturnArgs} args - Arguments to create many LegendsTeamAchievements.
+     * @example
+     * // Create many LegendsTeamAchievements
+     * const legendsTeamAchievements = await prisma.legendsTeamAchievements.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many LegendsTeamAchievements and only return the `id`
+     * const legendsTeamAchievementsWithIdOnly = await prisma.legendsTeamAchievements.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends LegendsTeamAchievementsCreateManyAndReturnArgs>(args?: SelectSubset<T, LegendsTeamAchievementsCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LegendsTeamAchievementsPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a LegendsTeamAchievements.
+     * @param {LegendsTeamAchievementsDeleteArgs} args - Arguments to delete one LegendsTeamAchievements.
+     * @example
+     * // Delete one LegendsTeamAchievements
+     * const LegendsTeamAchievements = await prisma.legendsTeamAchievements.delete({
+     *   where: {
+     *     // ... filter to delete one LegendsTeamAchievements
+     *   }
+     * })
+     * 
+     */
+    delete<T extends LegendsTeamAchievementsDeleteArgs>(args: SelectSubset<T, LegendsTeamAchievementsDeleteArgs<ExtArgs>>): Prisma__LegendsTeamAchievementsClient<$Result.GetResult<Prisma.$LegendsTeamAchievementsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one LegendsTeamAchievements.
+     * @param {LegendsTeamAchievementsUpdateArgs} args - Arguments to update one LegendsTeamAchievements.
+     * @example
+     * // Update one LegendsTeamAchievements
+     * const legendsTeamAchievements = await prisma.legendsTeamAchievements.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends LegendsTeamAchievementsUpdateArgs>(args: SelectSubset<T, LegendsTeamAchievementsUpdateArgs<ExtArgs>>): Prisma__LegendsTeamAchievementsClient<$Result.GetResult<Prisma.$LegendsTeamAchievementsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more LegendsTeamAchievements.
+     * @param {LegendsTeamAchievementsDeleteManyArgs} args - Arguments to filter LegendsTeamAchievements to delete.
+     * @example
+     * // Delete a few LegendsTeamAchievements
+     * const { count } = await prisma.legendsTeamAchievements.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends LegendsTeamAchievementsDeleteManyArgs>(args?: SelectSubset<T, LegendsTeamAchievementsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more LegendsTeamAchievements.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LegendsTeamAchievementsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many LegendsTeamAchievements
+     * const legendsTeamAchievements = await prisma.legendsTeamAchievements.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends LegendsTeamAchievementsUpdateManyArgs>(args: SelectSubset<T, LegendsTeamAchievementsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more LegendsTeamAchievements and returns the data updated in the database.
+     * @param {LegendsTeamAchievementsUpdateManyAndReturnArgs} args - Arguments to update many LegendsTeamAchievements.
+     * @example
+     * // Update many LegendsTeamAchievements
+     * const legendsTeamAchievements = await prisma.legendsTeamAchievements.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more LegendsTeamAchievements and only return the `id`
+     * const legendsTeamAchievementsWithIdOnly = await prisma.legendsTeamAchievements.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends LegendsTeamAchievementsUpdateManyAndReturnArgs>(args: SelectSubset<T, LegendsTeamAchievementsUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LegendsTeamAchievementsPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one LegendsTeamAchievements.
+     * @param {LegendsTeamAchievementsUpsertArgs} args - Arguments to update or create a LegendsTeamAchievements.
+     * @example
+     * // Update or create a LegendsTeamAchievements
+     * const legendsTeamAchievements = await prisma.legendsTeamAchievements.upsert({
+     *   create: {
+     *     // ... data to create a LegendsTeamAchievements
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the LegendsTeamAchievements we want to update
+     *   }
+     * })
+     */
+    upsert<T extends LegendsTeamAchievementsUpsertArgs>(args: SelectSubset<T, LegendsTeamAchievementsUpsertArgs<ExtArgs>>): Prisma__LegendsTeamAchievementsClient<$Result.GetResult<Prisma.$LegendsTeamAchievementsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of LegendsTeamAchievements.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LegendsTeamAchievementsCountArgs} args - Arguments to filter LegendsTeamAchievements to count.
+     * @example
+     * // Count the number of LegendsTeamAchievements
+     * const count = await prisma.legendsTeamAchievements.count({
+     *   where: {
+     *     // ... the filter for the LegendsTeamAchievements we want to count
+     *   }
+     * })
+    **/
+    count<T extends LegendsTeamAchievementsCountArgs>(
+      args?: Subset<T, LegendsTeamAchievementsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], LegendsTeamAchievementsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a LegendsTeamAchievements.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LegendsTeamAchievementsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends LegendsTeamAchievementsAggregateArgs>(args: Subset<T, LegendsTeamAchievementsAggregateArgs>): Prisma.PrismaPromise<GetLegendsTeamAchievementsAggregateType<T>>
+
+    /**
+     * Group by LegendsTeamAchievements.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LegendsTeamAchievementsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends LegendsTeamAchievementsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: LegendsTeamAchievementsGroupByArgs['orderBy'] }
+        : { orderBy?: LegendsTeamAchievementsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, LegendsTeamAchievementsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetLegendsTeamAchievementsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the LegendsTeamAchievements model
+   */
+  readonly fields: LegendsTeamAchievementsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for LegendsTeamAchievements.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__LegendsTeamAchievementsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    player<T extends LegendsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, LegendsDefaultArgs<ExtArgs>>): Prisma__LegendsClient<$Result.GetResult<Prisma.$LegendsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    league<T extends LeaguesDefaultArgs<ExtArgs> = {}>(args?: Subset<T, LeaguesDefaultArgs<ExtArgs>>): Prisma__LeaguesClient<$Result.GetResult<Prisma.$LeaguesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    team<T extends TeamsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, TeamsDefaultArgs<ExtArgs>>): Prisma__TeamsClient<$Result.GetResult<Prisma.$TeamsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the LegendsTeamAchievements model
+   */
+  interface LegendsTeamAchievementsFieldRefs {
+    readonly id: FieldRef<"LegendsTeamAchievements", 'String'>
+    readonly player_id: FieldRef<"LegendsTeamAchievements", 'String'>
+    readonly place: FieldRef<"LegendsTeamAchievements", 'String'>
+    readonly league_id: FieldRef<"LegendsTeamAchievements", 'String'>
+    readonly team_id: FieldRef<"LegendsTeamAchievements", 'String'>
+    readonly time: FieldRef<"LegendsTeamAchievements", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * LegendsTeamAchievements findUnique
+   */
+  export type LegendsTeamAchievementsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsTeamAchievements
+     */
+    select?: LegendsTeamAchievementsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsTeamAchievements
+     */
+    omit?: LegendsTeamAchievementsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsTeamAchievementsInclude<ExtArgs> | null
+    /**
+     * Filter, which LegendsTeamAchievements to fetch.
+     */
+    where: LegendsTeamAchievementsWhereUniqueInput
+  }
+
+  /**
+   * LegendsTeamAchievements findUniqueOrThrow
+   */
+  export type LegendsTeamAchievementsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsTeamAchievements
+     */
+    select?: LegendsTeamAchievementsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsTeamAchievements
+     */
+    omit?: LegendsTeamAchievementsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsTeamAchievementsInclude<ExtArgs> | null
+    /**
+     * Filter, which LegendsTeamAchievements to fetch.
+     */
+    where: LegendsTeamAchievementsWhereUniqueInput
+  }
+
+  /**
+   * LegendsTeamAchievements findFirst
+   */
+  export type LegendsTeamAchievementsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsTeamAchievements
+     */
+    select?: LegendsTeamAchievementsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsTeamAchievements
+     */
+    omit?: LegendsTeamAchievementsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsTeamAchievementsInclude<ExtArgs> | null
+    /**
+     * Filter, which LegendsTeamAchievements to fetch.
+     */
+    where?: LegendsTeamAchievementsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LegendsTeamAchievements to fetch.
+     */
+    orderBy?: LegendsTeamAchievementsOrderByWithRelationInput | LegendsTeamAchievementsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for LegendsTeamAchievements.
+     */
+    cursor?: LegendsTeamAchievementsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LegendsTeamAchievements from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LegendsTeamAchievements.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of LegendsTeamAchievements.
+     */
+    distinct?: LegendsTeamAchievementsScalarFieldEnum | LegendsTeamAchievementsScalarFieldEnum[]
+  }
+
+  /**
+   * LegendsTeamAchievements findFirstOrThrow
+   */
+  export type LegendsTeamAchievementsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsTeamAchievements
+     */
+    select?: LegendsTeamAchievementsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsTeamAchievements
+     */
+    omit?: LegendsTeamAchievementsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsTeamAchievementsInclude<ExtArgs> | null
+    /**
+     * Filter, which LegendsTeamAchievements to fetch.
+     */
+    where?: LegendsTeamAchievementsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LegendsTeamAchievements to fetch.
+     */
+    orderBy?: LegendsTeamAchievementsOrderByWithRelationInput | LegendsTeamAchievementsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for LegendsTeamAchievements.
+     */
+    cursor?: LegendsTeamAchievementsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LegendsTeamAchievements from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LegendsTeamAchievements.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of LegendsTeamAchievements.
+     */
+    distinct?: LegendsTeamAchievementsScalarFieldEnum | LegendsTeamAchievementsScalarFieldEnum[]
+  }
+
+  /**
+   * LegendsTeamAchievements findMany
+   */
+  export type LegendsTeamAchievementsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsTeamAchievements
+     */
+    select?: LegendsTeamAchievementsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsTeamAchievements
+     */
+    omit?: LegendsTeamAchievementsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsTeamAchievementsInclude<ExtArgs> | null
+    /**
+     * Filter, which LegendsTeamAchievements to fetch.
+     */
+    where?: LegendsTeamAchievementsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LegendsTeamAchievements to fetch.
+     */
+    orderBy?: LegendsTeamAchievementsOrderByWithRelationInput | LegendsTeamAchievementsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing LegendsTeamAchievements.
+     */
+    cursor?: LegendsTeamAchievementsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LegendsTeamAchievements from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LegendsTeamAchievements.
+     */
+    skip?: number
+    distinct?: LegendsTeamAchievementsScalarFieldEnum | LegendsTeamAchievementsScalarFieldEnum[]
+  }
+
+  /**
+   * LegendsTeamAchievements create
+   */
+  export type LegendsTeamAchievementsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsTeamAchievements
+     */
+    select?: LegendsTeamAchievementsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsTeamAchievements
+     */
+    omit?: LegendsTeamAchievementsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsTeamAchievementsInclude<ExtArgs> | null
+    /**
+     * The data needed to create a LegendsTeamAchievements.
+     */
+    data: XOR<LegendsTeamAchievementsCreateInput, LegendsTeamAchievementsUncheckedCreateInput>
+  }
+
+  /**
+   * LegendsTeamAchievements createMany
+   */
+  export type LegendsTeamAchievementsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many LegendsTeamAchievements.
+     */
+    data: LegendsTeamAchievementsCreateManyInput | LegendsTeamAchievementsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * LegendsTeamAchievements createManyAndReturn
+   */
+  export type LegendsTeamAchievementsCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsTeamAchievements
+     */
+    select?: LegendsTeamAchievementsSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsTeamAchievements
+     */
+    omit?: LegendsTeamAchievementsOmit<ExtArgs> | null
+    /**
+     * The data used to create many LegendsTeamAchievements.
+     */
+    data: LegendsTeamAchievementsCreateManyInput | LegendsTeamAchievementsCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsTeamAchievementsIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * LegendsTeamAchievements update
+   */
+  export type LegendsTeamAchievementsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsTeamAchievements
+     */
+    select?: LegendsTeamAchievementsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsTeamAchievements
+     */
+    omit?: LegendsTeamAchievementsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsTeamAchievementsInclude<ExtArgs> | null
+    /**
+     * The data needed to update a LegendsTeamAchievements.
+     */
+    data: XOR<LegendsTeamAchievementsUpdateInput, LegendsTeamAchievementsUncheckedUpdateInput>
+    /**
+     * Choose, which LegendsTeamAchievements to update.
+     */
+    where: LegendsTeamAchievementsWhereUniqueInput
+  }
+
+  /**
+   * LegendsTeamAchievements updateMany
+   */
+  export type LegendsTeamAchievementsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update LegendsTeamAchievements.
+     */
+    data: XOR<LegendsTeamAchievementsUpdateManyMutationInput, LegendsTeamAchievementsUncheckedUpdateManyInput>
+    /**
+     * Filter which LegendsTeamAchievements to update
+     */
+    where?: LegendsTeamAchievementsWhereInput
+    /**
+     * Limit how many LegendsTeamAchievements to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * LegendsTeamAchievements updateManyAndReturn
+   */
+  export type LegendsTeamAchievementsUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsTeamAchievements
+     */
+    select?: LegendsTeamAchievementsSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsTeamAchievements
+     */
+    omit?: LegendsTeamAchievementsOmit<ExtArgs> | null
+    /**
+     * The data used to update LegendsTeamAchievements.
+     */
+    data: XOR<LegendsTeamAchievementsUpdateManyMutationInput, LegendsTeamAchievementsUncheckedUpdateManyInput>
+    /**
+     * Filter which LegendsTeamAchievements to update
+     */
+    where?: LegendsTeamAchievementsWhereInput
+    /**
+     * Limit how many LegendsTeamAchievements to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsTeamAchievementsIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * LegendsTeamAchievements upsert
+   */
+  export type LegendsTeamAchievementsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsTeamAchievements
+     */
+    select?: LegendsTeamAchievementsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsTeamAchievements
+     */
+    omit?: LegendsTeamAchievementsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsTeamAchievementsInclude<ExtArgs> | null
+    /**
+     * The filter to search for the LegendsTeamAchievements to update in case it exists.
+     */
+    where: LegendsTeamAchievementsWhereUniqueInput
+    /**
+     * In case the LegendsTeamAchievements found by the `where` argument doesn't exist, create a new LegendsTeamAchievements with this data.
+     */
+    create: XOR<LegendsTeamAchievementsCreateInput, LegendsTeamAchievementsUncheckedCreateInput>
+    /**
+     * In case the LegendsTeamAchievements was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<LegendsTeamAchievementsUpdateInput, LegendsTeamAchievementsUncheckedUpdateInput>
+  }
+
+  /**
+   * LegendsTeamAchievements delete
+   */
+  export type LegendsTeamAchievementsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsTeamAchievements
+     */
+    select?: LegendsTeamAchievementsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsTeamAchievements
+     */
+    omit?: LegendsTeamAchievementsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsTeamAchievementsInclude<ExtArgs> | null
+    /**
+     * Filter which LegendsTeamAchievements to delete.
+     */
+    where: LegendsTeamAchievementsWhereUniqueInput
+  }
+
+  /**
+   * LegendsTeamAchievements deleteMany
+   */
+  export type LegendsTeamAchievementsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which LegendsTeamAchievements to delete
+     */
+    where?: LegendsTeamAchievementsWhereInput
+    /**
+     * Limit how many LegendsTeamAchievements to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * LegendsTeamAchievements without action
+   */
+  export type LegendsTeamAchievementsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsTeamAchievements
+     */
+    select?: LegendsTeamAchievementsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsTeamAchievements
+     */
+    omit?: LegendsTeamAchievementsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsTeamAchievementsInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model LegendsPersonalAchievements
+   */
+
+  export type AggregateLegendsPersonalAchievements = {
+    _count: LegendsPersonalAchievementsCountAggregateOutputType | null
+    _min: LegendsPersonalAchievementsMinAggregateOutputType | null
+    _max: LegendsPersonalAchievementsMaxAggregateOutputType | null
+  }
+
+  export type LegendsPersonalAchievementsMinAggregateOutputType = {
+    id: string | null
+    player_id: string | null
+    achievement_id: string | null
+    league_id: string | null
+    team_id: string | null
+    time: string | null
+  }
+
+  export type LegendsPersonalAchievementsMaxAggregateOutputType = {
+    id: string | null
+    player_id: string | null
+    achievement_id: string | null
+    league_id: string | null
+    team_id: string | null
+    time: string | null
+  }
+
+  export type LegendsPersonalAchievementsCountAggregateOutputType = {
+    id: number
+    player_id: number
+    achievement_id: number
+    league_id: number
+    team_id: number
+    time: number
+    _all: number
+  }
+
+
+  export type LegendsPersonalAchievementsMinAggregateInputType = {
+    id?: true
+    player_id?: true
+    achievement_id?: true
+    league_id?: true
+    team_id?: true
+    time?: true
+  }
+
+  export type LegendsPersonalAchievementsMaxAggregateInputType = {
+    id?: true
+    player_id?: true
+    achievement_id?: true
+    league_id?: true
+    team_id?: true
+    time?: true
+  }
+
+  export type LegendsPersonalAchievementsCountAggregateInputType = {
+    id?: true
+    player_id?: true
+    achievement_id?: true
+    league_id?: true
+    team_id?: true
+    time?: true
+    _all?: true
+  }
+
+  export type LegendsPersonalAchievementsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which LegendsPersonalAchievements to aggregate.
+     */
+    where?: LegendsPersonalAchievementsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LegendsPersonalAchievements to fetch.
+     */
+    orderBy?: LegendsPersonalAchievementsOrderByWithRelationInput | LegendsPersonalAchievementsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: LegendsPersonalAchievementsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LegendsPersonalAchievements from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LegendsPersonalAchievements.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned LegendsPersonalAchievements
+    **/
+    _count?: true | LegendsPersonalAchievementsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: LegendsPersonalAchievementsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: LegendsPersonalAchievementsMaxAggregateInputType
+  }
+
+  export type GetLegendsPersonalAchievementsAggregateType<T extends LegendsPersonalAchievementsAggregateArgs> = {
+        [P in keyof T & keyof AggregateLegendsPersonalAchievements]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateLegendsPersonalAchievements[P]>
+      : GetScalarType<T[P], AggregateLegendsPersonalAchievements[P]>
+  }
+
+
+
+
+  export type LegendsPersonalAchievementsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LegendsPersonalAchievementsWhereInput
+    orderBy?: LegendsPersonalAchievementsOrderByWithAggregationInput | LegendsPersonalAchievementsOrderByWithAggregationInput[]
+    by: LegendsPersonalAchievementsScalarFieldEnum[] | LegendsPersonalAchievementsScalarFieldEnum
+    having?: LegendsPersonalAchievementsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: LegendsPersonalAchievementsCountAggregateInputType | true
+    _min?: LegendsPersonalAchievementsMinAggregateInputType
+    _max?: LegendsPersonalAchievementsMaxAggregateInputType
+  }
+
+  export type LegendsPersonalAchievementsGroupByOutputType = {
+    id: string
+    player_id: string
+    achievement_id: string
+    league_id: string
+    team_id: string
+    time: string
+    _count: LegendsPersonalAchievementsCountAggregateOutputType | null
+    _min: LegendsPersonalAchievementsMinAggregateOutputType | null
+    _max: LegendsPersonalAchievementsMaxAggregateOutputType | null
+  }
+
+  type GetLegendsPersonalAchievementsGroupByPayload<T extends LegendsPersonalAchievementsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<LegendsPersonalAchievementsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof LegendsPersonalAchievementsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], LegendsPersonalAchievementsGroupByOutputType[P]>
+            : GetScalarType<T[P], LegendsPersonalAchievementsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type LegendsPersonalAchievementsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    player_id?: boolean
+    achievement_id?: boolean
+    league_id?: boolean
+    team_id?: boolean
+    time?: boolean
+    player?: boolean | LegendsDefaultArgs<ExtArgs>
+    achievement?: boolean | PersonalAchievementsDefaultArgs<ExtArgs>
+    team?: boolean | TeamsDefaultArgs<ExtArgs>
+    league?: boolean | LeaguesDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["legendsPersonalAchievements"]>
+
+  export type LegendsPersonalAchievementsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    player_id?: boolean
+    achievement_id?: boolean
+    league_id?: boolean
+    team_id?: boolean
+    time?: boolean
+    player?: boolean | LegendsDefaultArgs<ExtArgs>
+    achievement?: boolean | PersonalAchievementsDefaultArgs<ExtArgs>
+    team?: boolean | TeamsDefaultArgs<ExtArgs>
+    league?: boolean | LeaguesDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["legendsPersonalAchievements"]>
+
+  export type LegendsPersonalAchievementsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    player_id?: boolean
+    achievement_id?: boolean
+    league_id?: boolean
+    team_id?: boolean
+    time?: boolean
+    player?: boolean | LegendsDefaultArgs<ExtArgs>
+    achievement?: boolean | PersonalAchievementsDefaultArgs<ExtArgs>
+    team?: boolean | TeamsDefaultArgs<ExtArgs>
+    league?: boolean | LeaguesDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["legendsPersonalAchievements"]>
+
+  export type LegendsPersonalAchievementsSelectScalar = {
+    id?: boolean
+    player_id?: boolean
+    achievement_id?: boolean
+    league_id?: boolean
+    team_id?: boolean
+    time?: boolean
+  }
+
+  export type LegendsPersonalAchievementsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "player_id" | "achievement_id" | "league_id" | "team_id" | "time", ExtArgs["result"]["legendsPersonalAchievements"]>
+  export type LegendsPersonalAchievementsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    player?: boolean | LegendsDefaultArgs<ExtArgs>
+    achievement?: boolean | PersonalAchievementsDefaultArgs<ExtArgs>
+    team?: boolean | TeamsDefaultArgs<ExtArgs>
+    league?: boolean | LeaguesDefaultArgs<ExtArgs>
+  }
+  export type LegendsPersonalAchievementsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    player?: boolean | LegendsDefaultArgs<ExtArgs>
+    achievement?: boolean | PersonalAchievementsDefaultArgs<ExtArgs>
+    team?: boolean | TeamsDefaultArgs<ExtArgs>
+    league?: boolean | LeaguesDefaultArgs<ExtArgs>
+  }
+  export type LegendsPersonalAchievementsIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    player?: boolean | LegendsDefaultArgs<ExtArgs>
+    achievement?: boolean | PersonalAchievementsDefaultArgs<ExtArgs>
+    team?: boolean | TeamsDefaultArgs<ExtArgs>
+    league?: boolean | LeaguesDefaultArgs<ExtArgs>
+  }
+
+  export type $LegendsPersonalAchievementsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "LegendsPersonalAchievements"
+    objects: {
+      player: Prisma.$LegendsPayload<ExtArgs>
+      achievement: Prisma.$PersonalAchievementsPayload<ExtArgs>
+      team: Prisma.$TeamsPayload<ExtArgs>
+      league: Prisma.$LeaguesPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      player_id: string
+      achievement_id: string
+      league_id: string
+      team_id: string
+      time: string
+    }, ExtArgs["result"]["legendsPersonalAchievements"]>
+    composites: {}
+  }
+
+  type LegendsPersonalAchievementsGetPayload<S extends boolean | null | undefined | LegendsPersonalAchievementsDefaultArgs> = $Result.GetResult<Prisma.$LegendsPersonalAchievementsPayload, S>
+
+  type LegendsPersonalAchievementsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<LegendsPersonalAchievementsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: LegendsPersonalAchievementsCountAggregateInputType | true
+    }
+
+  export interface LegendsPersonalAchievementsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['LegendsPersonalAchievements'], meta: { name: 'LegendsPersonalAchievements' } }
+    /**
+     * Find zero or one LegendsPersonalAchievements that matches the filter.
+     * @param {LegendsPersonalAchievementsFindUniqueArgs} args - Arguments to find a LegendsPersonalAchievements
+     * @example
+     * // Get one LegendsPersonalAchievements
+     * const legendsPersonalAchievements = await prisma.legendsPersonalAchievements.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends LegendsPersonalAchievementsFindUniqueArgs>(args: SelectSubset<T, LegendsPersonalAchievementsFindUniqueArgs<ExtArgs>>): Prisma__LegendsPersonalAchievementsClient<$Result.GetResult<Prisma.$LegendsPersonalAchievementsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one LegendsPersonalAchievements that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {LegendsPersonalAchievementsFindUniqueOrThrowArgs} args - Arguments to find a LegendsPersonalAchievements
+     * @example
+     * // Get one LegendsPersonalAchievements
+     * const legendsPersonalAchievements = await prisma.legendsPersonalAchievements.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends LegendsPersonalAchievementsFindUniqueOrThrowArgs>(args: SelectSubset<T, LegendsPersonalAchievementsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__LegendsPersonalAchievementsClient<$Result.GetResult<Prisma.$LegendsPersonalAchievementsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first LegendsPersonalAchievements that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LegendsPersonalAchievementsFindFirstArgs} args - Arguments to find a LegendsPersonalAchievements
+     * @example
+     * // Get one LegendsPersonalAchievements
+     * const legendsPersonalAchievements = await prisma.legendsPersonalAchievements.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends LegendsPersonalAchievementsFindFirstArgs>(args?: SelectSubset<T, LegendsPersonalAchievementsFindFirstArgs<ExtArgs>>): Prisma__LegendsPersonalAchievementsClient<$Result.GetResult<Prisma.$LegendsPersonalAchievementsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first LegendsPersonalAchievements that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LegendsPersonalAchievementsFindFirstOrThrowArgs} args - Arguments to find a LegendsPersonalAchievements
+     * @example
+     * // Get one LegendsPersonalAchievements
+     * const legendsPersonalAchievements = await prisma.legendsPersonalAchievements.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends LegendsPersonalAchievementsFindFirstOrThrowArgs>(args?: SelectSubset<T, LegendsPersonalAchievementsFindFirstOrThrowArgs<ExtArgs>>): Prisma__LegendsPersonalAchievementsClient<$Result.GetResult<Prisma.$LegendsPersonalAchievementsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more LegendsPersonalAchievements that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LegendsPersonalAchievementsFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all LegendsPersonalAchievements
+     * const legendsPersonalAchievements = await prisma.legendsPersonalAchievements.findMany()
+     * 
+     * // Get first 10 LegendsPersonalAchievements
+     * const legendsPersonalAchievements = await prisma.legendsPersonalAchievements.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const legendsPersonalAchievementsWithIdOnly = await prisma.legendsPersonalAchievements.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends LegendsPersonalAchievementsFindManyArgs>(args?: SelectSubset<T, LegendsPersonalAchievementsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LegendsPersonalAchievementsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a LegendsPersonalAchievements.
+     * @param {LegendsPersonalAchievementsCreateArgs} args - Arguments to create a LegendsPersonalAchievements.
+     * @example
+     * // Create one LegendsPersonalAchievements
+     * const LegendsPersonalAchievements = await prisma.legendsPersonalAchievements.create({
+     *   data: {
+     *     // ... data to create a LegendsPersonalAchievements
+     *   }
+     * })
+     * 
+     */
+    create<T extends LegendsPersonalAchievementsCreateArgs>(args: SelectSubset<T, LegendsPersonalAchievementsCreateArgs<ExtArgs>>): Prisma__LegendsPersonalAchievementsClient<$Result.GetResult<Prisma.$LegendsPersonalAchievementsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many LegendsPersonalAchievements.
+     * @param {LegendsPersonalAchievementsCreateManyArgs} args - Arguments to create many LegendsPersonalAchievements.
+     * @example
+     * // Create many LegendsPersonalAchievements
+     * const legendsPersonalAchievements = await prisma.legendsPersonalAchievements.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends LegendsPersonalAchievementsCreateManyArgs>(args?: SelectSubset<T, LegendsPersonalAchievementsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many LegendsPersonalAchievements and returns the data saved in the database.
+     * @param {LegendsPersonalAchievementsCreateManyAndReturnArgs} args - Arguments to create many LegendsPersonalAchievements.
+     * @example
+     * // Create many LegendsPersonalAchievements
+     * const legendsPersonalAchievements = await prisma.legendsPersonalAchievements.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many LegendsPersonalAchievements and only return the `id`
+     * const legendsPersonalAchievementsWithIdOnly = await prisma.legendsPersonalAchievements.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends LegendsPersonalAchievementsCreateManyAndReturnArgs>(args?: SelectSubset<T, LegendsPersonalAchievementsCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LegendsPersonalAchievementsPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a LegendsPersonalAchievements.
+     * @param {LegendsPersonalAchievementsDeleteArgs} args - Arguments to delete one LegendsPersonalAchievements.
+     * @example
+     * // Delete one LegendsPersonalAchievements
+     * const LegendsPersonalAchievements = await prisma.legendsPersonalAchievements.delete({
+     *   where: {
+     *     // ... filter to delete one LegendsPersonalAchievements
+     *   }
+     * })
+     * 
+     */
+    delete<T extends LegendsPersonalAchievementsDeleteArgs>(args: SelectSubset<T, LegendsPersonalAchievementsDeleteArgs<ExtArgs>>): Prisma__LegendsPersonalAchievementsClient<$Result.GetResult<Prisma.$LegendsPersonalAchievementsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one LegendsPersonalAchievements.
+     * @param {LegendsPersonalAchievementsUpdateArgs} args - Arguments to update one LegendsPersonalAchievements.
+     * @example
+     * // Update one LegendsPersonalAchievements
+     * const legendsPersonalAchievements = await prisma.legendsPersonalAchievements.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends LegendsPersonalAchievementsUpdateArgs>(args: SelectSubset<T, LegendsPersonalAchievementsUpdateArgs<ExtArgs>>): Prisma__LegendsPersonalAchievementsClient<$Result.GetResult<Prisma.$LegendsPersonalAchievementsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more LegendsPersonalAchievements.
+     * @param {LegendsPersonalAchievementsDeleteManyArgs} args - Arguments to filter LegendsPersonalAchievements to delete.
+     * @example
+     * // Delete a few LegendsPersonalAchievements
+     * const { count } = await prisma.legendsPersonalAchievements.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends LegendsPersonalAchievementsDeleteManyArgs>(args?: SelectSubset<T, LegendsPersonalAchievementsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more LegendsPersonalAchievements.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LegendsPersonalAchievementsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many LegendsPersonalAchievements
+     * const legendsPersonalAchievements = await prisma.legendsPersonalAchievements.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends LegendsPersonalAchievementsUpdateManyArgs>(args: SelectSubset<T, LegendsPersonalAchievementsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more LegendsPersonalAchievements and returns the data updated in the database.
+     * @param {LegendsPersonalAchievementsUpdateManyAndReturnArgs} args - Arguments to update many LegendsPersonalAchievements.
+     * @example
+     * // Update many LegendsPersonalAchievements
+     * const legendsPersonalAchievements = await prisma.legendsPersonalAchievements.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more LegendsPersonalAchievements and only return the `id`
+     * const legendsPersonalAchievementsWithIdOnly = await prisma.legendsPersonalAchievements.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends LegendsPersonalAchievementsUpdateManyAndReturnArgs>(args: SelectSubset<T, LegendsPersonalAchievementsUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LegendsPersonalAchievementsPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one LegendsPersonalAchievements.
+     * @param {LegendsPersonalAchievementsUpsertArgs} args - Arguments to update or create a LegendsPersonalAchievements.
+     * @example
+     * // Update or create a LegendsPersonalAchievements
+     * const legendsPersonalAchievements = await prisma.legendsPersonalAchievements.upsert({
+     *   create: {
+     *     // ... data to create a LegendsPersonalAchievements
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the LegendsPersonalAchievements we want to update
+     *   }
+     * })
+     */
+    upsert<T extends LegendsPersonalAchievementsUpsertArgs>(args: SelectSubset<T, LegendsPersonalAchievementsUpsertArgs<ExtArgs>>): Prisma__LegendsPersonalAchievementsClient<$Result.GetResult<Prisma.$LegendsPersonalAchievementsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of LegendsPersonalAchievements.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LegendsPersonalAchievementsCountArgs} args - Arguments to filter LegendsPersonalAchievements to count.
+     * @example
+     * // Count the number of LegendsPersonalAchievements
+     * const count = await prisma.legendsPersonalAchievements.count({
+     *   where: {
+     *     // ... the filter for the LegendsPersonalAchievements we want to count
+     *   }
+     * })
+    **/
+    count<T extends LegendsPersonalAchievementsCountArgs>(
+      args?: Subset<T, LegendsPersonalAchievementsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], LegendsPersonalAchievementsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a LegendsPersonalAchievements.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LegendsPersonalAchievementsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends LegendsPersonalAchievementsAggregateArgs>(args: Subset<T, LegendsPersonalAchievementsAggregateArgs>): Prisma.PrismaPromise<GetLegendsPersonalAchievementsAggregateType<T>>
+
+    /**
+     * Group by LegendsPersonalAchievements.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LegendsPersonalAchievementsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends LegendsPersonalAchievementsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: LegendsPersonalAchievementsGroupByArgs['orderBy'] }
+        : { orderBy?: LegendsPersonalAchievementsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, LegendsPersonalAchievementsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetLegendsPersonalAchievementsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the LegendsPersonalAchievements model
+   */
+  readonly fields: LegendsPersonalAchievementsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for LegendsPersonalAchievements.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__LegendsPersonalAchievementsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    player<T extends LegendsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, LegendsDefaultArgs<ExtArgs>>): Prisma__LegendsClient<$Result.GetResult<Prisma.$LegendsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    achievement<T extends PersonalAchievementsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, PersonalAchievementsDefaultArgs<ExtArgs>>): Prisma__PersonalAchievementsClient<$Result.GetResult<Prisma.$PersonalAchievementsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    team<T extends TeamsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, TeamsDefaultArgs<ExtArgs>>): Prisma__TeamsClient<$Result.GetResult<Prisma.$TeamsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    league<T extends LeaguesDefaultArgs<ExtArgs> = {}>(args?: Subset<T, LeaguesDefaultArgs<ExtArgs>>): Prisma__LeaguesClient<$Result.GetResult<Prisma.$LeaguesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the LegendsPersonalAchievements model
+   */
+  interface LegendsPersonalAchievementsFieldRefs {
+    readonly id: FieldRef<"LegendsPersonalAchievements", 'String'>
+    readonly player_id: FieldRef<"LegendsPersonalAchievements", 'String'>
+    readonly achievement_id: FieldRef<"LegendsPersonalAchievements", 'String'>
+    readonly league_id: FieldRef<"LegendsPersonalAchievements", 'String'>
+    readonly team_id: FieldRef<"LegendsPersonalAchievements", 'String'>
+    readonly time: FieldRef<"LegendsPersonalAchievements", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * LegendsPersonalAchievements findUnique
+   */
+  export type LegendsPersonalAchievementsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsPersonalAchievements
+     */
+    select?: LegendsPersonalAchievementsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsPersonalAchievements
+     */
+    omit?: LegendsPersonalAchievementsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsPersonalAchievementsInclude<ExtArgs> | null
+    /**
+     * Filter, which LegendsPersonalAchievements to fetch.
+     */
+    where: LegendsPersonalAchievementsWhereUniqueInput
+  }
+
+  /**
+   * LegendsPersonalAchievements findUniqueOrThrow
+   */
+  export type LegendsPersonalAchievementsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsPersonalAchievements
+     */
+    select?: LegendsPersonalAchievementsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsPersonalAchievements
+     */
+    omit?: LegendsPersonalAchievementsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsPersonalAchievementsInclude<ExtArgs> | null
+    /**
+     * Filter, which LegendsPersonalAchievements to fetch.
+     */
+    where: LegendsPersonalAchievementsWhereUniqueInput
+  }
+
+  /**
+   * LegendsPersonalAchievements findFirst
+   */
+  export type LegendsPersonalAchievementsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsPersonalAchievements
+     */
+    select?: LegendsPersonalAchievementsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsPersonalAchievements
+     */
+    omit?: LegendsPersonalAchievementsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsPersonalAchievementsInclude<ExtArgs> | null
+    /**
+     * Filter, which LegendsPersonalAchievements to fetch.
+     */
+    where?: LegendsPersonalAchievementsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LegendsPersonalAchievements to fetch.
+     */
+    orderBy?: LegendsPersonalAchievementsOrderByWithRelationInput | LegendsPersonalAchievementsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for LegendsPersonalAchievements.
+     */
+    cursor?: LegendsPersonalAchievementsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LegendsPersonalAchievements from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LegendsPersonalAchievements.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of LegendsPersonalAchievements.
+     */
+    distinct?: LegendsPersonalAchievementsScalarFieldEnum | LegendsPersonalAchievementsScalarFieldEnum[]
+  }
+
+  /**
+   * LegendsPersonalAchievements findFirstOrThrow
+   */
+  export type LegendsPersonalAchievementsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsPersonalAchievements
+     */
+    select?: LegendsPersonalAchievementsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsPersonalAchievements
+     */
+    omit?: LegendsPersonalAchievementsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsPersonalAchievementsInclude<ExtArgs> | null
+    /**
+     * Filter, which LegendsPersonalAchievements to fetch.
+     */
+    where?: LegendsPersonalAchievementsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LegendsPersonalAchievements to fetch.
+     */
+    orderBy?: LegendsPersonalAchievementsOrderByWithRelationInput | LegendsPersonalAchievementsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for LegendsPersonalAchievements.
+     */
+    cursor?: LegendsPersonalAchievementsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LegendsPersonalAchievements from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LegendsPersonalAchievements.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of LegendsPersonalAchievements.
+     */
+    distinct?: LegendsPersonalAchievementsScalarFieldEnum | LegendsPersonalAchievementsScalarFieldEnum[]
+  }
+
+  /**
+   * LegendsPersonalAchievements findMany
+   */
+  export type LegendsPersonalAchievementsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsPersonalAchievements
+     */
+    select?: LegendsPersonalAchievementsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsPersonalAchievements
+     */
+    omit?: LegendsPersonalAchievementsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsPersonalAchievementsInclude<ExtArgs> | null
+    /**
+     * Filter, which LegendsPersonalAchievements to fetch.
+     */
+    where?: LegendsPersonalAchievementsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LegendsPersonalAchievements to fetch.
+     */
+    orderBy?: LegendsPersonalAchievementsOrderByWithRelationInput | LegendsPersonalAchievementsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing LegendsPersonalAchievements.
+     */
+    cursor?: LegendsPersonalAchievementsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LegendsPersonalAchievements from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LegendsPersonalAchievements.
+     */
+    skip?: number
+    distinct?: LegendsPersonalAchievementsScalarFieldEnum | LegendsPersonalAchievementsScalarFieldEnum[]
+  }
+
+  /**
+   * LegendsPersonalAchievements create
+   */
+  export type LegendsPersonalAchievementsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsPersonalAchievements
+     */
+    select?: LegendsPersonalAchievementsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsPersonalAchievements
+     */
+    omit?: LegendsPersonalAchievementsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsPersonalAchievementsInclude<ExtArgs> | null
+    /**
+     * The data needed to create a LegendsPersonalAchievements.
+     */
+    data: XOR<LegendsPersonalAchievementsCreateInput, LegendsPersonalAchievementsUncheckedCreateInput>
+  }
+
+  /**
+   * LegendsPersonalAchievements createMany
+   */
+  export type LegendsPersonalAchievementsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many LegendsPersonalAchievements.
+     */
+    data: LegendsPersonalAchievementsCreateManyInput | LegendsPersonalAchievementsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * LegendsPersonalAchievements createManyAndReturn
+   */
+  export type LegendsPersonalAchievementsCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsPersonalAchievements
+     */
+    select?: LegendsPersonalAchievementsSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsPersonalAchievements
+     */
+    omit?: LegendsPersonalAchievementsOmit<ExtArgs> | null
+    /**
+     * The data used to create many LegendsPersonalAchievements.
+     */
+    data: LegendsPersonalAchievementsCreateManyInput | LegendsPersonalAchievementsCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsPersonalAchievementsIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * LegendsPersonalAchievements update
+   */
+  export type LegendsPersonalAchievementsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsPersonalAchievements
+     */
+    select?: LegendsPersonalAchievementsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsPersonalAchievements
+     */
+    omit?: LegendsPersonalAchievementsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsPersonalAchievementsInclude<ExtArgs> | null
+    /**
+     * The data needed to update a LegendsPersonalAchievements.
+     */
+    data: XOR<LegendsPersonalAchievementsUpdateInput, LegendsPersonalAchievementsUncheckedUpdateInput>
+    /**
+     * Choose, which LegendsPersonalAchievements to update.
+     */
+    where: LegendsPersonalAchievementsWhereUniqueInput
+  }
+
+  /**
+   * LegendsPersonalAchievements updateMany
+   */
+  export type LegendsPersonalAchievementsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update LegendsPersonalAchievements.
+     */
+    data: XOR<LegendsPersonalAchievementsUpdateManyMutationInput, LegendsPersonalAchievementsUncheckedUpdateManyInput>
+    /**
+     * Filter which LegendsPersonalAchievements to update
+     */
+    where?: LegendsPersonalAchievementsWhereInput
+    /**
+     * Limit how many LegendsPersonalAchievements to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * LegendsPersonalAchievements updateManyAndReturn
+   */
+  export type LegendsPersonalAchievementsUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsPersonalAchievements
+     */
+    select?: LegendsPersonalAchievementsSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsPersonalAchievements
+     */
+    omit?: LegendsPersonalAchievementsOmit<ExtArgs> | null
+    /**
+     * The data used to update LegendsPersonalAchievements.
+     */
+    data: XOR<LegendsPersonalAchievementsUpdateManyMutationInput, LegendsPersonalAchievementsUncheckedUpdateManyInput>
+    /**
+     * Filter which LegendsPersonalAchievements to update
+     */
+    where?: LegendsPersonalAchievementsWhereInput
+    /**
+     * Limit how many LegendsPersonalAchievements to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsPersonalAchievementsIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * LegendsPersonalAchievements upsert
+   */
+  export type LegendsPersonalAchievementsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsPersonalAchievements
+     */
+    select?: LegendsPersonalAchievementsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsPersonalAchievements
+     */
+    omit?: LegendsPersonalAchievementsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsPersonalAchievementsInclude<ExtArgs> | null
+    /**
+     * The filter to search for the LegendsPersonalAchievements to update in case it exists.
+     */
+    where: LegendsPersonalAchievementsWhereUniqueInput
+    /**
+     * In case the LegendsPersonalAchievements found by the `where` argument doesn't exist, create a new LegendsPersonalAchievements with this data.
+     */
+    create: XOR<LegendsPersonalAchievementsCreateInput, LegendsPersonalAchievementsUncheckedCreateInput>
+    /**
+     * In case the LegendsPersonalAchievements was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<LegendsPersonalAchievementsUpdateInput, LegendsPersonalAchievementsUncheckedUpdateInput>
+  }
+
+  /**
+   * LegendsPersonalAchievements delete
+   */
+  export type LegendsPersonalAchievementsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsPersonalAchievements
+     */
+    select?: LegendsPersonalAchievementsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsPersonalAchievements
+     */
+    omit?: LegendsPersonalAchievementsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsPersonalAchievementsInclude<ExtArgs> | null
+    /**
+     * Filter which LegendsPersonalAchievements to delete.
+     */
+    where: LegendsPersonalAchievementsWhereUniqueInput
+  }
+
+  /**
+   * LegendsPersonalAchievements deleteMany
+   */
+  export type LegendsPersonalAchievementsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which LegendsPersonalAchievements to delete
+     */
+    where?: LegendsPersonalAchievementsWhereInput
+    /**
+     * Limit how many LegendsPersonalAchievements to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * LegendsPersonalAchievements without action
+   */
+  export type LegendsPersonalAchievementsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsPersonalAchievements
+     */
+    select?: LegendsPersonalAchievementsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsPersonalAchievements
+     */
+    omit?: LegendsPersonalAchievementsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsPersonalAchievementsInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model LegendsTeammateThoughts
+   */
+
+  export type AggregateLegendsTeammateThoughts = {
+    _count: LegendsTeammateThoughtsCountAggregateOutputType | null
+    _avg: LegendsTeammateThoughtsAvgAggregateOutputType | null
+    _sum: LegendsTeammateThoughtsSumAggregateOutputType | null
+    _min: LegendsTeammateThoughtsMinAggregateOutputType | null
+    _max: LegendsTeammateThoughtsMaxAggregateOutputType | null
+  }
+
+  export type LegendsTeammateThoughtsAvgAggregateOutputType = {
+    id: number | null
+  }
+
+  export type LegendsTeammateThoughtsSumAggregateOutputType = {
+    id: number | null
+  }
+
+  export type LegendsTeammateThoughtsMinAggregateOutputType = {
+    id: number | null
+    author: string | null
+    thoughts: string | null
+    sent_to: string | null
+  }
+
+  export type LegendsTeammateThoughtsMaxAggregateOutputType = {
+    id: number | null
+    author: string | null
+    thoughts: string | null
+    sent_to: string | null
+  }
+
+  export type LegendsTeammateThoughtsCountAggregateOutputType = {
+    id: number
+    author: number
+    thoughts: number
+    sent_to: number
+    _all: number
+  }
+
+
+  export type LegendsTeammateThoughtsAvgAggregateInputType = {
+    id?: true
+  }
+
+  export type LegendsTeammateThoughtsSumAggregateInputType = {
+    id?: true
+  }
+
+  export type LegendsTeammateThoughtsMinAggregateInputType = {
+    id?: true
+    author?: true
+    thoughts?: true
+    sent_to?: true
+  }
+
+  export type LegendsTeammateThoughtsMaxAggregateInputType = {
+    id?: true
+    author?: true
+    thoughts?: true
+    sent_to?: true
+  }
+
+  export type LegendsTeammateThoughtsCountAggregateInputType = {
+    id?: true
+    author?: true
+    thoughts?: true
+    sent_to?: true
+    _all?: true
+  }
+
+  export type LegendsTeammateThoughtsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which LegendsTeammateThoughts to aggregate.
+     */
+    where?: LegendsTeammateThoughtsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LegendsTeammateThoughts to fetch.
+     */
+    orderBy?: LegendsTeammateThoughtsOrderByWithRelationInput | LegendsTeammateThoughtsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: LegendsTeammateThoughtsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LegendsTeammateThoughts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LegendsTeammateThoughts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned LegendsTeammateThoughts
+    **/
+    _count?: true | LegendsTeammateThoughtsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: LegendsTeammateThoughtsAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: LegendsTeammateThoughtsSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: LegendsTeammateThoughtsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: LegendsTeammateThoughtsMaxAggregateInputType
+  }
+
+  export type GetLegendsTeammateThoughtsAggregateType<T extends LegendsTeammateThoughtsAggregateArgs> = {
+        [P in keyof T & keyof AggregateLegendsTeammateThoughts]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateLegendsTeammateThoughts[P]>
+      : GetScalarType<T[P], AggregateLegendsTeammateThoughts[P]>
+  }
+
+
+
+
+  export type LegendsTeammateThoughtsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LegendsTeammateThoughtsWhereInput
+    orderBy?: LegendsTeammateThoughtsOrderByWithAggregationInput | LegendsTeammateThoughtsOrderByWithAggregationInput[]
+    by: LegendsTeammateThoughtsScalarFieldEnum[] | LegendsTeammateThoughtsScalarFieldEnum
+    having?: LegendsTeammateThoughtsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: LegendsTeammateThoughtsCountAggregateInputType | true
+    _avg?: LegendsTeammateThoughtsAvgAggregateInputType
+    _sum?: LegendsTeammateThoughtsSumAggregateInputType
+    _min?: LegendsTeammateThoughtsMinAggregateInputType
+    _max?: LegendsTeammateThoughtsMaxAggregateInputType
+  }
+
+  export type LegendsTeammateThoughtsGroupByOutputType = {
+    id: number
+    author: string
+    thoughts: string
+    sent_to: string
+    _count: LegendsTeammateThoughtsCountAggregateOutputType | null
+    _avg: LegendsTeammateThoughtsAvgAggregateOutputType | null
+    _sum: LegendsTeammateThoughtsSumAggregateOutputType | null
+    _min: LegendsTeammateThoughtsMinAggregateOutputType | null
+    _max: LegendsTeammateThoughtsMaxAggregateOutputType | null
+  }
+
+  type GetLegendsTeammateThoughtsGroupByPayload<T extends LegendsTeammateThoughtsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<LegendsTeammateThoughtsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof LegendsTeammateThoughtsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], LegendsTeammateThoughtsGroupByOutputType[P]>
+            : GetScalarType<T[P], LegendsTeammateThoughtsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type LegendsTeammateThoughtsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    author?: boolean
+    thoughts?: boolean
+    sent_to?: boolean
+    receiver?: boolean | LegendsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["legendsTeammateThoughts"]>
+
+  export type LegendsTeammateThoughtsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    author?: boolean
+    thoughts?: boolean
+    sent_to?: boolean
+    receiver?: boolean | LegendsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["legendsTeammateThoughts"]>
+
+  export type LegendsTeammateThoughtsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    author?: boolean
+    thoughts?: boolean
+    sent_to?: boolean
+    receiver?: boolean | LegendsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["legendsTeammateThoughts"]>
+
+  export type LegendsTeammateThoughtsSelectScalar = {
+    id?: boolean
+    author?: boolean
+    thoughts?: boolean
+    sent_to?: boolean
+  }
+
+  export type LegendsTeammateThoughtsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "author" | "thoughts" | "sent_to", ExtArgs["result"]["legendsTeammateThoughts"]>
+  export type LegendsTeammateThoughtsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    receiver?: boolean | LegendsDefaultArgs<ExtArgs>
+  }
+  export type LegendsTeammateThoughtsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    receiver?: boolean | LegendsDefaultArgs<ExtArgs>
+  }
+  export type LegendsTeammateThoughtsIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    receiver?: boolean | LegendsDefaultArgs<ExtArgs>
+  }
+
+  export type $LegendsTeammateThoughtsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "LegendsTeammateThoughts"
+    objects: {
+      receiver: Prisma.$LegendsPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      author: string
+      thoughts: string
+      sent_to: string
+    }, ExtArgs["result"]["legendsTeammateThoughts"]>
+    composites: {}
+  }
+
+  type LegendsTeammateThoughtsGetPayload<S extends boolean | null | undefined | LegendsTeammateThoughtsDefaultArgs> = $Result.GetResult<Prisma.$LegendsTeammateThoughtsPayload, S>
+
+  type LegendsTeammateThoughtsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<LegendsTeammateThoughtsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: LegendsTeammateThoughtsCountAggregateInputType | true
+    }
+
+  export interface LegendsTeammateThoughtsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['LegendsTeammateThoughts'], meta: { name: 'LegendsTeammateThoughts' } }
+    /**
+     * Find zero or one LegendsTeammateThoughts that matches the filter.
+     * @param {LegendsTeammateThoughtsFindUniqueArgs} args - Arguments to find a LegendsTeammateThoughts
+     * @example
+     * // Get one LegendsTeammateThoughts
+     * const legendsTeammateThoughts = await prisma.legendsTeammateThoughts.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends LegendsTeammateThoughtsFindUniqueArgs>(args: SelectSubset<T, LegendsTeammateThoughtsFindUniqueArgs<ExtArgs>>): Prisma__LegendsTeammateThoughtsClient<$Result.GetResult<Prisma.$LegendsTeammateThoughtsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one LegendsTeammateThoughts that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {LegendsTeammateThoughtsFindUniqueOrThrowArgs} args - Arguments to find a LegendsTeammateThoughts
+     * @example
+     * // Get one LegendsTeammateThoughts
+     * const legendsTeammateThoughts = await prisma.legendsTeammateThoughts.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends LegendsTeammateThoughtsFindUniqueOrThrowArgs>(args: SelectSubset<T, LegendsTeammateThoughtsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__LegendsTeammateThoughtsClient<$Result.GetResult<Prisma.$LegendsTeammateThoughtsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first LegendsTeammateThoughts that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LegendsTeammateThoughtsFindFirstArgs} args - Arguments to find a LegendsTeammateThoughts
+     * @example
+     * // Get one LegendsTeammateThoughts
+     * const legendsTeammateThoughts = await prisma.legendsTeammateThoughts.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends LegendsTeammateThoughtsFindFirstArgs>(args?: SelectSubset<T, LegendsTeammateThoughtsFindFirstArgs<ExtArgs>>): Prisma__LegendsTeammateThoughtsClient<$Result.GetResult<Prisma.$LegendsTeammateThoughtsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first LegendsTeammateThoughts that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LegendsTeammateThoughtsFindFirstOrThrowArgs} args - Arguments to find a LegendsTeammateThoughts
+     * @example
+     * // Get one LegendsTeammateThoughts
+     * const legendsTeammateThoughts = await prisma.legendsTeammateThoughts.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends LegendsTeammateThoughtsFindFirstOrThrowArgs>(args?: SelectSubset<T, LegendsTeammateThoughtsFindFirstOrThrowArgs<ExtArgs>>): Prisma__LegendsTeammateThoughtsClient<$Result.GetResult<Prisma.$LegendsTeammateThoughtsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more LegendsTeammateThoughts that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LegendsTeammateThoughtsFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all LegendsTeammateThoughts
+     * const legendsTeammateThoughts = await prisma.legendsTeammateThoughts.findMany()
+     * 
+     * // Get first 10 LegendsTeammateThoughts
+     * const legendsTeammateThoughts = await prisma.legendsTeammateThoughts.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const legendsTeammateThoughtsWithIdOnly = await prisma.legendsTeammateThoughts.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends LegendsTeammateThoughtsFindManyArgs>(args?: SelectSubset<T, LegendsTeammateThoughtsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LegendsTeammateThoughtsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a LegendsTeammateThoughts.
+     * @param {LegendsTeammateThoughtsCreateArgs} args - Arguments to create a LegendsTeammateThoughts.
+     * @example
+     * // Create one LegendsTeammateThoughts
+     * const LegendsTeammateThoughts = await prisma.legendsTeammateThoughts.create({
+     *   data: {
+     *     // ... data to create a LegendsTeammateThoughts
+     *   }
+     * })
+     * 
+     */
+    create<T extends LegendsTeammateThoughtsCreateArgs>(args: SelectSubset<T, LegendsTeammateThoughtsCreateArgs<ExtArgs>>): Prisma__LegendsTeammateThoughtsClient<$Result.GetResult<Prisma.$LegendsTeammateThoughtsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many LegendsTeammateThoughts.
+     * @param {LegendsTeammateThoughtsCreateManyArgs} args - Arguments to create many LegendsTeammateThoughts.
+     * @example
+     * // Create many LegendsTeammateThoughts
+     * const legendsTeammateThoughts = await prisma.legendsTeammateThoughts.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends LegendsTeammateThoughtsCreateManyArgs>(args?: SelectSubset<T, LegendsTeammateThoughtsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many LegendsTeammateThoughts and returns the data saved in the database.
+     * @param {LegendsTeammateThoughtsCreateManyAndReturnArgs} args - Arguments to create many LegendsTeammateThoughts.
+     * @example
+     * // Create many LegendsTeammateThoughts
+     * const legendsTeammateThoughts = await prisma.legendsTeammateThoughts.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many LegendsTeammateThoughts and only return the `id`
+     * const legendsTeammateThoughtsWithIdOnly = await prisma.legendsTeammateThoughts.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends LegendsTeammateThoughtsCreateManyAndReturnArgs>(args?: SelectSubset<T, LegendsTeammateThoughtsCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LegendsTeammateThoughtsPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a LegendsTeammateThoughts.
+     * @param {LegendsTeammateThoughtsDeleteArgs} args - Arguments to delete one LegendsTeammateThoughts.
+     * @example
+     * // Delete one LegendsTeammateThoughts
+     * const LegendsTeammateThoughts = await prisma.legendsTeammateThoughts.delete({
+     *   where: {
+     *     // ... filter to delete one LegendsTeammateThoughts
+     *   }
+     * })
+     * 
+     */
+    delete<T extends LegendsTeammateThoughtsDeleteArgs>(args: SelectSubset<T, LegendsTeammateThoughtsDeleteArgs<ExtArgs>>): Prisma__LegendsTeammateThoughtsClient<$Result.GetResult<Prisma.$LegendsTeammateThoughtsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one LegendsTeammateThoughts.
+     * @param {LegendsTeammateThoughtsUpdateArgs} args - Arguments to update one LegendsTeammateThoughts.
+     * @example
+     * // Update one LegendsTeammateThoughts
+     * const legendsTeammateThoughts = await prisma.legendsTeammateThoughts.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends LegendsTeammateThoughtsUpdateArgs>(args: SelectSubset<T, LegendsTeammateThoughtsUpdateArgs<ExtArgs>>): Prisma__LegendsTeammateThoughtsClient<$Result.GetResult<Prisma.$LegendsTeammateThoughtsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more LegendsTeammateThoughts.
+     * @param {LegendsTeammateThoughtsDeleteManyArgs} args - Arguments to filter LegendsTeammateThoughts to delete.
+     * @example
+     * // Delete a few LegendsTeammateThoughts
+     * const { count } = await prisma.legendsTeammateThoughts.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends LegendsTeammateThoughtsDeleteManyArgs>(args?: SelectSubset<T, LegendsTeammateThoughtsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more LegendsTeammateThoughts.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LegendsTeammateThoughtsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many LegendsTeammateThoughts
+     * const legendsTeammateThoughts = await prisma.legendsTeammateThoughts.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends LegendsTeammateThoughtsUpdateManyArgs>(args: SelectSubset<T, LegendsTeammateThoughtsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more LegendsTeammateThoughts and returns the data updated in the database.
+     * @param {LegendsTeammateThoughtsUpdateManyAndReturnArgs} args - Arguments to update many LegendsTeammateThoughts.
+     * @example
+     * // Update many LegendsTeammateThoughts
+     * const legendsTeammateThoughts = await prisma.legendsTeammateThoughts.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more LegendsTeammateThoughts and only return the `id`
+     * const legendsTeammateThoughtsWithIdOnly = await prisma.legendsTeammateThoughts.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends LegendsTeammateThoughtsUpdateManyAndReturnArgs>(args: SelectSubset<T, LegendsTeammateThoughtsUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LegendsTeammateThoughtsPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one LegendsTeammateThoughts.
+     * @param {LegendsTeammateThoughtsUpsertArgs} args - Arguments to update or create a LegendsTeammateThoughts.
+     * @example
+     * // Update or create a LegendsTeammateThoughts
+     * const legendsTeammateThoughts = await prisma.legendsTeammateThoughts.upsert({
+     *   create: {
+     *     // ... data to create a LegendsTeammateThoughts
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the LegendsTeammateThoughts we want to update
+     *   }
+     * })
+     */
+    upsert<T extends LegendsTeammateThoughtsUpsertArgs>(args: SelectSubset<T, LegendsTeammateThoughtsUpsertArgs<ExtArgs>>): Prisma__LegendsTeammateThoughtsClient<$Result.GetResult<Prisma.$LegendsTeammateThoughtsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of LegendsTeammateThoughts.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LegendsTeammateThoughtsCountArgs} args - Arguments to filter LegendsTeammateThoughts to count.
+     * @example
+     * // Count the number of LegendsTeammateThoughts
+     * const count = await prisma.legendsTeammateThoughts.count({
+     *   where: {
+     *     // ... the filter for the LegendsTeammateThoughts we want to count
+     *   }
+     * })
+    **/
+    count<T extends LegendsTeammateThoughtsCountArgs>(
+      args?: Subset<T, LegendsTeammateThoughtsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], LegendsTeammateThoughtsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a LegendsTeammateThoughts.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LegendsTeammateThoughtsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends LegendsTeammateThoughtsAggregateArgs>(args: Subset<T, LegendsTeammateThoughtsAggregateArgs>): Prisma.PrismaPromise<GetLegendsTeammateThoughtsAggregateType<T>>
+
+    /**
+     * Group by LegendsTeammateThoughts.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LegendsTeammateThoughtsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends LegendsTeammateThoughtsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: LegendsTeammateThoughtsGroupByArgs['orderBy'] }
+        : { orderBy?: LegendsTeammateThoughtsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, LegendsTeammateThoughtsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetLegendsTeammateThoughtsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the LegendsTeammateThoughts model
+   */
+  readonly fields: LegendsTeammateThoughtsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for LegendsTeammateThoughts.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__LegendsTeammateThoughtsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    receiver<T extends LegendsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, LegendsDefaultArgs<ExtArgs>>): Prisma__LegendsClient<$Result.GetResult<Prisma.$LegendsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the LegendsTeammateThoughts model
+   */
+  interface LegendsTeammateThoughtsFieldRefs {
+    readonly id: FieldRef<"LegendsTeammateThoughts", 'Int'>
+    readonly author: FieldRef<"LegendsTeammateThoughts", 'String'>
+    readonly thoughts: FieldRef<"LegendsTeammateThoughts", 'String'>
+    readonly sent_to: FieldRef<"LegendsTeammateThoughts", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * LegendsTeammateThoughts findUnique
+   */
+  export type LegendsTeammateThoughtsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsTeammateThoughts
+     */
+    select?: LegendsTeammateThoughtsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsTeammateThoughts
+     */
+    omit?: LegendsTeammateThoughtsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsTeammateThoughtsInclude<ExtArgs> | null
+    /**
+     * Filter, which LegendsTeammateThoughts to fetch.
+     */
+    where: LegendsTeammateThoughtsWhereUniqueInput
+  }
+
+  /**
+   * LegendsTeammateThoughts findUniqueOrThrow
+   */
+  export type LegendsTeammateThoughtsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsTeammateThoughts
+     */
+    select?: LegendsTeammateThoughtsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsTeammateThoughts
+     */
+    omit?: LegendsTeammateThoughtsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsTeammateThoughtsInclude<ExtArgs> | null
+    /**
+     * Filter, which LegendsTeammateThoughts to fetch.
+     */
+    where: LegendsTeammateThoughtsWhereUniqueInput
+  }
+
+  /**
+   * LegendsTeammateThoughts findFirst
+   */
+  export type LegendsTeammateThoughtsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsTeammateThoughts
+     */
+    select?: LegendsTeammateThoughtsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsTeammateThoughts
+     */
+    omit?: LegendsTeammateThoughtsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsTeammateThoughtsInclude<ExtArgs> | null
+    /**
+     * Filter, which LegendsTeammateThoughts to fetch.
+     */
+    where?: LegendsTeammateThoughtsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LegendsTeammateThoughts to fetch.
+     */
+    orderBy?: LegendsTeammateThoughtsOrderByWithRelationInput | LegendsTeammateThoughtsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for LegendsTeammateThoughts.
+     */
+    cursor?: LegendsTeammateThoughtsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LegendsTeammateThoughts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LegendsTeammateThoughts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of LegendsTeammateThoughts.
+     */
+    distinct?: LegendsTeammateThoughtsScalarFieldEnum | LegendsTeammateThoughtsScalarFieldEnum[]
+  }
+
+  /**
+   * LegendsTeammateThoughts findFirstOrThrow
+   */
+  export type LegendsTeammateThoughtsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsTeammateThoughts
+     */
+    select?: LegendsTeammateThoughtsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsTeammateThoughts
+     */
+    omit?: LegendsTeammateThoughtsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsTeammateThoughtsInclude<ExtArgs> | null
+    /**
+     * Filter, which LegendsTeammateThoughts to fetch.
+     */
+    where?: LegendsTeammateThoughtsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LegendsTeammateThoughts to fetch.
+     */
+    orderBy?: LegendsTeammateThoughtsOrderByWithRelationInput | LegendsTeammateThoughtsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for LegendsTeammateThoughts.
+     */
+    cursor?: LegendsTeammateThoughtsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LegendsTeammateThoughts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LegendsTeammateThoughts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of LegendsTeammateThoughts.
+     */
+    distinct?: LegendsTeammateThoughtsScalarFieldEnum | LegendsTeammateThoughtsScalarFieldEnum[]
+  }
+
+  /**
+   * LegendsTeammateThoughts findMany
+   */
+  export type LegendsTeammateThoughtsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsTeammateThoughts
+     */
+    select?: LegendsTeammateThoughtsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsTeammateThoughts
+     */
+    omit?: LegendsTeammateThoughtsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsTeammateThoughtsInclude<ExtArgs> | null
+    /**
+     * Filter, which LegendsTeammateThoughts to fetch.
+     */
+    where?: LegendsTeammateThoughtsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LegendsTeammateThoughts to fetch.
+     */
+    orderBy?: LegendsTeammateThoughtsOrderByWithRelationInput | LegendsTeammateThoughtsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing LegendsTeammateThoughts.
+     */
+    cursor?: LegendsTeammateThoughtsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LegendsTeammateThoughts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LegendsTeammateThoughts.
+     */
+    skip?: number
+    distinct?: LegendsTeammateThoughtsScalarFieldEnum | LegendsTeammateThoughtsScalarFieldEnum[]
+  }
+
+  /**
+   * LegendsTeammateThoughts create
+   */
+  export type LegendsTeammateThoughtsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsTeammateThoughts
+     */
+    select?: LegendsTeammateThoughtsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsTeammateThoughts
+     */
+    omit?: LegendsTeammateThoughtsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsTeammateThoughtsInclude<ExtArgs> | null
+    /**
+     * The data needed to create a LegendsTeammateThoughts.
+     */
+    data: XOR<LegendsTeammateThoughtsCreateInput, LegendsTeammateThoughtsUncheckedCreateInput>
+  }
+
+  /**
+   * LegendsTeammateThoughts createMany
+   */
+  export type LegendsTeammateThoughtsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many LegendsTeammateThoughts.
+     */
+    data: LegendsTeammateThoughtsCreateManyInput | LegendsTeammateThoughtsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * LegendsTeammateThoughts createManyAndReturn
+   */
+  export type LegendsTeammateThoughtsCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsTeammateThoughts
+     */
+    select?: LegendsTeammateThoughtsSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsTeammateThoughts
+     */
+    omit?: LegendsTeammateThoughtsOmit<ExtArgs> | null
+    /**
+     * The data used to create many LegendsTeammateThoughts.
+     */
+    data: LegendsTeammateThoughtsCreateManyInput | LegendsTeammateThoughtsCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsTeammateThoughtsIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * LegendsTeammateThoughts update
+   */
+  export type LegendsTeammateThoughtsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsTeammateThoughts
+     */
+    select?: LegendsTeammateThoughtsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsTeammateThoughts
+     */
+    omit?: LegendsTeammateThoughtsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsTeammateThoughtsInclude<ExtArgs> | null
+    /**
+     * The data needed to update a LegendsTeammateThoughts.
+     */
+    data: XOR<LegendsTeammateThoughtsUpdateInput, LegendsTeammateThoughtsUncheckedUpdateInput>
+    /**
+     * Choose, which LegendsTeammateThoughts to update.
+     */
+    where: LegendsTeammateThoughtsWhereUniqueInput
+  }
+
+  /**
+   * LegendsTeammateThoughts updateMany
+   */
+  export type LegendsTeammateThoughtsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update LegendsTeammateThoughts.
+     */
+    data: XOR<LegendsTeammateThoughtsUpdateManyMutationInput, LegendsTeammateThoughtsUncheckedUpdateManyInput>
+    /**
+     * Filter which LegendsTeammateThoughts to update
+     */
+    where?: LegendsTeammateThoughtsWhereInput
+    /**
+     * Limit how many LegendsTeammateThoughts to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * LegendsTeammateThoughts updateManyAndReturn
+   */
+  export type LegendsTeammateThoughtsUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsTeammateThoughts
+     */
+    select?: LegendsTeammateThoughtsSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsTeammateThoughts
+     */
+    omit?: LegendsTeammateThoughtsOmit<ExtArgs> | null
+    /**
+     * The data used to update LegendsTeammateThoughts.
+     */
+    data: XOR<LegendsTeammateThoughtsUpdateManyMutationInput, LegendsTeammateThoughtsUncheckedUpdateManyInput>
+    /**
+     * Filter which LegendsTeammateThoughts to update
+     */
+    where?: LegendsTeammateThoughtsWhereInput
+    /**
+     * Limit how many LegendsTeammateThoughts to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsTeammateThoughtsIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * LegendsTeammateThoughts upsert
+   */
+  export type LegendsTeammateThoughtsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsTeammateThoughts
+     */
+    select?: LegendsTeammateThoughtsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsTeammateThoughts
+     */
+    omit?: LegendsTeammateThoughtsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsTeammateThoughtsInclude<ExtArgs> | null
+    /**
+     * The filter to search for the LegendsTeammateThoughts to update in case it exists.
+     */
+    where: LegendsTeammateThoughtsWhereUniqueInput
+    /**
+     * In case the LegendsTeammateThoughts found by the `where` argument doesn't exist, create a new LegendsTeammateThoughts with this data.
+     */
+    create: XOR<LegendsTeammateThoughtsCreateInput, LegendsTeammateThoughtsUncheckedCreateInput>
+    /**
+     * In case the LegendsTeammateThoughts was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<LegendsTeammateThoughtsUpdateInput, LegendsTeammateThoughtsUncheckedUpdateInput>
+  }
+
+  /**
+   * LegendsTeammateThoughts delete
+   */
+  export type LegendsTeammateThoughtsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsTeammateThoughts
+     */
+    select?: LegendsTeammateThoughtsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsTeammateThoughts
+     */
+    omit?: LegendsTeammateThoughtsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsTeammateThoughtsInclude<ExtArgs> | null
+    /**
+     * Filter which LegendsTeammateThoughts to delete.
+     */
+    where: LegendsTeammateThoughtsWhereUniqueInput
+  }
+
+  /**
+   * LegendsTeammateThoughts deleteMany
+   */
+  export type LegendsTeammateThoughtsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which LegendsTeammateThoughts to delete
+     */
+    where?: LegendsTeammateThoughtsWhereInput
+    /**
+     * Limit how many LegendsTeammateThoughts to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * LegendsTeammateThoughts without action
+   */
+  export type LegendsTeammateThoughtsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LegendsTeammateThoughts
+     */
+    select?: LegendsTeammateThoughtsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LegendsTeammateThoughts
+     */
+    omit?: LegendsTeammateThoughtsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LegendsTeammateThoughtsInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -16831,6 +24376,76 @@ export namespace Prisma {
   export type PlayerTeammateThoughtsScalarFieldEnum = (typeof PlayerTeammateThoughtsScalarFieldEnum)[keyof typeof PlayerTeammateThoughtsScalarFieldEnum]
 
 
+  export const LegendsScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    age: 'age',
+    position: 'position',
+    team_id: 'team_id'
+  };
+
+  export type LegendsScalarFieldEnum = (typeof LegendsScalarFieldEnum)[keyof typeof LegendsScalarFieldEnum]
+
+
+  export const LegendsInfoScalarFieldEnum: {
+    player_id: 'player_id',
+    dob: 'dob',
+    birthplace: 'birthplace',
+    gender: 'gender',
+    biography: 'biography',
+    height: 'height'
+  };
+
+  export type LegendsInfoScalarFieldEnum = (typeof LegendsInfoScalarFieldEnum)[keyof typeof LegendsInfoScalarFieldEnum]
+
+
+  export const LegendsRatingsScalarFieldEnum: {
+    player_id: 'player_id',
+    pace: 'pace',
+    shooting: 'shooting',
+    passing: 'passing',
+    physical: 'physical',
+    defending: 'defending',
+    dribbling: 'dribbling'
+  };
+
+  export type LegendsRatingsScalarFieldEnum = (typeof LegendsRatingsScalarFieldEnum)[keyof typeof LegendsRatingsScalarFieldEnum]
+
+
+  export const LegendsTeamAchievementsScalarFieldEnum: {
+    id: 'id',
+    player_id: 'player_id',
+    place: 'place',
+    league_id: 'league_id',
+    team_id: 'team_id',
+    time: 'time'
+  };
+
+  export type LegendsTeamAchievementsScalarFieldEnum = (typeof LegendsTeamAchievementsScalarFieldEnum)[keyof typeof LegendsTeamAchievementsScalarFieldEnum]
+
+
+  export const LegendsPersonalAchievementsScalarFieldEnum: {
+    id: 'id',
+    player_id: 'player_id',
+    achievement_id: 'achievement_id',
+    league_id: 'league_id',
+    team_id: 'team_id',
+    time: 'time'
+  };
+
+  export type LegendsPersonalAchievementsScalarFieldEnum = (typeof LegendsPersonalAchievementsScalarFieldEnum)[keyof typeof LegendsPersonalAchievementsScalarFieldEnum]
+
+
+  export const LegendsTeammateThoughtsScalarFieldEnum: {
+    id: 'id',
+    author: 'author',
+    thoughts: 'thoughts',
+    sent_to: 'sent_to'
+  };
+
+  export type LegendsTeammateThoughtsScalarFieldEnum = (typeof LegendsTeammateThoughtsScalarFieldEnum)[keyof typeof LegendsTeammateThoughtsScalarFieldEnum]
+
+
   export const SortOrder: {
     asc: 'asc',
     desc: 'desc'
@@ -16931,6 +24546,9 @@ export namespace Prisma {
     personal_achievement?: PlayerPersonalAchievementsListRelationFilter
     player_stats?: PlayerStatsListRelationFilter
     is_participant?: Is_ParticipantListRelationFilter
+    Legends?: LegendsListRelationFilter
+    LegendsTeamAchievements?: LegendsTeamAchievementsListRelationFilter
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsListRelationFilter
   }
 
   export type TeamsOrderByWithRelationInput = {
@@ -16943,6 +24561,9 @@ export namespace Prisma {
     personal_achievement?: PlayerPersonalAchievementsOrderByRelationAggregateInput
     player_stats?: PlayerStatsOrderByRelationAggregateInput
     is_participant?: Is_ParticipantOrderByRelationAggregateInput
+    Legends?: LegendsOrderByRelationAggregateInput
+    LegendsTeamAchievements?: LegendsTeamAchievementsOrderByRelationAggregateInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsOrderByRelationAggregateInput
   }
 
   export type TeamsWhereUniqueInput = Prisma.AtLeast<{
@@ -16958,6 +24579,9 @@ export namespace Prisma {
     personal_achievement?: PlayerPersonalAchievementsListRelationFilter
     player_stats?: PlayerStatsListRelationFilter
     is_participant?: Is_ParticipantListRelationFilter
+    Legends?: LegendsListRelationFilter
+    LegendsTeamAchievements?: LegendsTeamAchievementsListRelationFilter
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsListRelationFilter
   }, "id">
 
   export type TeamsOrderByWithAggregationInput = {
@@ -17212,6 +24836,8 @@ export namespace Prisma {
     league_achievement?: PlayerTeamAchievementsListRelationFilter
     personal_achievement?: PlayerPersonalAchievementsListRelationFilter
     player_stats?: PlayerStatsListRelationFilter
+    LegendsTeamAchievements?: LegendsTeamAchievementsListRelationFilter
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsListRelationFilter
   }
 
   export type LeaguesOrderByWithRelationInput = {
@@ -17220,6 +24846,8 @@ export namespace Prisma {
     league_achievement?: PlayerTeamAchievementsOrderByRelationAggregateInput
     personal_achievement?: PlayerPersonalAchievementsOrderByRelationAggregateInput
     player_stats?: PlayerStatsOrderByRelationAggregateInput
+    LegendsTeamAchievements?: LegendsTeamAchievementsOrderByRelationAggregateInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsOrderByRelationAggregateInput
   }
 
   export type LeaguesWhereUniqueInput = Prisma.AtLeast<{
@@ -17231,6 +24859,8 @@ export namespace Prisma {
     league_achievement?: PlayerTeamAchievementsListRelationFilter
     personal_achievement?: PlayerPersonalAchievementsListRelationFilter
     player_stats?: PlayerStatsListRelationFilter
+    LegendsTeamAchievements?: LegendsTeamAchievementsListRelationFilter
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsListRelationFilter
   }, "id">
 
   export type LeaguesOrderByWithAggregationInput = {
@@ -17256,12 +24886,14 @@ export namespace Prisma {
     id?: StringFilter<"PersonalAchievements"> | string
     name?: StringFilter<"PersonalAchievements"> | string
     personal_achievement?: PlayerPersonalAchievementsListRelationFilter
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsListRelationFilter
   }
 
   export type PersonalAchievementsOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
     personal_achievement?: PlayerPersonalAchievementsOrderByRelationAggregateInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsOrderByRelationAggregateInput
   }
 
   export type PersonalAchievementsWhereUniqueInput = Prisma.AtLeast<{
@@ -17271,6 +24903,7 @@ export namespace Prisma {
     NOT?: PersonalAchievementsWhereInput | PersonalAchievementsWhereInput[]
     name?: StringFilter<"PersonalAchievements"> | string
     personal_achievement?: PlayerPersonalAchievementsListRelationFilter
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsListRelationFilter
   }, "id">
 
   export type PersonalAchievementsOrderByWithAggregationInput = {
@@ -17696,6 +25329,394 @@ export namespace Prisma {
     sent_to?: StringWithAggregatesFilter<"PlayerTeammateThoughts"> | string
   }
 
+  export type LegendsWhereInput = {
+    AND?: LegendsWhereInput | LegendsWhereInput[]
+    OR?: LegendsWhereInput[]
+    NOT?: LegendsWhereInput | LegendsWhereInput[]
+    id?: StringFilter<"Legends"> | string
+    name?: StringFilter<"Legends"> | string
+    age?: IntFilter<"Legends"> | number
+    position?: StringFilter<"Legends"> | string
+    team_id?: StringFilter<"Legends"> | string
+    legends_info?: XOR<LegendsInfoNullableScalarRelationFilter, LegendsInfoWhereInput> | null
+    legends_rating?: XOR<LegendsRatingsNullableScalarRelationFilter, LegendsRatingsWhereInput> | null
+    legends_team_achievement?: LegendsTeamAchievementsListRelationFilter
+    legends_personal_achievement?: LegendsPersonalAchievementsListRelationFilter
+    thoughtsReceived?: LegendsTeammateThoughtsListRelationFilter
+    team?: XOR<TeamsScalarRelationFilter, TeamsWhereInput>
+  }
+
+  export type LegendsOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    age?: SortOrder
+    position?: SortOrder
+    team_id?: SortOrder
+    legends_info?: LegendsInfoOrderByWithRelationInput
+    legends_rating?: LegendsRatingsOrderByWithRelationInput
+    legends_team_achievement?: LegendsTeamAchievementsOrderByRelationAggregateInput
+    legends_personal_achievement?: LegendsPersonalAchievementsOrderByRelationAggregateInput
+    thoughtsReceived?: LegendsTeammateThoughtsOrderByRelationAggregateInput
+    team?: TeamsOrderByWithRelationInput
+  }
+
+  export type LegendsWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: LegendsWhereInput | LegendsWhereInput[]
+    OR?: LegendsWhereInput[]
+    NOT?: LegendsWhereInput | LegendsWhereInput[]
+    name?: StringFilter<"Legends"> | string
+    age?: IntFilter<"Legends"> | number
+    position?: StringFilter<"Legends"> | string
+    team_id?: StringFilter<"Legends"> | string
+    legends_info?: XOR<LegendsInfoNullableScalarRelationFilter, LegendsInfoWhereInput> | null
+    legends_rating?: XOR<LegendsRatingsNullableScalarRelationFilter, LegendsRatingsWhereInput> | null
+    legends_team_achievement?: LegendsTeamAchievementsListRelationFilter
+    legends_personal_achievement?: LegendsPersonalAchievementsListRelationFilter
+    thoughtsReceived?: LegendsTeammateThoughtsListRelationFilter
+    team?: XOR<TeamsScalarRelationFilter, TeamsWhereInput>
+  }, "id">
+
+  export type LegendsOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    age?: SortOrder
+    position?: SortOrder
+    team_id?: SortOrder
+    _count?: LegendsCountOrderByAggregateInput
+    _avg?: LegendsAvgOrderByAggregateInput
+    _max?: LegendsMaxOrderByAggregateInput
+    _min?: LegendsMinOrderByAggregateInput
+    _sum?: LegendsSumOrderByAggregateInput
+  }
+
+  export type LegendsScalarWhereWithAggregatesInput = {
+    AND?: LegendsScalarWhereWithAggregatesInput | LegendsScalarWhereWithAggregatesInput[]
+    OR?: LegendsScalarWhereWithAggregatesInput[]
+    NOT?: LegendsScalarWhereWithAggregatesInput | LegendsScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Legends"> | string
+    name?: StringWithAggregatesFilter<"Legends"> | string
+    age?: IntWithAggregatesFilter<"Legends"> | number
+    position?: StringWithAggregatesFilter<"Legends"> | string
+    team_id?: StringWithAggregatesFilter<"Legends"> | string
+  }
+
+  export type LegendsInfoWhereInput = {
+    AND?: LegendsInfoWhereInput | LegendsInfoWhereInput[]
+    OR?: LegendsInfoWhereInput[]
+    NOT?: LegendsInfoWhereInput | LegendsInfoWhereInput[]
+    player_id?: StringFilter<"LegendsInfo"> | string
+    dob?: DateTimeFilter<"LegendsInfo"> | Date | string
+    birthplace?: StringFilter<"LegendsInfo"> | string
+    gender?: StringFilter<"LegendsInfo"> | string
+    biography?: StringFilter<"LegendsInfo"> | string
+    height?: IntFilter<"LegendsInfo"> | number
+    player?: XOR<LegendsScalarRelationFilter, LegendsWhereInput>
+  }
+
+  export type LegendsInfoOrderByWithRelationInput = {
+    player_id?: SortOrder
+    dob?: SortOrder
+    birthplace?: SortOrder
+    gender?: SortOrder
+    biography?: SortOrder
+    height?: SortOrder
+    player?: LegendsOrderByWithRelationInput
+  }
+
+  export type LegendsInfoWhereUniqueInput = Prisma.AtLeast<{
+    player_id?: string
+    AND?: LegendsInfoWhereInput | LegendsInfoWhereInput[]
+    OR?: LegendsInfoWhereInput[]
+    NOT?: LegendsInfoWhereInput | LegendsInfoWhereInput[]
+    dob?: DateTimeFilter<"LegendsInfo"> | Date | string
+    birthplace?: StringFilter<"LegendsInfo"> | string
+    gender?: StringFilter<"LegendsInfo"> | string
+    biography?: StringFilter<"LegendsInfo"> | string
+    height?: IntFilter<"LegendsInfo"> | number
+    player?: XOR<LegendsScalarRelationFilter, LegendsWhereInput>
+  }, "player_id">
+
+  export type LegendsInfoOrderByWithAggregationInput = {
+    player_id?: SortOrder
+    dob?: SortOrder
+    birthplace?: SortOrder
+    gender?: SortOrder
+    biography?: SortOrder
+    height?: SortOrder
+    _count?: LegendsInfoCountOrderByAggregateInput
+    _avg?: LegendsInfoAvgOrderByAggregateInput
+    _max?: LegendsInfoMaxOrderByAggregateInput
+    _min?: LegendsInfoMinOrderByAggregateInput
+    _sum?: LegendsInfoSumOrderByAggregateInput
+  }
+
+  export type LegendsInfoScalarWhereWithAggregatesInput = {
+    AND?: LegendsInfoScalarWhereWithAggregatesInput | LegendsInfoScalarWhereWithAggregatesInput[]
+    OR?: LegendsInfoScalarWhereWithAggregatesInput[]
+    NOT?: LegendsInfoScalarWhereWithAggregatesInput | LegendsInfoScalarWhereWithAggregatesInput[]
+    player_id?: StringWithAggregatesFilter<"LegendsInfo"> | string
+    dob?: DateTimeWithAggregatesFilter<"LegendsInfo"> | Date | string
+    birthplace?: StringWithAggregatesFilter<"LegendsInfo"> | string
+    gender?: StringWithAggregatesFilter<"LegendsInfo"> | string
+    biography?: StringWithAggregatesFilter<"LegendsInfo"> | string
+    height?: IntWithAggregatesFilter<"LegendsInfo"> | number
+  }
+
+  export type LegendsRatingsWhereInput = {
+    AND?: LegendsRatingsWhereInput | LegendsRatingsWhereInput[]
+    OR?: LegendsRatingsWhereInput[]
+    NOT?: LegendsRatingsWhereInput | LegendsRatingsWhereInput[]
+    player_id?: StringFilter<"LegendsRatings"> | string
+    pace?: IntFilter<"LegendsRatings"> | number
+    shooting?: IntFilter<"LegendsRatings"> | number
+    passing?: IntFilter<"LegendsRatings"> | number
+    physical?: IntFilter<"LegendsRatings"> | number
+    defending?: IntFilter<"LegendsRatings"> | number
+    dribbling?: IntFilter<"LegendsRatings"> | number
+    player?: XOR<LegendsScalarRelationFilter, LegendsWhereInput>
+  }
+
+  export type LegendsRatingsOrderByWithRelationInput = {
+    player_id?: SortOrder
+    pace?: SortOrder
+    shooting?: SortOrder
+    passing?: SortOrder
+    physical?: SortOrder
+    defending?: SortOrder
+    dribbling?: SortOrder
+    player?: LegendsOrderByWithRelationInput
+  }
+
+  export type LegendsRatingsWhereUniqueInput = Prisma.AtLeast<{
+    player_id?: string
+    AND?: LegendsRatingsWhereInput | LegendsRatingsWhereInput[]
+    OR?: LegendsRatingsWhereInput[]
+    NOT?: LegendsRatingsWhereInput | LegendsRatingsWhereInput[]
+    pace?: IntFilter<"LegendsRatings"> | number
+    shooting?: IntFilter<"LegendsRatings"> | number
+    passing?: IntFilter<"LegendsRatings"> | number
+    physical?: IntFilter<"LegendsRatings"> | number
+    defending?: IntFilter<"LegendsRatings"> | number
+    dribbling?: IntFilter<"LegendsRatings"> | number
+    player?: XOR<LegendsScalarRelationFilter, LegendsWhereInput>
+  }, "player_id">
+
+  export type LegendsRatingsOrderByWithAggregationInput = {
+    player_id?: SortOrder
+    pace?: SortOrder
+    shooting?: SortOrder
+    passing?: SortOrder
+    physical?: SortOrder
+    defending?: SortOrder
+    dribbling?: SortOrder
+    _count?: LegendsRatingsCountOrderByAggregateInput
+    _avg?: LegendsRatingsAvgOrderByAggregateInput
+    _max?: LegendsRatingsMaxOrderByAggregateInput
+    _min?: LegendsRatingsMinOrderByAggregateInput
+    _sum?: LegendsRatingsSumOrderByAggregateInput
+  }
+
+  export type LegendsRatingsScalarWhereWithAggregatesInput = {
+    AND?: LegendsRatingsScalarWhereWithAggregatesInput | LegendsRatingsScalarWhereWithAggregatesInput[]
+    OR?: LegendsRatingsScalarWhereWithAggregatesInput[]
+    NOT?: LegendsRatingsScalarWhereWithAggregatesInput | LegendsRatingsScalarWhereWithAggregatesInput[]
+    player_id?: StringWithAggregatesFilter<"LegendsRatings"> | string
+    pace?: IntWithAggregatesFilter<"LegendsRatings"> | number
+    shooting?: IntWithAggregatesFilter<"LegendsRatings"> | number
+    passing?: IntWithAggregatesFilter<"LegendsRatings"> | number
+    physical?: IntWithAggregatesFilter<"LegendsRatings"> | number
+    defending?: IntWithAggregatesFilter<"LegendsRatings"> | number
+    dribbling?: IntWithAggregatesFilter<"LegendsRatings"> | number
+  }
+
+  export type LegendsTeamAchievementsWhereInput = {
+    AND?: LegendsTeamAchievementsWhereInput | LegendsTeamAchievementsWhereInput[]
+    OR?: LegendsTeamAchievementsWhereInput[]
+    NOT?: LegendsTeamAchievementsWhereInput | LegendsTeamAchievementsWhereInput[]
+    id?: StringFilter<"LegendsTeamAchievements"> | string
+    player_id?: StringFilter<"LegendsTeamAchievements"> | string
+    place?: StringFilter<"LegendsTeamAchievements"> | string
+    league_id?: StringFilter<"LegendsTeamAchievements"> | string
+    team_id?: StringFilter<"LegendsTeamAchievements"> | string
+    time?: StringFilter<"LegendsTeamAchievements"> | string
+    player?: XOR<LegendsScalarRelationFilter, LegendsWhereInput>
+    league?: XOR<LeaguesScalarRelationFilter, LeaguesWhereInput>
+    team?: XOR<TeamsScalarRelationFilter, TeamsWhereInput>
+  }
+
+  export type LegendsTeamAchievementsOrderByWithRelationInput = {
+    id?: SortOrder
+    player_id?: SortOrder
+    place?: SortOrder
+    league_id?: SortOrder
+    team_id?: SortOrder
+    time?: SortOrder
+    player?: LegendsOrderByWithRelationInput
+    league?: LeaguesOrderByWithRelationInput
+    team?: TeamsOrderByWithRelationInput
+  }
+
+  export type LegendsTeamAchievementsWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: LegendsTeamAchievementsWhereInput | LegendsTeamAchievementsWhereInput[]
+    OR?: LegendsTeamAchievementsWhereInput[]
+    NOT?: LegendsTeamAchievementsWhereInput | LegendsTeamAchievementsWhereInput[]
+    player_id?: StringFilter<"LegendsTeamAchievements"> | string
+    place?: StringFilter<"LegendsTeamAchievements"> | string
+    league_id?: StringFilter<"LegendsTeamAchievements"> | string
+    team_id?: StringFilter<"LegendsTeamAchievements"> | string
+    time?: StringFilter<"LegendsTeamAchievements"> | string
+    player?: XOR<LegendsScalarRelationFilter, LegendsWhereInput>
+    league?: XOR<LeaguesScalarRelationFilter, LeaguesWhereInput>
+    team?: XOR<TeamsScalarRelationFilter, TeamsWhereInput>
+  }, "id">
+
+  export type LegendsTeamAchievementsOrderByWithAggregationInput = {
+    id?: SortOrder
+    player_id?: SortOrder
+    place?: SortOrder
+    league_id?: SortOrder
+    team_id?: SortOrder
+    time?: SortOrder
+    _count?: LegendsTeamAchievementsCountOrderByAggregateInput
+    _max?: LegendsTeamAchievementsMaxOrderByAggregateInput
+    _min?: LegendsTeamAchievementsMinOrderByAggregateInput
+  }
+
+  export type LegendsTeamAchievementsScalarWhereWithAggregatesInput = {
+    AND?: LegendsTeamAchievementsScalarWhereWithAggregatesInput | LegendsTeamAchievementsScalarWhereWithAggregatesInput[]
+    OR?: LegendsTeamAchievementsScalarWhereWithAggregatesInput[]
+    NOT?: LegendsTeamAchievementsScalarWhereWithAggregatesInput | LegendsTeamAchievementsScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"LegendsTeamAchievements"> | string
+    player_id?: StringWithAggregatesFilter<"LegendsTeamAchievements"> | string
+    place?: StringWithAggregatesFilter<"LegendsTeamAchievements"> | string
+    league_id?: StringWithAggregatesFilter<"LegendsTeamAchievements"> | string
+    team_id?: StringWithAggregatesFilter<"LegendsTeamAchievements"> | string
+    time?: StringWithAggregatesFilter<"LegendsTeamAchievements"> | string
+  }
+
+  export type LegendsPersonalAchievementsWhereInput = {
+    AND?: LegendsPersonalAchievementsWhereInput | LegendsPersonalAchievementsWhereInput[]
+    OR?: LegendsPersonalAchievementsWhereInput[]
+    NOT?: LegendsPersonalAchievementsWhereInput | LegendsPersonalAchievementsWhereInput[]
+    id?: StringFilter<"LegendsPersonalAchievements"> | string
+    player_id?: StringFilter<"LegendsPersonalAchievements"> | string
+    achievement_id?: StringFilter<"LegendsPersonalAchievements"> | string
+    league_id?: StringFilter<"LegendsPersonalAchievements"> | string
+    team_id?: StringFilter<"LegendsPersonalAchievements"> | string
+    time?: StringFilter<"LegendsPersonalAchievements"> | string
+    player?: XOR<LegendsScalarRelationFilter, LegendsWhereInput>
+    achievement?: XOR<PersonalAchievementsScalarRelationFilter, PersonalAchievementsWhereInput>
+    team?: XOR<TeamsScalarRelationFilter, TeamsWhereInput>
+    league?: XOR<LeaguesScalarRelationFilter, LeaguesWhereInput>
+  }
+
+  export type LegendsPersonalAchievementsOrderByWithRelationInput = {
+    id?: SortOrder
+    player_id?: SortOrder
+    achievement_id?: SortOrder
+    league_id?: SortOrder
+    team_id?: SortOrder
+    time?: SortOrder
+    player?: LegendsOrderByWithRelationInput
+    achievement?: PersonalAchievementsOrderByWithRelationInput
+    team?: TeamsOrderByWithRelationInput
+    league?: LeaguesOrderByWithRelationInput
+  }
+
+  export type LegendsPersonalAchievementsWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: LegendsPersonalAchievementsWhereInput | LegendsPersonalAchievementsWhereInput[]
+    OR?: LegendsPersonalAchievementsWhereInput[]
+    NOT?: LegendsPersonalAchievementsWhereInput | LegendsPersonalAchievementsWhereInput[]
+    player_id?: StringFilter<"LegendsPersonalAchievements"> | string
+    achievement_id?: StringFilter<"LegendsPersonalAchievements"> | string
+    league_id?: StringFilter<"LegendsPersonalAchievements"> | string
+    team_id?: StringFilter<"LegendsPersonalAchievements"> | string
+    time?: StringFilter<"LegendsPersonalAchievements"> | string
+    player?: XOR<LegendsScalarRelationFilter, LegendsWhereInput>
+    achievement?: XOR<PersonalAchievementsScalarRelationFilter, PersonalAchievementsWhereInput>
+    team?: XOR<TeamsScalarRelationFilter, TeamsWhereInput>
+    league?: XOR<LeaguesScalarRelationFilter, LeaguesWhereInput>
+  }, "id">
+
+  export type LegendsPersonalAchievementsOrderByWithAggregationInput = {
+    id?: SortOrder
+    player_id?: SortOrder
+    achievement_id?: SortOrder
+    league_id?: SortOrder
+    team_id?: SortOrder
+    time?: SortOrder
+    _count?: LegendsPersonalAchievementsCountOrderByAggregateInput
+    _max?: LegendsPersonalAchievementsMaxOrderByAggregateInput
+    _min?: LegendsPersonalAchievementsMinOrderByAggregateInput
+  }
+
+  export type LegendsPersonalAchievementsScalarWhereWithAggregatesInput = {
+    AND?: LegendsPersonalAchievementsScalarWhereWithAggregatesInput | LegendsPersonalAchievementsScalarWhereWithAggregatesInput[]
+    OR?: LegendsPersonalAchievementsScalarWhereWithAggregatesInput[]
+    NOT?: LegendsPersonalAchievementsScalarWhereWithAggregatesInput | LegendsPersonalAchievementsScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"LegendsPersonalAchievements"> | string
+    player_id?: StringWithAggregatesFilter<"LegendsPersonalAchievements"> | string
+    achievement_id?: StringWithAggregatesFilter<"LegendsPersonalAchievements"> | string
+    league_id?: StringWithAggregatesFilter<"LegendsPersonalAchievements"> | string
+    team_id?: StringWithAggregatesFilter<"LegendsPersonalAchievements"> | string
+    time?: StringWithAggregatesFilter<"LegendsPersonalAchievements"> | string
+  }
+
+  export type LegendsTeammateThoughtsWhereInput = {
+    AND?: LegendsTeammateThoughtsWhereInput | LegendsTeammateThoughtsWhereInput[]
+    OR?: LegendsTeammateThoughtsWhereInput[]
+    NOT?: LegendsTeammateThoughtsWhereInput | LegendsTeammateThoughtsWhereInput[]
+    id?: IntFilter<"LegendsTeammateThoughts"> | number
+    author?: StringFilter<"LegendsTeammateThoughts"> | string
+    thoughts?: StringFilter<"LegendsTeammateThoughts"> | string
+    sent_to?: StringFilter<"LegendsTeammateThoughts"> | string
+    receiver?: XOR<LegendsScalarRelationFilter, LegendsWhereInput>
+  }
+
+  export type LegendsTeammateThoughtsOrderByWithRelationInput = {
+    id?: SortOrder
+    author?: SortOrder
+    thoughts?: SortOrder
+    sent_to?: SortOrder
+    receiver?: LegendsOrderByWithRelationInput
+  }
+
+  export type LegendsTeammateThoughtsWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: LegendsTeammateThoughtsWhereInput | LegendsTeammateThoughtsWhereInput[]
+    OR?: LegendsTeammateThoughtsWhereInput[]
+    NOT?: LegendsTeammateThoughtsWhereInput | LegendsTeammateThoughtsWhereInput[]
+    author?: StringFilter<"LegendsTeammateThoughts"> | string
+    thoughts?: StringFilter<"LegendsTeammateThoughts"> | string
+    sent_to?: StringFilter<"LegendsTeammateThoughts"> | string
+    receiver?: XOR<LegendsScalarRelationFilter, LegendsWhereInput>
+  }, "id">
+
+  export type LegendsTeammateThoughtsOrderByWithAggregationInput = {
+    id?: SortOrder
+    author?: SortOrder
+    thoughts?: SortOrder
+    sent_to?: SortOrder
+    _count?: LegendsTeammateThoughtsCountOrderByAggregateInput
+    _avg?: LegendsTeammateThoughtsAvgOrderByAggregateInput
+    _max?: LegendsTeammateThoughtsMaxOrderByAggregateInput
+    _min?: LegendsTeammateThoughtsMinOrderByAggregateInput
+    _sum?: LegendsTeammateThoughtsSumOrderByAggregateInput
+  }
+
+  export type LegendsTeammateThoughtsScalarWhereWithAggregatesInput = {
+    AND?: LegendsTeammateThoughtsScalarWhereWithAggregatesInput | LegendsTeammateThoughtsScalarWhereWithAggregatesInput[]
+    OR?: LegendsTeammateThoughtsScalarWhereWithAggregatesInput[]
+    NOT?: LegendsTeammateThoughtsScalarWhereWithAggregatesInput | LegendsTeammateThoughtsScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"LegendsTeammateThoughts"> | number
+    author?: StringWithAggregatesFilter<"LegendsTeammateThoughts"> | string
+    thoughts?: StringWithAggregatesFilter<"LegendsTeammateThoughts"> | string
+    sent_to?: StringWithAggregatesFilter<"LegendsTeammateThoughts"> | string
+  }
+
   export type TeamsCreateInput = {
     id: string
     name: string
@@ -17706,6 +25727,9 @@ export namespace Prisma {
     personal_achievement?: PlayerPersonalAchievementsCreateNestedManyWithoutTeamInput
     player_stats?: PlayerStatsCreateNestedManyWithoutTeamInput
     is_participant?: Is_ParticipantCreateNestedManyWithoutTeamInput
+    Legends?: LegendsCreateNestedManyWithoutTeamInput
+    LegendsTeamAchievements?: LegendsTeamAchievementsCreateNestedManyWithoutTeamInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsCreateNestedManyWithoutTeamInput
   }
 
   export type TeamsUncheckedCreateInput = {
@@ -17718,6 +25742,9 @@ export namespace Prisma {
     personal_achievement?: PlayerPersonalAchievementsUncheckedCreateNestedManyWithoutTeamInput
     player_stats?: PlayerStatsUncheckedCreateNestedManyWithoutTeamInput
     is_participant?: Is_ParticipantUncheckedCreateNestedManyWithoutTeamInput
+    Legends?: LegendsUncheckedCreateNestedManyWithoutTeamInput
+    LegendsTeamAchievements?: LegendsTeamAchievementsUncheckedCreateNestedManyWithoutTeamInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsUncheckedCreateNestedManyWithoutTeamInput
   }
 
   export type TeamsUpdateInput = {
@@ -17730,6 +25757,9 @@ export namespace Prisma {
     personal_achievement?: PlayerPersonalAchievementsUpdateManyWithoutTeamNestedInput
     player_stats?: PlayerStatsUpdateManyWithoutTeamNestedInput
     is_participant?: Is_ParticipantUpdateManyWithoutTeamNestedInput
+    Legends?: LegendsUpdateManyWithoutTeamNestedInput
+    LegendsTeamAchievements?: LegendsTeamAchievementsUpdateManyWithoutTeamNestedInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsUpdateManyWithoutTeamNestedInput
   }
 
   export type TeamsUncheckedUpdateInput = {
@@ -17742,6 +25772,9 @@ export namespace Prisma {
     personal_achievement?: PlayerPersonalAchievementsUncheckedUpdateManyWithoutTeamNestedInput
     player_stats?: PlayerStatsUncheckedUpdateManyWithoutTeamNestedInput
     is_participant?: Is_ParticipantUncheckedUpdateManyWithoutTeamNestedInput
+    Legends?: LegendsUncheckedUpdateManyWithoutTeamNestedInput
+    LegendsTeamAchievements?: LegendsTeamAchievementsUncheckedUpdateManyWithoutTeamNestedInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsUncheckedUpdateManyWithoutTeamNestedInput
   }
 
   export type TeamsCreateManyInput = {
@@ -17982,6 +26015,8 @@ export namespace Prisma {
     league_achievement?: PlayerTeamAchievementsCreateNestedManyWithoutLeagueInput
     personal_achievement?: PlayerPersonalAchievementsCreateNestedManyWithoutLeagueInput
     player_stats?: PlayerStatsCreateNestedManyWithoutLeagueInput
+    LegendsTeamAchievements?: LegendsTeamAchievementsCreateNestedManyWithoutLeagueInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsCreateNestedManyWithoutLeagueInput
   }
 
   export type LeaguesUncheckedCreateInput = {
@@ -17990,6 +26025,8 @@ export namespace Prisma {
     league_achievement?: PlayerTeamAchievementsUncheckedCreateNestedManyWithoutLeagueInput
     personal_achievement?: PlayerPersonalAchievementsUncheckedCreateNestedManyWithoutLeagueInput
     player_stats?: PlayerStatsUncheckedCreateNestedManyWithoutLeagueInput
+    LegendsTeamAchievements?: LegendsTeamAchievementsUncheckedCreateNestedManyWithoutLeagueInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsUncheckedCreateNestedManyWithoutLeagueInput
   }
 
   export type LeaguesUpdateInput = {
@@ -17998,6 +26035,8 @@ export namespace Prisma {
     league_achievement?: PlayerTeamAchievementsUpdateManyWithoutLeagueNestedInput
     personal_achievement?: PlayerPersonalAchievementsUpdateManyWithoutLeagueNestedInput
     player_stats?: PlayerStatsUpdateManyWithoutLeagueNestedInput
+    LegendsTeamAchievements?: LegendsTeamAchievementsUpdateManyWithoutLeagueNestedInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsUpdateManyWithoutLeagueNestedInput
   }
 
   export type LeaguesUncheckedUpdateInput = {
@@ -18006,6 +26045,8 @@ export namespace Prisma {
     league_achievement?: PlayerTeamAchievementsUncheckedUpdateManyWithoutLeagueNestedInput
     personal_achievement?: PlayerPersonalAchievementsUncheckedUpdateManyWithoutLeagueNestedInput
     player_stats?: PlayerStatsUncheckedUpdateManyWithoutLeagueNestedInput
+    LegendsTeamAchievements?: LegendsTeamAchievementsUncheckedUpdateManyWithoutLeagueNestedInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsUncheckedUpdateManyWithoutLeagueNestedInput
   }
 
   export type LeaguesCreateManyInput = {
@@ -18027,24 +26068,28 @@ export namespace Prisma {
     id: string
     name: string
     personal_achievement?: PlayerPersonalAchievementsCreateNestedManyWithoutAchievementInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsCreateNestedManyWithoutAchievementInput
   }
 
   export type PersonalAchievementsUncheckedCreateInput = {
     id: string
     name: string
     personal_achievement?: PlayerPersonalAchievementsUncheckedCreateNestedManyWithoutAchievementInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsUncheckedCreateNestedManyWithoutAchievementInput
   }
 
   export type PersonalAchievementsUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     personal_achievement?: PlayerPersonalAchievementsUpdateManyWithoutAchievementNestedInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsUpdateManyWithoutAchievementNestedInput
   }
 
   export type PersonalAchievementsUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     personal_achievement?: PlayerPersonalAchievementsUncheckedUpdateManyWithoutAchievementNestedInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsUncheckedUpdateManyWithoutAchievementNestedInput
   }
 
   export type PersonalAchievementsCreateManyInput = {
@@ -18444,6 +26489,376 @@ export namespace Prisma {
     sent_to?: StringFieldUpdateOperationsInput | string
   }
 
+  export type LegendsCreateInput = {
+    id: string
+    name: string
+    age: number
+    position: string
+    legends_info?: LegendsInfoCreateNestedOneWithoutPlayerInput
+    legends_rating?: LegendsRatingsCreateNestedOneWithoutPlayerInput
+    legends_team_achievement?: LegendsTeamAchievementsCreateNestedManyWithoutPlayerInput
+    legends_personal_achievement?: LegendsPersonalAchievementsCreateNestedManyWithoutPlayerInput
+    thoughtsReceived?: LegendsTeammateThoughtsCreateNestedManyWithoutReceiverInput
+    team: TeamsCreateNestedOneWithoutLegendsInput
+  }
+
+  export type LegendsUncheckedCreateInput = {
+    id: string
+    name: string
+    age: number
+    position: string
+    team_id: string
+    legends_info?: LegendsInfoUncheckedCreateNestedOneWithoutPlayerInput
+    legends_rating?: LegendsRatingsUncheckedCreateNestedOneWithoutPlayerInput
+    legends_team_achievement?: LegendsTeamAchievementsUncheckedCreateNestedManyWithoutPlayerInput
+    legends_personal_achievement?: LegendsPersonalAchievementsUncheckedCreateNestedManyWithoutPlayerInput
+    thoughtsReceived?: LegendsTeammateThoughtsUncheckedCreateNestedManyWithoutReceiverInput
+  }
+
+  export type LegendsUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    age?: IntFieldUpdateOperationsInput | number
+    position?: StringFieldUpdateOperationsInput | string
+    legends_info?: LegendsInfoUpdateOneWithoutPlayerNestedInput
+    legends_rating?: LegendsRatingsUpdateOneWithoutPlayerNestedInput
+    legends_team_achievement?: LegendsTeamAchievementsUpdateManyWithoutPlayerNestedInput
+    legends_personal_achievement?: LegendsPersonalAchievementsUpdateManyWithoutPlayerNestedInput
+    thoughtsReceived?: LegendsTeammateThoughtsUpdateManyWithoutReceiverNestedInput
+    team?: TeamsUpdateOneRequiredWithoutLegendsNestedInput
+  }
+
+  export type LegendsUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    age?: IntFieldUpdateOperationsInput | number
+    position?: StringFieldUpdateOperationsInput | string
+    team_id?: StringFieldUpdateOperationsInput | string
+    legends_info?: LegendsInfoUncheckedUpdateOneWithoutPlayerNestedInput
+    legends_rating?: LegendsRatingsUncheckedUpdateOneWithoutPlayerNestedInput
+    legends_team_achievement?: LegendsTeamAchievementsUncheckedUpdateManyWithoutPlayerNestedInput
+    legends_personal_achievement?: LegendsPersonalAchievementsUncheckedUpdateManyWithoutPlayerNestedInput
+    thoughtsReceived?: LegendsTeammateThoughtsUncheckedUpdateManyWithoutReceiverNestedInput
+  }
+
+  export type LegendsCreateManyInput = {
+    id: string
+    name: string
+    age: number
+    position: string
+    team_id: string
+  }
+
+  export type LegendsUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    age?: IntFieldUpdateOperationsInput | number
+    position?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type LegendsUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    age?: IntFieldUpdateOperationsInput | number
+    position?: StringFieldUpdateOperationsInput | string
+    team_id?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type LegendsInfoCreateInput = {
+    dob: Date | string
+    birthplace: string
+    gender: string
+    biography: string
+    height: number
+    player: LegendsCreateNestedOneWithoutLegends_infoInput
+  }
+
+  export type LegendsInfoUncheckedCreateInput = {
+    player_id: string
+    dob: Date | string
+    birthplace: string
+    gender: string
+    biography: string
+    height: number
+  }
+
+  export type LegendsInfoUpdateInput = {
+    dob?: DateTimeFieldUpdateOperationsInput | Date | string
+    birthplace?: StringFieldUpdateOperationsInput | string
+    gender?: StringFieldUpdateOperationsInput | string
+    biography?: StringFieldUpdateOperationsInput | string
+    height?: IntFieldUpdateOperationsInput | number
+    player?: LegendsUpdateOneRequiredWithoutLegends_infoNestedInput
+  }
+
+  export type LegendsInfoUncheckedUpdateInput = {
+    player_id?: StringFieldUpdateOperationsInput | string
+    dob?: DateTimeFieldUpdateOperationsInput | Date | string
+    birthplace?: StringFieldUpdateOperationsInput | string
+    gender?: StringFieldUpdateOperationsInput | string
+    biography?: StringFieldUpdateOperationsInput | string
+    height?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type LegendsInfoCreateManyInput = {
+    player_id: string
+    dob: Date | string
+    birthplace: string
+    gender: string
+    biography: string
+    height: number
+  }
+
+  export type LegendsInfoUpdateManyMutationInput = {
+    dob?: DateTimeFieldUpdateOperationsInput | Date | string
+    birthplace?: StringFieldUpdateOperationsInput | string
+    gender?: StringFieldUpdateOperationsInput | string
+    biography?: StringFieldUpdateOperationsInput | string
+    height?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type LegendsInfoUncheckedUpdateManyInput = {
+    player_id?: StringFieldUpdateOperationsInput | string
+    dob?: DateTimeFieldUpdateOperationsInput | Date | string
+    birthplace?: StringFieldUpdateOperationsInput | string
+    gender?: StringFieldUpdateOperationsInput | string
+    biography?: StringFieldUpdateOperationsInput | string
+    height?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type LegendsRatingsCreateInput = {
+    pace: number
+    shooting: number
+    passing: number
+    physical: number
+    defending: number
+    dribbling: number
+    player: LegendsCreateNestedOneWithoutLegends_ratingInput
+  }
+
+  export type LegendsRatingsUncheckedCreateInput = {
+    player_id: string
+    pace: number
+    shooting: number
+    passing: number
+    physical: number
+    defending: number
+    dribbling: number
+  }
+
+  export type LegendsRatingsUpdateInput = {
+    pace?: IntFieldUpdateOperationsInput | number
+    shooting?: IntFieldUpdateOperationsInput | number
+    passing?: IntFieldUpdateOperationsInput | number
+    physical?: IntFieldUpdateOperationsInput | number
+    defending?: IntFieldUpdateOperationsInput | number
+    dribbling?: IntFieldUpdateOperationsInput | number
+    player?: LegendsUpdateOneRequiredWithoutLegends_ratingNestedInput
+  }
+
+  export type LegendsRatingsUncheckedUpdateInput = {
+    player_id?: StringFieldUpdateOperationsInput | string
+    pace?: IntFieldUpdateOperationsInput | number
+    shooting?: IntFieldUpdateOperationsInput | number
+    passing?: IntFieldUpdateOperationsInput | number
+    physical?: IntFieldUpdateOperationsInput | number
+    defending?: IntFieldUpdateOperationsInput | number
+    dribbling?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type LegendsRatingsCreateManyInput = {
+    player_id: string
+    pace: number
+    shooting: number
+    passing: number
+    physical: number
+    defending: number
+    dribbling: number
+  }
+
+  export type LegendsRatingsUpdateManyMutationInput = {
+    pace?: IntFieldUpdateOperationsInput | number
+    shooting?: IntFieldUpdateOperationsInput | number
+    passing?: IntFieldUpdateOperationsInput | number
+    physical?: IntFieldUpdateOperationsInput | number
+    defending?: IntFieldUpdateOperationsInput | number
+    dribbling?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type LegendsRatingsUncheckedUpdateManyInput = {
+    player_id?: StringFieldUpdateOperationsInput | string
+    pace?: IntFieldUpdateOperationsInput | number
+    shooting?: IntFieldUpdateOperationsInput | number
+    passing?: IntFieldUpdateOperationsInput | number
+    physical?: IntFieldUpdateOperationsInput | number
+    defending?: IntFieldUpdateOperationsInput | number
+    dribbling?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type LegendsTeamAchievementsCreateInput = {
+    id: string
+    place: string
+    time: string
+    player: LegendsCreateNestedOneWithoutLegends_team_achievementInput
+    league: LeaguesCreateNestedOneWithoutLegendsTeamAchievementsInput
+    team: TeamsCreateNestedOneWithoutLegendsTeamAchievementsInput
+  }
+
+  export type LegendsTeamAchievementsUncheckedCreateInput = {
+    id: string
+    player_id: string
+    place: string
+    league_id: string
+    team_id: string
+    time: string
+  }
+
+  export type LegendsTeamAchievementsUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    place?: StringFieldUpdateOperationsInput | string
+    time?: StringFieldUpdateOperationsInput | string
+    player?: LegendsUpdateOneRequiredWithoutLegends_team_achievementNestedInput
+    league?: LeaguesUpdateOneRequiredWithoutLegendsTeamAchievementsNestedInput
+    team?: TeamsUpdateOneRequiredWithoutLegendsTeamAchievementsNestedInput
+  }
+
+  export type LegendsTeamAchievementsUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    player_id?: StringFieldUpdateOperationsInput | string
+    place?: StringFieldUpdateOperationsInput | string
+    league_id?: StringFieldUpdateOperationsInput | string
+    team_id?: StringFieldUpdateOperationsInput | string
+    time?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type LegendsTeamAchievementsCreateManyInput = {
+    id: string
+    player_id: string
+    place: string
+    league_id: string
+    team_id: string
+    time: string
+  }
+
+  export type LegendsTeamAchievementsUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    place?: StringFieldUpdateOperationsInput | string
+    time?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type LegendsTeamAchievementsUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    player_id?: StringFieldUpdateOperationsInput | string
+    place?: StringFieldUpdateOperationsInput | string
+    league_id?: StringFieldUpdateOperationsInput | string
+    team_id?: StringFieldUpdateOperationsInput | string
+    time?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type LegendsPersonalAchievementsCreateInput = {
+    id: string
+    time: string
+    player: LegendsCreateNestedOneWithoutLegends_personal_achievementInput
+    achievement: PersonalAchievementsCreateNestedOneWithoutLegendsPersonalAchievementsInput
+    team: TeamsCreateNestedOneWithoutLegendsPersonalAchievementsInput
+    league: LeaguesCreateNestedOneWithoutLegendsPersonalAchievementsInput
+  }
+
+  export type LegendsPersonalAchievementsUncheckedCreateInput = {
+    id: string
+    player_id: string
+    achievement_id: string
+    league_id: string
+    team_id: string
+    time: string
+  }
+
+  export type LegendsPersonalAchievementsUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    time?: StringFieldUpdateOperationsInput | string
+    player?: LegendsUpdateOneRequiredWithoutLegends_personal_achievementNestedInput
+    achievement?: PersonalAchievementsUpdateOneRequiredWithoutLegendsPersonalAchievementsNestedInput
+    team?: TeamsUpdateOneRequiredWithoutLegendsPersonalAchievementsNestedInput
+    league?: LeaguesUpdateOneRequiredWithoutLegendsPersonalAchievementsNestedInput
+  }
+
+  export type LegendsPersonalAchievementsUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    player_id?: StringFieldUpdateOperationsInput | string
+    achievement_id?: StringFieldUpdateOperationsInput | string
+    league_id?: StringFieldUpdateOperationsInput | string
+    team_id?: StringFieldUpdateOperationsInput | string
+    time?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type LegendsPersonalAchievementsCreateManyInput = {
+    id: string
+    player_id: string
+    achievement_id: string
+    league_id: string
+    team_id: string
+    time: string
+  }
+
+  export type LegendsPersonalAchievementsUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    time?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type LegendsPersonalAchievementsUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    player_id?: StringFieldUpdateOperationsInput | string
+    achievement_id?: StringFieldUpdateOperationsInput | string
+    league_id?: StringFieldUpdateOperationsInput | string
+    team_id?: StringFieldUpdateOperationsInput | string
+    time?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type LegendsTeammateThoughtsCreateInput = {
+    author: string
+    thoughts: string
+    receiver: LegendsCreateNestedOneWithoutThoughtsReceivedInput
+  }
+
+  export type LegendsTeammateThoughtsUncheckedCreateInput = {
+    id?: number
+    author: string
+    thoughts: string
+    sent_to: string
+  }
+
+  export type LegendsTeammateThoughtsUpdateInput = {
+    author?: StringFieldUpdateOperationsInput | string
+    thoughts?: StringFieldUpdateOperationsInput | string
+    receiver?: LegendsUpdateOneRequiredWithoutThoughtsReceivedNestedInput
+  }
+
+  export type LegendsTeammateThoughtsUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    author?: StringFieldUpdateOperationsInput | string
+    thoughts?: StringFieldUpdateOperationsInput | string
+    sent_to?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type LegendsTeammateThoughtsCreateManyInput = {
+    id?: number
+    author: string
+    thoughts: string
+    sent_to: string
+  }
+
+  export type LegendsTeammateThoughtsUpdateManyMutationInput = {
+    author?: StringFieldUpdateOperationsInput | string
+    thoughts?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type LegendsTeammateThoughtsUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    author?: StringFieldUpdateOperationsInput | string
+    thoughts?: StringFieldUpdateOperationsInput | string
+    sent_to?: StringFieldUpdateOperationsInput | string
+  }
+
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -18500,6 +26915,24 @@ export namespace Prisma {
     none?: Is_ParticipantWhereInput
   }
 
+  export type LegendsListRelationFilter = {
+    every?: LegendsWhereInput
+    some?: LegendsWhereInput
+    none?: LegendsWhereInput
+  }
+
+  export type LegendsTeamAchievementsListRelationFilter = {
+    every?: LegendsTeamAchievementsWhereInput
+    some?: LegendsTeamAchievementsWhereInput
+    none?: LegendsTeamAchievementsWhereInput
+  }
+
+  export type LegendsPersonalAchievementsListRelationFilter = {
+    every?: LegendsPersonalAchievementsWhereInput
+    some?: LegendsPersonalAchievementsWhereInput
+    none?: LegendsPersonalAchievementsWhereInput
+  }
+
   export type EmployeeOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
@@ -18521,6 +26954,18 @@ export namespace Prisma {
   }
 
   export type Is_ParticipantOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type LegendsOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type LegendsTeamAchievementsOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type LegendsPersonalAchievementsOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -19027,6 +27472,229 @@ export namespace Prisma {
     id?: SortOrder
   }
 
+  export type LegendsInfoNullableScalarRelationFilter = {
+    is?: LegendsInfoWhereInput | null
+    isNot?: LegendsInfoWhereInput | null
+  }
+
+  export type LegendsRatingsNullableScalarRelationFilter = {
+    is?: LegendsRatingsWhereInput | null
+    isNot?: LegendsRatingsWhereInput | null
+  }
+
+  export type LegendsTeammateThoughtsListRelationFilter = {
+    every?: LegendsTeammateThoughtsWhereInput
+    some?: LegendsTeammateThoughtsWhereInput
+    none?: LegendsTeammateThoughtsWhereInput
+  }
+
+  export type LegendsTeammateThoughtsOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type LegendsCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    age?: SortOrder
+    position?: SortOrder
+    team_id?: SortOrder
+  }
+
+  export type LegendsAvgOrderByAggregateInput = {
+    age?: SortOrder
+  }
+
+  export type LegendsMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    age?: SortOrder
+    position?: SortOrder
+    team_id?: SortOrder
+  }
+
+  export type LegendsMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    age?: SortOrder
+    position?: SortOrder
+    team_id?: SortOrder
+  }
+
+  export type LegendsSumOrderByAggregateInput = {
+    age?: SortOrder
+  }
+
+  export type LegendsScalarRelationFilter = {
+    is?: LegendsWhereInput
+    isNot?: LegendsWhereInput
+  }
+
+  export type LegendsInfoCountOrderByAggregateInput = {
+    player_id?: SortOrder
+    dob?: SortOrder
+    birthplace?: SortOrder
+    gender?: SortOrder
+    biography?: SortOrder
+    height?: SortOrder
+  }
+
+  export type LegendsInfoAvgOrderByAggregateInput = {
+    height?: SortOrder
+  }
+
+  export type LegendsInfoMaxOrderByAggregateInput = {
+    player_id?: SortOrder
+    dob?: SortOrder
+    birthplace?: SortOrder
+    gender?: SortOrder
+    biography?: SortOrder
+    height?: SortOrder
+  }
+
+  export type LegendsInfoMinOrderByAggregateInput = {
+    player_id?: SortOrder
+    dob?: SortOrder
+    birthplace?: SortOrder
+    gender?: SortOrder
+    biography?: SortOrder
+    height?: SortOrder
+  }
+
+  export type LegendsInfoSumOrderByAggregateInput = {
+    height?: SortOrder
+  }
+
+  export type LegendsRatingsCountOrderByAggregateInput = {
+    player_id?: SortOrder
+    pace?: SortOrder
+    shooting?: SortOrder
+    passing?: SortOrder
+    physical?: SortOrder
+    defending?: SortOrder
+    dribbling?: SortOrder
+  }
+
+  export type LegendsRatingsAvgOrderByAggregateInput = {
+    pace?: SortOrder
+    shooting?: SortOrder
+    passing?: SortOrder
+    physical?: SortOrder
+    defending?: SortOrder
+    dribbling?: SortOrder
+  }
+
+  export type LegendsRatingsMaxOrderByAggregateInput = {
+    player_id?: SortOrder
+    pace?: SortOrder
+    shooting?: SortOrder
+    passing?: SortOrder
+    physical?: SortOrder
+    defending?: SortOrder
+    dribbling?: SortOrder
+  }
+
+  export type LegendsRatingsMinOrderByAggregateInput = {
+    player_id?: SortOrder
+    pace?: SortOrder
+    shooting?: SortOrder
+    passing?: SortOrder
+    physical?: SortOrder
+    defending?: SortOrder
+    dribbling?: SortOrder
+  }
+
+  export type LegendsRatingsSumOrderByAggregateInput = {
+    pace?: SortOrder
+    shooting?: SortOrder
+    passing?: SortOrder
+    physical?: SortOrder
+    defending?: SortOrder
+    dribbling?: SortOrder
+  }
+
+  export type LegendsTeamAchievementsCountOrderByAggregateInput = {
+    id?: SortOrder
+    player_id?: SortOrder
+    place?: SortOrder
+    league_id?: SortOrder
+    team_id?: SortOrder
+    time?: SortOrder
+  }
+
+  export type LegendsTeamAchievementsMaxOrderByAggregateInput = {
+    id?: SortOrder
+    player_id?: SortOrder
+    place?: SortOrder
+    league_id?: SortOrder
+    team_id?: SortOrder
+    time?: SortOrder
+  }
+
+  export type LegendsTeamAchievementsMinOrderByAggregateInput = {
+    id?: SortOrder
+    player_id?: SortOrder
+    place?: SortOrder
+    league_id?: SortOrder
+    team_id?: SortOrder
+    time?: SortOrder
+  }
+
+  export type LegendsPersonalAchievementsCountOrderByAggregateInput = {
+    id?: SortOrder
+    player_id?: SortOrder
+    achievement_id?: SortOrder
+    league_id?: SortOrder
+    team_id?: SortOrder
+    time?: SortOrder
+  }
+
+  export type LegendsPersonalAchievementsMaxOrderByAggregateInput = {
+    id?: SortOrder
+    player_id?: SortOrder
+    achievement_id?: SortOrder
+    league_id?: SortOrder
+    team_id?: SortOrder
+    time?: SortOrder
+  }
+
+  export type LegendsPersonalAchievementsMinOrderByAggregateInput = {
+    id?: SortOrder
+    player_id?: SortOrder
+    achievement_id?: SortOrder
+    league_id?: SortOrder
+    team_id?: SortOrder
+    time?: SortOrder
+  }
+
+  export type LegendsTeammateThoughtsCountOrderByAggregateInput = {
+    id?: SortOrder
+    author?: SortOrder
+    thoughts?: SortOrder
+    sent_to?: SortOrder
+  }
+
+  export type LegendsTeammateThoughtsAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type LegendsTeammateThoughtsMaxOrderByAggregateInput = {
+    id?: SortOrder
+    author?: SortOrder
+    thoughts?: SortOrder
+    sent_to?: SortOrder
+  }
+
+  export type LegendsTeammateThoughtsMinOrderByAggregateInput = {
+    id?: SortOrder
+    author?: SortOrder
+    thoughts?: SortOrder
+    sent_to?: SortOrder
+  }
+
+  export type LegendsTeammateThoughtsSumOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
   export type EmployeeCreateNestedManyWithoutTeamInput = {
     create?: XOR<EmployeeCreateWithoutTeamInput, EmployeeUncheckedCreateWithoutTeamInput> | EmployeeCreateWithoutTeamInput[] | EmployeeUncheckedCreateWithoutTeamInput[]
     connectOrCreate?: EmployeeCreateOrConnectWithoutTeamInput | EmployeeCreateOrConnectWithoutTeamInput[]
@@ -19075,6 +27743,27 @@ export namespace Prisma {
     connect?: Is_ParticipantWhereUniqueInput | Is_ParticipantWhereUniqueInput[]
   }
 
+  export type LegendsCreateNestedManyWithoutTeamInput = {
+    create?: XOR<LegendsCreateWithoutTeamInput, LegendsUncheckedCreateWithoutTeamInput> | LegendsCreateWithoutTeamInput[] | LegendsUncheckedCreateWithoutTeamInput[]
+    connectOrCreate?: LegendsCreateOrConnectWithoutTeamInput | LegendsCreateOrConnectWithoutTeamInput[]
+    createMany?: LegendsCreateManyTeamInputEnvelope
+    connect?: LegendsWhereUniqueInput | LegendsWhereUniqueInput[]
+  }
+
+  export type LegendsTeamAchievementsCreateNestedManyWithoutTeamInput = {
+    create?: XOR<LegendsTeamAchievementsCreateWithoutTeamInput, LegendsTeamAchievementsUncheckedCreateWithoutTeamInput> | LegendsTeamAchievementsCreateWithoutTeamInput[] | LegendsTeamAchievementsUncheckedCreateWithoutTeamInput[]
+    connectOrCreate?: LegendsTeamAchievementsCreateOrConnectWithoutTeamInput | LegendsTeamAchievementsCreateOrConnectWithoutTeamInput[]
+    createMany?: LegendsTeamAchievementsCreateManyTeamInputEnvelope
+    connect?: LegendsTeamAchievementsWhereUniqueInput | LegendsTeamAchievementsWhereUniqueInput[]
+  }
+
+  export type LegendsPersonalAchievementsCreateNestedManyWithoutTeamInput = {
+    create?: XOR<LegendsPersonalAchievementsCreateWithoutTeamInput, LegendsPersonalAchievementsUncheckedCreateWithoutTeamInput> | LegendsPersonalAchievementsCreateWithoutTeamInput[] | LegendsPersonalAchievementsUncheckedCreateWithoutTeamInput[]
+    connectOrCreate?: LegendsPersonalAchievementsCreateOrConnectWithoutTeamInput | LegendsPersonalAchievementsCreateOrConnectWithoutTeamInput[]
+    createMany?: LegendsPersonalAchievementsCreateManyTeamInputEnvelope
+    connect?: LegendsPersonalAchievementsWhereUniqueInput | LegendsPersonalAchievementsWhereUniqueInput[]
+  }
+
   export type EmployeeUncheckedCreateNestedManyWithoutTeamInput = {
     create?: XOR<EmployeeCreateWithoutTeamInput, EmployeeUncheckedCreateWithoutTeamInput> | EmployeeCreateWithoutTeamInput[] | EmployeeUncheckedCreateWithoutTeamInput[]
     connectOrCreate?: EmployeeCreateOrConnectWithoutTeamInput | EmployeeCreateOrConnectWithoutTeamInput[]
@@ -19121,6 +27810,27 @@ export namespace Prisma {
     connectOrCreate?: Is_ParticipantCreateOrConnectWithoutTeamInput | Is_ParticipantCreateOrConnectWithoutTeamInput[]
     createMany?: Is_ParticipantCreateManyTeamInputEnvelope
     connect?: Is_ParticipantWhereUniqueInput | Is_ParticipantWhereUniqueInput[]
+  }
+
+  export type LegendsUncheckedCreateNestedManyWithoutTeamInput = {
+    create?: XOR<LegendsCreateWithoutTeamInput, LegendsUncheckedCreateWithoutTeamInput> | LegendsCreateWithoutTeamInput[] | LegendsUncheckedCreateWithoutTeamInput[]
+    connectOrCreate?: LegendsCreateOrConnectWithoutTeamInput | LegendsCreateOrConnectWithoutTeamInput[]
+    createMany?: LegendsCreateManyTeamInputEnvelope
+    connect?: LegendsWhereUniqueInput | LegendsWhereUniqueInput[]
+  }
+
+  export type LegendsTeamAchievementsUncheckedCreateNestedManyWithoutTeamInput = {
+    create?: XOR<LegendsTeamAchievementsCreateWithoutTeamInput, LegendsTeamAchievementsUncheckedCreateWithoutTeamInput> | LegendsTeamAchievementsCreateWithoutTeamInput[] | LegendsTeamAchievementsUncheckedCreateWithoutTeamInput[]
+    connectOrCreate?: LegendsTeamAchievementsCreateOrConnectWithoutTeamInput | LegendsTeamAchievementsCreateOrConnectWithoutTeamInput[]
+    createMany?: LegendsTeamAchievementsCreateManyTeamInputEnvelope
+    connect?: LegendsTeamAchievementsWhereUniqueInput | LegendsTeamAchievementsWhereUniqueInput[]
+  }
+
+  export type LegendsPersonalAchievementsUncheckedCreateNestedManyWithoutTeamInput = {
+    create?: XOR<LegendsPersonalAchievementsCreateWithoutTeamInput, LegendsPersonalAchievementsUncheckedCreateWithoutTeamInput> | LegendsPersonalAchievementsCreateWithoutTeamInput[] | LegendsPersonalAchievementsUncheckedCreateWithoutTeamInput[]
+    connectOrCreate?: LegendsPersonalAchievementsCreateOrConnectWithoutTeamInput | LegendsPersonalAchievementsCreateOrConnectWithoutTeamInput[]
+    createMany?: LegendsPersonalAchievementsCreateManyTeamInputEnvelope
+    connect?: LegendsPersonalAchievementsWhereUniqueInput | LegendsPersonalAchievementsWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -19221,6 +27931,48 @@ export namespace Prisma {
     deleteMany?: Is_ParticipantScalarWhereInput | Is_ParticipantScalarWhereInput[]
   }
 
+  export type LegendsUpdateManyWithoutTeamNestedInput = {
+    create?: XOR<LegendsCreateWithoutTeamInput, LegendsUncheckedCreateWithoutTeamInput> | LegendsCreateWithoutTeamInput[] | LegendsUncheckedCreateWithoutTeamInput[]
+    connectOrCreate?: LegendsCreateOrConnectWithoutTeamInput | LegendsCreateOrConnectWithoutTeamInput[]
+    upsert?: LegendsUpsertWithWhereUniqueWithoutTeamInput | LegendsUpsertWithWhereUniqueWithoutTeamInput[]
+    createMany?: LegendsCreateManyTeamInputEnvelope
+    set?: LegendsWhereUniqueInput | LegendsWhereUniqueInput[]
+    disconnect?: LegendsWhereUniqueInput | LegendsWhereUniqueInput[]
+    delete?: LegendsWhereUniqueInput | LegendsWhereUniqueInput[]
+    connect?: LegendsWhereUniqueInput | LegendsWhereUniqueInput[]
+    update?: LegendsUpdateWithWhereUniqueWithoutTeamInput | LegendsUpdateWithWhereUniqueWithoutTeamInput[]
+    updateMany?: LegendsUpdateManyWithWhereWithoutTeamInput | LegendsUpdateManyWithWhereWithoutTeamInput[]
+    deleteMany?: LegendsScalarWhereInput | LegendsScalarWhereInput[]
+  }
+
+  export type LegendsTeamAchievementsUpdateManyWithoutTeamNestedInput = {
+    create?: XOR<LegendsTeamAchievementsCreateWithoutTeamInput, LegendsTeamAchievementsUncheckedCreateWithoutTeamInput> | LegendsTeamAchievementsCreateWithoutTeamInput[] | LegendsTeamAchievementsUncheckedCreateWithoutTeamInput[]
+    connectOrCreate?: LegendsTeamAchievementsCreateOrConnectWithoutTeamInput | LegendsTeamAchievementsCreateOrConnectWithoutTeamInput[]
+    upsert?: LegendsTeamAchievementsUpsertWithWhereUniqueWithoutTeamInput | LegendsTeamAchievementsUpsertWithWhereUniqueWithoutTeamInput[]
+    createMany?: LegendsTeamAchievementsCreateManyTeamInputEnvelope
+    set?: LegendsTeamAchievementsWhereUniqueInput | LegendsTeamAchievementsWhereUniqueInput[]
+    disconnect?: LegendsTeamAchievementsWhereUniqueInput | LegendsTeamAchievementsWhereUniqueInput[]
+    delete?: LegendsTeamAchievementsWhereUniqueInput | LegendsTeamAchievementsWhereUniqueInput[]
+    connect?: LegendsTeamAchievementsWhereUniqueInput | LegendsTeamAchievementsWhereUniqueInput[]
+    update?: LegendsTeamAchievementsUpdateWithWhereUniqueWithoutTeamInput | LegendsTeamAchievementsUpdateWithWhereUniqueWithoutTeamInput[]
+    updateMany?: LegendsTeamAchievementsUpdateManyWithWhereWithoutTeamInput | LegendsTeamAchievementsUpdateManyWithWhereWithoutTeamInput[]
+    deleteMany?: LegendsTeamAchievementsScalarWhereInput | LegendsTeamAchievementsScalarWhereInput[]
+  }
+
+  export type LegendsPersonalAchievementsUpdateManyWithoutTeamNestedInput = {
+    create?: XOR<LegendsPersonalAchievementsCreateWithoutTeamInput, LegendsPersonalAchievementsUncheckedCreateWithoutTeamInput> | LegendsPersonalAchievementsCreateWithoutTeamInput[] | LegendsPersonalAchievementsUncheckedCreateWithoutTeamInput[]
+    connectOrCreate?: LegendsPersonalAchievementsCreateOrConnectWithoutTeamInput | LegendsPersonalAchievementsCreateOrConnectWithoutTeamInput[]
+    upsert?: LegendsPersonalAchievementsUpsertWithWhereUniqueWithoutTeamInput | LegendsPersonalAchievementsUpsertWithWhereUniqueWithoutTeamInput[]
+    createMany?: LegendsPersonalAchievementsCreateManyTeamInputEnvelope
+    set?: LegendsPersonalAchievementsWhereUniqueInput | LegendsPersonalAchievementsWhereUniqueInput[]
+    disconnect?: LegendsPersonalAchievementsWhereUniqueInput | LegendsPersonalAchievementsWhereUniqueInput[]
+    delete?: LegendsPersonalAchievementsWhereUniqueInput | LegendsPersonalAchievementsWhereUniqueInput[]
+    connect?: LegendsPersonalAchievementsWhereUniqueInput | LegendsPersonalAchievementsWhereUniqueInput[]
+    update?: LegendsPersonalAchievementsUpdateWithWhereUniqueWithoutTeamInput | LegendsPersonalAchievementsUpdateWithWhereUniqueWithoutTeamInput[]
+    updateMany?: LegendsPersonalAchievementsUpdateManyWithWhereWithoutTeamInput | LegendsPersonalAchievementsUpdateManyWithWhereWithoutTeamInput[]
+    deleteMany?: LegendsPersonalAchievementsScalarWhereInput | LegendsPersonalAchievementsScalarWhereInput[]
+  }
+
   export type EmployeeUncheckedUpdateManyWithoutTeamNestedInput = {
     create?: XOR<EmployeeCreateWithoutTeamInput, EmployeeUncheckedCreateWithoutTeamInput> | EmployeeCreateWithoutTeamInput[] | EmployeeUncheckedCreateWithoutTeamInput[]
     connectOrCreate?: EmployeeCreateOrConnectWithoutTeamInput | EmployeeCreateOrConnectWithoutTeamInput[]
@@ -19313,6 +28065,48 @@ export namespace Prisma {
     update?: Is_ParticipantUpdateWithWhereUniqueWithoutTeamInput | Is_ParticipantUpdateWithWhereUniqueWithoutTeamInput[]
     updateMany?: Is_ParticipantUpdateManyWithWhereWithoutTeamInput | Is_ParticipantUpdateManyWithWhereWithoutTeamInput[]
     deleteMany?: Is_ParticipantScalarWhereInput | Is_ParticipantScalarWhereInput[]
+  }
+
+  export type LegendsUncheckedUpdateManyWithoutTeamNestedInput = {
+    create?: XOR<LegendsCreateWithoutTeamInput, LegendsUncheckedCreateWithoutTeamInput> | LegendsCreateWithoutTeamInput[] | LegendsUncheckedCreateWithoutTeamInput[]
+    connectOrCreate?: LegendsCreateOrConnectWithoutTeamInput | LegendsCreateOrConnectWithoutTeamInput[]
+    upsert?: LegendsUpsertWithWhereUniqueWithoutTeamInput | LegendsUpsertWithWhereUniqueWithoutTeamInput[]
+    createMany?: LegendsCreateManyTeamInputEnvelope
+    set?: LegendsWhereUniqueInput | LegendsWhereUniqueInput[]
+    disconnect?: LegendsWhereUniqueInput | LegendsWhereUniqueInput[]
+    delete?: LegendsWhereUniqueInput | LegendsWhereUniqueInput[]
+    connect?: LegendsWhereUniqueInput | LegendsWhereUniqueInput[]
+    update?: LegendsUpdateWithWhereUniqueWithoutTeamInput | LegendsUpdateWithWhereUniqueWithoutTeamInput[]
+    updateMany?: LegendsUpdateManyWithWhereWithoutTeamInput | LegendsUpdateManyWithWhereWithoutTeamInput[]
+    deleteMany?: LegendsScalarWhereInput | LegendsScalarWhereInput[]
+  }
+
+  export type LegendsTeamAchievementsUncheckedUpdateManyWithoutTeamNestedInput = {
+    create?: XOR<LegendsTeamAchievementsCreateWithoutTeamInput, LegendsTeamAchievementsUncheckedCreateWithoutTeamInput> | LegendsTeamAchievementsCreateWithoutTeamInput[] | LegendsTeamAchievementsUncheckedCreateWithoutTeamInput[]
+    connectOrCreate?: LegendsTeamAchievementsCreateOrConnectWithoutTeamInput | LegendsTeamAchievementsCreateOrConnectWithoutTeamInput[]
+    upsert?: LegendsTeamAchievementsUpsertWithWhereUniqueWithoutTeamInput | LegendsTeamAchievementsUpsertWithWhereUniqueWithoutTeamInput[]
+    createMany?: LegendsTeamAchievementsCreateManyTeamInputEnvelope
+    set?: LegendsTeamAchievementsWhereUniqueInput | LegendsTeamAchievementsWhereUniqueInput[]
+    disconnect?: LegendsTeamAchievementsWhereUniqueInput | LegendsTeamAchievementsWhereUniqueInput[]
+    delete?: LegendsTeamAchievementsWhereUniqueInput | LegendsTeamAchievementsWhereUniqueInput[]
+    connect?: LegendsTeamAchievementsWhereUniqueInput | LegendsTeamAchievementsWhereUniqueInput[]
+    update?: LegendsTeamAchievementsUpdateWithWhereUniqueWithoutTeamInput | LegendsTeamAchievementsUpdateWithWhereUniqueWithoutTeamInput[]
+    updateMany?: LegendsTeamAchievementsUpdateManyWithWhereWithoutTeamInput | LegendsTeamAchievementsUpdateManyWithWhereWithoutTeamInput[]
+    deleteMany?: LegendsTeamAchievementsScalarWhereInput | LegendsTeamAchievementsScalarWhereInput[]
+  }
+
+  export type LegendsPersonalAchievementsUncheckedUpdateManyWithoutTeamNestedInput = {
+    create?: XOR<LegendsPersonalAchievementsCreateWithoutTeamInput, LegendsPersonalAchievementsUncheckedCreateWithoutTeamInput> | LegendsPersonalAchievementsCreateWithoutTeamInput[] | LegendsPersonalAchievementsUncheckedCreateWithoutTeamInput[]
+    connectOrCreate?: LegendsPersonalAchievementsCreateOrConnectWithoutTeamInput | LegendsPersonalAchievementsCreateOrConnectWithoutTeamInput[]
+    upsert?: LegendsPersonalAchievementsUpsertWithWhereUniqueWithoutTeamInput | LegendsPersonalAchievementsUpsertWithWhereUniqueWithoutTeamInput[]
+    createMany?: LegendsPersonalAchievementsCreateManyTeamInputEnvelope
+    set?: LegendsPersonalAchievementsWhereUniqueInput | LegendsPersonalAchievementsWhereUniqueInput[]
+    disconnect?: LegendsPersonalAchievementsWhereUniqueInput | LegendsPersonalAchievementsWhereUniqueInput[]
+    delete?: LegendsPersonalAchievementsWhereUniqueInput | LegendsPersonalAchievementsWhereUniqueInput[]
+    connect?: LegendsPersonalAchievementsWhereUniqueInput | LegendsPersonalAchievementsWhereUniqueInput[]
+    update?: LegendsPersonalAchievementsUpdateWithWhereUniqueWithoutTeamInput | LegendsPersonalAchievementsUpdateWithWhereUniqueWithoutTeamInput[]
+    updateMany?: LegendsPersonalAchievementsUpdateManyWithWhereWithoutTeamInput | LegendsPersonalAchievementsUpdateManyWithWhereWithoutTeamInput[]
+    deleteMany?: LegendsPersonalAchievementsScalarWhereInput | LegendsPersonalAchievementsScalarWhereInput[]
   }
 
   export type TeamsCreateNestedOneWithoutIs_participantInput = {
@@ -19678,6 +28472,20 @@ export namespace Prisma {
     connect?: PlayerStatsWhereUniqueInput | PlayerStatsWhereUniqueInput[]
   }
 
+  export type LegendsTeamAchievementsCreateNestedManyWithoutLeagueInput = {
+    create?: XOR<LegendsTeamAchievementsCreateWithoutLeagueInput, LegendsTeamAchievementsUncheckedCreateWithoutLeagueInput> | LegendsTeamAchievementsCreateWithoutLeagueInput[] | LegendsTeamAchievementsUncheckedCreateWithoutLeagueInput[]
+    connectOrCreate?: LegendsTeamAchievementsCreateOrConnectWithoutLeagueInput | LegendsTeamAchievementsCreateOrConnectWithoutLeagueInput[]
+    createMany?: LegendsTeamAchievementsCreateManyLeagueInputEnvelope
+    connect?: LegendsTeamAchievementsWhereUniqueInput | LegendsTeamAchievementsWhereUniqueInput[]
+  }
+
+  export type LegendsPersonalAchievementsCreateNestedManyWithoutLeagueInput = {
+    create?: XOR<LegendsPersonalAchievementsCreateWithoutLeagueInput, LegendsPersonalAchievementsUncheckedCreateWithoutLeagueInput> | LegendsPersonalAchievementsCreateWithoutLeagueInput[] | LegendsPersonalAchievementsUncheckedCreateWithoutLeagueInput[]
+    connectOrCreate?: LegendsPersonalAchievementsCreateOrConnectWithoutLeagueInput | LegendsPersonalAchievementsCreateOrConnectWithoutLeagueInput[]
+    createMany?: LegendsPersonalAchievementsCreateManyLeagueInputEnvelope
+    connect?: LegendsPersonalAchievementsWhereUniqueInput | LegendsPersonalAchievementsWhereUniqueInput[]
+  }
+
   export type PlayerTeamAchievementsUncheckedCreateNestedManyWithoutLeagueInput = {
     create?: XOR<PlayerTeamAchievementsCreateWithoutLeagueInput, PlayerTeamAchievementsUncheckedCreateWithoutLeagueInput> | PlayerTeamAchievementsCreateWithoutLeagueInput[] | PlayerTeamAchievementsUncheckedCreateWithoutLeagueInput[]
     connectOrCreate?: PlayerTeamAchievementsCreateOrConnectWithoutLeagueInput | PlayerTeamAchievementsCreateOrConnectWithoutLeagueInput[]
@@ -19697,6 +28505,20 @@ export namespace Prisma {
     connectOrCreate?: PlayerStatsCreateOrConnectWithoutLeagueInput | PlayerStatsCreateOrConnectWithoutLeagueInput[]
     createMany?: PlayerStatsCreateManyLeagueInputEnvelope
     connect?: PlayerStatsWhereUniqueInput | PlayerStatsWhereUniqueInput[]
+  }
+
+  export type LegendsTeamAchievementsUncheckedCreateNestedManyWithoutLeagueInput = {
+    create?: XOR<LegendsTeamAchievementsCreateWithoutLeagueInput, LegendsTeamAchievementsUncheckedCreateWithoutLeagueInput> | LegendsTeamAchievementsCreateWithoutLeagueInput[] | LegendsTeamAchievementsUncheckedCreateWithoutLeagueInput[]
+    connectOrCreate?: LegendsTeamAchievementsCreateOrConnectWithoutLeagueInput | LegendsTeamAchievementsCreateOrConnectWithoutLeagueInput[]
+    createMany?: LegendsTeamAchievementsCreateManyLeagueInputEnvelope
+    connect?: LegendsTeamAchievementsWhereUniqueInput | LegendsTeamAchievementsWhereUniqueInput[]
+  }
+
+  export type LegendsPersonalAchievementsUncheckedCreateNestedManyWithoutLeagueInput = {
+    create?: XOR<LegendsPersonalAchievementsCreateWithoutLeagueInput, LegendsPersonalAchievementsUncheckedCreateWithoutLeagueInput> | LegendsPersonalAchievementsCreateWithoutLeagueInput[] | LegendsPersonalAchievementsUncheckedCreateWithoutLeagueInput[]
+    connectOrCreate?: LegendsPersonalAchievementsCreateOrConnectWithoutLeagueInput | LegendsPersonalAchievementsCreateOrConnectWithoutLeagueInput[]
+    createMany?: LegendsPersonalAchievementsCreateManyLeagueInputEnvelope
+    connect?: LegendsPersonalAchievementsWhereUniqueInput | LegendsPersonalAchievementsWhereUniqueInput[]
   }
 
   export type PlayerTeamAchievementsUpdateManyWithoutLeagueNestedInput = {
@@ -19741,6 +28563,34 @@ export namespace Prisma {
     deleteMany?: PlayerStatsScalarWhereInput | PlayerStatsScalarWhereInput[]
   }
 
+  export type LegendsTeamAchievementsUpdateManyWithoutLeagueNestedInput = {
+    create?: XOR<LegendsTeamAchievementsCreateWithoutLeagueInput, LegendsTeamAchievementsUncheckedCreateWithoutLeagueInput> | LegendsTeamAchievementsCreateWithoutLeagueInput[] | LegendsTeamAchievementsUncheckedCreateWithoutLeagueInput[]
+    connectOrCreate?: LegendsTeamAchievementsCreateOrConnectWithoutLeagueInput | LegendsTeamAchievementsCreateOrConnectWithoutLeagueInput[]
+    upsert?: LegendsTeamAchievementsUpsertWithWhereUniqueWithoutLeagueInput | LegendsTeamAchievementsUpsertWithWhereUniqueWithoutLeagueInput[]
+    createMany?: LegendsTeamAchievementsCreateManyLeagueInputEnvelope
+    set?: LegendsTeamAchievementsWhereUniqueInput | LegendsTeamAchievementsWhereUniqueInput[]
+    disconnect?: LegendsTeamAchievementsWhereUniqueInput | LegendsTeamAchievementsWhereUniqueInput[]
+    delete?: LegendsTeamAchievementsWhereUniqueInput | LegendsTeamAchievementsWhereUniqueInput[]
+    connect?: LegendsTeamAchievementsWhereUniqueInput | LegendsTeamAchievementsWhereUniqueInput[]
+    update?: LegendsTeamAchievementsUpdateWithWhereUniqueWithoutLeagueInput | LegendsTeamAchievementsUpdateWithWhereUniqueWithoutLeagueInput[]
+    updateMany?: LegendsTeamAchievementsUpdateManyWithWhereWithoutLeagueInput | LegendsTeamAchievementsUpdateManyWithWhereWithoutLeagueInput[]
+    deleteMany?: LegendsTeamAchievementsScalarWhereInput | LegendsTeamAchievementsScalarWhereInput[]
+  }
+
+  export type LegendsPersonalAchievementsUpdateManyWithoutLeagueNestedInput = {
+    create?: XOR<LegendsPersonalAchievementsCreateWithoutLeagueInput, LegendsPersonalAchievementsUncheckedCreateWithoutLeagueInput> | LegendsPersonalAchievementsCreateWithoutLeagueInput[] | LegendsPersonalAchievementsUncheckedCreateWithoutLeagueInput[]
+    connectOrCreate?: LegendsPersonalAchievementsCreateOrConnectWithoutLeagueInput | LegendsPersonalAchievementsCreateOrConnectWithoutLeagueInput[]
+    upsert?: LegendsPersonalAchievementsUpsertWithWhereUniqueWithoutLeagueInput | LegendsPersonalAchievementsUpsertWithWhereUniqueWithoutLeagueInput[]
+    createMany?: LegendsPersonalAchievementsCreateManyLeagueInputEnvelope
+    set?: LegendsPersonalAchievementsWhereUniqueInput | LegendsPersonalAchievementsWhereUniqueInput[]
+    disconnect?: LegendsPersonalAchievementsWhereUniqueInput | LegendsPersonalAchievementsWhereUniqueInput[]
+    delete?: LegendsPersonalAchievementsWhereUniqueInput | LegendsPersonalAchievementsWhereUniqueInput[]
+    connect?: LegendsPersonalAchievementsWhereUniqueInput | LegendsPersonalAchievementsWhereUniqueInput[]
+    update?: LegendsPersonalAchievementsUpdateWithWhereUniqueWithoutLeagueInput | LegendsPersonalAchievementsUpdateWithWhereUniqueWithoutLeagueInput[]
+    updateMany?: LegendsPersonalAchievementsUpdateManyWithWhereWithoutLeagueInput | LegendsPersonalAchievementsUpdateManyWithWhereWithoutLeagueInput[]
+    deleteMany?: LegendsPersonalAchievementsScalarWhereInput | LegendsPersonalAchievementsScalarWhereInput[]
+  }
+
   export type PlayerTeamAchievementsUncheckedUpdateManyWithoutLeagueNestedInput = {
     create?: XOR<PlayerTeamAchievementsCreateWithoutLeagueInput, PlayerTeamAchievementsUncheckedCreateWithoutLeagueInput> | PlayerTeamAchievementsCreateWithoutLeagueInput[] | PlayerTeamAchievementsUncheckedCreateWithoutLeagueInput[]
     connectOrCreate?: PlayerTeamAchievementsCreateOrConnectWithoutLeagueInput | PlayerTeamAchievementsCreateOrConnectWithoutLeagueInput[]
@@ -19783,6 +28633,34 @@ export namespace Prisma {
     deleteMany?: PlayerStatsScalarWhereInput | PlayerStatsScalarWhereInput[]
   }
 
+  export type LegendsTeamAchievementsUncheckedUpdateManyWithoutLeagueNestedInput = {
+    create?: XOR<LegendsTeamAchievementsCreateWithoutLeagueInput, LegendsTeamAchievementsUncheckedCreateWithoutLeagueInput> | LegendsTeamAchievementsCreateWithoutLeagueInput[] | LegendsTeamAchievementsUncheckedCreateWithoutLeagueInput[]
+    connectOrCreate?: LegendsTeamAchievementsCreateOrConnectWithoutLeagueInput | LegendsTeamAchievementsCreateOrConnectWithoutLeagueInput[]
+    upsert?: LegendsTeamAchievementsUpsertWithWhereUniqueWithoutLeagueInput | LegendsTeamAchievementsUpsertWithWhereUniqueWithoutLeagueInput[]
+    createMany?: LegendsTeamAchievementsCreateManyLeagueInputEnvelope
+    set?: LegendsTeamAchievementsWhereUniqueInput | LegendsTeamAchievementsWhereUniqueInput[]
+    disconnect?: LegendsTeamAchievementsWhereUniqueInput | LegendsTeamAchievementsWhereUniqueInput[]
+    delete?: LegendsTeamAchievementsWhereUniqueInput | LegendsTeamAchievementsWhereUniqueInput[]
+    connect?: LegendsTeamAchievementsWhereUniqueInput | LegendsTeamAchievementsWhereUniqueInput[]
+    update?: LegendsTeamAchievementsUpdateWithWhereUniqueWithoutLeagueInput | LegendsTeamAchievementsUpdateWithWhereUniqueWithoutLeagueInput[]
+    updateMany?: LegendsTeamAchievementsUpdateManyWithWhereWithoutLeagueInput | LegendsTeamAchievementsUpdateManyWithWhereWithoutLeagueInput[]
+    deleteMany?: LegendsTeamAchievementsScalarWhereInput | LegendsTeamAchievementsScalarWhereInput[]
+  }
+
+  export type LegendsPersonalAchievementsUncheckedUpdateManyWithoutLeagueNestedInput = {
+    create?: XOR<LegendsPersonalAchievementsCreateWithoutLeagueInput, LegendsPersonalAchievementsUncheckedCreateWithoutLeagueInput> | LegendsPersonalAchievementsCreateWithoutLeagueInput[] | LegendsPersonalAchievementsUncheckedCreateWithoutLeagueInput[]
+    connectOrCreate?: LegendsPersonalAchievementsCreateOrConnectWithoutLeagueInput | LegendsPersonalAchievementsCreateOrConnectWithoutLeagueInput[]
+    upsert?: LegendsPersonalAchievementsUpsertWithWhereUniqueWithoutLeagueInput | LegendsPersonalAchievementsUpsertWithWhereUniqueWithoutLeagueInput[]
+    createMany?: LegendsPersonalAchievementsCreateManyLeagueInputEnvelope
+    set?: LegendsPersonalAchievementsWhereUniqueInput | LegendsPersonalAchievementsWhereUniqueInput[]
+    disconnect?: LegendsPersonalAchievementsWhereUniqueInput | LegendsPersonalAchievementsWhereUniqueInput[]
+    delete?: LegendsPersonalAchievementsWhereUniqueInput | LegendsPersonalAchievementsWhereUniqueInput[]
+    connect?: LegendsPersonalAchievementsWhereUniqueInput | LegendsPersonalAchievementsWhereUniqueInput[]
+    update?: LegendsPersonalAchievementsUpdateWithWhereUniqueWithoutLeagueInput | LegendsPersonalAchievementsUpdateWithWhereUniqueWithoutLeagueInput[]
+    updateMany?: LegendsPersonalAchievementsUpdateManyWithWhereWithoutLeagueInput | LegendsPersonalAchievementsUpdateManyWithWhereWithoutLeagueInput[]
+    deleteMany?: LegendsPersonalAchievementsScalarWhereInput | LegendsPersonalAchievementsScalarWhereInput[]
+  }
+
   export type PlayerPersonalAchievementsCreateNestedManyWithoutAchievementInput = {
     create?: XOR<PlayerPersonalAchievementsCreateWithoutAchievementInput, PlayerPersonalAchievementsUncheckedCreateWithoutAchievementInput> | PlayerPersonalAchievementsCreateWithoutAchievementInput[] | PlayerPersonalAchievementsUncheckedCreateWithoutAchievementInput[]
     connectOrCreate?: PlayerPersonalAchievementsCreateOrConnectWithoutAchievementInput | PlayerPersonalAchievementsCreateOrConnectWithoutAchievementInput[]
@@ -19790,11 +28668,25 @@ export namespace Prisma {
     connect?: PlayerPersonalAchievementsWhereUniqueInput | PlayerPersonalAchievementsWhereUniqueInput[]
   }
 
+  export type LegendsPersonalAchievementsCreateNestedManyWithoutAchievementInput = {
+    create?: XOR<LegendsPersonalAchievementsCreateWithoutAchievementInput, LegendsPersonalAchievementsUncheckedCreateWithoutAchievementInput> | LegendsPersonalAchievementsCreateWithoutAchievementInput[] | LegendsPersonalAchievementsUncheckedCreateWithoutAchievementInput[]
+    connectOrCreate?: LegendsPersonalAchievementsCreateOrConnectWithoutAchievementInput | LegendsPersonalAchievementsCreateOrConnectWithoutAchievementInput[]
+    createMany?: LegendsPersonalAchievementsCreateManyAchievementInputEnvelope
+    connect?: LegendsPersonalAchievementsWhereUniqueInput | LegendsPersonalAchievementsWhereUniqueInput[]
+  }
+
   export type PlayerPersonalAchievementsUncheckedCreateNestedManyWithoutAchievementInput = {
     create?: XOR<PlayerPersonalAchievementsCreateWithoutAchievementInput, PlayerPersonalAchievementsUncheckedCreateWithoutAchievementInput> | PlayerPersonalAchievementsCreateWithoutAchievementInput[] | PlayerPersonalAchievementsUncheckedCreateWithoutAchievementInput[]
     connectOrCreate?: PlayerPersonalAchievementsCreateOrConnectWithoutAchievementInput | PlayerPersonalAchievementsCreateOrConnectWithoutAchievementInput[]
     createMany?: PlayerPersonalAchievementsCreateManyAchievementInputEnvelope
     connect?: PlayerPersonalAchievementsWhereUniqueInput | PlayerPersonalAchievementsWhereUniqueInput[]
+  }
+
+  export type LegendsPersonalAchievementsUncheckedCreateNestedManyWithoutAchievementInput = {
+    create?: XOR<LegendsPersonalAchievementsCreateWithoutAchievementInput, LegendsPersonalAchievementsUncheckedCreateWithoutAchievementInput> | LegendsPersonalAchievementsCreateWithoutAchievementInput[] | LegendsPersonalAchievementsUncheckedCreateWithoutAchievementInput[]
+    connectOrCreate?: LegendsPersonalAchievementsCreateOrConnectWithoutAchievementInput | LegendsPersonalAchievementsCreateOrConnectWithoutAchievementInput[]
+    createMany?: LegendsPersonalAchievementsCreateManyAchievementInputEnvelope
+    connect?: LegendsPersonalAchievementsWhereUniqueInput | LegendsPersonalAchievementsWhereUniqueInput[]
   }
 
   export type PlayerPersonalAchievementsUpdateManyWithoutAchievementNestedInput = {
@@ -19811,6 +28703,20 @@ export namespace Prisma {
     deleteMany?: PlayerPersonalAchievementsScalarWhereInput | PlayerPersonalAchievementsScalarWhereInput[]
   }
 
+  export type LegendsPersonalAchievementsUpdateManyWithoutAchievementNestedInput = {
+    create?: XOR<LegendsPersonalAchievementsCreateWithoutAchievementInput, LegendsPersonalAchievementsUncheckedCreateWithoutAchievementInput> | LegendsPersonalAchievementsCreateWithoutAchievementInput[] | LegendsPersonalAchievementsUncheckedCreateWithoutAchievementInput[]
+    connectOrCreate?: LegendsPersonalAchievementsCreateOrConnectWithoutAchievementInput | LegendsPersonalAchievementsCreateOrConnectWithoutAchievementInput[]
+    upsert?: LegendsPersonalAchievementsUpsertWithWhereUniqueWithoutAchievementInput | LegendsPersonalAchievementsUpsertWithWhereUniqueWithoutAchievementInput[]
+    createMany?: LegendsPersonalAchievementsCreateManyAchievementInputEnvelope
+    set?: LegendsPersonalAchievementsWhereUniqueInput | LegendsPersonalAchievementsWhereUniqueInput[]
+    disconnect?: LegendsPersonalAchievementsWhereUniqueInput | LegendsPersonalAchievementsWhereUniqueInput[]
+    delete?: LegendsPersonalAchievementsWhereUniqueInput | LegendsPersonalAchievementsWhereUniqueInput[]
+    connect?: LegendsPersonalAchievementsWhereUniqueInput | LegendsPersonalAchievementsWhereUniqueInput[]
+    update?: LegendsPersonalAchievementsUpdateWithWhereUniqueWithoutAchievementInput | LegendsPersonalAchievementsUpdateWithWhereUniqueWithoutAchievementInput[]
+    updateMany?: LegendsPersonalAchievementsUpdateManyWithWhereWithoutAchievementInput | LegendsPersonalAchievementsUpdateManyWithWhereWithoutAchievementInput[]
+    deleteMany?: LegendsPersonalAchievementsScalarWhereInput | LegendsPersonalAchievementsScalarWhereInput[]
+  }
+
   export type PlayerPersonalAchievementsUncheckedUpdateManyWithoutAchievementNestedInput = {
     create?: XOR<PlayerPersonalAchievementsCreateWithoutAchievementInput, PlayerPersonalAchievementsUncheckedCreateWithoutAchievementInput> | PlayerPersonalAchievementsCreateWithoutAchievementInput[] | PlayerPersonalAchievementsUncheckedCreateWithoutAchievementInput[]
     connectOrCreate?: PlayerPersonalAchievementsCreateOrConnectWithoutAchievementInput | PlayerPersonalAchievementsCreateOrConnectWithoutAchievementInput[]
@@ -19823,6 +28729,20 @@ export namespace Prisma {
     update?: PlayerPersonalAchievementsUpdateWithWhereUniqueWithoutAchievementInput | PlayerPersonalAchievementsUpdateWithWhereUniqueWithoutAchievementInput[]
     updateMany?: PlayerPersonalAchievementsUpdateManyWithWhereWithoutAchievementInput | PlayerPersonalAchievementsUpdateManyWithWhereWithoutAchievementInput[]
     deleteMany?: PlayerPersonalAchievementsScalarWhereInput | PlayerPersonalAchievementsScalarWhereInput[]
+  }
+
+  export type LegendsPersonalAchievementsUncheckedUpdateManyWithoutAchievementNestedInput = {
+    create?: XOR<LegendsPersonalAchievementsCreateWithoutAchievementInput, LegendsPersonalAchievementsUncheckedCreateWithoutAchievementInput> | LegendsPersonalAchievementsCreateWithoutAchievementInput[] | LegendsPersonalAchievementsUncheckedCreateWithoutAchievementInput[]
+    connectOrCreate?: LegendsPersonalAchievementsCreateOrConnectWithoutAchievementInput | LegendsPersonalAchievementsCreateOrConnectWithoutAchievementInput[]
+    upsert?: LegendsPersonalAchievementsUpsertWithWhereUniqueWithoutAchievementInput | LegendsPersonalAchievementsUpsertWithWhereUniqueWithoutAchievementInput[]
+    createMany?: LegendsPersonalAchievementsCreateManyAchievementInputEnvelope
+    set?: LegendsPersonalAchievementsWhereUniqueInput | LegendsPersonalAchievementsWhereUniqueInput[]
+    disconnect?: LegendsPersonalAchievementsWhereUniqueInput | LegendsPersonalAchievementsWhereUniqueInput[]
+    delete?: LegendsPersonalAchievementsWhereUniqueInput | LegendsPersonalAchievementsWhereUniqueInput[]
+    connect?: LegendsPersonalAchievementsWhereUniqueInput | LegendsPersonalAchievementsWhereUniqueInput[]
+    update?: LegendsPersonalAchievementsUpdateWithWhereUniqueWithoutAchievementInput | LegendsPersonalAchievementsUpdateWithWhereUniqueWithoutAchievementInput[]
+    updateMany?: LegendsPersonalAchievementsUpdateManyWithWhereWithoutAchievementInput | LegendsPersonalAchievementsUpdateManyWithWhereWithoutAchievementInput[]
+    deleteMany?: LegendsPersonalAchievementsScalarWhereInput | LegendsPersonalAchievementsScalarWhereInput[]
   }
 
   export type PlayersCreateNestedOneWithoutPlayer_infoInput = {
@@ -20023,6 +28943,350 @@ export namespace Prisma {
     upsert?: PlayersUpsertWithoutThoughtsReceivedInput
     connect?: PlayersWhereUniqueInput
     update?: XOR<XOR<PlayersUpdateToOneWithWhereWithoutThoughtsReceivedInput, PlayersUpdateWithoutThoughtsReceivedInput>, PlayersUncheckedUpdateWithoutThoughtsReceivedInput>
+  }
+
+  export type LegendsInfoCreateNestedOneWithoutPlayerInput = {
+    create?: XOR<LegendsInfoCreateWithoutPlayerInput, LegendsInfoUncheckedCreateWithoutPlayerInput>
+    connectOrCreate?: LegendsInfoCreateOrConnectWithoutPlayerInput
+    connect?: LegendsInfoWhereUniqueInput
+  }
+
+  export type LegendsRatingsCreateNestedOneWithoutPlayerInput = {
+    create?: XOR<LegendsRatingsCreateWithoutPlayerInput, LegendsRatingsUncheckedCreateWithoutPlayerInput>
+    connectOrCreate?: LegendsRatingsCreateOrConnectWithoutPlayerInput
+    connect?: LegendsRatingsWhereUniqueInput
+  }
+
+  export type LegendsTeamAchievementsCreateNestedManyWithoutPlayerInput = {
+    create?: XOR<LegendsTeamAchievementsCreateWithoutPlayerInput, LegendsTeamAchievementsUncheckedCreateWithoutPlayerInput> | LegendsTeamAchievementsCreateWithoutPlayerInput[] | LegendsTeamAchievementsUncheckedCreateWithoutPlayerInput[]
+    connectOrCreate?: LegendsTeamAchievementsCreateOrConnectWithoutPlayerInput | LegendsTeamAchievementsCreateOrConnectWithoutPlayerInput[]
+    createMany?: LegendsTeamAchievementsCreateManyPlayerInputEnvelope
+    connect?: LegendsTeamAchievementsWhereUniqueInput | LegendsTeamAchievementsWhereUniqueInput[]
+  }
+
+  export type LegendsPersonalAchievementsCreateNestedManyWithoutPlayerInput = {
+    create?: XOR<LegendsPersonalAchievementsCreateWithoutPlayerInput, LegendsPersonalAchievementsUncheckedCreateWithoutPlayerInput> | LegendsPersonalAchievementsCreateWithoutPlayerInput[] | LegendsPersonalAchievementsUncheckedCreateWithoutPlayerInput[]
+    connectOrCreate?: LegendsPersonalAchievementsCreateOrConnectWithoutPlayerInput | LegendsPersonalAchievementsCreateOrConnectWithoutPlayerInput[]
+    createMany?: LegendsPersonalAchievementsCreateManyPlayerInputEnvelope
+    connect?: LegendsPersonalAchievementsWhereUniqueInput | LegendsPersonalAchievementsWhereUniqueInput[]
+  }
+
+  export type LegendsTeammateThoughtsCreateNestedManyWithoutReceiverInput = {
+    create?: XOR<LegendsTeammateThoughtsCreateWithoutReceiverInput, LegendsTeammateThoughtsUncheckedCreateWithoutReceiverInput> | LegendsTeammateThoughtsCreateWithoutReceiverInput[] | LegendsTeammateThoughtsUncheckedCreateWithoutReceiverInput[]
+    connectOrCreate?: LegendsTeammateThoughtsCreateOrConnectWithoutReceiverInput | LegendsTeammateThoughtsCreateOrConnectWithoutReceiverInput[]
+    createMany?: LegendsTeammateThoughtsCreateManyReceiverInputEnvelope
+    connect?: LegendsTeammateThoughtsWhereUniqueInput | LegendsTeammateThoughtsWhereUniqueInput[]
+  }
+
+  export type TeamsCreateNestedOneWithoutLegendsInput = {
+    create?: XOR<TeamsCreateWithoutLegendsInput, TeamsUncheckedCreateWithoutLegendsInput>
+    connectOrCreate?: TeamsCreateOrConnectWithoutLegendsInput
+    connect?: TeamsWhereUniqueInput
+  }
+
+  export type LegendsInfoUncheckedCreateNestedOneWithoutPlayerInput = {
+    create?: XOR<LegendsInfoCreateWithoutPlayerInput, LegendsInfoUncheckedCreateWithoutPlayerInput>
+    connectOrCreate?: LegendsInfoCreateOrConnectWithoutPlayerInput
+    connect?: LegendsInfoWhereUniqueInput
+  }
+
+  export type LegendsRatingsUncheckedCreateNestedOneWithoutPlayerInput = {
+    create?: XOR<LegendsRatingsCreateWithoutPlayerInput, LegendsRatingsUncheckedCreateWithoutPlayerInput>
+    connectOrCreate?: LegendsRatingsCreateOrConnectWithoutPlayerInput
+    connect?: LegendsRatingsWhereUniqueInput
+  }
+
+  export type LegendsTeamAchievementsUncheckedCreateNestedManyWithoutPlayerInput = {
+    create?: XOR<LegendsTeamAchievementsCreateWithoutPlayerInput, LegendsTeamAchievementsUncheckedCreateWithoutPlayerInput> | LegendsTeamAchievementsCreateWithoutPlayerInput[] | LegendsTeamAchievementsUncheckedCreateWithoutPlayerInput[]
+    connectOrCreate?: LegendsTeamAchievementsCreateOrConnectWithoutPlayerInput | LegendsTeamAchievementsCreateOrConnectWithoutPlayerInput[]
+    createMany?: LegendsTeamAchievementsCreateManyPlayerInputEnvelope
+    connect?: LegendsTeamAchievementsWhereUniqueInput | LegendsTeamAchievementsWhereUniqueInput[]
+  }
+
+  export type LegendsPersonalAchievementsUncheckedCreateNestedManyWithoutPlayerInput = {
+    create?: XOR<LegendsPersonalAchievementsCreateWithoutPlayerInput, LegendsPersonalAchievementsUncheckedCreateWithoutPlayerInput> | LegendsPersonalAchievementsCreateWithoutPlayerInput[] | LegendsPersonalAchievementsUncheckedCreateWithoutPlayerInput[]
+    connectOrCreate?: LegendsPersonalAchievementsCreateOrConnectWithoutPlayerInput | LegendsPersonalAchievementsCreateOrConnectWithoutPlayerInput[]
+    createMany?: LegendsPersonalAchievementsCreateManyPlayerInputEnvelope
+    connect?: LegendsPersonalAchievementsWhereUniqueInput | LegendsPersonalAchievementsWhereUniqueInput[]
+  }
+
+  export type LegendsTeammateThoughtsUncheckedCreateNestedManyWithoutReceiverInput = {
+    create?: XOR<LegendsTeammateThoughtsCreateWithoutReceiverInput, LegendsTeammateThoughtsUncheckedCreateWithoutReceiverInput> | LegendsTeammateThoughtsCreateWithoutReceiverInput[] | LegendsTeammateThoughtsUncheckedCreateWithoutReceiverInput[]
+    connectOrCreate?: LegendsTeammateThoughtsCreateOrConnectWithoutReceiverInput | LegendsTeammateThoughtsCreateOrConnectWithoutReceiverInput[]
+    createMany?: LegendsTeammateThoughtsCreateManyReceiverInputEnvelope
+    connect?: LegendsTeammateThoughtsWhereUniqueInput | LegendsTeammateThoughtsWhereUniqueInput[]
+  }
+
+  export type LegendsInfoUpdateOneWithoutPlayerNestedInput = {
+    create?: XOR<LegendsInfoCreateWithoutPlayerInput, LegendsInfoUncheckedCreateWithoutPlayerInput>
+    connectOrCreate?: LegendsInfoCreateOrConnectWithoutPlayerInput
+    upsert?: LegendsInfoUpsertWithoutPlayerInput
+    disconnect?: LegendsInfoWhereInput | boolean
+    delete?: LegendsInfoWhereInput | boolean
+    connect?: LegendsInfoWhereUniqueInput
+    update?: XOR<XOR<LegendsInfoUpdateToOneWithWhereWithoutPlayerInput, LegendsInfoUpdateWithoutPlayerInput>, LegendsInfoUncheckedUpdateWithoutPlayerInput>
+  }
+
+  export type LegendsRatingsUpdateOneWithoutPlayerNestedInput = {
+    create?: XOR<LegendsRatingsCreateWithoutPlayerInput, LegendsRatingsUncheckedCreateWithoutPlayerInput>
+    connectOrCreate?: LegendsRatingsCreateOrConnectWithoutPlayerInput
+    upsert?: LegendsRatingsUpsertWithoutPlayerInput
+    disconnect?: LegendsRatingsWhereInput | boolean
+    delete?: LegendsRatingsWhereInput | boolean
+    connect?: LegendsRatingsWhereUniqueInput
+    update?: XOR<XOR<LegendsRatingsUpdateToOneWithWhereWithoutPlayerInput, LegendsRatingsUpdateWithoutPlayerInput>, LegendsRatingsUncheckedUpdateWithoutPlayerInput>
+  }
+
+  export type LegendsTeamAchievementsUpdateManyWithoutPlayerNestedInput = {
+    create?: XOR<LegendsTeamAchievementsCreateWithoutPlayerInput, LegendsTeamAchievementsUncheckedCreateWithoutPlayerInput> | LegendsTeamAchievementsCreateWithoutPlayerInput[] | LegendsTeamAchievementsUncheckedCreateWithoutPlayerInput[]
+    connectOrCreate?: LegendsTeamAchievementsCreateOrConnectWithoutPlayerInput | LegendsTeamAchievementsCreateOrConnectWithoutPlayerInput[]
+    upsert?: LegendsTeamAchievementsUpsertWithWhereUniqueWithoutPlayerInput | LegendsTeamAchievementsUpsertWithWhereUniqueWithoutPlayerInput[]
+    createMany?: LegendsTeamAchievementsCreateManyPlayerInputEnvelope
+    set?: LegendsTeamAchievementsWhereUniqueInput | LegendsTeamAchievementsWhereUniqueInput[]
+    disconnect?: LegendsTeamAchievementsWhereUniqueInput | LegendsTeamAchievementsWhereUniqueInput[]
+    delete?: LegendsTeamAchievementsWhereUniqueInput | LegendsTeamAchievementsWhereUniqueInput[]
+    connect?: LegendsTeamAchievementsWhereUniqueInput | LegendsTeamAchievementsWhereUniqueInput[]
+    update?: LegendsTeamAchievementsUpdateWithWhereUniqueWithoutPlayerInput | LegendsTeamAchievementsUpdateWithWhereUniqueWithoutPlayerInput[]
+    updateMany?: LegendsTeamAchievementsUpdateManyWithWhereWithoutPlayerInput | LegendsTeamAchievementsUpdateManyWithWhereWithoutPlayerInput[]
+    deleteMany?: LegendsTeamAchievementsScalarWhereInput | LegendsTeamAchievementsScalarWhereInput[]
+  }
+
+  export type LegendsPersonalAchievementsUpdateManyWithoutPlayerNestedInput = {
+    create?: XOR<LegendsPersonalAchievementsCreateWithoutPlayerInput, LegendsPersonalAchievementsUncheckedCreateWithoutPlayerInput> | LegendsPersonalAchievementsCreateWithoutPlayerInput[] | LegendsPersonalAchievementsUncheckedCreateWithoutPlayerInput[]
+    connectOrCreate?: LegendsPersonalAchievementsCreateOrConnectWithoutPlayerInput | LegendsPersonalAchievementsCreateOrConnectWithoutPlayerInput[]
+    upsert?: LegendsPersonalAchievementsUpsertWithWhereUniqueWithoutPlayerInput | LegendsPersonalAchievementsUpsertWithWhereUniqueWithoutPlayerInput[]
+    createMany?: LegendsPersonalAchievementsCreateManyPlayerInputEnvelope
+    set?: LegendsPersonalAchievementsWhereUniqueInput | LegendsPersonalAchievementsWhereUniqueInput[]
+    disconnect?: LegendsPersonalAchievementsWhereUniqueInput | LegendsPersonalAchievementsWhereUniqueInput[]
+    delete?: LegendsPersonalAchievementsWhereUniqueInput | LegendsPersonalAchievementsWhereUniqueInput[]
+    connect?: LegendsPersonalAchievementsWhereUniqueInput | LegendsPersonalAchievementsWhereUniqueInput[]
+    update?: LegendsPersonalAchievementsUpdateWithWhereUniqueWithoutPlayerInput | LegendsPersonalAchievementsUpdateWithWhereUniqueWithoutPlayerInput[]
+    updateMany?: LegendsPersonalAchievementsUpdateManyWithWhereWithoutPlayerInput | LegendsPersonalAchievementsUpdateManyWithWhereWithoutPlayerInput[]
+    deleteMany?: LegendsPersonalAchievementsScalarWhereInput | LegendsPersonalAchievementsScalarWhereInput[]
+  }
+
+  export type LegendsTeammateThoughtsUpdateManyWithoutReceiverNestedInput = {
+    create?: XOR<LegendsTeammateThoughtsCreateWithoutReceiverInput, LegendsTeammateThoughtsUncheckedCreateWithoutReceiverInput> | LegendsTeammateThoughtsCreateWithoutReceiverInput[] | LegendsTeammateThoughtsUncheckedCreateWithoutReceiverInput[]
+    connectOrCreate?: LegendsTeammateThoughtsCreateOrConnectWithoutReceiverInput | LegendsTeammateThoughtsCreateOrConnectWithoutReceiverInput[]
+    upsert?: LegendsTeammateThoughtsUpsertWithWhereUniqueWithoutReceiverInput | LegendsTeammateThoughtsUpsertWithWhereUniqueWithoutReceiverInput[]
+    createMany?: LegendsTeammateThoughtsCreateManyReceiverInputEnvelope
+    set?: LegendsTeammateThoughtsWhereUniqueInput | LegendsTeammateThoughtsWhereUniqueInput[]
+    disconnect?: LegendsTeammateThoughtsWhereUniqueInput | LegendsTeammateThoughtsWhereUniqueInput[]
+    delete?: LegendsTeammateThoughtsWhereUniqueInput | LegendsTeammateThoughtsWhereUniqueInput[]
+    connect?: LegendsTeammateThoughtsWhereUniqueInput | LegendsTeammateThoughtsWhereUniqueInput[]
+    update?: LegendsTeammateThoughtsUpdateWithWhereUniqueWithoutReceiverInput | LegendsTeammateThoughtsUpdateWithWhereUniqueWithoutReceiverInput[]
+    updateMany?: LegendsTeammateThoughtsUpdateManyWithWhereWithoutReceiverInput | LegendsTeammateThoughtsUpdateManyWithWhereWithoutReceiverInput[]
+    deleteMany?: LegendsTeammateThoughtsScalarWhereInput | LegendsTeammateThoughtsScalarWhereInput[]
+  }
+
+  export type TeamsUpdateOneRequiredWithoutLegendsNestedInput = {
+    create?: XOR<TeamsCreateWithoutLegendsInput, TeamsUncheckedCreateWithoutLegendsInput>
+    connectOrCreate?: TeamsCreateOrConnectWithoutLegendsInput
+    upsert?: TeamsUpsertWithoutLegendsInput
+    connect?: TeamsWhereUniqueInput
+    update?: XOR<XOR<TeamsUpdateToOneWithWhereWithoutLegendsInput, TeamsUpdateWithoutLegendsInput>, TeamsUncheckedUpdateWithoutLegendsInput>
+  }
+
+  export type LegendsInfoUncheckedUpdateOneWithoutPlayerNestedInput = {
+    create?: XOR<LegendsInfoCreateWithoutPlayerInput, LegendsInfoUncheckedCreateWithoutPlayerInput>
+    connectOrCreate?: LegendsInfoCreateOrConnectWithoutPlayerInput
+    upsert?: LegendsInfoUpsertWithoutPlayerInput
+    disconnect?: LegendsInfoWhereInput | boolean
+    delete?: LegendsInfoWhereInput | boolean
+    connect?: LegendsInfoWhereUniqueInput
+    update?: XOR<XOR<LegendsInfoUpdateToOneWithWhereWithoutPlayerInput, LegendsInfoUpdateWithoutPlayerInput>, LegendsInfoUncheckedUpdateWithoutPlayerInput>
+  }
+
+  export type LegendsRatingsUncheckedUpdateOneWithoutPlayerNestedInput = {
+    create?: XOR<LegendsRatingsCreateWithoutPlayerInput, LegendsRatingsUncheckedCreateWithoutPlayerInput>
+    connectOrCreate?: LegendsRatingsCreateOrConnectWithoutPlayerInput
+    upsert?: LegendsRatingsUpsertWithoutPlayerInput
+    disconnect?: LegendsRatingsWhereInput | boolean
+    delete?: LegendsRatingsWhereInput | boolean
+    connect?: LegendsRatingsWhereUniqueInput
+    update?: XOR<XOR<LegendsRatingsUpdateToOneWithWhereWithoutPlayerInput, LegendsRatingsUpdateWithoutPlayerInput>, LegendsRatingsUncheckedUpdateWithoutPlayerInput>
+  }
+
+  export type LegendsTeamAchievementsUncheckedUpdateManyWithoutPlayerNestedInput = {
+    create?: XOR<LegendsTeamAchievementsCreateWithoutPlayerInput, LegendsTeamAchievementsUncheckedCreateWithoutPlayerInput> | LegendsTeamAchievementsCreateWithoutPlayerInput[] | LegendsTeamAchievementsUncheckedCreateWithoutPlayerInput[]
+    connectOrCreate?: LegendsTeamAchievementsCreateOrConnectWithoutPlayerInput | LegendsTeamAchievementsCreateOrConnectWithoutPlayerInput[]
+    upsert?: LegendsTeamAchievementsUpsertWithWhereUniqueWithoutPlayerInput | LegendsTeamAchievementsUpsertWithWhereUniqueWithoutPlayerInput[]
+    createMany?: LegendsTeamAchievementsCreateManyPlayerInputEnvelope
+    set?: LegendsTeamAchievementsWhereUniqueInput | LegendsTeamAchievementsWhereUniqueInput[]
+    disconnect?: LegendsTeamAchievementsWhereUniqueInput | LegendsTeamAchievementsWhereUniqueInput[]
+    delete?: LegendsTeamAchievementsWhereUniqueInput | LegendsTeamAchievementsWhereUniqueInput[]
+    connect?: LegendsTeamAchievementsWhereUniqueInput | LegendsTeamAchievementsWhereUniqueInput[]
+    update?: LegendsTeamAchievementsUpdateWithWhereUniqueWithoutPlayerInput | LegendsTeamAchievementsUpdateWithWhereUniqueWithoutPlayerInput[]
+    updateMany?: LegendsTeamAchievementsUpdateManyWithWhereWithoutPlayerInput | LegendsTeamAchievementsUpdateManyWithWhereWithoutPlayerInput[]
+    deleteMany?: LegendsTeamAchievementsScalarWhereInput | LegendsTeamAchievementsScalarWhereInput[]
+  }
+
+  export type LegendsPersonalAchievementsUncheckedUpdateManyWithoutPlayerNestedInput = {
+    create?: XOR<LegendsPersonalAchievementsCreateWithoutPlayerInput, LegendsPersonalAchievementsUncheckedCreateWithoutPlayerInput> | LegendsPersonalAchievementsCreateWithoutPlayerInput[] | LegendsPersonalAchievementsUncheckedCreateWithoutPlayerInput[]
+    connectOrCreate?: LegendsPersonalAchievementsCreateOrConnectWithoutPlayerInput | LegendsPersonalAchievementsCreateOrConnectWithoutPlayerInput[]
+    upsert?: LegendsPersonalAchievementsUpsertWithWhereUniqueWithoutPlayerInput | LegendsPersonalAchievementsUpsertWithWhereUniqueWithoutPlayerInput[]
+    createMany?: LegendsPersonalAchievementsCreateManyPlayerInputEnvelope
+    set?: LegendsPersonalAchievementsWhereUniqueInput | LegendsPersonalAchievementsWhereUniqueInput[]
+    disconnect?: LegendsPersonalAchievementsWhereUniqueInput | LegendsPersonalAchievementsWhereUniqueInput[]
+    delete?: LegendsPersonalAchievementsWhereUniqueInput | LegendsPersonalAchievementsWhereUniqueInput[]
+    connect?: LegendsPersonalAchievementsWhereUniqueInput | LegendsPersonalAchievementsWhereUniqueInput[]
+    update?: LegendsPersonalAchievementsUpdateWithWhereUniqueWithoutPlayerInput | LegendsPersonalAchievementsUpdateWithWhereUniqueWithoutPlayerInput[]
+    updateMany?: LegendsPersonalAchievementsUpdateManyWithWhereWithoutPlayerInput | LegendsPersonalAchievementsUpdateManyWithWhereWithoutPlayerInput[]
+    deleteMany?: LegendsPersonalAchievementsScalarWhereInput | LegendsPersonalAchievementsScalarWhereInput[]
+  }
+
+  export type LegendsTeammateThoughtsUncheckedUpdateManyWithoutReceiverNestedInput = {
+    create?: XOR<LegendsTeammateThoughtsCreateWithoutReceiverInput, LegendsTeammateThoughtsUncheckedCreateWithoutReceiverInput> | LegendsTeammateThoughtsCreateWithoutReceiverInput[] | LegendsTeammateThoughtsUncheckedCreateWithoutReceiverInput[]
+    connectOrCreate?: LegendsTeammateThoughtsCreateOrConnectWithoutReceiverInput | LegendsTeammateThoughtsCreateOrConnectWithoutReceiverInput[]
+    upsert?: LegendsTeammateThoughtsUpsertWithWhereUniqueWithoutReceiverInput | LegendsTeammateThoughtsUpsertWithWhereUniqueWithoutReceiverInput[]
+    createMany?: LegendsTeammateThoughtsCreateManyReceiverInputEnvelope
+    set?: LegendsTeammateThoughtsWhereUniqueInput | LegendsTeammateThoughtsWhereUniqueInput[]
+    disconnect?: LegendsTeammateThoughtsWhereUniqueInput | LegendsTeammateThoughtsWhereUniqueInput[]
+    delete?: LegendsTeammateThoughtsWhereUniqueInput | LegendsTeammateThoughtsWhereUniqueInput[]
+    connect?: LegendsTeammateThoughtsWhereUniqueInput | LegendsTeammateThoughtsWhereUniqueInput[]
+    update?: LegendsTeammateThoughtsUpdateWithWhereUniqueWithoutReceiverInput | LegendsTeammateThoughtsUpdateWithWhereUniqueWithoutReceiverInput[]
+    updateMany?: LegendsTeammateThoughtsUpdateManyWithWhereWithoutReceiverInput | LegendsTeammateThoughtsUpdateManyWithWhereWithoutReceiverInput[]
+    deleteMany?: LegendsTeammateThoughtsScalarWhereInput | LegendsTeammateThoughtsScalarWhereInput[]
+  }
+
+  export type LegendsCreateNestedOneWithoutLegends_infoInput = {
+    create?: XOR<LegendsCreateWithoutLegends_infoInput, LegendsUncheckedCreateWithoutLegends_infoInput>
+    connectOrCreate?: LegendsCreateOrConnectWithoutLegends_infoInput
+    connect?: LegendsWhereUniqueInput
+  }
+
+  export type LegendsUpdateOneRequiredWithoutLegends_infoNestedInput = {
+    create?: XOR<LegendsCreateWithoutLegends_infoInput, LegendsUncheckedCreateWithoutLegends_infoInput>
+    connectOrCreate?: LegendsCreateOrConnectWithoutLegends_infoInput
+    upsert?: LegendsUpsertWithoutLegends_infoInput
+    connect?: LegendsWhereUniqueInput
+    update?: XOR<XOR<LegendsUpdateToOneWithWhereWithoutLegends_infoInput, LegendsUpdateWithoutLegends_infoInput>, LegendsUncheckedUpdateWithoutLegends_infoInput>
+  }
+
+  export type LegendsCreateNestedOneWithoutLegends_ratingInput = {
+    create?: XOR<LegendsCreateWithoutLegends_ratingInput, LegendsUncheckedCreateWithoutLegends_ratingInput>
+    connectOrCreate?: LegendsCreateOrConnectWithoutLegends_ratingInput
+    connect?: LegendsWhereUniqueInput
+  }
+
+  export type LegendsUpdateOneRequiredWithoutLegends_ratingNestedInput = {
+    create?: XOR<LegendsCreateWithoutLegends_ratingInput, LegendsUncheckedCreateWithoutLegends_ratingInput>
+    connectOrCreate?: LegendsCreateOrConnectWithoutLegends_ratingInput
+    upsert?: LegendsUpsertWithoutLegends_ratingInput
+    connect?: LegendsWhereUniqueInput
+    update?: XOR<XOR<LegendsUpdateToOneWithWhereWithoutLegends_ratingInput, LegendsUpdateWithoutLegends_ratingInput>, LegendsUncheckedUpdateWithoutLegends_ratingInput>
+  }
+
+  export type LegendsCreateNestedOneWithoutLegends_team_achievementInput = {
+    create?: XOR<LegendsCreateWithoutLegends_team_achievementInput, LegendsUncheckedCreateWithoutLegends_team_achievementInput>
+    connectOrCreate?: LegendsCreateOrConnectWithoutLegends_team_achievementInput
+    connect?: LegendsWhereUniqueInput
+  }
+
+  export type LeaguesCreateNestedOneWithoutLegendsTeamAchievementsInput = {
+    create?: XOR<LeaguesCreateWithoutLegendsTeamAchievementsInput, LeaguesUncheckedCreateWithoutLegendsTeamAchievementsInput>
+    connectOrCreate?: LeaguesCreateOrConnectWithoutLegendsTeamAchievementsInput
+    connect?: LeaguesWhereUniqueInput
+  }
+
+  export type TeamsCreateNestedOneWithoutLegendsTeamAchievementsInput = {
+    create?: XOR<TeamsCreateWithoutLegendsTeamAchievementsInput, TeamsUncheckedCreateWithoutLegendsTeamAchievementsInput>
+    connectOrCreate?: TeamsCreateOrConnectWithoutLegendsTeamAchievementsInput
+    connect?: TeamsWhereUniqueInput
+  }
+
+  export type LegendsUpdateOneRequiredWithoutLegends_team_achievementNestedInput = {
+    create?: XOR<LegendsCreateWithoutLegends_team_achievementInput, LegendsUncheckedCreateWithoutLegends_team_achievementInput>
+    connectOrCreate?: LegendsCreateOrConnectWithoutLegends_team_achievementInput
+    upsert?: LegendsUpsertWithoutLegends_team_achievementInput
+    connect?: LegendsWhereUniqueInput
+    update?: XOR<XOR<LegendsUpdateToOneWithWhereWithoutLegends_team_achievementInput, LegendsUpdateWithoutLegends_team_achievementInput>, LegendsUncheckedUpdateWithoutLegends_team_achievementInput>
+  }
+
+  export type LeaguesUpdateOneRequiredWithoutLegendsTeamAchievementsNestedInput = {
+    create?: XOR<LeaguesCreateWithoutLegendsTeamAchievementsInput, LeaguesUncheckedCreateWithoutLegendsTeamAchievementsInput>
+    connectOrCreate?: LeaguesCreateOrConnectWithoutLegendsTeamAchievementsInput
+    upsert?: LeaguesUpsertWithoutLegendsTeamAchievementsInput
+    connect?: LeaguesWhereUniqueInput
+    update?: XOR<XOR<LeaguesUpdateToOneWithWhereWithoutLegendsTeamAchievementsInput, LeaguesUpdateWithoutLegendsTeamAchievementsInput>, LeaguesUncheckedUpdateWithoutLegendsTeamAchievementsInput>
+  }
+
+  export type TeamsUpdateOneRequiredWithoutLegendsTeamAchievementsNestedInput = {
+    create?: XOR<TeamsCreateWithoutLegendsTeamAchievementsInput, TeamsUncheckedCreateWithoutLegendsTeamAchievementsInput>
+    connectOrCreate?: TeamsCreateOrConnectWithoutLegendsTeamAchievementsInput
+    upsert?: TeamsUpsertWithoutLegendsTeamAchievementsInput
+    connect?: TeamsWhereUniqueInput
+    update?: XOR<XOR<TeamsUpdateToOneWithWhereWithoutLegendsTeamAchievementsInput, TeamsUpdateWithoutLegendsTeamAchievementsInput>, TeamsUncheckedUpdateWithoutLegendsTeamAchievementsInput>
+  }
+
+  export type LegendsCreateNestedOneWithoutLegends_personal_achievementInput = {
+    create?: XOR<LegendsCreateWithoutLegends_personal_achievementInput, LegendsUncheckedCreateWithoutLegends_personal_achievementInput>
+    connectOrCreate?: LegendsCreateOrConnectWithoutLegends_personal_achievementInput
+    connect?: LegendsWhereUniqueInput
+  }
+
+  export type PersonalAchievementsCreateNestedOneWithoutLegendsPersonalAchievementsInput = {
+    create?: XOR<PersonalAchievementsCreateWithoutLegendsPersonalAchievementsInput, PersonalAchievementsUncheckedCreateWithoutLegendsPersonalAchievementsInput>
+    connectOrCreate?: PersonalAchievementsCreateOrConnectWithoutLegendsPersonalAchievementsInput
+    connect?: PersonalAchievementsWhereUniqueInput
+  }
+
+  export type TeamsCreateNestedOneWithoutLegendsPersonalAchievementsInput = {
+    create?: XOR<TeamsCreateWithoutLegendsPersonalAchievementsInput, TeamsUncheckedCreateWithoutLegendsPersonalAchievementsInput>
+    connectOrCreate?: TeamsCreateOrConnectWithoutLegendsPersonalAchievementsInput
+    connect?: TeamsWhereUniqueInput
+  }
+
+  export type LeaguesCreateNestedOneWithoutLegendsPersonalAchievementsInput = {
+    create?: XOR<LeaguesCreateWithoutLegendsPersonalAchievementsInput, LeaguesUncheckedCreateWithoutLegendsPersonalAchievementsInput>
+    connectOrCreate?: LeaguesCreateOrConnectWithoutLegendsPersonalAchievementsInput
+    connect?: LeaguesWhereUniqueInput
+  }
+
+  export type LegendsUpdateOneRequiredWithoutLegends_personal_achievementNestedInput = {
+    create?: XOR<LegendsCreateWithoutLegends_personal_achievementInput, LegendsUncheckedCreateWithoutLegends_personal_achievementInput>
+    connectOrCreate?: LegendsCreateOrConnectWithoutLegends_personal_achievementInput
+    upsert?: LegendsUpsertWithoutLegends_personal_achievementInput
+    connect?: LegendsWhereUniqueInput
+    update?: XOR<XOR<LegendsUpdateToOneWithWhereWithoutLegends_personal_achievementInput, LegendsUpdateWithoutLegends_personal_achievementInput>, LegendsUncheckedUpdateWithoutLegends_personal_achievementInput>
+  }
+
+  export type PersonalAchievementsUpdateOneRequiredWithoutLegendsPersonalAchievementsNestedInput = {
+    create?: XOR<PersonalAchievementsCreateWithoutLegendsPersonalAchievementsInput, PersonalAchievementsUncheckedCreateWithoutLegendsPersonalAchievementsInput>
+    connectOrCreate?: PersonalAchievementsCreateOrConnectWithoutLegendsPersonalAchievementsInput
+    upsert?: PersonalAchievementsUpsertWithoutLegendsPersonalAchievementsInput
+    connect?: PersonalAchievementsWhereUniqueInput
+    update?: XOR<XOR<PersonalAchievementsUpdateToOneWithWhereWithoutLegendsPersonalAchievementsInput, PersonalAchievementsUpdateWithoutLegendsPersonalAchievementsInput>, PersonalAchievementsUncheckedUpdateWithoutLegendsPersonalAchievementsInput>
+  }
+
+  export type TeamsUpdateOneRequiredWithoutLegendsPersonalAchievementsNestedInput = {
+    create?: XOR<TeamsCreateWithoutLegendsPersonalAchievementsInput, TeamsUncheckedCreateWithoutLegendsPersonalAchievementsInput>
+    connectOrCreate?: TeamsCreateOrConnectWithoutLegendsPersonalAchievementsInput
+    upsert?: TeamsUpsertWithoutLegendsPersonalAchievementsInput
+    connect?: TeamsWhereUniqueInput
+    update?: XOR<XOR<TeamsUpdateToOneWithWhereWithoutLegendsPersonalAchievementsInput, TeamsUpdateWithoutLegendsPersonalAchievementsInput>, TeamsUncheckedUpdateWithoutLegendsPersonalAchievementsInput>
+  }
+
+  export type LeaguesUpdateOneRequiredWithoutLegendsPersonalAchievementsNestedInput = {
+    create?: XOR<LeaguesCreateWithoutLegendsPersonalAchievementsInput, LeaguesUncheckedCreateWithoutLegendsPersonalAchievementsInput>
+    connectOrCreate?: LeaguesCreateOrConnectWithoutLegendsPersonalAchievementsInput
+    upsert?: LeaguesUpsertWithoutLegendsPersonalAchievementsInput
+    connect?: LeaguesWhereUniqueInput
+    update?: XOR<XOR<LeaguesUpdateToOneWithWhereWithoutLegendsPersonalAchievementsInput, LeaguesUpdateWithoutLegendsPersonalAchievementsInput>, LeaguesUncheckedUpdateWithoutLegendsPersonalAchievementsInput>
+  }
+
+  export type LegendsCreateNestedOneWithoutThoughtsReceivedInput = {
+    create?: XOR<LegendsCreateWithoutThoughtsReceivedInput, LegendsUncheckedCreateWithoutThoughtsReceivedInput>
+    connectOrCreate?: LegendsCreateOrConnectWithoutThoughtsReceivedInput
+    connect?: LegendsWhereUniqueInput
+  }
+
+  export type LegendsUpdateOneRequiredWithoutThoughtsReceivedNestedInput = {
+    create?: XOR<LegendsCreateWithoutThoughtsReceivedInput, LegendsUncheckedCreateWithoutThoughtsReceivedInput>
+    connectOrCreate?: LegendsCreateOrConnectWithoutThoughtsReceivedInput
+    upsert?: LegendsUpsertWithoutThoughtsReceivedInput
+    connect?: LegendsWhereUniqueInput
+    update?: XOR<XOR<LegendsUpdateToOneWithWhereWithoutThoughtsReceivedInput, LegendsUpdateWithoutThoughtsReceivedInput>, LegendsUncheckedUpdateWithoutThoughtsReceivedInput>
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -20314,6 +29578,92 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type LegendsCreateWithoutTeamInput = {
+    id: string
+    name: string
+    age: number
+    position: string
+    legends_info?: LegendsInfoCreateNestedOneWithoutPlayerInput
+    legends_rating?: LegendsRatingsCreateNestedOneWithoutPlayerInput
+    legends_team_achievement?: LegendsTeamAchievementsCreateNestedManyWithoutPlayerInput
+    legends_personal_achievement?: LegendsPersonalAchievementsCreateNestedManyWithoutPlayerInput
+    thoughtsReceived?: LegendsTeammateThoughtsCreateNestedManyWithoutReceiverInput
+  }
+
+  export type LegendsUncheckedCreateWithoutTeamInput = {
+    id: string
+    name: string
+    age: number
+    position: string
+    legends_info?: LegendsInfoUncheckedCreateNestedOneWithoutPlayerInput
+    legends_rating?: LegendsRatingsUncheckedCreateNestedOneWithoutPlayerInput
+    legends_team_achievement?: LegendsTeamAchievementsUncheckedCreateNestedManyWithoutPlayerInput
+    legends_personal_achievement?: LegendsPersonalAchievementsUncheckedCreateNestedManyWithoutPlayerInput
+    thoughtsReceived?: LegendsTeammateThoughtsUncheckedCreateNestedManyWithoutReceiverInput
+  }
+
+  export type LegendsCreateOrConnectWithoutTeamInput = {
+    where: LegendsWhereUniqueInput
+    create: XOR<LegendsCreateWithoutTeamInput, LegendsUncheckedCreateWithoutTeamInput>
+  }
+
+  export type LegendsCreateManyTeamInputEnvelope = {
+    data: LegendsCreateManyTeamInput | LegendsCreateManyTeamInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type LegendsTeamAchievementsCreateWithoutTeamInput = {
+    id: string
+    place: string
+    time: string
+    player: LegendsCreateNestedOneWithoutLegends_team_achievementInput
+    league: LeaguesCreateNestedOneWithoutLegendsTeamAchievementsInput
+  }
+
+  export type LegendsTeamAchievementsUncheckedCreateWithoutTeamInput = {
+    id: string
+    player_id: string
+    place: string
+    league_id: string
+    time: string
+  }
+
+  export type LegendsTeamAchievementsCreateOrConnectWithoutTeamInput = {
+    where: LegendsTeamAchievementsWhereUniqueInput
+    create: XOR<LegendsTeamAchievementsCreateWithoutTeamInput, LegendsTeamAchievementsUncheckedCreateWithoutTeamInput>
+  }
+
+  export type LegendsTeamAchievementsCreateManyTeamInputEnvelope = {
+    data: LegendsTeamAchievementsCreateManyTeamInput | LegendsTeamAchievementsCreateManyTeamInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type LegendsPersonalAchievementsCreateWithoutTeamInput = {
+    id: string
+    time: string
+    player: LegendsCreateNestedOneWithoutLegends_personal_achievementInput
+    achievement: PersonalAchievementsCreateNestedOneWithoutLegendsPersonalAchievementsInput
+    league: LeaguesCreateNestedOneWithoutLegendsPersonalAchievementsInput
+  }
+
+  export type LegendsPersonalAchievementsUncheckedCreateWithoutTeamInput = {
+    id: string
+    player_id: string
+    achievement_id: string
+    league_id: string
+    time: string
+  }
+
+  export type LegendsPersonalAchievementsCreateOrConnectWithoutTeamInput = {
+    where: LegendsPersonalAchievementsWhereUniqueInput
+    create: XOR<LegendsPersonalAchievementsCreateWithoutTeamInput, LegendsPersonalAchievementsUncheckedCreateWithoutTeamInput>
+  }
+
+  export type LegendsPersonalAchievementsCreateManyTeamInputEnvelope = {
+    data: LegendsPersonalAchievementsCreateManyTeamInput | LegendsPersonalAchievementsCreateManyTeamInput[]
+    skipDuplicates?: boolean
+  }
+
   export type EmployeeUpsertWithWhereUniqueWithoutTeamInput = {
     where: EmployeeWhereUniqueInput
     update: XOR<EmployeeUpdateWithoutTeamInput, EmployeeUncheckedUpdateWithoutTeamInput>
@@ -20502,6 +29852,89 @@ export namespace Prisma {
     is_participant?: BoolFilter<"Is_Participant"> | boolean
   }
 
+  export type LegendsUpsertWithWhereUniqueWithoutTeamInput = {
+    where: LegendsWhereUniqueInput
+    update: XOR<LegendsUpdateWithoutTeamInput, LegendsUncheckedUpdateWithoutTeamInput>
+    create: XOR<LegendsCreateWithoutTeamInput, LegendsUncheckedCreateWithoutTeamInput>
+  }
+
+  export type LegendsUpdateWithWhereUniqueWithoutTeamInput = {
+    where: LegendsWhereUniqueInput
+    data: XOR<LegendsUpdateWithoutTeamInput, LegendsUncheckedUpdateWithoutTeamInput>
+  }
+
+  export type LegendsUpdateManyWithWhereWithoutTeamInput = {
+    where: LegendsScalarWhereInput
+    data: XOR<LegendsUpdateManyMutationInput, LegendsUncheckedUpdateManyWithoutTeamInput>
+  }
+
+  export type LegendsScalarWhereInput = {
+    AND?: LegendsScalarWhereInput | LegendsScalarWhereInput[]
+    OR?: LegendsScalarWhereInput[]
+    NOT?: LegendsScalarWhereInput | LegendsScalarWhereInput[]
+    id?: StringFilter<"Legends"> | string
+    name?: StringFilter<"Legends"> | string
+    age?: IntFilter<"Legends"> | number
+    position?: StringFilter<"Legends"> | string
+    team_id?: StringFilter<"Legends"> | string
+  }
+
+  export type LegendsTeamAchievementsUpsertWithWhereUniqueWithoutTeamInput = {
+    where: LegendsTeamAchievementsWhereUniqueInput
+    update: XOR<LegendsTeamAchievementsUpdateWithoutTeamInput, LegendsTeamAchievementsUncheckedUpdateWithoutTeamInput>
+    create: XOR<LegendsTeamAchievementsCreateWithoutTeamInput, LegendsTeamAchievementsUncheckedCreateWithoutTeamInput>
+  }
+
+  export type LegendsTeamAchievementsUpdateWithWhereUniqueWithoutTeamInput = {
+    where: LegendsTeamAchievementsWhereUniqueInput
+    data: XOR<LegendsTeamAchievementsUpdateWithoutTeamInput, LegendsTeamAchievementsUncheckedUpdateWithoutTeamInput>
+  }
+
+  export type LegendsTeamAchievementsUpdateManyWithWhereWithoutTeamInput = {
+    where: LegendsTeamAchievementsScalarWhereInput
+    data: XOR<LegendsTeamAchievementsUpdateManyMutationInput, LegendsTeamAchievementsUncheckedUpdateManyWithoutTeamInput>
+  }
+
+  export type LegendsTeamAchievementsScalarWhereInput = {
+    AND?: LegendsTeamAchievementsScalarWhereInput | LegendsTeamAchievementsScalarWhereInput[]
+    OR?: LegendsTeamAchievementsScalarWhereInput[]
+    NOT?: LegendsTeamAchievementsScalarWhereInput | LegendsTeamAchievementsScalarWhereInput[]
+    id?: StringFilter<"LegendsTeamAchievements"> | string
+    player_id?: StringFilter<"LegendsTeamAchievements"> | string
+    place?: StringFilter<"LegendsTeamAchievements"> | string
+    league_id?: StringFilter<"LegendsTeamAchievements"> | string
+    team_id?: StringFilter<"LegendsTeamAchievements"> | string
+    time?: StringFilter<"LegendsTeamAchievements"> | string
+  }
+
+  export type LegendsPersonalAchievementsUpsertWithWhereUniqueWithoutTeamInput = {
+    where: LegendsPersonalAchievementsWhereUniqueInput
+    update: XOR<LegendsPersonalAchievementsUpdateWithoutTeamInput, LegendsPersonalAchievementsUncheckedUpdateWithoutTeamInput>
+    create: XOR<LegendsPersonalAchievementsCreateWithoutTeamInput, LegendsPersonalAchievementsUncheckedCreateWithoutTeamInput>
+  }
+
+  export type LegendsPersonalAchievementsUpdateWithWhereUniqueWithoutTeamInput = {
+    where: LegendsPersonalAchievementsWhereUniqueInput
+    data: XOR<LegendsPersonalAchievementsUpdateWithoutTeamInput, LegendsPersonalAchievementsUncheckedUpdateWithoutTeamInput>
+  }
+
+  export type LegendsPersonalAchievementsUpdateManyWithWhereWithoutTeamInput = {
+    where: LegendsPersonalAchievementsScalarWhereInput
+    data: XOR<LegendsPersonalAchievementsUpdateManyMutationInput, LegendsPersonalAchievementsUncheckedUpdateManyWithoutTeamInput>
+  }
+
+  export type LegendsPersonalAchievementsScalarWhereInput = {
+    AND?: LegendsPersonalAchievementsScalarWhereInput | LegendsPersonalAchievementsScalarWhereInput[]
+    OR?: LegendsPersonalAchievementsScalarWhereInput[]
+    NOT?: LegendsPersonalAchievementsScalarWhereInput | LegendsPersonalAchievementsScalarWhereInput[]
+    id?: StringFilter<"LegendsPersonalAchievements"> | string
+    player_id?: StringFilter<"LegendsPersonalAchievements"> | string
+    achievement_id?: StringFilter<"LegendsPersonalAchievements"> | string
+    league_id?: StringFilter<"LegendsPersonalAchievements"> | string
+    team_id?: StringFilter<"LegendsPersonalAchievements"> | string
+    time?: StringFilter<"LegendsPersonalAchievements"> | string
+  }
+
   export type TeamsCreateWithoutIs_participantInput = {
     id: string
     name: string
@@ -20511,6 +29944,9 @@ export namespace Prisma {
     league_achievement?: PlayerTeamAchievementsCreateNestedManyWithoutTeamInput
     personal_achievement?: PlayerPersonalAchievementsCreateNestedManyWithoutTeamInput
     player_stats?: PlayerStatsCreateNestedManyWithoutTeamInput
+    Legends?: LegendsCreateNestedManyWithoutTeamInput
+    LegendsTeamAchievements?: LegendsTeamAchievementsCreateNestedManyWithoutTeamInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsCreateNestedManyWithoutTeamInput
   }
 
   export type TeamsUncheckedCreateWithoutIs_participantInput = {
@@ -20522,6 +29958,9 @@ export namespace Prisma {
     league_achievement?: PlayerTeamAchievementsUncheckedCreateNestedManyWithoutTeamInput
     personal_achievement?: PlayerPersonalAchievementsUncheckedCreateNestedManyWithoutTeamInput
     player_stats?: PlayerStatsUncheckedCreateNestedManyWithoutTeamInput
+    Legends?: LegendsUncheckedCreateNestedManyWithoutTeamInput
+    LegendsTeamAchievements?: LegendsTeamAchievementsUncheckedCreateNestedManyWithoutTeamInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsUncheckedCreateNestedManyWithoutTeamInput
   }
 
   export type TeamsCreateOrConnectWithoutIs_participantInput = {
@@ -20549,6 +29988,9 @@ export namespace Prisma {
     league_achievement?: PlayerTeamAchievementsUpdateManyWithoutTeamNestedInput
     personal_achievement?: PlayerPersonalAchievementsUpdateManyWithoutTeamNestedInput
     player_stats?: PlayerStatsUpdateManyWithoutTeamNestedInput
+    Legends?: LegendsUpdateManyWithoutTeamNestedInput
+    LegendsTeamAchievements?: LegendsTeamAchievementsUpdateManyWithoutTeamNestedInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsUpdateManyWithoutTeamNestedInput
   }
 
   export type TeamsUncheckedUpdateWithoutIs_participantInput = {
@@ -20560,6 +30002,9 @@ export namespace Prisma {
     league_achievement?: PlayerTeamAchievementsUncheckedUpdateManyWithoutTeamNestedInput
     personal_achievement?: PlayerPersonalAchievementsUncheckedUpdateManyWithoutTeamNestedInput
     player_stats?: PlayerStatsUncheckedUpdateManyWithoutTeamNestedInput
+    Legends?: LegendsUncheckedUpdateManyWithoutTeamNestedInput
+    LegendsTeamAchievements?: LegendsTeamAchievementsUncheckedUpdateManyWithoutTeamNestedInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsUncheckedUpdateManyWithoutTeamNestedInput
   }
 
   export type TeamsCreateWithoutEmployeeInput = {
@@ -20571,6 +30016,9 @@ export namespace Prisma {
     personal_achievement?: PlayerPersonalAchievementsCreateNestedManyWithoutTeamInput
     player_stats?: PlayerStatsCreateNestedManyWithoutTeamInput
     is_participant?: Is_ParticipantCreateNestedManyWithoutTeamInput
+    Legends?: LegendsCreateNestedManyWithoutTeamInput
+    LegendsTeamAchievements?: LegendsTeamAchievementsCreateNestedManyWithoutTeamInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsCreateNestedManyWithoutTeamInput
   }
 
   export type TeamsUncheckedCreateWithoutEmployeeInput = {
@@ -20582,6 +30030,9 @@ export namespace Prisma {
     personal_achievement?: PlayerPersonalAchievementsUncheckedCreateNestedManyWithoutTeamInput
     player_stats?: PlayerStatsUncheckedCreateNestedManyWithoutTeamInput
     is_participant?: Is_ParticipantUncheckedCreateNestedManyWithoutTeamInput
+    Legends?: LegendsUncheckedCreateNestedManyWithoutTeamInput
+    LegendsTeamAchievements?: LegendsTeamAchievementsUncheckedCreateNestedManyWithoutTeamInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsUncheckedCreateNestedManyWithoutTeamInput
   }
 
   export type TeamsCreateOrConnectWithoutEmployeeInput = {
@@ -20609,6 +30060,9 @@ export namespace Prisma {
     personal_achievement?: PlayerPersonalAchievementsUpdateManyWithoutTeamNestedInput
     player_stats?: PlayerStatsUpdateManyWithoutTeamNestedInput
     is_participant?: Is_ParticipantUpdateManyWithoutTeamNestedInput
+    Legends?: LegendsUpdateManyWithoutTeamNestedInput
+    LegendsTeamAchievements?: LegendsTeamAchievementsUpdateManyWithoutTeamNestedInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsUpdateManyWithoutTeamNestedInput
   }
 
   export type TeamsUncheckedUpdateWithoutEmployeeInput = {
@@ -20620,6 +30074,9 @@ export namespace Prisma {
     personal_achievement?: PlayerPersonalAchievementsUncheckedUpdateManyWithoutTeamNestedInput
     player_stats?: PlayerStatsUncheckedUpdateManyWithoutTeamNestedInput
     is_participant?: Is_ParticipantUncheckedUpdateManyWithoutTeamNestedInput
+    Legends?: LegendsUncheckedUpdateManyWithoutTeamNestedInput
+    LegendsTeamAchievements?: LegendsTeamAchievementsUncheckedUpdateManyWithoutTeamNestedInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsUncheckedUpdateManyWithoutTeamNestedInput
   }
 
   export type TeamsCreateWithoutChairmanInput = {
@@ -20631,6 +30088,9 @@ export namespace Prisma {
     personal_achievement?: PlayerPersonalAchievementsCreateNestedManyWithoutTeamInput
     player_stats?: PlayerStatsCreateNestedManyWithoutTeamInput
     is_participant?: Is_ParticipantCreateNestedManyWithoutTeamInput
+    Legends?: LegendsCreateNestedManyWithoutTeamInput
+    LegendsTeamAchievements?: LegendsTeamAchievementsCreateNestedManyWithoutTeamInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsCreateNestedManyWithoutTeamInput
   }
 
   export type TeamsUncheckedCreateWithoutChairmanInput = {
@@ -20642,6 +30102,9 @@ export namespace Prisma {
     personal_achievement?: PlayerPersonalAchievementsUncheckedCreateNestedManyWithoutTeamInput
     player_stats?: PlayerStatsUncheckedCreateNestedManyWithoutTeamInput
     is_participant?: Is_ParticipantUncheckedCreateNestedManyWithoutTeamInput
+    Legends?: LegendsUncheckedCreateNestedManyWithoutTeamInput
+    LegendsTeamAchievements?: LegendsTeamAchievementsUncheckedCreateNestedManyWithoutTeamInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsUncheckedCreateNestedManyWithoutTeamInput
   }
 
   export type TeamsCreateOrConnectWithoutChairmanInput = {
@@ -20669,6 +30132,9 @@ export namespace Prisma {
     personal_achievement?: PlayerPersonalAchievementsUpdateManyWithoutTeamNestedInput
     player_stats?: PlayerStatsUpdateManyWithoutTeamNestedInput
     is_participant?: Is_ParticipantUpdateManyWithoutTeamNestedInput
+    Legends?: LegendsUpdateManyWithoutTeamNestedInput
+    LegendsTeamAchievements?: LegendsTeamAchievementsUpdateManyWithoutTeamNestedInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsUpdateManyWithoutTeamNestedInput
   }
 
   export type TeamsUncheckedUpdateWithoutChairmanInput = {
@@ -20680,6 +30146,9 @@ export namespace Prisma {
     personal_achievement?: PlayerPersonalAchievementsUncheckedUpdateManyWithoutTeamNestedInput
     player_stats?: PlayerStatsUncheckedUpdateManyWithoutTeamNestedInput
     is_participant?: Is_ParticipantUncheckedUpdateManyWithoutTeamNestedInput
+    Legends?: LegendsUncheckedUpdateManyWithoutTeamNestedInput
+    LegendsTeamAchievements?: LegendsTeamAchievementsUncheckedUpdateManyWithoutTeamNestedInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsUncheckedUpdateManyWithoutTeamNestedInput
   }
 
   export type PlayerInfoCreateWithoutPlayerInput = {
@@ -20863,6 +30332,9 @@ export namespace Prisma {
     personal_achievement?: PlayerPersonalAchievementsCreateNestedManyWithoutTeamInput
     player_stats?: PlayerStatsCreateNestedManyWithoutTeamInput
     is_participant?: Is_ParticipantCreateNestedManyWithoutTeamInput
+    Legends?: LegendsCreateNestedManyWithoutTeamInput
+    LegendsTeamAchievements?: LegendsTeamAchievementsCreateNestedManyWithoutTeamInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsCreateNestedManyWithoutTeamInput
   }
 
   export type TeamsUncheckedCreateWithoutPlayerInput = {
@@ -20874,6 +30346,9 @@ export namespace Prisma {
     personal_achievement?: PlayerPersonalAchievementsUncheckedCreateNestedManyWithoutTeamInput
     player_stats?: PlayerStatsUncheckedCreateNestedManyWithoutTeamInput
     is_participant?: Is_ParticipantUncheckedCreateNestedManyWithoutTeamInput
+    Legends?: LegendsUncheckedCreateNestedManyWithoutTeamInput
+    LegendsTeamAchievements?: LegendsTeamAchievementsUncheckedCreateNestedManyWithoutTeamInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsUncheckedCreateNestedManyWithoutTeamInput
   }
 
   export type TeamsCreateOrConnectWithoutPlayerInput = {
@@ -21047,6 +30522,9 @@ export namespace Prisma {
     personal_achievement?: PlayerPersonalAchievementsUpdateManyWithoutTeamNestedInput
     player_stats?: PlayerStatsUpdateManyWithoutTeamNestedInput
     is_participant?: Is_ParticipantUpdateManyWithoutTeamNestedInput
+    Legends?: LegendsUpdateManyWithoutTeamNestedInput
+    LegendsTeamAchievements?: LegendsTeamAchievementsUpdateManyWithoutTeamNestedInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsUpdateManyWithoutTeamNestedInput
   }
 
   export type TeamsUncheckedUpdateWithoutPlayerInput = {
@@ -21058,6 +30536,9 @@ export namespace Prisma {
     personal_achievement?: PlayerPersonalAchievementsUncheckedUpdateManyWithoutTeamNestedInput
     player_stats?: PlayerStatsUncheckedUpdateManyWithoutTeamNestedInput
     is_participant?: Is_ParticipantUncheckedUpdateManyWithoutTeamNestedInput
+    Legends?: LegendsUncheckedUpdateManyWithoutTeamNestedInput
+    LegendsTeamAchievements?: LegendsTeamAchievementsUncheckedUpdateManyWithoutTeamNestedInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsUncheckedUpdateManyWithoutTeamNestedInput
   }
 
   export type PlayerTeamAchievementsCreateWithoutLeagueInput = {
@@ -21146,6 +30627,58 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type LegendsTeamAchievementsCreateWithoutLeagueInput = {
+    id: string
+    place: string
+    time: string
+    player: LegendsCreateNestedOneWithoutLegends_team_achievementInput
+    team: TeamsCreateNestedOneWithoutLegendsTeamAchievementsInput
+  }
+
+  export type LegendsTeamAchievementsUncheckedCreateWithoutLeagueInput = {
+    id: string
+    player_id: string
+    place: string
+    team_id: string
+    time: string
+  }
+
+  export type LegendsTeamAchievementsCreateOrConnectWithoutLeagueInput = {
+    where: LegendsTeamAchievementsWhereUniqueInput
+    create: XOR<LegendsTeamAchievementsCreateWithoutLeagueInput, LegendsTeamAchievementsUncheckedCreateWithoutLeagueInput>
+  }
+
+  export type LegendsTeamAchievementsCreateManyLeagueInputEnvelope = {
+    data: LegendsTeamAchievementsCreateManyLeagueInput | LegendsTeamAchievementsCreateManyLeagueInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type LegendsPersonalAchievementsCreateWithoutLeagueInput = {
+    id: string
+    time: string
+    player: LegendsCreateNestedOneWithoutLegends_personal_achievementInput
+    achievement: PersonalAchievementsCreateNestedOneWithoutLegendsPersonalAchievementsInput
+    team: TeamsCreateNestedOneWithoutLegendsPersonalAchievementsInput
+  }
+
+  export type LegendsPersonalAchievementsUncheckedCreateWithoutLeagueInput = {
+    id: string
+    player_id: string
+    achievement_id: string
+    team_id: string
+    time: string
+  }
+
+  export type LegendsPersonalAchievementsCreateOrConnectWithoutLeagueInput = {
+    where: LegendsPersonalAchievementsWhereUniqueInput
+    create: XOR<LegendsPersonalAchievementsCreateWithoutLeagueInput, LegendsPersonalAchievementsUncheckedCreateWithoutLeagueInput>
+  }
+
+  export type LegendsPersonalAchievementsCreateManyLeagueInputEnvelope = {
+    data: LegendsPersonalAchievementsCreateManyLeagueInput | LegendsPersonalAchievementsCreateManyLeagueInput[]
+    skipDuplicates?: boolean
+  }
+
   export type PlayerTeamAchievementsUpsertWithWhereUniqueWithoutLeagueInput = {
     where: PlayerTeamAchievementsWhereUniqueInput
     update: XOR<PlayerTeamAchievementsUpdateWithoutLeagueInput, PlayerTeamAchievementsUncheckedUpdateWithoutLeagueInput>
@@ -21194,6 +30727,38 @@ export namespace Prisma {
     data: XOR<PlayerStatsUpdateManyMutationInput, PlayerStatsUncheckedUpdateManyWithoutLeagueInput>
   }
 
+  export type LegendsTeamAchievementsUpsertWithWhereUniqueWithoutLeagueInput = {
+    where: LegendsTeamAchievementsWhereUniqueInput
+    update: XOR<LegendsTeamAchievementsUpdateWithoutLeagueInput, LegendsTeamAchievementsUncheckedUpdateWithoutLeagueInput>
+    create: XOR<LegendsTeamAchievementsCreateWithoutLeagueInput, LegendsTeamAchievementsUncheckedCreateWithoutLeagueInput>
+  }
+
+  export type LegendsTeamAchievementsUpdateWithWhereUniqueWithoutLeagueInput = {
+    where: LegendsTeamAchievementsWhereUniqueInput
+    data: XOR<LegendsTeamAchievementsUpdateWithoutLeagueInput, LegendsTeamAchievementsUncheckedUpdateWithoutLeagueInput>
+  }
+
+  export type LegendsTeamAchievementsUpdateManyWithWhereWithoutLeagueInput = {
+    where: LegendsTeamAchievementsScalarWhereInput
+    data: XOR<LegendsTeamAchievementsUpdateManyMutationInput, LegendsTeamAchievementsUncheckedUpdateManyWithoutLeagueInput>
+  }
+
+  export type LegendsPersonalAchievementsUpsertWithWhereUniqueWithoutLeagueInput = {
+    where: LegendsPersonalAchievementsWhereUniqueInput
+    update: XOR<LegendsPersonalAchievementsUpdateWithoutLeagueInput, LegendsPersonalAchievementsUncheckedUpdateWithoutLeagueInput>
+    create: XOR<LegendsPersonalAchievementsCreateWithoutLeagueInput, LegendsPersonalAchievementsUncheckedCreateWithoutLeagueInput>
+  }
+
+  export type LegendsPersonalAchievementsUpdateWithWhereUniqueWithoutLeagueInput = {
+    where: LegendsPersonalAchievementsWhereUniqueInput
+    data: XOR<LegendsPersonalAchievementsUpdateWithoutLeagueInput, LegendsPersonalAchievementsUncheckedUpdateWithoutLeagueInput>
+  }
+
+  export type LegendsPersonalAchievementsUpdateManyWithWhereWithoutLeagueInput = {
+    where: LegendsPersonalAchievementsScalarWhereInput
+    data: XOR<LegendsPersonalAchievementsUpdateManyMutationInput, LegendsPersonalAchievementsUncheckedUpdateManyWithoutLeagueInput>
+  }
+
   export type PlayerPersonalAchievementsCreateWithoutAchievementInput = {
     id: string
     time: string
@@ -21220,6 +30785,32 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type LegendsPersonalAchievementsCreateWithoutAchievementInput = {
+    id: string
+    time: string
+    player: LegendsCreateNestedOneWithoutLegends_personal_achievementInput
+    team: TeamsCreateNestedOneWithoutLegendsPersonalAchievementsInput
+    league: LeaguesCreateNestedOneWithoutLegendsPersonalAchievementsInput
+  }
+
+  export type LegendsPersonalAchievementsUncheckedCreateWithoutAchievementInput = {
+    id: string
+    player_id: string
+    league_id: string
+    team_id: string
+    time: string
+  }
+
+  export type LegendsPersonalAchievementsCreateOrConnectWithoutAchievementInput = {
+    where: LegendsPersonalAchievementsWhereUniqueInput
+    create: XOR<LegendsPersonalAchievementsCreateWithoutAchievementInput, LegendsPersonalAchievementsUncheckedCreateWithoutAchievementInput>
+  }
+
+  export type LegendsPersonalAchievementsCreateManyAchievementInputEnvelope = {
+    data: LegendsPersonalAchievementsCreateManyAchievementInput | LegendsPersonalAchievementsCreateManyAchievementInput[]
+    skipDuplicates?: boolean
+  }
+
   export type PlayerPersonalAchievementsUpsertWithWhereUniqueWithoutAchievementInput = {
     where: PlayerPersonalAchievementsWhereUniqueInput
     update: XOR<PlayerPersonalAchievementsUpdateWithoutAchievementInput, PlayerPersonalAchievementsUncheckedUpdateWithoutAchievementInput>
@@ -21234,6 +30825,22 @@ export namespace Prisma {
   export type PlayerPersonalAchievementsUpdateManyWithWhereWithoutAchievementInput = {
     where: PlayerPersonalAchievementsScalarWhereInput
     data: XOR<PlayerPersonalAchievementsUpdateManyMutationInput, PlayerPersonalAchievementsUncheckedUpdateManyWithoutAchievementInput>
+  }
+
+  export type LegendsPersonalAchievementsUpsertWithWhereUniqueWithoutAchievementInput = {
+    where: LegendsPersonalAchievementsWhereUniqueInput
+    update: XOR<LegendsPersonalAchievementsUpdateWithoutAchievementInput, LegendsPersonalAchievementsUncheckedUpdateWithoutAchievementInput>
+    create: XOR<LegendsPersonalAchievementsCreateWithoutAchievementInput, LegendsPersonalAchievementsUncheckedCreateWithoutAchievementInput>
+  }
+
+  export type LegendsPersonalAchievementsUpdateWithWhereUniqueWithoutAchievementInput = {
+    where: LegendsPersonalAchievementsWhereUniqueInput
+    data: XOR<LegendsPersonalAchievementsUpdateWithoutAchievementInput, LegendsPersonalAchievementsUncheckedUpdateWithoutAchievementInput>
+  }
+
+  export type LegendsPersonalAchievementsUpdateManyWithWhereWithoutAchievementInput = {
+    where: LegendsPersonalAchievementsScalarWhereInput
+    data: XOR<LegendsPersonalAchievementsUpdateManyMutationInput, LegendsPersonalAchievementsUncheckedUpdateManyWithoutAchievementInput>
   }
 
   export type PlayersCreateWithoutPlayer_infoInput = {
@@ -21393,6 +31000,8 @@ export namespace Prisma {
     name: string
     league_achievement?: PlayerTeamAchievementsCreateNestedManyWithoutLeagueInput
     personal_achievement?: PlayerPersonalAchievementsCreateNestedManyWithoutLeagueInput
+    LegendsTeamAchievements?: LegendsTeamAchievementsCreateNestedManyWithoutLeagueInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsCreateNestedManyWithoutLeagueInput
   }
 
   export type LeaguesUncheckedCreateWithoutPlayer_statsInput = {
@@ -21400,6 +31009,8 @@ export namespace Prisma {
     name: string
     league_achievement?: PlayerTeamAchievementsUncheckedCreateNestedManyWithoutLeagueInput
     personal_achievement?: PlayerPersonalAchievementsUncheckedCreateNestedManyWithoutLeagueInput
+    LegendsTeamAchievements?: LegendsTeamAchievementsUncheckedCreateNestedManyWithoutLeagueInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsUncheckedCreateNestedManyWithoutLeagueInput
   }
 
   export type LeaguesCreateOrConnectWithoutPlayer_statsInput = {
@@ -21451,6 +31062,9 @@ export namespace Prisma {
     league_achievement?: PlayerTeamAchievementsCreateNestedManyWithoutTeamInput
     personal_achievement?: PlayerPersonalAchievementsCreateNestedManyWithoutTeamInput
     is_participant?: Is_ParticipantCreateNestedManyWithoutTeamInput
+    Legends?: LegendsCreateNestedManyWithoutTeamInput
+    LegendsTeamAchievements?: LegendsTeamAchievementsCreateNestedManyWithoutTeamInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsCreateNestedManyWithoutTeamInput
   }
 
   export type TeamsUncheckedCreateWithoutPlayer_statsInput = {
@@ -21462,6 +31076,9 @@ export namespace Prisma {
     league_achievement?: PlayerTeamAchievementsUncheckedCreateNestedManyWithoutTeamInput
     personal_achievement?: PlayerPersonalAchievementsUncheckedCreateNestedManyWithoutTeamInput
     is_participant?: Is_ParticipantUncheckedCreateNestedManyWithoutTeamInput
+    Legends?: LegendsUncheckedCreateNestedManyWithoutTeamInput
+    LegendsTeamAchievements?: LegendsTeamAchievementsUncheckedCreateNestedManyWithoutTeamInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsUncheckedCreateNestedManyWithoutTeamInput
   }
 
   export type TeamsCreateOrConnectWithoutPlayer_statsInput = {
@@ -21485,6 +31102,8 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     league_achievement?: PlayerTeamAchievementsUpdateManyWithoutLeagueNestedInput
     personal_achievement?: PlayerPersonalAchievementsUpdateManyWithoutLeagueNestedInput
+    LegendsTeamAchievements?: LegendsTeamAchievementsUpdateManyWithoutLeagueNestedInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsUpdateManyWithoutLeagueNestedInput
   }
 
   export type LeaguesUncheckedUpdateWithoutPlayer_statsInput = {
@@ -21492,6 +31111,8 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     league_achievement?: PlayerTeamAchievementsUncheckedUpdateManyWithoutLeagueNestedInput
     personal_achievement?: PlayerPersonalAchievementsUncheckedUpdateManyWithoutLeagueNestedInput
+    LegendsTeamAchievements?: LegendsTeamAchievementsUncheckedUpdateManyWithoutLeagueNestedInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsUncheckedUpdateManyWithoutLeagueNestedInput
   }
 
   export type PlayersUpsertWithoutPlayer_statsInput = {
@@ -21555,6 +31176,9 @@ export namespace Prisma {
     league_achievement?: PlayerTeamAchievementsUpdateManyWithoutTeamNestedInput
     personal_achievement?: PlayerPersonalAchievementsUpdateManyWithoutTeamNestedInput
     is_participant?: Is_ParticipantUpdateManyWithoutTeamNestedInput
+    Legends?: LegendsUpdateManyWithoutTeamNestedInput
+    LegendsTeamAchievements?: LegendsTeamAchievementsUpdateManyWithoutTeamNestedInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsUpdateManyWithoutTeamNestedInput
   }
 
   export type TeamsUncheckedUpdateWithoutPlayer_statsInput = {
@@ -21566,6 +31190,9 @@ export namespace Prisma {
     league_achievement?: PlayerTeamAchievementsUncheckedUpdateManyWithoutTeamNestedInput
     personal_achievement?: PlayerPersonalAchievementsUncheckedUpdateManyWithoutTeamNestedInput
     is_participant?: Is_ParticipantUncheckedUpdateManyWithoutTeamNestedInput
+    Legends?: LegendsUncheckedUpdateManyWithoutTeamNestedInput
+    LegendsTeamAchievements?: LegendsTeamAchievementsUncheckedUpdateManyWithoutTeamNestedInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsUncheckedUpdateManyWithoutTeamNestedInput
   }
 
   export type PlayersCreateWithoutPlayer_team_achievementInput = {
@@ -21608,6 +31235,8 @@ export namespace Prisma {
     name: string
     personal_achievement?: PlayerPersonalAchievementsCreateNestedManyWithoutLeagueInput
     player_stats?: PlayerStatsCreateNestedManyWithoutLeagueInput
+    LegendsTeamAchievements?: LegendsTeamAchievementsCreateNestedManyWithoutLeagueInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsCreateNestedManyWithoutLeagueInput
   }
 
   export type LeaguesUncheckedCreateWithoutLeague_achievementInput = {
@@ -21615,6 +31244,8 @@ export namespace Prisma {
     name: string
     personal_achievement?: PlayerPersonalAchievementsUncheckedCreateNestedManyWithoutLeagueInput
     player_stats?: PlayerStatsUncheckedCreateNestedManyWithoutLeagueInput
+    LegendsTeamAchievements?: LegendsTeamAchievementsUncheckedCreateNestedManyWithoutLeagueInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsUncheckedCreateNestedManyWithoutLeagueInput
   }
 
   export type LeaguesCreateOrConnectWithoutLeague_achievementInput = {
@@ -21631,6 +31262,9 @@ export namespace Prisma {
     personal_achievement?: PlayerPersonalAchievementsCreateNestedManyWithoutTeamInput
     player_stats?: PlayerStatsCreateNestedManyWithoutTeamInput
     is_participant?: Is_ParticipantCreateNestedManyWithoutTeamInput
+    Legends?: LegendsCreateNestedManyWithoutTeamInput
+    LegendsTeamAchievements?: LegendsTeamAchievementsCreateNestedManyWithoutTeamInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsCreateNestedManyWithoutTeamInput
   }
 
   export type TeamsUncheckedCreateWithoutLeague_achievementInput = {
@@ -21642,6 +31276,9 @@ export namespace Prisma {
     personal_achievement?: PlayerPersonalAchievementsUncheckedCreateNestedManyWithoutTeamInput
     player_stats?: PlayerStatsUncheckedCreateNestedManyWithoutTeamInput
     is_participant?: Is_ParticipantUncheckedCreateNestedManyWithoutTeamInput
+    Legends?: LegendsUncheckedCreateNestedManyWithoutTeamInput
+    LegendsTeamAchievements?: LegendsTeamAchievementsUncheckedCreateNestedManyWithoutTeamInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsUncheckedCreateNestedManyWithoutTeamInput
   }
 
   export type TeamsCreateOrConnectWithoutLeague_achievementInput = {
@@ -21706,6 +31343,8 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     personal_achievement?: PlayerPersonalAchievementsUpdateManyWithoutLeagueNestedInput
     player_stats?: PlayerStatsUpdateManyWithoutLeagueNestedInput
+    LegendsTeamAchievements?: LegendsTeamAchievementsUpdateManyWithoutLeagueNestedInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsUpdateManyWithoutLeagueNestedInput
   }
 
   export type LeaguesUncheckedUpdateWithoutLeague_achievementInput = {
@@ -21713,6 +31352,8 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     personal_achievement?: PlayerPersonalAchievementsUncheckedUpdateManyWithoutLeagueNestedInput
     player_stats?: PlayerStatsUncheckedUpdateManyWithoutLeagueNestedInput
+    LegendsTeamAchievements?: LegendsTeamAchievementsUncheckedUpdateManyWithoutLeagueNestedInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsUncheckedUpdateManyWithoutLeagueNestedInput
   }
 
   export type TeamsUpsertWithoutLeague_achievementInput = {
@@ -21735,6 +31376,9 @@ export namespace Prisma {
     personal_achievement?: PlayerPersonalAchievementsUpdateManyWithoutTeamNestedInput
     player_stats?: PlayerStatsUpdateManyWithoutTeamNestedInput
     is_participant?: Is_ParticipantUpdateManyWithoutTeamNestedInput
+    Legends?: LegendsUpdateManyWithoutTeamNestedInput
+    LegendsTeamAchievements?: LegendsTeamAchievementsUpdateManyWithoutTeamNestedInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsUpdateManyWithoutTeamNestedInput
   }
 
   export type TeamsUncheckedUpdateWithoutLeague_achievementInput = {
@@ -21746,6 +31390,9 @@ export namespace Prisma {
     personal_achievement?: PlayerPersonalAchievementsUncheckedUpdateManyWithoutTeamNestedInput
     player_stats?: PlayerStatsUncheckedUpdateManyWithoutTeamNestedInput
     is_participant?: Is_ParticipantUncheckedUpdateManyWithoutTeamNestedInput
+    Legends?: LegendsUncheckedUpdateManyWithoutTeamNestedInput
+    LegendsTeamAchievements?: LegendsTeamAchievementsUncheckedUpdateManyWithoutTeamNestedInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsUncheckedUpdateManyWithoutTeamNestedInput
   }
 
   export type PlayersCreateWithoutPlayer_personal_achievementInput = {
@@ -21786,11 +31433,13 @@ export namespace Prisma {
   export type PersonalAchievementsCreateWithoutPersonal_achievementInput = {
     id: string
     name: string
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsCreateNestedManyWithoutAchievementInput
   }
 
   export type PersonalAchievementsUncheckedCreateWithoutPersonal_achievementInput = {
     id: string
     name: string
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsUncheckedCreateNestedManyWithoutAchievementInput
   }
 
   export type PersonalAchievementsCreateOrConnectWithoutPersonal_achievementInput = {
@@ -21807,6 +31456,9 @@ export namespace Prisma {
     league_achievement?: PlayerTeamAchievementsCreateNestedManyWithoutTeamInput
     player_stats?: PlayerStatsCreateNestedManyWithoutTeamInput
     is_participant?: Is_ParticipantCreateNestedManyWithoutTeamInput
+    Legends?: LegendsCreateNestedManyWithoutTeamInput
+    LegendsTeamAchievements?: LegendsTeamAchievementsCreateNestedManyWithoutTeamInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsCreateNestedManyWithoutTeamInput
   }
 
   export type TeamsUncheckedCreateWithoutPersonal_achievementInput = {
@@ -21818,6 +31470,9 @@ export namespace Prisma {
     league_achievement?: PlayerTeamAchievementsUncheckedCreateNestedManyWithoutTeamInput
     player_stats?: PlayerStatsUncheckedCreateNestedManyWithoutTeamInput
     is_participant?: Is_ParticipantUncheckedCreateNestedManyWithoutTeamInput
+    Legends?: LegendsUncheckedCreateNestedManyWithoutTeamInput
+    LegendsTeamAchievements?: LegendsTeamAchievementsUncheckedCreateNestedManyWithoutTeamInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsUncheckedCreateNestedManyWithoutTeamInput
   }
 
   export type TeamsCreateOrConnectWithoutPersonal_achievementInput = {
@@ -21830,6 +31485,8 @@ export namespace Prisma {
     name: string
     league_achievement?: PlayerTeamAchievementsCreateNestedManyWithoutLeagueInput
     player_stats?: PlayerStatsCreateNestedManyWithoutLeagueInput
+    LegendsTeamAchievements?: LegendsTeamAchievementsCreateNestedManyWithoutLeagueInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsCreateNestedManyWithoutLeagueInput
   }
 
   export type LeaguesUncheckedCreateWithoutPersonal_achievementInput = {
@@ -21837,6 +31494,8 @@ export namespace Prisma {
     name: string
     league_achievement?: PlayerTeamAchievementsUncheckedCreateNestedManyWithoutLeagueInput
     player_stats?: PlayerStatsUncheckedCreateNestedManyWithoutLeagueInput
+    LegendsTeamAchievements?: LegendsTeamAchievementsUncheckedCreateNestedManyWithoutLeagueInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsUncheckedCreateNestedManyWithoutLeagueInput
   }
 
   export type LeaguesCreateOrConnectWithoutPersonal_achievementInput = {
@@ -21899,11 +31558,13 @@ export namespace Prisma {
   export type PersonalAchievementsUpdateWithoutPersonal_achievementInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsUpdateManyWithoutAchievementNestedInput
   }
 
   export type PersonalAchievementsUncheckedUpdateWithoutPersonal_achievementInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsUncheckedUpdateManyWithoutAchievementNestedInput
   }
 
   export type TeamsUpsertWithoutPersonal_achievementInput = {
@@ -21926,6 +31587,9 @@ export namespace Prisma {
     league_achievement?: PlayerTeamAchievementsUpdateManyWithoutTeamNestedInput
     player_stats?: PlayerStatsUpdateManyWithoutTeamNestedInput
     is_participant?: Is_ParticipantUpdateManyWithoutTeamNestedInput
+    Legends?: LegendsUpdateManyWithoutTeamNestedInput
+    LegendsTeamAchievements?: LegendsTeamAchievementsUpdateManyWithoutTeamNestedInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsUpdateManyWithoutTeamNestedInput
   }
 
   export type TeamsUncheckedUpdateWithoutPersonal_achievementInput = {
@@ -21937,6 +31601,9 @@ export namespace Prisma {
     league_achievement?: PlayerTeamAchievementsUncheckedUpdateManyWithoutTeamNestedInput
     player_stats?: PlayerStatsUncheckedUpdateManyWithoutTeamNestedInput
     is_participant?: Is_ParticipantUncheckedUpdateManyWithoutTeamNestedInput
+    Legends?: LegendsUncheckedUpdateManyWithoutTeamNestedInput
+    LegendsTeamAchievements?: LegendsTeamAchievementsUncheckedUpdateManyWithoutTeamNestedInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsUncheckedUpdateManyWithoutTeamNestedInput
   }
 
   export type LeaguesUpsertWithoutPersonal_achievementInput = {
@@ -21955,6 +31622,8 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     league_achievement?: PlayerTeamAchievementsUpdateManyWithoutLeagueNestedInput
     player_stats?: PlayerStatsUpdateManyWithoutLeagueNestedInput
+    LegendsTeamAchievements?: LegendsTeamAchievementsUpdateManyWithoutLeagueNestedInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsUpdateManyWithoutLeagueNestedInput
   }
 
   export type LeaguesUncheckedUpdateWithoutPersonal_achievementInput = {
@@ -21962,6 +31631,8 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     league_achievement?: PlayerTeamAchievementsUncheckedUpdateManyWithoutLeagueNestedInput
     player_stats?: PlayerStatsUncheckedUpdateManyWithoutLeagueNestedInput
+    LegendsTeamAchievements?: LegendsTeamAchievementsUncheckedUpdateManyWithoutLeagueNestedInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsUncheckedUpdateManyWithoutLeagueNestedInput
   }
 
   export type PlayersCreateWithoutThoughtsAuthoredInput = {
@@ -22116,6 +31787,917 @@ export namespace Prisma {
     thoughtsAuthored?: PlayerTeammateThoughtsUncheckedUpdateManyWithoutAuthorNestedInput
   }
 
+  export type LegendsInfoCreateWithoutPlayerInput = {
+    dob: Date | string
+    birthplace: string
+    gender: string
+    biography: string
+    height: number
+  }
+
+  export type LegendsInfoUncheckedCreateWithoutPlayerInput = {
+    dob: Date | string
+    birthplace: string
+    gender: string
+    biography: string
+    height: number
+  }
+
+  export type LegendsInfoCreateOrConnectWithoutPlayerInput = {
+    where: LegendsInfoWhereUniqueInput
+    create: XOR<LegendsInfoCreateWithoutPlayerInput, LegendsInfoUncheckedCreateWithoutPlayerInput>
+  }
+
+  export type LegendsRatingsCreateWithoutPlayerInput = {
+    pace: number
+    shooting: number
+    passing: number
+    physical: number
+    defending: number
+    dribbling: number
+  }
+
+  export type LegendsRatingsUncheckedCreateWithoutPlayerInput = {
+    pace: number
+    shooting: number
+    passing: number
+    physical: number
+    defending: number
+    dribbling: number
+  }
+
+  export type LegendsRatingsCreateOrConnectWithoutPlayerInput = {
+    where: LegendsRatingsWhereUniqueInput
+    create: XOR<LegendsRatingsCreateWithoutPlayerInput, LegendsRatingsUncheckedCreateWithoutPlayerInput>
+  }
+
+  export type LegendsTeamAchievementsCreateWithoutPlayerInput = {
+    id: string
+    place: string
+    time: string
+    league: LeaguesCreateNestedOneWithoutLegendsTeamAchievementsInput
+    team: TeamsCreateNestedOneWithoutLegendsTeamAchievementsInput
+  }
+
+  export type LegendsTeamAchievementsUncheckedCreateWithoutPlayerInput = {
+    id: string
+    place: string
+    league_id: string
+    team_id: string
+    time: string
+  }
+
+  export type LegendsTeamAchievementsCreateOrConnectWithoutPlayerInput = {
+    where: LegendsTeamAchievementsWhereUniqueInput
+    create: XOR<LegendsTeamAchievementsCreateWithoutPlayerInput, LegendsTeamAchievementsUncheckedCreateWithoutPlayerInput>
+  }
+
+  export type LegendsTeamAchievementsCreateManyPlayerInputEnvelope = {
+    data: LegendsTeamAchievementsCreateManyPlayerInput | LegendsTeamAchievementsCreateManyPlayerInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type LegendsPersonalAchievementsCreateWithoutPlayerInput = {
+    id: string
+    time: string
+    achievement: PersonalAchievementsCreateNestedOneWithoutLegendsPersonalAchievementsInput
+    team: TeamsCreateNestedOneWithoutLegendsPersonalAchievementsInput
+    league: LeaguesCreateNestedOneWithoutLegendsPersonalAchievementsInput
+  }
+
+  export type LegendsPersonalAchievementsUncheckedCreateWithoutPlayerInput = {
+    id: string
+    achievement_id: string
+    league_id: string
+    team_id: string
+    time: string
+  }
+
+  export type LegendsPersonalAchievementsCreateOrConnectWithoutPlayerInput = {
+    where: LegendsPersonalAchievementsWhereUniqueInput
+    create: XOR<LegendsPersonalAchievementsCreateWithoutPlayerInput, LegendsPersonalAchievementsUncheckedCreateWithoutPlayerInput>
+  }
+
+  export type LegendsPersonalAchievementsCreateManyPlayerInputEnvelope = {
+    data: LegendsPersonalAchievementsCreateManyPlayerInput | LegendsPersonalAchievementsCreateManyPlayerInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type LegendsTeammateThoughtsCreateWithoutReceiverInput = {
+    author: string
+    thoughts: string
+  }
+
+  export type LegendsTeammateThoughtsUncheckedCreateWithoutReceiverInput = {
+    id?: number
+    author: string
+    thoughts: string
+  }
+
+  export type LegendsTeammateThoughtsCreateOrConnectWithoutReceiverInput = {
+    where: LegendsTeammateThoughtsWhereUniqueInput
+    create: XOR<LegendsTeammateThoughtsCreateWithoutReceiverInput, LegendsTeammateThoughtsUncheckedCreateWithoutReceiverInput>
+  }
+
+  export type LegendsTeammateThoughtsCreateManyReceiverInputEnvelope = {
+    data: LegendsTeammateThoughtsCreateManyReceiverInput | LegendsTeammateThoughtsCreateManyReceiverInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type TeamsCreateWithoutLegendsInput = {
+    id: string
+    name: string
+    employee?: EmployeeCreateNestedManyWithoutTeamInput
+    chairman?: ChairmanCreateNestedOneWithoutTeamInput
+    player?: PlayersCreateNestedManyWithoutTeamInput
+    league_achievement?: PlayerTeamAchievementsCreateNestedManyWithoutTeamInput
+    personal_achievement?: PlayerPersonalAchievementsCreateNestedManyWithoutTeamInput
+    player_stats?: PlayerStatsCreateNestedManyWithoutTeamInput
+    is_participant?: Is_ParticipantCreateNestedManyWithoutTeamInput
+    LegendsTeamAchievements?: LegendsTeamAchievementsCreateNestedManyWithoutTeamInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsCreateNestedManyWithoutTeamInput
+  }
+
+  export type TeamsUncheckedCreateWithoutLegendsInput = {
+    id: string
+    name: string
+    employee?: EmployeeUncheckedCreateNestedManyWithoutTeamInput
+    chairman?: ChairmanUncheckedCreateNestedOneWithoutTeamInput
+    player?: PlayersUncheckedCreateNestedManyWithoutTeamInput
+    league_achievement?: PlayerTeamAchievementsUncheckedCreateNestedManyWithoutTeamInput
+    personal_achievement?: PlayerPersonalAchievementsUncheckedCreateNestedManyWithoutTeamInput
+    player_stats?: PlayerStatsUncheckedCreateNestedManyWithoutTeamInput
+    is_participant?: Is_ParticipantUncheckedCreateNestedManyWithoutTeamInput
+    LegendsTeamAchievements?: LegendsTeamAchievementsUncheckedCreateNestedManyWithoutTeamInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsUncheckedCreateNestedManyWithoutTeamInput
+  }
+
+  export type TeamsCreateOrConnectWithoutLegendsInput = {
+    where: TeamsWhereUniqueInput
+    create: XOR<TeamsCreateWithoutLegendsInput, TeamsUncheckedCreateWithoutLegendsInput>
+  }
+
+  export type LegendsInfoUpsertWithoutPlayerInput = {
+    update: XOR<LegendsInfoUpdateWithoutPlayerInput, LegendsInfoUncheckedUpdateWithoutPlayerInput>
+    create: XOR<LegendsInfoCreateWithoutPlayerInput, LegendsInfoUncheckedCreateWithoutPlayerInput>
+    where?: LegendsInfoWhereInput
+  }
+
+  export type LegendsInfoUpdateToOneWithWhereWithoutPlayerInput = {
+    where?: LegendsInfoWhereInput
+    data: XOR<LegendsInfoUpdateWithoutPlayerInput, LegendsInfoUncheckedUpdateWithoutPlayerInput>
+  }
+
+  export type LegendsInfoUpdateWithoutPlayerInput = {
+    dob?: DateTimeFieldUpdateOperationsInput | Date | string
+    birthplace?: StringFieldUpdateOperationsInput | string
+    gender?: StringFieldUpdateOperationsInput | string
+    biography?: StringFieldUpdateOperationsInput | string
+    height?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type LegendsInfoUncheckedUpdateWithoutPlayerInput = {
+    dob?: DateTimeFieldUpdateOperationsInput | Date | string
+    birthplace?: StringFieldUpdateOperationsInput | string
+    gender?: StringFieldUpdateOperationsInput | string
+    biography?: StringFieldUpdateOperationsInput | string
+    height?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type LegendsRatingsUpsertWithoutPlayerInput = {
+    update: XOR<LegendsRatingsUpdateWithoutPlayerInput, LegendsRatingsUncheckedUpdateWithoutPlayerInput>
+    create: XOR<LegendsRatingsCreateWithoutPlayerInput, LegendsRatingsUncheckedCreateWithoutPlayerInput>
+    where?: LegendsRatingsWhereInput
+  }
+
+  export type LegendsRatingsUpdateToOneWithWhereWithoutPlayerInput = {
+    where?: LegendsRatingsWhereInput
+    data: XOR<LegendsRatingsUpdateWithoutPlayerInput, LegendsRatingsUncheckedUpdateWithoutPlayerInput>
+  }
+
+  export type LegendsRatingsUpdateWithoutPlayerInput = {
+    pace?: IntFieldUpdateOperationsInput | number
+    shooting?: IntFieldUpdateOperationsInput | number
+    passing?: IntFieldUpdateOperationsInput | number
+    physical?: IntFieldUpdateOperationsInput | number
+    defending?: IntFieldUpdateOperationsInput | number
+    dribbling?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type LegendsRatingsUncheckedUpdateWithoutPlayerInput = {
+    pace?: IntFieldUpdateOperationsInput | number
+    shooting?: IntFieldUpdateOperationsInput | number
+    passing?: IntFieldUpdateOperationsInput | number
+    physical?: IntFieldUpdateOperationsInput | number
+    defending?: IntFieldUpdateOperationsInput | number
+    dribbling?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type LegendsTeamAchievementsUpsertWithWhereUniqueWithoutPlayerInput = {
+    where: LegendsTeamAchievementsWhereUniqueInput
+    update: XOR<LegendsTeamAchievementsUpdateWithoutPlayerInput, LegendsTeamAchievementsUncheckedUpdateWithoutPlayerInput>
+    create: XOR<LegendsTeamAchievementsCreateWithoutPlayerInput, LegendsTeamAchievementsUncheckedCreateWithoutPlayerInput>
+  }
+
+  export type LegendsTeamAchievementsUpdateWithWhereUniqueWithoutPlayerInput = {
+    where: LegendsTeamAchievementsWhereUniqueInput
+    data: XOR<LegendsTeamAchievementsUpdateWithoutPlayerInput, LegendsTeamAchievementsUncheckedUpdateWithoutPlayerInput>
+  }
+
+  export type LegendsTeamAchievementsUpdateManyWithWhereWithoutPlayerInput = {
+    where: LegendsTeamAchievementsScalarWhereInput
+    data: XOR<LegendsTeamAchievementsUpdateManyMutationInput, LegendsTeamAchievementsUncheckedUpdateManyWithoutPlayerInput>
+  }
+
+  export type LegendsPersonalAchievementsUpsertWithWhereUniqueWithoutPlayerInput = {
+    where: LegendsPersonalAchievementsWhereUniqueInput
+    update: XOR<LegendsPersonalAchievementsUpdateWithoutPlayerInput, LegendsPersonalAchievementsUncheckedUpdateWithoutPlayerInput>
+    create: XOR<LegendsPersonalAchievementsCreateWithoutPlayerInput, LegendsPersonalAchievementsUncheckedCreateWithoutPlayerInput>
+  }
+
+  export type LegendsPersonalAchievementsUpdateWithWhereUniqueWithoutPlayerInput = {
+    where: LegendsPersonalAchievementsWhereUniqueInput
+    data: XOR<LegendsPersonalAchievementsUpdateWithoutPlayerInput, LegendsPersonalAchievementsUncheckedUpdateWithoutPlayerInput>
+  }
+
+  export type LegendsPersonalAchievementsUpdateManyWithWhereWithoutPlayerInput = {
+    where: LegendsPersonalAchievementsScalarWhereInput
+    data: XOR<LegendsPersonalAchievementsUpdateManyMutationInput, LegendsPersonalAchievementsUncheckedUpdateManyWithoutPlayerInput>
+  }
+
+  export type LegendsTeammateThoughtsUpsertWithWhereUniqueWithoutReceiverInput = {
+    where: LegendsTeammateThoughtsWhereUniqueInput
+    update: XOR<LegendsTeammateThoughtsUpdateWithoutReceiverInput, LegendsTeammateThoughtsUncheckedUpdateWithoutReceiverInput>
+    create: XOR<LegendsTeammateThoughtsCreateWithoutReceiverInput, LegendsTeammateThoughtsUncheckedCreateWithoutReceiverInput>
+  }
+
+  export type LegendsTeammateThoughtsUpdateWithWhereUniqueWithoutReceiverInput = {
+    where: LegendsTeammateThoughtsWhereUniqueInput
+    data: XOR<LegendsTeammateThoughtsUpdateWithoutReceiverInput, LegendsTeammateThoughtsUncheckedUpdateWithoutReceiverInput>
+  }
+
+  export type LegendsTeammateThoughtsUpdateManyWithWhereWithoutReceiverInput = {
+    where: LegendsTeammateThoughtsScalarWhereInput
+    data: XOR<LegendsTeammateThoughtsUpdateManyMutationInput, LegendsTeammateThoughtsUncheckedUpdateManyWithoutReceiverInput>
+  }
+
+  export type LegendsTeammateThoughtsScalarWhereInput = {
+    AND?: LegendsTeammateThoughtsScalarWhereInput | LegendsTeammateThoughtsScalarWhereInput[]
+    OR?: LegendsTeammateThoughtsScalarWhereInput[]
+    NOT?: LegendsTeammateThoughtsScalarWhereInput | LegendsTeammateThoughtsScalarWhereInput[]
+    id?: IntFilter<"LegendsTeammateThoughts"> | number
+    author?: StringFilter<"LegendsTeammateThoughts"> | string
+    thoughts?: StringFilter<"LegendsTeammateThoughts"> | string
+    sent_to?: StringFilter<"LegendsTeammateThoughts"> | string
+  }
+
+  export type TeamsUpsertWithoutLegendsInput = {
+    update: XOR<TeamsUpdateWithoutLegendsInput, TeamsUncheckedUpdateWithoutLegendsInput>
+    create: XOR<TeamsCreateWithoutLegendsInput, TeamsUncheckedCreateWithoutLegendsInput>
+    where?: TeamsWhereInput
+  }
+
+  export type TeamsUpdateToOneWithWhereWithoutLegendsInput = {
+    where?: TeamsWhereInput
+    data: XOR<TeamsUpdateWithoutLegendsInput, TeamsUncheckedUpdateWithoutLegendsInput>
+  }
+
+  export type TeamsUpdateWithoutLegendsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    employee?: EmployeeUpdateManyWithoutTeamNestedInput
+    chairman?: ChairmanUpdateOneWithoutTeamNestedInput
+    player?: PlayersUpdateManyWithoutTeamNestedInput
+    league_achievement?: PlayerTeamAchievementsUpdateManyWithoutTeamNestedInput
+    personal_achievement?: PlayerPersonalAchievementsUpdateManyWithoutTeamNestedInput
+    player_stats?: PlayerStatsUpdateManyWithoutTeamNestedInput
+    is_participant?: Is_ParticipantUpdateManyWithoutTeamNestedInput
+    LegendsTeamAchievements?: LegendsTeamAchievementsUpdateManyWithoutTeamNestedInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsUpdateManyWithoutTeamNestedInput
+  }
+
+  export type TeamsUncheckedUpdateWithoutLegendsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    employee?: EmployeeUncheckedUpdateManyWithoutTeamNestedInput
+    chairman?: ChairmanUncheckedUpdateOneWithoutTeamNestedInput
+    player?: PlayersUncheckedUpdateManyWithoutTeamNestedInput
+    league_achievement?: PlayerTeamAchievementsUncheckedUpdateManyWithoutTeamNestedInput
+    personal_achievement?: PlayerPersonalAchievementsUncheckedUpdateManyWithoutTeamNestedInput
+    player_stats?: PlayerStatsUncheckedUpdateManyWithoutTeamNestedInput
+    is_participant?: Is_ParticipantUncheckedUpdateManyWithoutTeamNestedInput
+    LegendsTeamAchievements?: LegendsTeamAchievementsUncheckedUpdateManyWithoutTeamNestedInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsUncheckedUpdateManyWithoutTeamNestedInput
+  }
+
+  export type LegendsCreateWithoutLegends_infoInput = {
+    id: string
+    name: string
+    age: number
+    position: string
+    legends_rating?: LegendsRatingsCreateNestedOneWithoutPlayerInput
+    legends_team_achievement?: LegendsTeamAchievementsCreateNestedManyWithoutPlayerInput
+    legends_personal_achievement?: LegendsPersonalAchievementsCreateNestedManyWithoutPlayerInput
+    thoughtsReceived?: LegendsTeammateThoughtsCreateNestedManyWithoutReceiverInput
+    team: TeamsCreateNestedOneWithoutLegendsInput
+  }
+
+  export type LegendsUncheckedCreateWithoutLegends_infoInput = {
+    id: string
+    name: string
+    age: number
+    position: string
+    team_id: string
+    legends_rating?: LegendsRatingsUncheckedCreateNestedOneWithoutPlayerInput
+    legends_team_achievement?: LegendsTeamAchievementsUncheckedCreateNestedManyWithoutPlayerInput
+    legends_personal_achievement?: LegendsPersonalAchievementsUncheckedCreateNestedManyWithoutPlayerInput
+    thoughtsReceived?: LegendsTeammateThoughtsUncheckedCreateNestedManyWithoutReceiverInput
+  }
+
+  export type LegendsCreateOrConnectWithoutLegends_infoInput = {
+    where: LegendsWhereUniqueInput
+    create: XOR<LegendsCreateWithoutLegends_infoInput, LegendsUncheckedCreateWithoutLegends_infoInput>
+  }
+
+  export type LegendsUpsertWithoutLegends_infoInput = {
+    update: XOR<LegendsUpdateWithoutLegends_infoInput, LegendsUncheckedUpdateWithoutLegends_infoInput>
+    create: XOR<LegendsCreateWithoutLegends_infoInput, LegendsUncheckedCreateWithoutLegends_infoInput>
+    where?: LegendsWhereInput
+  }
+
+  export type LegendsUpdateToOneWithWhereWithoutLegends_infoInput = {
+    where?: LegendsWhereInput
+    data: XOR<LegendsUpdateWithoutLegends_infoInput, LegendsUncheckedUpdateWithoutLegends_infoInput>
+  }
+
+  export type LegendsUpdateWithoutLegends_infoInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    age?: IntFieldUpdateOperationsInput | number
+    position?: StringFieldUpdateOperationsInput | string
+    legends_rating?: LegendsRatingsUpdateOneWithoutPlayerNestedInput
+    legends_team_achievement?: LegendsTeamAchievementsUpdateManyWithoutPlayerNestedInput
+    legends_personal_achievement?: LegendsPersonalAchievementsUpdateManyWithoutPlayerNestedInput
+    thoughtsReceived?: LegendsTeammateThoughtsUpdateManyWithoutReceiverNestedInput
+    team?: TeamsUpdateOneRequiredWithoutLegendsNestedInput
+  }
+
+  export type LegendsUncheckedUpdateWithoutLegends_infoInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    age?: IntFieldUpdateOperationsInput | number
+    position?: StringFieldUpdateOperationsInput | string
+    team_id?: StringFieldUpdateOperationsInput | string
+    legends_rating?: LegendsRatingsUncheckedUpdateOneWithoutPlayerNestedInput
+    legends_team_achievement?: LegendsTeamAchievementsUncheckedUpdateManyWithoutPlayerNestedInput
+    legends_personal_achievement?: LegendsPersonalAchievementsUncheckedUpdateManyWithoutPlayerNestedInput
+    thoughtsReceived?: LegendsTeammateThoughtsUncheckedUpdateManyWithoutReceiverNestedInput
+  }
+
+  export type LegendsCreateWithoutLegends_ratingInput = {
+    id: string
+    name: string
+    age: number
+    position: string
+    legends_info?: LegendsInfoCreateNestedOneWithoutPlayerInput
+    legends_team_achievement?: LegendsTeamAchievementsCreateNestedManyWithoutPlayerInput
+    legends_personal_achievement?: LegendsPersonalAchievementsCreateNestedManyWithoutPlayerInput
+    thoughtsReceived?: LegendsTeammateThoughtsCreateNestedManyWithoutReceiverInput
+    team: TeamsCreateNestedOneWithoutLegendsInput
+  }
+
+  export type LegendsUncheckedCreateWithoutLegends_ratingInput = {
+    id: string
+    name: string
+    age: number
+    position: string
+    team_id: string
+    legends_info?: LegendsInfoUncheckedCreateNestedOneWithoutPlayerInput
+    legends_team_achievement?: LegendsTeamAchievementsUncheckedCreateNestedManyWithoutPlayerInput
+    legends_personal_achievement?: LegendsPersonalAchievementsUncheckedCreateNestedManyWithoutPlayerInput
+    thoughtsReceived?: LegendsTeammateThoughtsUncheckedCreateNestedManyWithoutReceiverInput
+  }
+
+  export type LegendsCreateOrConnectWithoutLegends_ratingInput = {
+    where: LegendsWhereUniqueInput
+    create: XOR<LegendsCreateWithoutLegends_ratingInput, LegendsUncheckedCreateWithoutLegends_ratingInput>
+  }
+
+  export type LegendsUpsertWithoutLegends_ratingInput = {
+    update: XOR<LegendsUpdateWithoutLegends_ratingInput, LegendsUncheckedUpdateWithoutLegends_ratingInput>
+    create: XOR<LegendsCreateWithoutLegends_ratingInput, LegendsUncheckedCreateWithoutLegends_ratingInput>
+    where?: LegendsWhereInput
+  }
+
+  export type LegendsUpdateToOneWithWhereWithoutLegends_ratingInput = {
+    where?: LegendsWhereInput
+    data: XOR<LegendsUpdateWithoutLegends_ratingInput, LegendsUncheckedUpdateWithoutLegends_ratingInput>
+  }
+
+  export type LegendsUpdateWithoutLegends_ratingInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    age?: IntFieldUpdateOperationsInput | number
+    position?: StringFieldUpdateOperationsInput | string
+    legends_info?: LegendsInfoUpdateOneWithoutPlayerNestedInput
+    legends_team_achievement?: LegendsTeamAchievementsUpdateManyWithoutPlayerNestedInput
+    legends_personal_achievement?: LegendsPersonalAchievementsUpdateManyWithoutPlayerNestedInput
+    thoughtsReceived?: LegendsTeammateThoughtsUpdateManyWithoutReceiverNestedInput
+    team?: TeamsUpdateOneRequiredWithoutLegendsNestedInput
+  }
+
+  export type LegendsUncheckedUpdateWithoutLegends_ratingInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    age?: IntFieldUpdateOperationsInput | number
+    position?: StringFieldUpdateOperationsInput | string
+    team_id?: StringFieldUpdateOperationsInput | string
+    legends_info?: LegendsInfoUncheckedUpdateOneWithoutPlayerNestedInput
+    legends_team_achievement?: LegendsTeamAchievementsUncheckedUpdateManyWithoutPlayerNestedInput
+    legends_personal_achievement?: LegendsPersonalAchievementsUncheckedUpdateManyWithoutPlayerNestedInput
+    thoughtsReceived?: LegendsTeammateThoughtsUncheckedUpdateManyWithoutReceiverNestedInput
+  }
+
+  export type LegendsCreateWithoutLegends_team_achievementInput = {
+    id: string
+    name: string
+    age: number
+    position: string
+    legends_info?: LegendsInfoCreateNestedOneWithoutPlayerInput
+    legends_rating?: LegendsRatingsCreateNestedOneWithoutPlayerInput
+    legends_personal_achievement?: LegendsPersonalAchievementsCreateNestedManyWithoutPlayerInput
+    thoughtsReceived?: LegendsTeammateThoughtsCreateNestedManyWithoutReceiverInput
+    team: TeamsCreateNestedOneWithoutLegendsInput
+  }
+
+  export type LegendsUncheckedCreateWithoutLegends_team_achievementInput = {
+    id: string
+    name: string
+    age: number
+    position: string
+    team_id: string
+    legends_info?: LegendsInfoUncheckedCreateNestedOneWithoutPlayerInput
+    legends_rating?: LegendsRatingsUncheckedCreateNestedOneWithoutPlayerInput
+    legends_personal_achievement?: LegendsPersonalAchievementsUncheckedCreateNestedManyWithoutPlayerInput
+    thoughtsReceived?: LegendsTeammateThoughtsUncheckedCreateNestedManyWithoutReceiverInput
+  }
+
+  export type LegendsCreateOrConnectWithoutLegends_team_achievementInput = {
+    where: LegendsWhereUniqueInput
+    create: XOR<LegendsCreateWithoutLegends_team_achievementInput, LegendsUncheckedCreateWithoutLegends_team_achievementInput>
+  }
+
+  export type LeaguesCreateWithoutLegendsTeamAchievementsInput = {
+    id: string
+    name: string
+    league_achievement?: PlayerTeamAchievementsCreateNestedManyWithoutLeagueInput
+    personal_achievement?: PlayerPersonalAchievementsCreateNestedManyWithoutLeagueInput
+    player_stats?: PlayerStatsCreateNestedManyWithoutLeagueInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsCreateNestedManyWithoutLeagueInput
+  }
+
+  export type LeaguesUncheckedCreateWithoutLegendsTeamAchievementsInput = {
+    id: string
+    name: string
+    league_achievement?: PlayerTeamAchievementsUncheckedCreateNestedManyWithoutLeagueInput
+    personal_achievement?: PlayerPersonalAchievementsUncheckedCreateNestedManyWithoutLeagueInput
+    player_stats?: PlayerStatsUncheckedCreateNestedManyWithoutLeagueInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsUncheckedCreateNestedManyWithoutLeagueInput
+  }
+
+  export type LeaguesCreateOrConnectWithoutLegendsTeamAchievementsInput = {
+    where: LeaguesWhereUniqueInput
+    create: XOR<LeaguesCreateWithoutLegendsTeamAchievementsInput, LeaguesUncheckedCreateWithoutLegendsTeamAchievementsInput>
+  }
+
+  export type TeamsCreateWithoutLegendsTeamAchievementsInput = {
+    id: string
+    name: string
+    employee?: EmployeeCreateNestedManyWithoutTeamInput
+    chairman?: ChairmanCreateNestedOneWithoutTeamInput
+    player?: PlayersCreateNestedManyWithoutTeamInput
+    league_achievement?: PlayerTeamAchievementsCreateNestedManyWithoutTeamInput
+    personal_achievement?: PlayerPersonalAchievementsCreateNestedManyWithoutTeamInput
+    player_stats?: PlayerStatsCreateNestedManyWithoutTeamInput
+    is_participant?: Is_ParticipantCreateNestedManyWithoutTeamInput
+    Legends?: LegendsCreateNestedManyWithoutTeamInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsCreateNestedManyWithoutTeamInput
+  }
+
+  export type TeamsUncheckedCreateWithoutLegendsTeamAchievementsInput = {
+    id: string
+    name: string
+    employee?: EmployeeUncheckedCreateNestedManyWithoutTeamInput
+    chairman?: ChairmanUncheckedCreateNestedOneWithoutTeamInput
+    player?: PlayersUncheckedCreateNestedManyWithoutTeamInput
+    league_achievement?: PlayerTeamAchievementsUncheckedCreateNestedManyWithoutTeamInput
+    personal_achievement?: PlayerPersonalAchievementsUncheckedCreateNestedManyWithoutTeamInput
+    player_stats?: PlayerStatsUncheckedCreateNestedManyWithoutTeamInput
+    is_participant?: Is_ParticipantUncheckedCreateNestedManyWithoutTeamInput
+    Legends?: LegendsUncheckedCreateNestedManyWithoutTeamInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsUncheckedCreateNestedManyWithoutTeamInput
+  }
+
+  export type TeamsCreateOrConnectWithoutLegendsTeamAchievementsInput = {
+    where: TeamsWhereUniqueInput
+    create: XOR<TeamsCreateWithoutLegendsTeamAchievementsInput, TeamsUncheckedCreateWithoutLegendsTeamAchievementsInput>
+  }
+
+  export type LegendsUpsertWithoutLegends_team_achievementInput = {
+    update: XOR<LegendsUpdateWithoutLegends_team_achievementInput, LegendsUncheckedUpdateWithoutLegends_team_achievementInput>
+    create: XOR<LegendsCreateWithoutLegends_team_achievementInput, LegendsUncheckedCreateWithoutLegends_team_achievementInput>
+    where?: LegendsWhereInput
+  }
+
+  export type LegendsUpdateToOneWithWhereWithoutLegends_team_achievementInput = {
+    where?: LegendsWhereInput
+    data: XOR<LegendsUpdateWithoutLegends_team_achievementInput, LegendsUncheckedUpdateWithoutLegends_team_achievementInput>
+  }
+
+  export type LegendsUpdateWithoutLegends_team_achievementInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    age?: IntFieldUpdateOperationsInput | number
+    position?: StringFieldUpdateOperationsInput | string
+    legends_info?: LegendsInfoUpdateOneWithoutPlayerNestedInput
+    legends_rating?: LegendsRatingsUpdateOneWithoutPlayerNestedInput
+    legends_personal_achievement?: LegendsPersonalAchievementsUpdateManyWithoutPlayerNestedInput
+    thoughtsReceived?: LegendsTeammateThoughtsUpdateManyWithoutReceiverNestedInput
+    team?: TeamsUpdateOneRequiredWithoutLegendsNestedInput
+  }
+
+  export type LegendsUncheckedUpdateWithoutLegends_team_achievementInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    age?: IntFieldUpdateOperationsInput | number
+    position?: StringFieldUpdateOperationsInput | string
+    team_id?: StringFieldUpdateOperationsInput | string
+    legends_info?: LegendsInfoUncheckedUpdateOneWithoutPlayerNestedInput
+    legends_rating?: LegendsRatingsUncheckedUpdateOneWithoutPlayerNestedInput
+    legends_personal_achievement?: LegendsPersonalAchievementsUncheckedUpdateManyWithoutPlayerNestedInput
+    thoughtsReceived?: LegendsTeammateThoughtsUncheckedUpdateManyWithoutReceiverNestedInput
+  }
+
+  export type LeaguesUpsertWithoutLegendsTeamAchievementsInput = {
+    update: XOR<LeaguesUpdateWithoutLegendsTeamAchievementsInput, LeaguesUncheckedUpdateWithoutLegendsTeamAchievementsInput>
+    create: XOR<LeaguesCreateWithoutLegendsTeamAchievementsInput, LeaguesUncheckedCreateWithoutLegendsTeamAchievementsInput>
+    where?: LeaguesWhereInput
+  }
+
+  export type LeaguesUpdateToOneWithWhereWithoutLegendsTeamAchievementsInput = {
+    where?: LeaguesWhereInput
+    data: XOR<LeaguesUpdateWithoutLegendsTeamAchievementsInput, LeaguesUncheckedUpdateWithoutLegendsTeamAchievementsInput>
+  }
+
+  export type LeaguesUpdateWithoutLegendsTeamAchievementsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    league_achievement?: PlayerTeamAchievementsUpdateManyWithoutLeagueNestedInput
+    personal_achievement?: PlayerPersonalAchievementsUpdateManyWithoutLeagueNestedInput
+    player_stats?: PlayerStatsUpdateManyWithoutLeagueNestedInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsUpdateManyWithoutLeagueNestedInput
+  }
+
+  export type LeaguesUncheckedUpdateWithoutLegendsTeamAchievementsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    league_achievement?: PlayerTeamAchievementsUncheckedUpdateManyWithoutLeagueNestedInput
+    personal_achievement?: PlayerPersonalAchievementsUncheckedUpdateManyWithoutLeagueNestedInput
+    player_stats?: PlayerStatsUncheckedUpdateManyWithoutLeagueNestedInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsUncheckedUpdateManyWithoutLeagueNestedInput
+  }
+
+  export type TeamsUpsertWithoutLegendsTeamAchievementsInput = {
+    update: XOR<TeamsUpdateWithoutLegendsTeamAchievementsInput, TeamsUncheckedUpdateWithoutLegendsTeamAchievementsInput>
+    create: XOR<TeamsCreateWithoutLegendsTeamAchievementsInput, TeamsUncheckedCreateWithoutLegendsTeamAchievementsInput>
+    where?: TeamsWhereInput
+  }
+
+  export type TeamsUpdateToOneWithWhereWithoutLegendsTeamAchievementsInput = {
+    where?: TeamsWhereInput
+    data: XOR<TeamsUpdateWithoutLegendsTeamAchievementsInput, TeamsUncheckedUpdateWithoutLegendsTeamAchievementsInput>
+  }
+
+  export type TeamsUpdateWithoutLegendsTeamAchievementsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    employee?: EmployeeUpdateManyWithoutTeamNestedInput
+    chairman?: ChairmanUpdateOneWithoutTeamNestedInput
+    player?: PlayersUpdateManyWithoutTeamNestedInput
+    league_achievement?: PlayerTeamAchievementsUpdateManyWithoutTeamNestedInput
+    personal_achievement?: PlayerPersonalAchievementsUpdateManyWithoutTeamNestedInput
+    player_stats?: PlayerStatsUpdateManyWithoutTeamNestedInput
+    is_participant?: Is_ParticipantUpdateManyWithoutTeamNestedInput
+    Legends?: LegendsUpdateManyWithoutTeamNestedInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsUpdateManyWithoutTeamNestedInput
+  }
+
+  export type TeamsUncheckedUpdateWithoutLegendsTeamAchievementsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    employee?: EmployeeUncheckedUpdateManyWithoutTeamNestedInput
+    chairman?: ChairmanUncheckedUpdateOneWithoutTeamNestedInput
+    player?: PlayersUncheckedUpdateManyWithoutTeamNestedInput
+    league_achievement?: PlayerTeamAchievementsUncheckedUpdateManyWithoutTeamNestedInput
+    personal_achievement?: PlayerPersonalAchievementsUncheckedUpdateManyWithoutTeamNestedInput
+    player_stats?: PlayerStatsUncheckedUpdateManyWithoutTeamNestedInput
+    is_participant?: Is_ParticipantUncheckedUpdateManyWithoutTeamNestedInput
+    Legends?: LegendsUncheckedUpdateManyWithoutTeamNestedInput
+    LegendsPersonalAchievements?: LegendsPersonalAchievementsUncheckedUpdateManyWithoutTeamNestedInput
+  }
+
+  export type LegendsCreateWithoutLegends_personal_achievementInput = {
+    id: string
+    name: string
+    age: number
+    position: string
+    legends_info?: LegendsInfoCreateNestedOneWithoutPlayerInput
+    legends_rating?: LegendsRatingsCreateNestedOneWithoutPlayerInput
+    legends_team_achievement?: LegendsTeamAchievementsCreateNestedManyWithoutPlayerInput
+    thoughtsReceived?: LegendsTeammateThoughtsCreateNestedManyWithoutReceiverInput
+    team: TeamsCreateNestedOneWithoutLegendsInput
+  }
+
+  export type LegendsUncheckedCreateWithoutLegends_personal_achievementInput = {
+    id: string
+    name: string
+    age: number
+    position: string
+    team_id: string
+    legends_info?: LegendsInfoUncheckedCreateNestedOneWithoutPlayerInput
+    legends_rating?: LegendsRatingsUncheckedCreateNestedOneWithoutPlayerInput
+    legends_team_achievement?: LegendsTeamAchievementsUncheckedCreateNestedManyWithoutPlayerInput
+    thoughtsReceived?: LegendsTeammateThoughtsUncheckedCreateNestedManyWithoutReceiverInput
+  }
+
+  export type LegendsCreateOrConnectWithoutLegends_personal_achievementInput = {
+    where: LegendsWhereUniqueInput
+    create: XOR<LegendsCreateWithoutLegends_personal_achievementInput, LegendsUncheckedCreateWithoutLegends_personal_achievementInput>
+  }
+
+  export type PersonalAchievementsCreateWithoutLegendsPersonalAchievementsInput = {
+    id: string
+    name: string
+    personal_achievement?: PlayerPersonalAchievementsCreateNestedManyWithoutAchievementInput
+  }
+
+  export type PersonalAchievementsUncheckedCreateWithoutLegendsPersonalAchievementsInput = {
+    id: string
+    name: string
+    personal_achievement?: PlayerPersonalAchievementsUncheckedCreateNestedManyWithoutAchievementInput
+  }
+
+  export type PersonalAchievementsCreateOrConnectWithoutLegendsPersonalAchievementsInput = {
+    where: PersonalAchievementsWhereUniqueInput
+    create: XOR<PersonalAchievementsCreateWithoutLegendsPersonalAchievementsInput, PersonalAchievementsUncheckedCreateWithoutLegendsPersonalAchievementsInput>
+  }
+
+  export type TeamsCreateWithoutLegendsPersonalAchievementsInput = {
+    id: string
+    name: string
+    employee?: EmployeeCreateNestedManyWithoutTeamInput
+    chairman?: ChairmanCreateNestedOneWithoutTeamInput
+    player?: PlayersCreateNestedManyWithoutTeamInput
+    league_achievement?: PlayerTeamAchievementsCreateNestedManyWithoutTeamInput
+    personal_achievement?: PlayerPersonalAchievementsCreateNestedManyWithoutTeamInput
+    player_stats?: PlayerStatsCreateNestedManyWithoutTeamInput
+    is_participant?: Is_ParticipantCreateNestedManyWithoutTeamInput
+    Legends?: LegendsCreateNestedManyWithoutTeamInput
+    LegendsTeamAchievements?: LegendsTeamAchievementsCreateNestedManyWithoutTeamInput
+  }
+
+  export type TeamsUncheckedCreateWithoutLegendsPersonalAchievementsInput = {
+    id: string
+    name: string
+    employee?: EmployeeUncheckedCreateNestedManyWithoutTeamInput
+    chairman?: ChairmanUncheckedCreateNestedOneWithoutTeamInput
+    player?: PlayersUncheckedCreateNestedManyWithoutTeamInput
+    league_achievement?: PlayerTeamAchievementsUncheckedCreateNestedManyWithoutTeamInput
+    personal_achievement?: PlayerPersonalAchievementsUncheckedCreateNestedManyWithoutTeamInput
+    player_stats?: PlayerStatsUncheckedCreateNestedManyWithoutTeamInput
+    is_participant?: Is_ParticipantUncheckedCreateNestedManyWithoutTeamInput
+    Legends?: LegendsUncheckedCreateNestedManyWithoutTeamInput
+    LegendsTeamAchievements?: LegendsTeamAchievementsUncheckedCreateNestedManyWithoutTeamInput
+  }
+
+  export type TeamsCreateOrConnectWithoutLegendsPersonalAchievementsInput = {
+    where: TeamsWhereUniqueInput
+    create: XOR<TeamsCreateWithoutLegendsPersonalAchievementsInput, TeamsUncheckedCreateWithoutLegendsPersonalAchievementsInput>
+  }
+
+  export type LeaguesCreateWithoutLegendsPersonalAchievementsInput = {
+    id: string
+    name: string
+    league_achievement?: PlayerTeamAchievementsCreateNestedManyWithoutLeagueInput
+    personal_achievement?: PlayerPersonalAchievementsCreateNestedManyWithoutLeagueInput
+    player_stats?: PlayerStatsCreateNestedManyWithoutLeagueInput
+    LegendsTeamAchievements?: LegendsTeamAchievementsCreateNestedManyWithoutLeagueInput
+  }
+
+  export type LeaguesUncheckedCreateWithoutLegendsPersonalAchievementsInput = {
+    id: string
+    name: string
+    league_achievement?: PlayerTeamAchievementsUncheckedCreateNestedManyWithoutLeagueInput
+    personal_achievement?: PlayerPersonalAchievementsUncheckedCreateNestedManyWithoutLeagueInput
+    player_stats?: PlayerStatsUncheckedCreateNestedManyWithoutLeagueInput
+    LegendsTeamAchievements?: LegendsTeamAchievementsUncheckedCreateNestedManyWithoutLeagueInput
+  }
+
+  export type LeaguesCreateOrConnectWithoutLegendsPersonalAchievementsInput = {
+    where: LeaguesWhereUniqueInput
+    create: XOR<LeaguesCreateWithoutLegendsPersonalAchievementsInput, LeaguesUncheckedCreateWithoutLegendsPersonalAchievementsInput>
+  }
+
+  export type LegendsUpsertWithoutLegends_personal_achievementInput = {
+    update: XOR<LegendsUpdateWithoutLegends_personal_achievementInput, LegendsUncheckedUpdateWithoutLegends_personal_achievementInput>
+    create: XOR<LegendsCreateWithoutLegends_personal_achievementInput, LegendsUncheckedCreateWithoutLegends_personal_achievementInput>
+    where?: LegendsWhereInput
+  }
+
+  export type LegendsUpdateToOneWithWhereWithoutLegends_personal_achievementInput = {
+    where?: LegendsWhereInput
+    data: XOR<LegendsUpdateWithoutLegends_personal_achievementInput, LegendsUncheckedUpdateWithoutLegends_personal_achievementInput>
+  }
+
+  export type LegendsUpdateWithoutLegends_personal_achievementInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    age?: IntFieldUpdateOperationsInput | number
+    position?: StringFieldUpdateOperationsInput | string
+    legends_info?: LegendsInfoUpdateOneWithoutPlayerNestedInput
+    legends_rating?: LegendsRatingsUpdateOneWithoutPlayerNestedInput
+    legends_team_achievement?: LegendsTeamAchievementsUpdateManyWithoutPlayerNestedInput
+    thoughtsReceived?: LegendsTeammateThoughtsUpdateManyWithoutReceiverNestedInput
+    team?: TeamsUpdateOneRequiredWithoutLegendsNestedInput
+  }
+
+  export type LegendsUncheckedUpdateWithoutLegends_personal_achievementInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    age?: IntFieldUpdateOperationsInput | number
+    position?: StringFieldUpdateOperationsInput | string
+    team_id?: StringFieldUpdateOperationsInput | string
+    legends_info?: LegendsInfoUncheckedUpdateOneWithoutPlayerNestedInput
+    legends_rating?: LegendsRatingsUncheckedUpdateOneWithoutPlayerNestedInput
+    legends_team_achievement?: LegendsTeamAchievementsUncheckedUpdateManyWithoutPlayerNestedInput
+    thoughtsReceived?: LegendsTeammateThoughtsUncheckedUpdateManyWithoutReceiverNestedInput
+  }
+
+  export type PersonalAchievementsUpsertWithoutLegendsPersonalAchievementsInput = {
+    update: XOR<PersonalAchievementsUpdateWithoutLegendsPersonalAchievementsInput, PersonalAchievementsUncheckedUpdateWithoutLegendsPersonalAchievementsInput>
+    create: XOR<PersonalAchievementsCreateWithoutLegendsPersonalAchievementsInput, PersonalAchievementsUncheckedCreateWithoutLegendsPersonalAchievementsInput>
+    where?: PersonalAchievementsWhereInput
+  }
+
+  export type PersonalAchievementsUpdateToOneWithWhereWithoutLegendsPersonalAchievementsInput = {
+    where?: PersonalAchievementsWhereInput
+    data: XOR<PersonalAchievementsUpdateWithoutLegendsPersonalAchievementsInput, PersonalAchievementsUncheckedUpdateWithoutLegendsPersonalAchievementsInput>
+  }
+
+  export type PersonalAchievementsUpdateWithoutLegendsPersonalAchievementsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    personal_achievement?: PlayerPersonalAchievementsUpdateManyWithoutAchievementNestedInput
+  }
+
+  export type PersonalAchievementsUncheckedUpdateWithoutLegendsPersonalAchievementsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    personal_achievement?: PlayerPersonalAchievementsUncheckedUpdateManyWithoutAchievementNestedInput
+  }
+
+  export type TeamsUpsertWithoutLegendsPersonalAchievementsInput = {
+    update: XOR<TeamsUpdateWithoutLegendsPersonalAchievementsInput, TeamsUncheckedUpdateWithoutLegendsPersonalAchievementsInput>
+    create: XOR<TeamsCreateWithoutLegendsPersonalAchievementsInput, TeamsUncheckedCreateWithoutLegendsPersonalAchievementsInput>
+    where?: TeamsWhereInput
+  }
+
+  export type TeamsUpdateToOneWithWhereWithoutLegendsPersonalAchievementsInput = {
+    where?: TeamsWhereInput
+    data: XOR<TeamsUpdateWithoutLegendsPersonalAchievementsInput, TeamsUncheckedUpdateWithoutLegendsPersonalAchievementsInput>
+  }
+
+  export type TeamsUpdateWithoutLegendsPersonalAchievementsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    employee?: EmployeeUpdateManyWithoutTeamNestedInput
+    chairman?: ChairmanUpdateOneWithoutTeamNestedInput
+    player?: PlayersUpdateManyWithoutTeamNestedInput
+    league_achievement?: PlayerTeamAchievementsUpdateManyWithoutTeamNestedInput
+    personal_achievement?: PlayerPersonalAchievementsUpdateManyWithoutTeamNestedInput
+    player_stats?: PlayerStatsUpdateManyWithoutTeamNestedInput
+    is_participant?: Is_ParticipantUpdateManyWithoutTeamNestedInput
+    Legends?: LegendsUpdateManyWithoutTeamNestedInput
+    LegendsTeamAchievements?: LegendsTeamAchievementsUpdateManyWithoutTeamNestedInput
+  }
+
+  export type TeamsUncheckedUpdateWithoutLegendsPersonalAchievementsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    employee?: EmployeeUncheckedUpdateManyWithoutTeamNestedInput
+    chairman?: ChairmanUncheckedUpdateOneWithoutTeamNestedInput
+    player?: PlayersUncheckedUpdateManyWithoutTeamNestedInput
+    league_achievement?: PlayerTeamAchievementsUncheckedUpdateManyWithoutTeamNestedInput
+    personal_achievement?: PlayerPersonalAchievementsUncheckedUpdateManyWithoutTeamNestedInput
+    player_stats?: PlayerStatsUncheckedUpdateManyWithoutTeamNestedInput
+    is_participant?: Is_ParticipantUncheckedUpdateManyWithoutTeamNestedInput
+    Legends?: LegendsUncheckedUpdateManyWithoutTeamNestedInput
+    LegendsTeamAchievements?: LegendsTeamAchievementsUncheckedUpdateManyWithoutTeamNestedInput
+  }
+
+  export type LeaguesUpsertWithoutLegendsPersonalAchievementsInput = {
+    update: XOR<LeaguesUpdateWithoutLegendsPersonalAchievementsInput, LeaguesUncheckedUpdateWithoutLegendsPersonalAchievementsInput>
+    create: XOR<LeaguesCreateWithoutLegendsPersonalAchievementsInput, LeaguesUncheckedCreateWithoutLegendsPersonalAchievementsInput>
+    where?: LeaguesWhereInput
+  }
+
+  export type LeaguesUpdateToOneWithWhereWithoutLegendsPersonalAchievementsInput = {
+    where?: LeaguesWhereInput
+    data: XOR<LeaguesUpdateWithoutLegendsPersonalAchievementsInput, LeaguesUncheckedUpdateWithoutLegendsPersonalAchievementsInput>
+  }
+
+  export type LeaguesUpdateWithoutLegendsPersonalAchievementsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    league_achievement?: PlayerTeamAchievementsUpdateManyWithoutLeagueNestedInput
+    personal_achievement?: PlayerPersonalAchievementsUpdateManyWithoutLeagueNestedInput
+    player_stats?: PlayerStatsUpdateManyWithoutLeagueNestedInput
+    LegendsTeamAchievements?: LegendsTeamAchievementsUpdateManyWithoutLeagueNestedInput
+  }
+
+  export type LeaguesUncheckedUpdateWithoutLegendsPersonalAchievementsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    league_achievement?: PlayerTeamAchievementsUncheckedUpdateManyWithoutLeagueNestedInput
+    personal_achievement?: PlayerPersonalAchievementsUncheckedUpdateManyWithoutLeagueNestedInput
+    player_stats?: PlayerStatsUncheckedUpdateManyWithoutLeagueNestedInput
+    LegendsTeamAchievements?: LegendsTeamAchievementsUncheckedUpdateManyWithoutLeagueNestedInput
+  }
+
+  export type LegendsCreateWithoutThoughtsReceivedInput = {
+    id: string
+    name: string
+    age: number
+    position: string
+    legends_info?: LegendsInfoCreateNestedOneWithoutPlayerInput
+    legends_rating?: LegendsRatingsCreateNestedOneWithoutPlayerInput
+    legends_team_achievement?: LegendsTeamAchievementsCreateNestedManyWithoutPlayerInput
+    legends_personal_achievement?: LegendsPersonalAchievementsCreateNestedManyWithoutPlayerInput
+    team: TeamsCreateNestedOneWithoutLegendsInput
+  }
+
+  export type LegendsUncheckedCreateWithoutThoughtsReceivedInput = {
+    id: string
+    name: string
+    age: number
+    position: string
+    team_id: string
+    legends_info?: LegendsInfoUncheckedCreateNestedOneWithoutPlayerInput
+    legends_rating?: LegendsRatingsUncheckedCreateNestedOneWithoutPlayerInput
+    legends_team_achievement?: LegendsTeamAchievementsUncheckedCreateNestedManyWithoutPlayerInput
+    legends_personal_achievement?: LegendsPersonalAchievementsUncheckedCreateNestedManyWithoutPlayerInput
+  }
+
+  export type LegendsCreateOrConnectWithoutThoughtsReceivedInput = {
+    where: LegendsWhereUniqueInput
+    create: XOR<LegendsCreateWithoutThoughtsReceivedInput, LegendsUncheckedCreateWithoutThoughtsReceivedInput>
+  }
+
+  export type LegendsUpsertWithoutThoughtsReceivedInput = {
+    update: XOR<LegendsUpdateWithoutThoughtsReceivedInput, LegendsUncheckedUpdateWithoutThoughtsReceivedInput>
+    create: XOR<LegendsCreateWithoutThoughtsReceivedInput, LegendsUncheckedCreateWithoutThoughtsReceivedInput>
+    where?: LegendsWhereInput
+  }
+
+  export type LegendsUpdateToOneWithWhereWithoutThoughtsReceivedInput = {
+    where?: LegendsWhereInput
+    data: XOR<LegendsUpdateWithoutThoughtsReceivedInput, LegendsUncheckedUpdateWithoutThoughtsReceivedInput>
+  }
+
+  export type LegendsUpdateWithoutThoughtsReceivedInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    age?: IntFieldUpdateOperationsInput | number
+    position?: StringFieldUpdateOperationsInput | string
+    legends_info?: LegendsInfoUpdateOneWithoutPlayerNestedInput
+    legends_rating?: LegendsRatingsUpdateOneWithoutPlayerNestedInput
+    legends_team_achievement?: LegendsTeamAchievementsUpdateManyWithoutPlayerNestedInput
+    legends_personal_achievement?: LegendsPersonalAchievementsUpdateManyWithoutPlayerNestedInput
+    team?: TeamsUpdateOneRequiredWithoutLegendsNestedInput
+  }
+
+  export type LegendsUncheckedUpdateWithoutThoughtsReceivedInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    age?: IntFieldUpdateOperationsInput | number
+    position?: StringFieldUpdateOperationsInput | string
+    team_id?: StringFieldUpdateOperationsInput | string
+    legends_info?: LegendsInfoUncheckedUpdateOneWithoutPlayerNestedInput
+    legends_rating?: LegendsRatingsUncheckedUpdateOneWithoutPlayerNestedInput
+    legends_team_achievement?: LegendsTeamAchievementsUncheckedUpdateManyWithoutPlayerNestedInput
+    legends_personal_achievement?: LegendsPersonalAchievementsUncheckedUpdateManyWithoutPlayerNestedInput
+  }
+
   export type EmployeeCreateManyTeamInput = {
     id?: number
     name: string
@@ -22161,6 +32743,29 @@ export namespace Prisma {
 
   export type Is_ParticipantCreateManyTeamInput = {
     is_participant: boolean
+  }
+
+  export type LegendsCreateManyTeamInput = {
+    id: string
+    name: string
+    age: number
+    position: string
+  }
+
+  export type LegendsTeamAchievementsCreateManyTeamInput = {
+    id: string
+    player_id: string
+    place: string
+    league_id: string
+    time: string
+  }
+
+  export type LegendsPersonalAchievementsCreateManyTeamInput = {
+    id: string
+    player_id: string
+    achievement_id: string
+    league_id: string
+    time: string
   }
 
   export type EmployeeUpdateWithoutTeamInput = {
@@ -22315,6 +32920,85 @@ export namespace Prisma {
 
   export type Is_ParticipantUncheckedUpdateManyWithoutTeamInput = {
     is_participant?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type LegendsUpdateWithoutTeamInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    age?: IntFieldUpdateOperationsInput | number
+    position?: StringFieldUpdateOperationsInput | string
+    legends_info?: LegendsInfoUpdateOneWithoutPlayerNestedInput
+    legends_rating?: LegendsRatingsUpdateOneWithoutPlayerNestedInput
+    legends_team_achievement?: LegendsTeamAchievementsUpdateManyWithoutPlayerNestedInput
+    legends_personal_achievement?: LegendsPersonalAchievementsUpdateManyWithoutPlayerNestedInput
+    thoughtsReceived?: LegendsTeammateThoughtsUpdateManyWithoutReceiverNestedInput
+  }
+
+  export type LegendsUncheckedUpdateWithoutTeamInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    age?: IntFieldUpdateOperationsInput | number
+    position?: StringFieldUpdateOperationsInput | string
+    legends_info?: LegendsInfoUncheckedUpdateOneWithoutPlayerNestedInput
+    legends_rating?: LegendsRatingsUncheckedUpdateOneWithoutPlayerNestedInput
+    legends_team_achievement?: LegendsTeamAchievementsUncheckedUpdateManyWithoutPlayerNestedInput
+    legends_personal_achievement?: LegendsPersonalAchievementsUncheckedUpdateManyWithoutPlayerNestedInput
+    thoughtsReceived?: LegendsTeammateThoughtsUncheckedUpdateManyWithoutReceiverNestedInput
+  }
+
+  export type LegendsUncheckedUpdateManyWithoutTeamInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    age?: IntFieldUpdateOperationsInput | number
+    position?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type LegendsTeamAchievementsUpdateWithoutTeamInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    place?: StringFieldUpdateOperationsInput | string
+    time?: StringFieldUpdateOperationsInput | string
+    player?: LegendsUpdateOneRequiredWithoutLegends_team_achievementNestedInput
+    league?: LeaguesUpdateOneRequiredWithoutLegendsTeamAchievementsNestedInput
+  }
+
+  export type LegendsTeamAchievementsUncheckedUpdateWithoutTeamInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    player_id?: StringFieldUpdateOperationsInput | string
+    place?: StringFieldUpdateOperationsInput | string
+    league_id?: StringFieldUpdateOperationsInput | string
+    time?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type LegendsTeamAchievementsUncheckedUpdateManyWithoutTeamInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    player_id?: StringFieldUpdateOperationsInput | string
+    place?: StringFieldUpdateOperationsInput | string
+    league_id?: StringFieldUpdateOperationsInput | string
+    time?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type LegendsPersonalAchievementsUpdateWithoutTeamInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    time?: StringFieldUpdateOperationsInput | string
+    player?: LegendsUpdateOneRequiredWithoutLegends_personal_achievementNestedInput
+    achievement?: PersonalAchievementsUpdateOneRequiredWithoutLegendsPersonalAchievementsNestedInput
+    league?: LeaguesUpdateOneRequiredWithoutLegendsPersonalAchievementsNestedInput
+  }
+
+  export type LegendsPersonalAchievementsUncheckedUpdateWithoutTeamInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    player_id?: StringFieldUpdateOperationsInput | string
+    achievement_id?: StringFieldUpdateOperationsInput | string
+    league_id?: StringFieldUpdateOperationsInput | string
+    time?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type LegendsPersonalAchievementsUncheckedUpdateManyWithoutTeamInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    player_id?: StringFieldUpdateOperationsInput | string
+    achievement_id?: StringFieldUpdateOperationsInput | string
+    league_id?: StringFieldUpdateOperationsInput | string
+    time?: StringFieldUpdateOperationsInput | string
   }
 
   export type PlayerStatsCreateManyPlayerInput = {
@@ -22503,6 +33187,22 @@ export namespace Prisma {
     year: number
   }
 
+  export type LegendsTeamAchievementsCreateManyLeagueInput = {
+    id: string
+    player_id: string
+    place: string
+    team_id: string
+    time: string
+  }
+
+  export type LegendsPersonalAchievementsCreateManyLeagueInput = {
+    id: string
+    player_id: string
+    achievement_id: string
+    team_id: string
+    time: string
+  }
+
   export type PlayerTeamAchievementsUpdateWithoutLeagueInput = {
     id?: StringFieldUpdateOperationsInput | string
     place?: StringFieldUpdateOperationsInput | string
@@ -22587,7 +33287,63 @@ export namespace Prisma {
     year?: IntFieldUpdateOperationsInput | number
   }
 
+  export type LegendsTeamAchievementsUpdateWithoutLeagueInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    place?: StringFieldUpdateOperationsInput | string
+    time?: StringFieldUpdateOperationsInput | string
+    player?: LegendsUpdateOneRequiredWithoutLegends_team_achievementNestedInput
+    team?: TeamsUpdateOneRequiredWithoutLegendsTeamAchievementsNestedInput
+  }
+
+  export type LegendsTeamAchievementsUncheckedUpdateWithoutLeagueInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    player_id?: StringFieldUpdateOperationsInput | string
+    place?: StringFieldUpdateOperationsInput | string
+    team_id?: StringFieldUpdateOperationsInput | string
+    time?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type LegendsTeamAchievementsUncheckedUpdateManyWithoutLeagueInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    player_id?: StringFieldUpdateOperationsInput | string
+    place?: StringFieldUpdateOperationsInput | string
+    team_id?: StringFieldUpdateOperationsInput | string
+    time?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type LegendsPersonalAchievementsUpdateWithoutLeagueInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    time?: StringFieldUpdateOperationsInput | string
+    player?: LegendsUpdateOneRequiredWithoutLegends_personal_achievementNestedInput
+    achievement?: PersonalAchievementsUpdateOneRequiredWithoutLegendsPersonalAchievementsNestedInput
+    team?: TeamsUpdateOneRequiredWithoutLegendsPersonalAchievementsNestedInput
+  }
+
+  export type LegendsPersonalAchievementsUncheckedUpdateWithoutLeagueInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    player_id?: StringFieldUpdateOperationsInput | string
+    achievement_id?: StringFieldUpdateOperationsInput | string
+    team_id?: StringFieldUpdateOperationsInput | string
+    time?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type LegendsPersonalAchievementsUncheckedUpdateManyWithoutLeagueInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    player_id?: StringFieldUpdateOperationsInput | string
+    achievement_id?: StringFieldUpdateOperationsInput | string
+    team_id?: StringFieldUpdateOperationsInput | string
+    time?: StringFieldUpdateOperationsInput | string
+  }
+
   export type PlayerPersonalAchievementsCreateManyAchievementInput = {
+    id: string
+    player_id: string
+    league_id: string
+    team_id: string
+    time: string
+  }
+
+  export type LegendsPersonalAchievementsCreateManyAchievementInput = {
     id: string
     player_id: string
     league_id: string
@@ -22617,6 +33373,117 @@ export namespace Prisma {
     league_id?: StringFieldUpdateOperationsInput | string
     team_id?: StringFieldUpdateOperationsInput | string
     time?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type LegendsPersonalAchievementsUpdateWithoutAchievementInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    time?: StringFieldUpdateOperationsInput | string
+    player?: LegendsUpdateOneRequiredWithoutLegends_personal_achievementNestedInput
+    team?: TeamsUpdateOneRequiredWithoutLegendsPersonalAchievementsNestedInput
+    league?: LeaguesUpdateOneRequiredWithoutLegendsPersonalAchievementsNestedInput
+  }
+
+  export type LegendsPersonalAchievementsUncheckedUpdateWithoutAchievementInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    player_id?: StringFieldUpdateOperationsInput | string
+    league_id?: StringFieldUpdateOperationsInput | string
+    team_id?: StringFieldUpdateOperationsInput | string
+    time?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type LegendsPersonalAchievementsUncheckedUpdateManyWithoutAchievementInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    player_id?: StringFieldUpdateOperationsInput | string
+    league_id?: StringFieldUpdateOperationsInput | string
+    team_id?: StringFieldUpdateOperationsInput | string
+    time?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type LegendsTeamAchievementsCreateManyPlayerInput = {
+    id: string
+    place: string
+    league_id: string
+    team_id: string
+    time: string
+  }
+
+  export type LegendsPersonalAchievementsCreateManyPlayerInput = {
+    id: string
+    achievement_id: string
+    league_id: string
+    team_id: string
+    time: string
+  }
+
+  export type LegendsTeammateThoughtsCreateManyReceiverInput = {
+    id?: number
+    author: string
+    thoughts: string
+  }
+
+  export type LegendsTeamAchievementsUpdateWithoutPlayerInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    place?: StringFieldUpdateOperationsInput | string
+    time?: StringFieldUpdateOperationsInput | string
+    league?: LeaguesUpdateOneRequiredWithoutLegendsTeamAchievementsNestedInput
+    team?: TeamsUpdateOneRequiredWithoutLegendsTeamAchievementsNestedInput
+  }
+
+  export type LegendsTeamAchievementsUncheckedUpdateWithoutPlayerInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    place?: StringFieldUpdateOperationsInput | string
+    league_id?: StringFieldUpdateOperationsInput | string
+    team_id?: StringFieldUpdateOperationsInput | string
+    time?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type LegendsTeamAchievementsUncheckedUpdateManyWithoutPlayerInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    place?: StringFieldUpdateOperationsInput | string
+    league_id?: StringFieldUpdateOperationsInput | string
+    team_id?: StringFieldUpdateOperationsInput | string
+    time?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type LegendsPersonalAchievementsUpdateWithoutPlayerInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    time?: StringFieldUpdateOperationsInput | string
+    achievement?: PersonalAchievementsUpdateOneRequiredWithoutLegendsPersonalAchievementsNestedInput
+    team?: TeamsUpdateOneRequiredWithoutLegendsPersonalAchievementsNestedInput
+    league?: LeaguesUpdateOneRequiredWithoutLegendsPersonalAchievementsNestedInput
+  }
+
+  export type LegendsPersonalAchievementsUncheckedUpdateWithoutPlayerInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    achievement_id?: StringFieldUpdateOperationsInput | string
+    league_id?: StringFieldUpdateOperationsInput | string
+    team_id?: StringFieldUpdateOperationsInput | string
+    time?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type LegendsPersonalAchievementsUncheckedUpdateManyWithoutPlayerInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    achievement_id?: StringFieldUpdateOperationsInput | string
+    league_id?: StringFieldUpdateOperationsInput | string
+    team_id?: StringFieldUpdateOperationsInput | string
+    time?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type LegendsTeammateThoughtsUpdateWithoutReceiverInput = {
+    author?: StringFieldUpdateOperationsInput | string
+    thoughts?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type LegendsTeammateThoughtsUncheckedUpdateWithoutReceiverInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    author?: StringFieldUpdateOperationsInput | string
+    thoughts?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type LegendsTeammateThoughtsUncheckedUpdateManyWithoutReceiverInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    author?: StringFieldUpdateOperationsInput | string
+    thoughts?: StringFieldUpdateOperationsInput | string
   }
 
 

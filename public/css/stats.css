@@ -72,6 +72,20 @@ ul li {
 
 #team-achievement {
   margin-right: 1%;
+  width: 50%;
+}
+
+#player-achievement {
+  width: 50%;
+}
+
+.trophy {
+  border: 1px solid;
+}
+
+#blurbackground {
+  background-color: white;
+  opacity: 0.9;
 }
 
 #middle {

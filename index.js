@@ -4,6 +4,7 @@ const app = express();
 const prisma = new PrismaClient();
 const teamRoutes = require("./routes/teams");
 const playerRoutes = require("./routes/players");
+const legendsRoutes = require("./routes/legends");
 
 // Serve all static files from the public folder
 app.use(express.static("public"));
@@ -59,8 +60,14 @@ app.get("/api/players", async (req, res) => {
   res.json(players);
 });
 
+app.get("/api/legends", async (req, res) => {
+  const legends = await prisma.legends.findMany();
+  res.json(legends);
+});
+
 app.use("/api/team", teamRoutes);
 app.use("/api/player", playerRoutes);
+app.use("/api/legends", legendsRoutes);
 
 app.listen(3000, () => {
   console.log("Server running at http://localhost:3000/html/Frontpage.html");

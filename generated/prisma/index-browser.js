@@ -220,6 +220,58 @@ exports.Prisma.PlayerTeammateThoughtsScalarFieldEnum = {
   sent_to: 'sent_to'
 };
 
+exports.Prisma.LegendsScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  age: 'age',
+  position: 'position',
+  team_id: 'team_id'
+};
+
+exports.Prisma.LegendsInfoScalarFieldEnum = {
+  player_id: 'player_id',
+  dob: 'dob',
+  birthplace: 'birthplace',
+  gender: 'gender',
+  biography: 'biography',
+  height: 'height'
+};
+
+exports.Prisma.LegendsRatingsScalarFieldEnum = {
+  player_id: 'player_id',
+  pace: 'pace',
+  shooting: 'shooting',
+  passing: 'passing',
+  physical: 'physical',
+  defending: 'defending',
+  dribbling: 'dribbling'
+};
+
+exports.Prisma.LegendsTeamAchievementsScalarFieldEnum = {
+  id: 'id',
+  player_id: 'player_id',
+  place: 'place',
+  league_id: 'league_id',
+  team_id: 'team_id',
+  time: 'time'
+};
+
+exports.Prisma.LegendsPersonalAchievementsScalarFieldEnum = {
+  id: 'id',
+  player_id: 'player_id',
+  achievement_id: 'achievement_id',
+  league_id: 'league_id',
+  team_id: 'team_id',
+  time: 'time'
+};
+
+exports.Prisma.LegendsTeammateThoughtsScalarFieldEnum = {
+  id: 'id',
+  author: 'author',
+  thoughts: 'thoughts',
+  sent_to: 'sent_to'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -244,7 +296,13 @@ exports.Prisma.ModelName = {
   PlayerStats: 'PlayerStats',
   PlayerTeamAchievements: 'PlayerTeamAchievements',
   PlayerPersonalAchievements: 'PlayerPersonalAchievements',
-  PlayerTeammateThoughts: 'PlayerTeammateThoughts'
+  PlayerTeammateThoughts: 'PlayerTeammateThoughts',
+  Legends: 'Legends',
+  LegendsInfo: 'LegendsInfo',
+  LegendsRatings: 'LegendsRatings',
+  LegendsTeamAchievements: 'LegendsTeamAchievements',
+  LegendsPersonalAchievements: 'LegendsPersonalAchievements',
+  LegendsTeammateThoughts: 'LegendsTeammateThoughts'
 };
 
 /**
