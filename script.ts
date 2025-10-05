@@ -1,4 +1,4 @@
-import { PrismaClient } from "./generated/prisma";
+import {PrismaClient} from "./generated/prisma";
 
 const prisma = new PrismaClient();
 
@@ -94,21 +94,28 @@ async function main() {
     data: playerStatsArray_B,
     skipDuplicates: true,
   });
+
+  const rawdata_v2 = fs.readFileSync("./txt/all_player_stats_v2.txt", "utf-8");
+  const playerStatsArray_v2 = JSON.parse(rawdata_v2);
+  const stats_v2 = await prisma.playerStats.createMany({
+    data: playerStatsArray_v2,
+    skipDuplicates: true,
+  });
   //console.log(await prisma.playerStats.findMany());
 
   const csvtojson = require("csvtojson");
 
   const playerRatingsArray = await csvtojson()
-    .fromFile("player_ratings.csv")
+    .fromFile("./csv/player_ratings_2025_A.csv")
     .then((jsonArray: any[]) => {
       return jsonArray.map((player) => ({
         player_id: player["player_id"],
-        pace: parseInt(player["pace"]),
-        shooting: parseInt(player["shooting"]),
-        passing: parseInt(player["passing"]),
-        dribbling: parseInt(player["dribbling"]),
-        defending: parseInt(player["defending"]),
-        physical: parseInt(player["physical"]),
+        pace: parseInt(player["PAC"]),
+        shooting: parseInt(player["SHO"]),
+        passing: parseInt(player["PAS"]),
+        dribbling: parseInt(player["DRI"]),
+        defending: parseInt(player["DEF"]),
+        physical: parseInt(player["PHY"]),
       }));
     })
     .catch((err: any) => {

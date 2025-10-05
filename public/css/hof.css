@@ -67,3 +67,8 @@ body {
   cursor: pointer;
   color: black;
 }
+
+.legends:hover {
+  cursor: pointer;
+  background-color: gold;
+}

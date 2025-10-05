@@ -2,15 +2,17 @@
 <html>
   <head>
     <link rel="stylesheet" href="/css/hof.css" />
+    <link rel="stylesheet" href="/css/font.css" />
     <link rel="stylesheet" href="/css/navbar.css" />
     <link id="favicon" rel="icon" href="/img/hof.png" type="image/png" />
+
     <script src="/js/dropdown.js"></script>
     <script src="/js/header.js"></script>
     <title>Hall of Fame</title>
   </head>
   <div id="header"></div>
   <body>
-    <h1 class="title">Hall of Fame</h1>
+    <h1 class="title" id="HOFtitle">Hall of Fame</h1>
     <div id="hof_legends"></div>
   </body>
   <script>
@@ -18,11 +20,26 @@
       .then((res) => res.json())
       .then((legends) => {
         const list = document.getElementById("hof_legends");
+        console.log(legends);
 
         legends.forEach((legend) => {
           const legendspace = document.createElement("div");
           legendspace.className = "legends";
           const lastname = legend.name.split(" ");
+
+          legendspace.onmouseenter = () => {
+            legendspace.style.backgroundImage = `url("/img/teamslogo/${legend.team_id}logo.png")`;
+            legendspace.style.backgroundSize = `contain`;
+            legendspace.style.backgroundPosition = `center`;
+            legendspace.style.backgroundRepeat = `no-repeat`;
+          };
+          legendspace.onmouseleave = () => {
+            legendspace.style.backgroundImage = ``;
+            legendspace.style.backgroundSize = ``;
+            legendspace.style.backgroundPosition = ``;
+            legendspace.style.backgroundRepeat = ``;
+          };
+
           legendspace.innerHTML = `<a href="/html/Legends.html?id=${legend.id}">
           <div class="legendsimg">
             <img src="/img/legend/${lastname[
@@ -32,7 +49,9 @@
           ].toLowerCase()}" />
           </div>
         </a>
-        <a href="/html/Legends.html?id=${legend.id}" class="namelink">
+        <a href="/html/Legends.html?id=${
+          legend.id
+        }" class="namelink" id="HOFnamelink">
           <div>${legend.name}</div>
         </a>`;
           list.appendChild(legendspace);

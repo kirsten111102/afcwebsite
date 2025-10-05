@@ -1,0 +1,26 @@
+@font-face {
+  font-family: "HoFfont";
+  src: url("./fonts/PlaywriteIE-ExtraLight.ttf");
+}
+
+@font-face {
+  font-family: "HoFplayerfont";
+  src: url("./fonts/Kings-Regular.ttf");
+}
+
+#HOFtitle {
+  font-family: "HoFfont", cursive;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+#HOFnamelink {
+  font-family: "HoFplayerfont", cursive;
+}
+
+#Fronttitle {
+  font-family: cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 48px;
+}

@@ -62,10 +62,11 @@
               ["Striker", "Forward", "Center Forward"].includes(player.position)
             ) {
               overall = Math.round(
-                playerratings.pace * 0.3 +
-                  playerratings.shooting * 0.35 +
-                  playerratings.dribbling * 0.2 +
-                  playerratings.physical * 0.15
+                0.25 * playerratings.pace +
+                  0.4 * playerratings.shooting +
+                  0.2 * playerratings.dribbling +
+                  0.1 * playerratings.passing +
+                  0.05 * playerratings.physical
               );
             } else if (
               [
@@ -76,17 +77,21 @@
               ].includes(player.position)
             ) {
               overall = Math.round(
-                playerratings.passing * 0.4 +
-                  playerratings.dribbling * 0.3 +
-                  playerratings.physical * 0.2 +
-                  playerratings.defending * 0.1
+                0.05 * playerratings.pace +
+                  0.15 * playerratings.shooting +
+                  0.25 * playerratings.dribbling +
+                  0.3 * playerratings.passing +
+                  0.15 * playerratings.defending +
+                  0.1 * playerratings.physical
               );
             } else if (["Defender"].includes(player.position))
               overall = Math.round(
-                playerratings.defending * 0.4 +
-                  playerratings.physical * 0.3 +
-                  playerratings.pace * 0.2 +
-                  playerratings.passing * 0.1
+                0.15 * playerratings.pace +
+                  0.05 * playerratings.shooting +
+                  0.05 * playerratings.dribbling +
+                  0.1 * playerratings.passing +
+                  0.4 * playerratings.defending +
+                  0.25 * playerratings.physical
               );
             else if (player.position === "Goalkeeper")
               overall = Math.round(
@@ -98,7 +103,7 @@
                   playerratings.defending * 0.2
               );
 
-            return { ...player, overall };
+            return {...player, overall};
           }
         });
 

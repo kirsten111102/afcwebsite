@@ -45,10 +45,11 @@
             ["Striker", "Forward", "Center Forward"].includes(players.position)
           ) {
             overall = Math.round(
-              playerratings.pace * 0.3 +
-                playerratings.shooting * 0.35 +
-                playerratings.dribbling * 0.2 +
-                playerratings.physical * 0.15
+              0.25 * playerratings.pace +
+                0.4 * playerratings.shooting +
+                0.2 * playerratings.dribbling +
+                0.1 * playerratings.passing +
+                0.05 * playerratings.physical
             );
           } else if (
             [
@@ -59,17 +60,21 @@
             ].includes(players.position)
           ) {
             overall = Math.round(
-              playerratings.passing * 0.4 +
-                playerratings.dribbling * 0.3 +
-                playerratings.physical * 0.2 +
-                playerratings.defending * 0.1
+              0.05 * playerratings.pace +
+                0.15 * playerratings.shooting +
+                0.25 * playerratings.dribbling +
+                0.3 * playerratings.passing +
+                0.15 * playerratings.defending +
+                0.1 * playerratings.physical
             );
           } else if (["Defender"].includes(players.position))
             overall = Math.round(
-              playerratings.defending * 0.4 +
-                playerratings.physical * 0.3 +
-                playerratings.pace * 0.2 +
-                playerratings.passing * 0.1
+              0.15 * playerratings.pace +
+                0.05 * playerratings.shooting +
+                0.05 * playerratings.dribbling +
+                0.1 * playerratings.passing +
+                0.4 * playerratings.defending +
+                0.25 * playerratings.physical
             );
           else if (players.position === "Goalkeeper")
             overall = Math.round(
@@ -302,6 +307,7 @@
               }logo.png')`;
               trophy.style.backgroundSize = "cover";
               trophy.style.backgroundPosition = "center";
+              trophy.style.marginBottom = "0.5%";
 
               trophy.innerHTML = `
               <div id="blurbackground">
@@ -331,7 +337,6 @@
                 grouped[key].push(achievement.time);
               }
             });
-
             // Step 2: Create <li> for each group
             for (const key in grouped) {
               const years = grouped[key].sort().join(", ");
@@ -343,6 +348,7 @@
               }logo.png')`;
               trophy.style.backgroundSize = "cover";
               trophy.style.backgroundPosition = "center";
+              trophy.style.marginBottom = "0.5%";
 
               trophy.innerHTML = `
               <div id="blurbackground">
@@ -352,36 +358,6 @@
             }
             team_achievements.appendChild(trophy_list);
           }
-        }
-
-        if (personalachievements.length !== 0) {
-          const personal_awards = document.getElementById("player-achievement");
-
-          const header = document.createElement("h4");
-          header.innerText = "Personal Awards";
-
-          personal_awards.appendChild(header);
-
-          const awardlist = document.createElement("ul");
-          personalachievements.forEach((achievement) => {
-            const award = document.createElement("li");
-            const league = achievement.league;
-            const personalaward = achievement.achievement;
-
-            award.style.backgroundImage = `url('/img/teamslogo/${achievement.team_id}logo.png')`;
-            award.style.backgroundSize = "cover";
-            award.style.backgroundPosition = "center";
-            award.style.border = "1px solid";
-            award.style.marginBottom = "0.5%";
-
-            award.innerHTML = `
-            <div id="blurbackground">
-              ${personalaward.name} of ${league.name}: <strong>${achievement.time}</strong>
-            </div>`;
-            awardlist.appendChild(award);
-          });
-
-          personal_awards.append(awardlist);
         }
 
         const teammate = document.getElementById("teammates");

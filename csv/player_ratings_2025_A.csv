@@ -1,0 +1,102 @@
+player_id,name,position,PAC,SHO,PAS,DRI,DEF,PHY,OVR
+aot_10,Eren Yeager,Striker,94,60,39,57,46,99,68
+aot_8,Levi Ackerman,Midfielder,95,53,68,71,46,99,68
+aot_7,Armin Arlelt,Midfielder,64,47,38,47,46,68,47
+aot_25,Zeke Yeager,Goalkeeper,92,30,43,39,52,99,62
+aot_3,Jean Kirstein,Defender,64,33,34,35,46,68,52
+u_and_i_10,Ijat,Midfielder,78,42,44,48,55,80,52
+u_and_i_9,Upin,Striker,96,58,44,59,55,99,68
+u_and_i_11,Ipin,Midfielder,92,42,57,56,55,99,60
+u_and_i_7,Ehsan,Defender,41,30,30,30,55,43,45
+u_and_i_3,Jarjit,Midfielder,72,59,38,56,55,74,54
+u_and_i_1,Dzul,Goalkeeper,92,30,49,42,55,99,64
+hxh_10,Hisoka Morow,Striker,95,69,42,66,46,98,74
+hxh_7,Killua Zoldyck,Striker,94,45,47,51,47,98,61
+hxh_11,Kurapika Kurta,Midfielder,93,50,38,49,47,98,53
+hxh_4,Chrollo Lucifer,Defender,92,37,35,39,47,98,64
+hxh_1,Gon Freecs,Goalkeeper,94,33,76,62,53,99,70
+ta_7,Charlotte Katakuri,Striker,94,55,33,50,44,99,64
+ta_10,Trafalgar D. Law,Midfielder,92,37,59,54,44,99,58
+ta_9,Portgas D. Ace,Striker,94,45,39,46,44,99,60
+ta_11,Sabo,Midfielder,93,45,44,49,44,99,53
+ta_25,Eustass Kid,Goalkeeper/Midfielder,58,30,51,43,53,61,49
+ta_1,Bartholomew Kuma,Goalkeeper,30,30,30,30,44,30,36
+bleach_7,Ichigo Kurosaki,Striker,94,64,31,55,42,96,68
+bleach_8,Byakuya Kuchiki,Midfielder,93,30,60,49,46,99,56
+bleach_1,Hitsugaya Toshiro,Goalkeeper,92,30,41,37,57,99,63
+bleach_10,Aizen Sosuke,Midfielder,94,47,44,51,46,99,54
+bleach_5,Grimmjow Jaegerjaquez,Defender,64,33,38,37,46,68,52
+boboiboy_8,Fang,Midfielder,92,40,46,47,38,99,52
+boboiboy_1,Gopal,Goalkeeper,92,30,35,33,38,99,54
+boboiboy_10,Boboiboy,Striker,94,52,39,51,38,99,63
+boboiboy_3,Probe,Defensive Midfielder,92,30,41,37,38,99,46
+boboiboy_20,Adu Du,Forward,92,40,33,39,38,99,55
+boruto_8,Mitsuki,Midfielder,78,79,50,78,63,79,68
+boruto_25,Shinki,Goalkeeper,35,31,65,53,99,33,66
+boruto_1,Metal Lee,Goalkeeper,60,30,40,36,90,63,66
+boruto_17,Naru Shikadai,Midfielder,33,45,36,45,63,33,43
+boruto_12,Yamanaka Inojin,Midfielder,40,57,54,65,63,33,56
+boruto_10,Uzumaki Boruto,Striker,84,64,86,90,63,79,77
+boruto_7,Kawaki,Striker,76,69,60,77,63,79,72
+ds_10,Giyuu Tomioka,Midfielder,88,51,48,56,53,93,58
+ds_7,Zenitsu Agatsuma,Striker,93,48,40,49,53,99,61
+ds_16,Sanemi Shinazugawa,Midfielder,88,51,35,48,53,93,52
+ds_1,Tanjiro Kamado,Goalkeeper,72,39,99,81,68,65,72
+ds_30,Tengen Uzui,Goalkeeper,34,36,57,52,67,32,52
+ds_17,Inosuke Hashibira,Striker,92,50,32,45,53,99,60
+doraemon_10,Doraemon,Midfielder,97,54,70,73,56,99,70
+doraemon_7,Nobita Nobi,Striker,95,72,38,65,56,99,74
+doraemon_8,Dekisugi Hidetoshi,Attacking Midfielder,93,47,48,54,56,99,58
+doraemon_11,Suneo Honekawa,Midfielder,93,43,35,42,56,99,50
+doraemon_1,Takeshi Gouda,Goalkeeper,94,30,53,45,71,99,72
+dbz_10,Son Gohan,Striker,80,77,45,74,56,79,74
+dbz_7,Trunks,Striker,79,63,61,73,54,77,70
+dbz_8,Krillin,Midfielder,74,42,46,49,56,79,52
+dbz_6,Frieza,Midfielder,33,40,58,56,56,33,51
+dbz_17,Cell,Midfielder,35,46,42,49,56,33,45
+dbz_1,Majin Buu,Goalkeeper,93,30,52,44,82,98,75
+ft_10,Natsu Dragneel,Striker,72,80,54,81,55,70,75
+ft_7,Gray Fullbuster,Striker,72,72,63,81,55,70,73
+ft_6,Laxus Dreyar,Midfielder,40,30,48,42,93,41,49
+ft_23,Jellal Fernandes,Midfielder,63,49,55,60,55,65,57
+ft_1,Gajeel Redfox,Goalkeeper,93,30,51,44,55,99,65
+ft_5,Elfman Strauss,Midfielder,42,43,35,42,55,41,42
+ie_11,Kiyama Hiroto,Center Forward,76,57,34,51,46,80,59
+ie_2,Kazemaru Ichirouta,Midfielder,53,34,35,36,46,55,40
+ie_10,Gouenji Shuuya,Striker,75,30,33,32,46,80,44
+ie_14,Kidou Yuuto,Midfielder,76,48,34,45,46,80,47
+ie_1,Endou Mamoru,Goalkeeper,75,31,73,59,53,74,62
+ie_20,Tachimukai Yuuki,Goalkeeper,30,51,53,59,46,30,44
+op_7,Vinsmoke Sanji,Striker,69,64,61,74,63,67,67
+op_10,Roronoa Zoro,Striker,73,88,62,92,63,67,81
+op_6,Koby,Midfielder,48,72,40,66,63,46,56
+op_4,Franky,Defender,46,55,49,60,63,46,54
+op_1,Monkey D. Luffy,Goalkeeper,55,34,87,70,71,56,67
+op_23,Jinbei,Goalkeeper,37,31,59,49,99,35,66
+pw_10,Pikachu,Striker,92,52,35,49,40,99,62
+pw_6,Charizard,Midfielder,94,35,36,38,40,99,46
+pw_4,Venusaur,Defender,92,30,35,33,40,99,61
+pw_1,Machamp,Goalkeeper,93,33,46,42,39,98,57
+pw_9,Arcanine,Striker,92,40,41,44,39,98,57
+pl_7,Landorus,Striker,92,32,41,39,30,99,53
+pl_10,Mewtwo,Striker,94,64,31,55,30,99,68
+pl_9,Thundurus,Midfielder,92,35,38,39,30,99,45
+pl_11,Tornadus,Midfielder,93,40,46,48,30,99,51
+pl_1,Heatran,Goalkeeper,92,30,51,44,30,99,55
+tfs_10,Tsubasa Ozora,Striker,75,99,61,99,58,70,88
+tfs_9,Kojiro Hyuga,Striker,72,69,31,58,58,75,64
+tfs_14,Jun Mizugi,Midfielder,69,51,93,86,58,70,76
+tfs_12,Hikaru Matsuyama,Defender,71,42,46,49,58,75,62
+tfs_25,Ken Wakashimazu,Goalkeeper,33,31,36,34,94,31,57
+tfs_1,Genzo Wakabayashi,Goalkeeper,57,30,66,53,72,60,63
+opm_9,Saitama,Striker,94,52,41,53,51,99,64
+opm_10,Genos,Midfielder,76,45,56,58,51,80,58
+opm_7,Sonic,Striker,53,38,35,39,51,55,42
+opm_11,Garou,Midfielder,53,34,44,42,51,55,45
+opm_13,Flashy Flash,Defender,30,51,45,54,51,30,42
+opm_1,King,Goalkeeper,93,30,36,34,63,99,65
+csc_10,Shinnosuke Nohara,Striker,94,59,35,54,47,99,66
+csc_8,Kagura Karatachi,Attacking Midfielder,95,59,47,62,47,99,60
+csc_7,Kirigaya Kazuto,Striker,99,60,58,69,47,99,73
+csc_11,Murkrow,Center Forward,92,41,54,53,47,99,60
+csc_1,Sudowoodo,Goalkeeper,92,30,56,47,62,99,68
