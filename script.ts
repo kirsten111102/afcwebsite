@@ -191,7 +191,7 @@ async function main() {
   const personalawardsArray = JSON.parse(rawpersonalawards);
   await prisma.playerPersonalAchievements.deleteMany();
   personalawardsArray.forEach(async (achievements: any) => {
-    const team_achievements = await prisma.playerPersonalAchievements.create({
+    const player_achievements = await prisma.playerPersonalAchievements.create({
       data: {
         id: achievements.id,
         player_id: achievements.player_id,

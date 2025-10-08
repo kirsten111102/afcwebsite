@@ -360,6 +360,50 @@
           }
         }
 
+        if (personalachievements.length !== 0) {
+          const personal_awards = document.getElementById("player-achievement");
+
+          const header = document.createElement("h4");
+          header.innerText = "Personal Awards";
+
+          personal_awards.appendChild(header);
+
+          const awardlist = document.createElement("ul");
+          const grouped = {};
+          personalachievements.forEach((achievement) => {
+            const league = achievement.league;
+            const personalaward = achievement.achievement;
+
+            const key = `${personalaward.name} of ${league.name} - with ${achievement.team_id}`;
+            if (!grouped[key]) {
+              grouped[key] = [];
+            }
+            grouped[key].push(achievement.time);
+          });
+
+          console.log(personalachievements);
+          for (const key in grouped) {
+            const years = grouped[key].sort().join(", ");
+            const award = document.createElement("li");
+
+            award.style.backgroundImage = `url('/img/teamslogo/${
+              key.split(" - with ")[1]
+            }logo.png')`;
+            award.style.backgroundSize = "cover";
+            award.style.backgroundPosition = "center";
+            award.style.border = "1px solid";
+            award.style.marginBottom = "0.5%";
+
+            award.innerHTML = `
+                <div id="blurbackground">
+                  ${key.split(" - with ")[0]}: <strong>${years}</strong>
+                </div>`;
+            awardlist.appendChild(award);
+          }
+
+          personal_awards.append(awardlist);
+        }
+
         const teammate = document.getElementById("teammates");
         teammatethoughts.forEach((thought) => {
           const opinion = document.createElement("div");
